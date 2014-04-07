@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MasterViewController;
 
 @interface InputViewController : UIViewController{
     IBOutlet UILabel *dueLabel;
@@ -33,5 +34,6 @@
 @end
 @protocol InputViewControllerDelegate <NSObject>
 - (void)InputViewControllerDidCancel:(InputViewController*)controller;
+@property (strong,nonatomic) MasterViewController *masterView;
 
 @end

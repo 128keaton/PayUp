@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TDSemiModalViewController2.h"
+
+@class TDSemiModalViewController2;
+@class MasterViewController;
 @interface FooterViewController : UIViewController{
     IBOutlet UIButton *button;
 }
 
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
-
+@property  (nonatomic) CGPoint originalCenter;
+@property (strong, nonatomic) MasterViewController *test;
+-(void)moveBack;
 @end

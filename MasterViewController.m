@@ -295,6 +295,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    self.view.center = CGPointMake(self.view.center.x, self.view.center.y + 100);
+    
+}
 - (float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     // This will create a "invisible" footer
     return 200.0f;

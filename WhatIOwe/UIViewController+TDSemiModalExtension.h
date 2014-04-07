@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "TDSemiModalViewController.h"
 #import "TDSemiModalViewController2.h"
+#import "MasterViewController.h"
+
+
 @interface UIViewController (TDSemiModalExtension)
+@property (strong, nonatomic) MasterViewController *test;
 
 -(void)presentSemiModalViewController:(TDSemiModalViewController*)vc;
 -(void)presentSemiModalViewController:(TDSemiModalViewController*)vc inView:(UIView *)rootView;

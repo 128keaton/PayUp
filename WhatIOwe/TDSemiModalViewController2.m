@@ -10,7 +10,9 @@
 #import "InputViewController.h"
 #import "MasterViewController.h"
 #import "UIViewController+TDSemiModalExtension.h"
+#import "FooterViewController.h"
 @implementation TDSemiModalViewController2
+   
 @synthesize coverView;
 
 -(void)viewDidLoad {
@@ -46,6 +48,11 @@
 #pragma mark Memory Management
 -(IBAction)cancel:(id)sender{
      [self dismissSemiModalViewController:self];
+    FooterViewController *foot = [[FooterViewController alloc]init];
+    self.footer = foot;
+   // self.footer.view.frame = CGRectMake(0,35,320,400);
+    [self.footer moveBack];
+    
     
 }
 - (void)didReceiveMemoryWarning {

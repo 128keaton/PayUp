@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+TDSemiModalExtension.h"
-
+#import "MasterViewController.h"
 @implementation UIViewController (TDSemiModalExtension)
 - (void) presentSemiModalViewController2:(TDSemiModalViewController2*)vc {
     [self presentSemiModalViewController2:vc inView:UIApplication.sharedApplication.delegate.window.rootViewController.view];
@@ -48,8 +48,10 @@
 
 - (void) presentSemiModalViewController2:(TDSemiModalViewController2*)vc inView:(UIView *)rootView {
     
+   /* MasterViewController *testTrans = [[MasterViewController alloc]init];
     
-    
+    self.test = testTrans;
+    self.test.view.center = CGPointMake(self.test.view.center.x, 100);*/
     
     UIView* modalView = vc.view;
 	UIView* coverView = vc.coverView;
@@ -64,7 +66,7 @@
 	[rootView addSubview:modalView];
     
     [UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDuration:0.6];
+	[UIView setAnimationDuration:0.25];
     
 	modalView.frame = CGRectMake(0, 358, modalView.frame.size.width, modalView.frame.size.height/2);
 
