@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface OweTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *moneyLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *thumbnailOwe;
+
 
 @end

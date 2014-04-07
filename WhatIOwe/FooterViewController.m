@@ -7,9 +7,12 @@
 //
 
 #import "FooterViewController.h"
-
+#import "MasterViewController.h"
+#import "TDSemiModalViewController2.h"
+#import "TDSemiModal.h"
+#import <QuartzCore/QuartzCore.h>
 @interface FooterViewController ()
-
+@property (strong, nonatomic) MasterViewController *Mvc;
 @end
 
 @implementation FooterViewController
@@ -22,10 +25,20 @@
     }
     return self;
 }
-
+-(IBAction)addPerson:(id)sender{
+    self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
+    
+    
+    //    [self.view addSubview:test.view];
+    [self presentSemiModalViewController2:self.tdModal2];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    button.layer.cornerRadius = 2;
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = button.backgroundColor.CGColor;
+    button.titleLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -9,7 +9,11 @@
 #import "OweTableViewCell.h"
 
 @implementation OweTableViewCell
+@synthesize nameLabel = _nameLabel;
+@synthesize dateLabel = _dateLabel;
+@synthesize thumbnailOwe = _thumbnailOwe;
 
+@synthesize moneyLabel = _moneyLabel;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

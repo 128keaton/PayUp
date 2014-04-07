@@ -9,7 +9,9 @@
 #import "UIViewController+TDSemiModalExtension.h"
 
 @implementation UIViewController (TDSemiModalExtension)
-
+- (void) presentSemiModalViewController2:(TDSemiModalViewController2*)vc {
+    [self presentSemiModalViewController2:vc inView:UIApplication.sharedApplication.delegate.window.rootViewController.view];
+}
 // Use this to show the modal view (pops-up from the bottom)
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc {
     [self presentSemiModalViewController:vc inView:UIApplication.sharedApplication.delegate.window.rootViewController.view];
@@ -17,6 +19,9 @@
 
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc inView:(UIView *)rootView {
 
+    
+ 
+    
 	UIView* modalView = vc.view;
 	UIView* coverView = vc.coverView;
     
@@ -28,15 +33,46 @@
 	
 	[rootView addSubview:coverView];
 	[rootView addSubview:modalView];
-	
+
     [UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:0.6];
-	
-	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width, modalView.frame.size.height);
-	coverView.alpha = 0.5;
+  
+	modalView.frame = CGRectMake(0, 368, modalView.frame.size.width, modalView.frame.size.height/2);
+
+	coverView.alpha = 0.3;
     
 	[UIView commitAnimations];
 
+}
+
+
+- (void) presentSemiModalViewController2:(TDSemiModalViewController2*)vc inView:(UIView *)rootView {
+    
+    
+    
+    
+    UIView* modalView = vc.view;
+	UIView* coverView = vc.coverView;
+    
+	coverView.frame = rootView.bounds;
+    coverView.alpha = 0.0f;
+    
+    modalView.frame = rootView.bounds;
+	modalView.center = self.offscreenCenter;
+	
+	[rootView addSubview:coverView];
+	[rootView addSubview:modalView];
+    
+    [UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:0.6];
+    
+	modalView.frame = CGRectMake(0, 358, modalView.frame.size.width, modalView.frame.size.height/2);
+
+    
+	coverView.alpha = 0.3;
+    
+	[UIView commitAnimations];
+    
 }
 
 -(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc {
@@ -64,6 +100,7 @@
 	[modalView removeFromSuperview];
 
 }
+
 
 -(CGPoint) offscreenCenter {
     CGPoint offScreenCenter = CGPointZero;

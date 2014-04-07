@@ -13,6 +13,8 @@
 @end
 
 @implementation DetailViewController
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize coverView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,15 +25,68 @@
     return self;
 }
 
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        
+        name.text = newDetailItem;
+        
+        
+    }
+    
+}
+- (void)setDateItem:(id)newDateItem
+{
+    if (_dateItem != newDateItem) {
+        _dateItem = newDateItem;
+        
+        date.text = newDateItem;
+        
+    }
+ 
+}
+- (void)setMoneyItem:(id)newMoneyItem
+{
+    if (_moneyItem != newMoneyItem) {
+        _moneyItem = newMoneyItem;
+        
+        
+        
+    }
+    
+}
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
+    NSString *myString = [_moneyItem stringValue];
+    money.text =  [NSString stringWithFormat:@"$%@", myString];
+    date.text = _dateItem;
+    name.text = _detailItem;
+    
+    
+    self.title = _detailItem;
+    
+    
+    self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    
+	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+	coverView.backgroundColor = UIColor.blackColor;
+	self.coverView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+   
     // Dispose of any resources that can be recreated.
 }
 

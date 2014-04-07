@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersistentStack.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -13,7 +13,7 @@
 
 @interface OweDetails : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * money;
+@property (nonatomic, retain) NSString * money;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) OweInfo *info;
 

@@ -13,7 +13,9 @@
 @implementation OweInfo
 
 @dynamic name;
+@dynamic dateString;
 @dynamic dateowed;
 @dynamic details;
+@dynamic whooweswhat;
 
 @end

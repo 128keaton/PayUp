@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A95573118EF614400469480"
                BuildableName = "WhatIOwe.app"
-               BlueprintName = "WhatIOwe"
-               ReferencedContainer = "container:WhatIOwe.xcodeproj">
+               BlueprintName = "OweIt"
+               ReferencedContainer = "container:OweIt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A95575D18EF614400469480"
                BuildableName = "WhatIOweTests.xctest"
-               BlueprintName = "WhatIOweTests"
-               ReferencedContainer = "container:WhatIOwe.xcodeproj">
+               BlueprintName = "OweItTests"
+               ReferencedContainer = "container:OweIt.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
             BuildableName = "WhatIOwe.app"
-            BlueprintName = "WhatIOwe"
-            ReferencedContainer = "container:WhatIOwe.xcodeproj">
+            BlueprintName = "OweIt"
+            ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,11 +63,22 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
             BuildableName = "WhatIOwe.app"
-            BlueprintName = "WhatIOwe"
-            ReferencedContainer = "container:WhatIOwe.xcodeproj">
+            BlueprintName = "OweIt"
+            ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-com.apple.CoreData.SQLDebug 1"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -81,8 +92,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
             BuildableName = "WhatIOwe.app"
-            BlueprintName = "WhatIOwe"
-            ReferencedContainer = "container:WhatIOwe.xcodeproj">
+            BlueprintName = "OweIt"
+            ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

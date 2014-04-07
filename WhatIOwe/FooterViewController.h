@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDSemiModalViewController2.h"
+@interface FooterViewController : UIViewController{
+    IBOutlet UIButton *button;
+}
 
-@interface FooterViewController : UIViewController
+@property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
 
 @end

@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "TDSemiModalViewController.h"
-
+#import "TDSemiModalViewController2.h"
 @interface UIViewController (TDSemiModalExtension)
 
 -(void)presentSemiModalViewController:(TDSemiModalViewController*)vc;
 -(void)presentSemiModalViewController:(TDSemiModalViewController*)vc inView:(UIView *)rootView;
 -(void)dismissSemiModalViewController:(TDSemiModalViewController*)vc;
 -(void)dismissSemiModalViewControllerEnded:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
+-(void)presentSemiModalViewController2:(TDSemiModalViewController2*)vc;
+-(void)presentSemiModalViewController2:(TDSemiModalViewController2*)vc inView:(UIView *)rootView;
 
 @end

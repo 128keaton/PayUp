@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InputViewController.h"
+@interface TDSemiModalViewController2 : UIViewController{
+    IBOutlet UIButton *button1;
+    IBOutlet UIButton *button2;
+}
+    
 
-@interface TDSemiModalViewController : UIViewController
 
 @property (nonatomic, strong) UIView *coverView;
-
+@property (strong, nonatomic) InputViewController *tdModal;
 @end

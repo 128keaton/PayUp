@@ -7,10 +7,22 @@
 //
 
 #import "AppDelegate.h"
-
+#import "oweInfo.h"
+#import "oweDetails.h"
 #import "MasterViewController.h"
+#import "PersistentStack.h"
+
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) PersistentStack* persistentStack;
+
+@end
+
 
 @implementation AppDelegate
+
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -18,7 +30,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
+    self.managedObjectContext = self.persistentStack.managedObjectContext;
+    
+    
+       // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
@@ -33,6 +52,7 @@
         controller.managedObjectContext = self.managedObjectContext;
     }
     return YES;
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -157,5 +177,20 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+- (NSURL*)storeURL
+{
+    NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
+    return [documentsDirectory URLByAppendingPathComponent:@"WhatIOwe.sqlite"];
+}
+
+- (NSURL*)modelURL
+{
+    return [[NSBundle mainBundle] URLForResource:@"WhatIOwe" withExtension:@"momd"];
+}
+
+
+
 
 @end

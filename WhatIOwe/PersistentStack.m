@@ -93,10 +93,11 @@
         [allChanges unionSet:changes[NSUpdatedObjectsKey]];
         [allChanges unionSet:changes[NSDeletedObjectsKey]];
         
-        for (NSManagedObjectID *objID in allChanges) {
+     /*   for (NSManagedObjectID *objID in allChanges) {
             // do whatever you need to with the NSManagedObjectID
             // you can retrieve the object from with [moc objectWithID:objID]
-        }
+          
+        }*/
 
     }];
 }

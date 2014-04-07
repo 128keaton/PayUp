@@ -8,6 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InputViewController : UIViewController
+@interface InputViewController : UIViewController{
+    IBOutlet UILabel *dueLabel;
+    IBOutlet UIDatePicker *dueDate;
+    IBOutlet UILabel *iLabel;
+    IBOutlet UITextField *dueField;
+    IBOutlet UILabel *oLabel;
+    IBOutlet UITextField *oField;
+    IBOutlet UITextField *iField;
+    IBOutlet UILabel *mLabel;
+    IBOutlet UIBarButtonItem *theButton;
+    IBOutlet UINavigationBar *navBar;
+    IBOutlet UIView *cell1;
+    IBOutlet UIView *cell2;
+    IBOutlet UIView *cell3;
+
+   bool dateOwed;
+}
+
+@property (strong, nonatomic) id detailItem;
+- (void)setDetailItem:(id)newDetailItem;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@end
+@protocol InputViewControllerDelegate <NSObject>
+- (void)InputViewControllerDidCancel:(InputViewController*)controller;
 
 @end
