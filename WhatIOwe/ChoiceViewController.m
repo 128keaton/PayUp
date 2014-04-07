@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  ChoiceViewController.m
 //  WhatIOwe
 //
 //  Created by Keaton Burleson on 4/4/14.
 //  Copyright (c) 2014 Revision. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "ChoiceViewController.h"
 
-@interface DetailViewController ()
+@interface ChoiceViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation ChoiceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

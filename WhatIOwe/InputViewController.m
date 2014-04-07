@@ -1,18 +1,18 @@
 //
-//  DetailViewController.m
+//  InputViewController.m
 //  WhatIOwe
 //
 //  Created by Keaton Burleson on 4/4/14.
 //  Copyright (c) 2014 Revision. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "InputViewController.h"
 
-@interface DetailViewController ()
+@interface InputViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation InputViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

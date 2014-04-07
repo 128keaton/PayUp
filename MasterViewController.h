@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  WIOMasterViewController.h
 //  WhatIOwe
 //
 //  Created by Keaton Burleson on 4/4/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface WIOMasterViewController : UITableViewController
 
 @end
