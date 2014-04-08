@@ -12,10 +12,15 @@
 @class MasterViewController;
 @interface FooterViewController : UIViewController{
     IBOutlet UIButton *button;
+    id footercontroller;
 }
 
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
 @property  (nonatomic) CGPoint originalCenter;
+@property (nonatomic, strong)id footercontroller;
 @property (strong, nonatomic) MasterViewController *test;
+@property (strong, nonatomic) UIDynamicAnimator *animator;
 -(void)moveBack;
+-(void)testDele;
+-(void)performForTheNiceMan;
 @end

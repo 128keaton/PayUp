@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A95573118EF614400469480"
-               BuildableName = "WhatIOwe.app"
+               BuildableName = "OweIt.app"
                BlueprintName = "OweIt"
                ReferencedContainer = "container:OweIt.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A95575D18EF614400469480"
-               BuildableName = "WhatIOweTests.xctest"
+               BuildableName = "OweItTests.xctest"
                BlueprintName = "OweItTests"
                ReferencedContainer = "container:OweIt.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
-            BuildableName = "WhatIOwe.app"
+            BuildableName = "OweIt.app"
             BlueprintName = "OweIt"
             ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
-            BuildableName = "WhatIOwe.app"
+            BuildableName = "OweIt.app"
             BlueprintName = "OweIt"
             ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A95573118EF614400469480"
-            BuildableName = "WhatIOwe.app"
+            BuildableName = "OweIt.app"
             BlueprintName = "OweIt"
             ReferencedContainer = "container:OweIt.xcodeproj">
          </BuildableReference>

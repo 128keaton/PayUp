@@ -12,10 +12,13 @@
 @interface TDSemiModalViewController2 : UIViewController{
     IBOutlet UIButton *button1;
     IBOutlet UIButton *button2;
+    
+    id delegate;
 }
     
  @property(strong,nonatomic) FooterViewController *footer;
-
+@property(strong, nonatomic) id delegate;
 @property (nonatomic, strong) UIView *coverView;
 @property (strong, nonatomic) InputViewController *tdModal;
+@property(strong, nonatomic)UIDynamicAnimator *animator;
 @end

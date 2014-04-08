@@ -16,7 +16,13 @@
 @synthesize coverView;
 
 -(void)viewDidLoad {
+    
+    
     [super viewDidLoad];
+    
+   
+    
+    
 	self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
 
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -47,12 +53,26 @@
 #pragma mark -
 #pragma mark Memory Management
 -(IBAction)cancel:(id)sender{
-     [self dismissSemiModalViewController:self];
-    FooterViewController *foot = [[FooterViewController alloc]init];
-    self.footer = foot;
+
+    FooterViewController *FVC = [[FooterViewController alloc]init];
+       self.footer.view = FVC.view;
    // self.footer.view.frame = CGRectMake(0,35,320,400);
-    [self.footer moveBack];
-    
+  //  [self.footer moveBack];
+  
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.delegate moveBack];
+                              [self dismissSemiModalViewController:self];
+                          
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+
+
+
     
 }
 - (void)didReceiveMemoryWarning {
@@ -61,25 +81,43 @@
 -(IBAction)NotOwed:(id)sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.tdModal = (InputViewController *)[storyboard instantiateViewControllerWithIdentifier:@"VDI"];
-    [self presentViewController:self.tdModal animated:YES completion:nil];
+ 
      [self.tdModal setDetailItem:@"NotOwed"];
-    
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.delegate moveBack];
+                         [self dismissSemiModalViewController:self];
+                            [self presentViewController:self.tdModal animated:YES completion:nil];
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
     // do any setup you need for myNewVC
-    [self dismissSemiModalViewController:self];
+
 
     
 }
 
 -(IBAction)Owed:(id)sender{
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.tdModal = (InputViewController *)[storyboard instantiateViewControllerWithIdentifier:@"VDI"];
-    [self presentViewController:self.tdModal animated:YES completion:nil];
-    [self.tdModal setDetailItem:@"Owed"];
     
-    // do any setup you need for myNewVC
-    [self dismissSemiModalViewController:self];
-
+    [self.tdModal setDetailItem:@"Owed"];
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.delegate moveBack];
+                         [self dismissSemiModalViewController:self];
+                         [self presentViewController:self.tdModal animated:YES completion:nil];
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
 }
 
 

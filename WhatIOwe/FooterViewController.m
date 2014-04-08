@@ -25,35 +25,99 @@
     }
     return self;
 }
-static int amountToMove = 10;
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    self.test  = [[MasterViewController alloc]init];
+    self.test.delegate = self;
+    
+    
+    UIDynamicItemBehavior *elasticityBehavior =
+    [[UIDynamicItemBehavior alloc] initWithItems:@[self.view]];
+    elasticityBehavior.elasticity = 0.7f;
+    [self.animator addBehavior:elasticityBehavior];
+}
+static int amountToMove = 50;
 -(void)moveBack{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
     NSLog(@"%f", self.view.frame.origin.y);
     
     NSLog(@"I tried moving back!");
-    self.view.center = CGPointMake(self.view.center.x, self.view.center.y + amountToMove);
+    [UIView animateWithDuration: 0.25 animations: ^(void) {
+        self.view.transform = CGAffineTransformIdentity;
+    }];
     [UIView commitAnimations];
 } // or whatever you want, make sure to declare it somewhere outside of the scope of a method.  I generally declare mine at the top of the file.
 -(IBAction)addPerson:(id)sender{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.25];
-    NSLog(@"%f", self.view.frame.origin.y);
-    self.view.center = CGPointMake(self.view.center.x, self.view.center.y - amountToMove);
-    [UIView commitAnimations];
+ 
+        self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
+    self.tdModal2.delegate = self;
     
-    self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
+    [UIView animateWithDuration:0.5
+     
+                          delay:0
+                        usingSpringWithDamping:0.8
+                        initialSpringVelocity:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                           [self presentSemiModalViewController2:self.tdModal2];
+                           self.view.transform = CGAffineTransformMakeTranslation(0, -150);
+                         
+                                         
+                         
+        
+                         
+           
+                     
+
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    
+
     
     
     //    [self.view addSubview:test.view];
     
-    [self presentSemiModalViewController2:self.tdModal2];
     
 }
+-(void)testDele{
+    
+    self.test  = [[MasterViewController alloc]init];
+    self.test.delegate = self;
+}
+-(void)performForTheNiceMan{
+    self.test  = [[MasterViewController alloc]init];
+    self.test.delegate = self;
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                                              self.view.transform = CGAffineTransformMakeTranslation(0, -170);
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Doned!");
+                     }];
+    
 
-
+}
 - (void)viewDidLoad
 {
+    
+  
+    self.test  = [[MasterViewController alloc]init];
+    self.test.delegate = self;
     
         self.view.frame = CGRectMake(0,35,320,400);
     [super viewDidLoad];

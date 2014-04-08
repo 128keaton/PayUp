@@ -74,9 +74,33 @@
 
 - (void)viewDidLoad
 {
+    
+  
+    [self configureView];
+    
+    id delegate = [[UIApplication sharedApplication] delegate]; self.managedObjectContext = [delegate managedObjectContext];
+    
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
+    UIBarButtonItem *flexableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
+    
+    
+    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed2:)];
+    UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    UIToolbar *toolbar2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
+
+    [toolbar setItems:[NSArray arrayWithObjects:flexableItem,doneItem, nil]];
+    
+     [toolbar2 setItems:[NSArray arrayWithObjects:flexableItem2,doneItem2, nil]];
+    dueField.inputAccessoryView = toolbar2;
+      oField.inputAccessoryView = toolbar;
+    
     [oField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
     [iField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
-    
+    iLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
+    oLabel.font =[UIFont fontWithName:@"ClearSans-Bold" size:12];
+    mLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
+    dueLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
     iField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
      oField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
      dueField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
@@ -84,8 +108,8 @@
       oField.textColor = [UIColor whiteColor];
       dueField.textColor = [UIColor whiteColor];
     [super viewDidLoad];
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+  /*  id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];*/
     UIView *fixItView = [[UIView alloc] init];
     fixItView.frame = CGRectMake(0, 0, 320, 20);
     fixItView.backgroundColor = [UIColor blackColor]; //change this to match your navigation bar
@@ -138,6 +162,9 @@
 - (IBAction)submit:(id)sender
 {
     
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
      UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
     
     
@@ -151,31 +178,60 @@
     NSDate *dt = picker.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
     dateOwed = YES;
-    id delegate = [[MasterViewController alloc] init];
-    self.managedObjectContext = [delegate managedObjectContext];
+  
     if ([_detailItem  isEqual: @"Owed"]) {
                 wow = @"someoneowes";
-    editedMoney = [NSString stringWithFormat:@"+$%@", oField.text];
+    editedMoney = [NSString stringWithFormat:@"$%@", oField.text];
  
     }else{
-       editedMoney = [NSString stringWithFormat:@"-$%@", oField.text];    wow=@"nope";
+       editedMoney = [NSString stringWithFormat:@"$%@", oField.text];
+        wow=@"nope";
 
     }
-      MasterViewController *topViewController = [[MasterViewController alloc]init];
-    topViewController.managedObjectContext = self.managedObjectContext;
+    
 
     NSLog(@"Nope Input: %@",wow);
-    MasterViewController *master = [[MasterViewController alloc]init];
-    bool OwedYes = dateOwed;
-    [master setData:iField.text :editedMoney :picker.date :OwedYes :wow :dateAsString];
-    NSManagedObjectContext *context = [self managedObjectContext];
 
+    bool OwedYes = dateOwed;
+
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *details = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"OweDetails"
+                                       inManagedObjectContext:context];
+    [details setValue:editedMoney  forKey:@"money"];
+    [details setValue:picker.date forKey:@"date"];
+
+    NSManagedObject *info = [NSEntityDescription
+                                          insertNewObjectForEntityForName:@"OweInfo"
+                                          inManagedObjectContext:context];
+    [info setValue:dateAsString forKey:@"dateString"];
+    [info setValue:iField.text forKey:@"name"];
+    [info setValue:wow forKey:@"whooweswhat"];
+    [info setValue:[NSNumber numberWithBool:OwedYes] forKey:@"dateowed"];
+    [details setValue:info forKey:@"info"];
+    [info setValue: details forKey:@"details"];
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
     
-    [UIView beginAnimations:@"LeftFlip" context:nil];
-    [UIView setAnimationDuration:0.8];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.superview cache:YES];
-    [UIView commitAnimations];
+ 
+   
+    
+
+
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationOptionCurveEaseInOut
+     
+                     animations:^{
+                        self.view.frame = CGRectMake(0, -358, self.view.frame.size.width, self.view.frame.size.height);
+
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+
         [self dismissViewControllerAnimated:YES completion:nil];
     [self.view.superview removeFromSuperview];
     
@@ -183,7 +239,47 @@
     NSLog(@"TEH %@", context);
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == iField) {
+        [textField resignFirstResponder];
+        [oField becomeFirstResponder];
+    } else if (textField == oField) {
+        [oField resignFirstResponder];
+        [dueField becomeFirstResponder];
+    } else if (textField == dueField){
+        [self performSelector:@selector(submit:) withObject:nil];
+    }
+    return YES;
+}
+- (void)doneButtonDidPressed:(id)sender {
+    NSLog(@"Sender: %@", sender);
+    if (sender == dueField) {
+            [dueField resignFirstResponder];
+           [self performSelector:@selector(submit:) withObject:nil];
+    }else{
+        
+        [oField resignFirstResponder];
+        [dueField becomeFirstResponder];
+    }
+ 
+}
 
+
+- (void)doneButtonDidPressed2:(id)sender {
+    NSLog(@"Sender: %@", sender);
+ 
+        [dueField resignFirstResponder];
+        [self performSelector:@selector(submit:) withObject:nil];
+   
+        
+    
+    
+}
+
++ (CGFloat)toolbarHeight {
+    // This method will handle the case that the height of toolbar may change in future iOS.
+    return 44.f;
+}
 
 - (IBAction)changeSwitch:(id)sender{
     

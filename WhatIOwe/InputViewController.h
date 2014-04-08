@@ -24,6 +24,7 @@
     IBOutlet UIView *cell2;
     IBOutlet UIView *cell3;
 
+
    bool dateOwed;
 }
 

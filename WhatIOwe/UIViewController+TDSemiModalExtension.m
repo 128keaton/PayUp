@@ -22,26 +22,34 @@
     
  
     
-	UIView* modalView = vc.view;
-	UIView* coverView = vc.coverView;
     
-	coverView.frame = rootView.bounds;
-    coverView.alpha = 0.0f;
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+        
+        UIView* modalView = vc.view;
+        UIView* coverView = vc.coverView;
+        
+        coverView.frame = rootView.bounds;
+        coverView.alpha = 0.0f;
+        
+        modalView.frame = rootView.bounds;
+        modalView.center = self.offscreenCenter;
+        
+        [rootView addSubview:coverView];
+        [rootView addSubview:modalView];
+        
+        
+        
+    	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width - 30, modalView.frame.size.height/2);
+        
+        modalView.transform = CGAffineTransformMakeTranslation(15, 80);
     
-    modalView.frame = rootView.bounds;
-	modalView.center = self.offscreenCenter;
-	
-	[rootView addSubview:coverView];
-	[rootView addSubview:modalView];
+        
+        coverView.alpha = 0.3;
+        
+    } completion:^(BOOL finished) {
+        //Completion Block
+    }];
 
-    [UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDuration:0.6];
-  
-	modalView.frame = CGRectMake(0, 368, modalView.frame.size.width, modalView.frame.size.height/2);
-
-	coverView.alpha = 0.3;
-    
-	[UIView commitAnimations];
 
 }
 
@@ -53,46 +61,81 @@
     self.test = testTrans;
     self.test.view.center = CGPointMake(self.test.view.center.x, 100);*/
     
-    UIView* modalView = vc.view;
-	UIView* coverView = vc.coverView;
-    
-	coverView.frame = rootView.bounds;
-    coverView.alpha = 0.0f;
-    
-    modalView.frame = rootView.bounds;
-	modalView.center = self.offscreenCenter;
-	
-	[rootView addSubview:coverView];
-	[rootView addSubview:modalView];
-    
-    [UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDuration:0.25];
-    
-	modalView.frame = CGRectMake(0, 358, modalView.frame.size.width, modalView.frame.size.height/2);
 
     
-	coverView.alpha = 0.3;
     
-	[UIView commitAnimations];
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        UIView* modalView = vc.view;
+        UIView* coverView = vc.coverView;
+        
+        coverView.frame = rootView.bounds;
+        coverView.alpha = 0.0f;
+        
+        modalView.frame = rootView.bounds;
+        modalView.center = self.offscreenCenter;
+        
+        [rootView addSubview:coverView];
+        [rootView addSubview:modalView];
+        
+
+        
+    	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width, modalView.frame.size.height/2);
+        
+           modalView.transform = CGAffineTransformMakeTranslation(0, +300);
+        
+        
+        coverView.alpha = 0.3;
+
+    } completion:^(BOOL finished) {
+        //Completion Block
+    }];
+    
+
     
 }
 
 -(void) dismissSemiModalViewController:(TDSemiModalViewController*)vc {
-	double animationDelay = 0.7;
-	UIView* modalView = vc.view;
-	UIView* coverView = vc.coverView;
+	double animationDelay = 0.9;
+    UIView* modalView = vc.view;
+    UIView* coverView = vc.coverView;
+    
+    [UIView animateWithDuration:0.5
+     
+                          delay:0
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+       
+                         
+                         
+                         
+                         
+                         
+                         modalView.center = self.offscreenCenter;
+                         coverView.alpha = 0.0f;
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                       	[modalView removeFromSuperview];
+                     }];
+    
+    	[coverView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:animationDelay];
     
 
-	[UIView beginAnimations:nil context:(__bridge void *)(modalView)];
+    
+
+/*	[UIView beginAnimations:nil context:(__bridge void *)(modalView)];
 	[UIView setAnimationDuration:animationDelay];
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(dismissSemiModalViewControllerEnded:finished:context:)];
 	
-    modalView.center = self.offscreenCenter;
-	coverView.alpha = 0.0f;
+ 
 
 	[UIView commitAnimations];
-
+*/
 	[coverView performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:animationDelay];
 
 }
@@ -102,6 +145,10 @@
 	[modalView removeFromSuperview];
 
 }
+
+
+
+
 
 
 -(CGPoint) offscreenCenter {
@@ -118,5 +165,18 @@
     
     return offScreenCenter;
 }
-
+-(CGPoint) offscreenCenter2 {
+    CGPoint offScreenCenter2 = CGPointZero;
+    
+    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+    CGSize offSize = UIScreen.mainScreen.bounds.size;
+    
+	if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+		offScreenCenter2 = CGPointMake(offSize.height / 2.0, offSize.width * 1.5);
+	} else {
+		offScreenCenter2 = CGPointMake(offSize.width - 25, offSize.height);
+	}
+    
+    return offScreenCenter2;
+}
 @end
