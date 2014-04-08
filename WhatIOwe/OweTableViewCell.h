@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *moneyLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailOwe;
+@property (nonatomic, weak) IBOutlet UIView *listView;
 
 
 @end

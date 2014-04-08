@@ -18,7 +18,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OweIt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxR-mm-Pnh">
                     <rect key="frame" x="118" y="6" width="84" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="29"/>
                     <color key="textColor" red="0.29870074728260865" green="0.29870074728260865" blue="0.29870074728260865" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -39,8 +39,9 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIN-7C-3Gu">
                     <rect key="frame" x="43" y="117" width="235" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.58935987185750693" green="0.58520123748366004" blue="0.65784222146739135" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.90196084976196289" green="0.91764712333679199" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="ADD A PERSON">
+                        <color key="titleColor" red="0.094117656350135803" green="0.13725490868091583" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

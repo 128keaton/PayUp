@@ -153,15 +153,23 @@
 
 -(CGPoint) offscreenCenter {
     CGPoint offScreenCenter = CGPointZero;
+   
+    // Tall Screen
+            CGSize offSize = UIScreen.mainScreen.bounds.size;
+
+        
+        
+        
+        offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.5);
+        
+        
+        
     
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    CGSize offSize = UIScreen.mainScreen.bounds.size;
+   
+
     
-	if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-		offScreenCenter = CGPointMake(offSize.height / 2.0, offSize.width * 1.5);
-	} else {
-		offScreenCenter = CGPointMake(offSize.width / 2.0, offSize.height * 1.5);
-	}
+    
+
     
     return offScreenCenter;
 }

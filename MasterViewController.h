@@ -10,19 +10,21 @@
 #import "TDSemiModalViewController2.h"
 #import "FooterViewController.h"
 #import <UIKit/UIKit.h>
-
+#import "CSAnimationView.h"
 @interface MasterViewController : UITableViewController{
     id delegate;
     NSMutableArray *nameArray;
 }
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) IBOutlet CSAnimationView *listView;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *money;
 @property (strong, nonatomic) NSDate *date;
 @property ( nonatomic) BOOL dateOwed;
 @property (nonatomic) BOOL paused;
 @property (strong, nonatomic) IBOutlet UIView *flipView;
+
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) TDSemiModalViewController *tdModal;
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;

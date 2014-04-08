@@ -14,7 +14,7 @@
 #import "AppDelegate.h"
 #import "OweTableViewCell.h"
 #import "FooterViewController.h"
-
+#import "CSAnimationView.h"
 
 @interface MasterViewController ()
 
@@ -312,7 +312,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     OweTableViewCell *cell = (OweTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [self configureCell:cell atIndexPath:indexPath];
-    
+    cell.layer.cornerRadius = 0;
     return cell;
 }
 
@@ -330,13 +330,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     self.tdModal = [[TDSemiModalViewController alloc]init];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+   OweTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell.listView startCanvasAnimation];
+    
 
     [self.tableView reloadData];
 
 	self.tdModal.info = info;
     
-    
+        cell.layer.cornerRadius = 0;
     
     [self presentSemiModalViewController:self.tdModal];
     

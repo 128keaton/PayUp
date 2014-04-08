@@ -11,6 +11,8 @@
 #import "UIViewController+TDSemiModalExtension.h"
 #import "OweInfo.h"
 #import "OweDetails.h"
+
+#import "CSAnimationView.h"
 @implementation TDSemiModalViewController
 @synthesize coverView;
 
@@ -25,6 +27,25 @@
     }
 }
 
+-(IBAction)jiggle1:(id)sender{
+    
+    CSAnimationView *animationView = [[CSAnimationView alloc] initWithFrame:view1.frame];
+    
+    animationView.backgroundColor = [UIColor clearColor];
+    
+    animationView.duration = 0.5;
+    animationView.delay    = 0;
+    animationView.type     = CSAnimationTypeMorph;
+    
+    [self.view addSubview:animationView];
+    
+    // Add your subviews into animationView
+    [animationView addSubview:view1];
+    
+    // Kick start the animation immediately
+    [animationView startCanvasAnimation];
+    
+}
 
 -(IBAction)cancel:(id)sender{
 

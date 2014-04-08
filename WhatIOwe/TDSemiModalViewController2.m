@@ -65,6 +65,8 @@
                      animations:^{
                          [self.delegate moveBack];
                               [self dismissSemiModalViewController:self];
+                         
+                         
                           
                      }
                      completion:^(BOOL finished){
@@ -90,6 +92,8 @@
                          [self.delegate moveBack];
                          [self dismissSemiModalViewController:self];
                             [self presentViewController:self.tdModal animated:YES completion:nil];
+                         
+                         
                          
                      }
                      completion:^(BOOL finished){

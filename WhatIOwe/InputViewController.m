@@ -68,22 +68,30 @@
         theButton.enabled = true;
     }
 }
-
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 
 
 - (void)viewDidLoad
 {
     
-  
-    [self configureView];
     
+  //  [self setNeedsStatusBarAppearanceUpdate];
+ 
+    
+
+    [self configureView];
+    self.navigationController.navigationBar.translucent = NO;
     id delegate = [[UIApplication sharedApplication] delegate]; self.managedObjectContext = [delegate managedObjectContext];
     
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     UIBarButtonItem *flexableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
-    
+   
+
     
     UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed2:)];
     UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
@@ -120,7 +128,7 @@
     picker.datePickerMode = UIDatePickerModeDate;
     dueField.inputView = picker;
     [picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-
+  picker.backgroundColor = [UIColor whiteColor];
     cell1.layer.cornerRadius = 2;
     cell1.layer.borderWidth = 1;
     cell1.layer.borderColor = cell1.backgroundColor.CGColor;
@@ -143,7 +151,7 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-    
+    self.view.superview.bounds = CGRectMake(0, 0, 350, 250);
     if (self.detailItem) {
         if ([[_detailItem description]  isEqual: @"Owed"]){
             

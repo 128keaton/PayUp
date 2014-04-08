@@ -84,6 +84,8 @@ static int amountToMove = 50;
     
     
 }
+
+
 -(void)testDele{
     
     self.test  = [[MasterViewController alloc]init];

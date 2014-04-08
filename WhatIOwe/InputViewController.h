@@ -23,7 +23,7 @@
     IBOutlet UIView *cell1;
     IBOutlet UIView *cell2;
     IBOutlet UIView *cell3;
-
+BOOL shouldHideStatusBar;
 
    bool dateOwed;
 }

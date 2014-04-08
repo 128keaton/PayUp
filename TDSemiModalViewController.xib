@@ -19,7 +19,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -33,6 +33,9 @@
                             <color key="textColor" red="0.64130434782608692" green="0.64130434782608692" blue="0.64130434782608692" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                            <connections>
+                                <action selector="jiggle1:" destination="-1" eventType="touchUpInside" id="XLn-7R-BYR"/>
+                            </connections>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-bf-zbs">
                             <rect key="frame" x="83" y="0.0" width="51" height="21"/>
