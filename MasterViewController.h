@@ -14,6 +14,7 @@
 @interface MasterViewController : UITableViewController{
     id delegate;
     NSMutableArray *nameArray;
+  
 }
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
@@ -24,15 +25,12 @@
 @property ( nonatomic) BOOL dateOwed;
 @property (nonatomic) BOOL paused;
 @property (strong, nonatomic) IBOutlet UIView *flipView;
-
+@property (strong, nonatomic) id detailItem;
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) TDSemiModalViewController *tdModal;
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
 @property (strong, nonatomic) FooterViewController *footer;
 @property (strong, nonatomic) id delegate;
 
--(void)setData:(NSString *)name :(NSString *)money :(NSDate *)date :(BOOL)dateOwed :(NSString *)whooweswhat :(NSString *) dateString;
--(void)dismissSemiMD;
--(void)addSemi;
--(void)presentInput;
+
 @end

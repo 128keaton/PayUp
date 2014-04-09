@@ -79,8 +79,15 @@
 {
     
     
-  //  [self setNeedsStatusBarAppearanceUpdate];
+    [self prefersStatusBarHidden];
+    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    self.statusBarHidden = YES;
+    
+    
+[self setNeedsStatusBarAppearanceUpdate];
  
+    [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:UIStatusBarAnimationSlide];
     
 
     [self configureView];
@@ -115,20 +122,20 @@
     iField.textColor = [UIColor whiteColor];
       oField.textColor = [UIColor whiteColor];
       dueField.textColor = [UIColor whiteColor];
+    
     [super viewDidLoad];
   /*  id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];*/
-    UIView *fixItView = [[UIView alloc] init];
-    fixItView.frame = CGRectMake(0, 0, 320, 20);
-    fixItView.backgroundColor = [UIColor blackColor]; //change this to match your navigation bar
-    [self.view addSubview:fixItView];
+
     
     // Do any additional setup after loading the view.
-    UIDatePicker *picker = [[UIDatePicker alloc] init];
-    picker.datePickerMode = UIDatePickerModeDate;
-    dueField.inputView = picker;
-    [picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-  picker.backgroundColor = [UIColor whiteColor];
+  //  UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 120.0)];
+    _picker = [[UIDatePicker alloc]init];
+
+    _picker.datePickerMode = UIDatePickerModeDate;
+      dueField.inputView = _picker;
+    [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+  _picker.backgroundColor = [UIColor whiteColor];
     cell1.layer.cornerRadius = 2;
     cell1.layer.borderWidth = 1;
     cell1.layer.borderColor = cell1.backgroundColor.CGColor;
@@ -141,6 +148,8 @@
     cell3.layer.borderWidth = 1;
     cell3.layer.borderColor = cell3.backgroundColor.CGColor;
 
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 
     //take snapshot, then move off screen once complete
 
@@ -148,8 +157,56 @@
     
     
 }
+-(IBAction)addAlarm:(UIButton*)sender{
+
+
+    
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseInOut
+     
+                     animations:^{
+                     
+                         sender.alpha = 0;
+                         dueLabel.alpha = 1;
+                         dueField.alpha = 1;
+                         
+                         
+                         yes = NO;
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    [dueField becomeFirstResponder];
+}
+-(IBAction)textFieldDidChange:(UITextField*)sender{
+    NSString *s = oField.text;
+    NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
+    s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
+    NSString *newS = [NSString stringWithFormat:@"$%@", s];
+    oField.text = newS;
+
+    
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+     _picker.frame = CGRectMake(0, 50, 300, 162);
+}
+
 - (void)configureView
 {
+
+  yes = YES;
+
+
+
+    
+    
+    
+    [oField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
     // Update the user interface for the detail item.
     self.view.superview.bounds = CGRectMake(0, 0, 350, 250);
     if (self.detailItem) {
@@ -157,6 +214,7 @@
             
             iLabel.hidden = true;
             oLabel.hidden = true;
+            iField.center = CGPointMake(iField.center.x, iField.center.y -3);
             mLabel.text = @"owes me the sum of";
             
         }else{
@@ -181,18 +239,30 @@
         NSString *wow = [[NSString alloc]init];
     
     NSString *editedMoney = [[NSString alloc]init];
-    [formatter setDateFormat:@"ddMMyyyy"];
-    [formatter setDateStyle:NSDateFormatterFullStyle];
+    [formatter setDateFormat:@"MM/dd"];
+  //  [formatter setDateStyle:NSDateFormatterFullStyle];
     NSDate *dt = picker.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
-    dateOwed = YES;
+    
+    if (yes == YES) {
+        dateAsString = @"";
+       
+    }
+    
+    
+    NSString *s = oField.text;
+    NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
+    s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
+   
+    
+
   
     if ([_detailItem  isEqual: @"Owed"]) {
                 wow = @"someoneowes";
-    editedMoney = [NSString stringWithFormat:@"$%@", oField.text];
+    editedMoney = [NSString stringWithFormat:@"$%@", s];
  
     }else{
-       editedMoney = [NSString stringWithFormat:@"$%@", oField.text];
+       editedMoney = [NSString stringWithFormat:@"$%@", s];
         wow=@"nope";
 
     }
@@ -200,7 +270,7 @@
 
     NSLog(@"Nope Input: %@",wow);
 
-    bool OwedYes = dateOwed;
+
 
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *details = [NSEntityDescription
@@ -215,7 +285,7 @@
     [info setValue:dateAsString forKey:@"dateString"];
     [info setValue:iField.text forKey:@"name"];
     [info setValue:wow forKey:@"whooweswhat"];
-    [info setValue:[NSNumber numberWithBool:OwedYes] forKey:@"dateowed"];
+    [info setValue:[NSNumber numberWithInt:1] forKey:@"dateowed"];
     [details setValue:info forKey:@"info"];
     [info setValue: details forKey:@"details"];
     NSError *error;
@@ -243,8 +313,16 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     [self.view.superview removeFromSuperview];
     
-    
-    NSLog(@"TEH %@", context);
+
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -253,7 +331,7 @@
         [oField becomeFirstResponder];
     } else if (textField == oField) {
         [oField resignFirstResponder];
-        [dueField becomeFirstResponder];
+
     } else if (textField == dueField){
         [self performSelector:@selector(submit:) withObject:nil];
     }
@@ -267,7 +345,7 @@
     }else{
         
         [oField resignFirstResponder];
-        [dueField becomeFirstResponder];
+        
     }
  
 }
@@ -289,21 +367,6 @@
     return 44.f;
 }
 
-- (IBAction)changeSwitch:(id)sender{
-    
-    if([sender isOn]){
-        dueLabel.text = @"which is due";
-        dueField.enabled = YES;
-        dateOwed = YES;
-NSLog(dateOwed ? @"Yes" : @"No");
-    } else{
-        dueLabel.text = @"which can be repayed at any time.";
-        dueField.enabled = NO;
-        dateOwed = NO;
-  NSLog(dateOwed ? @"Yes" : @"No");
-    }
-    
-}
 -(void)updateTextField:(id)sender
 {
     

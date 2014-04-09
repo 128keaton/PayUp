@@ -21,6 +21,5 @@
 @property (strong, nonatomic) MasterViewController *test;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 -(void)moveBack;
--(void)testDele;
--(void)performForTheNiceMan;
+
 @end

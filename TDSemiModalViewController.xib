@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TDSemiModalViewController">
             <connections>
+                <outlet property="alarm" destination="fPE-oS-wgS" id="zMM-X9-8mO"/>
                 <outlet property="dueField" destination="rQ5-O7-r3f" id="C2i-gO-d01"/>
                 <outlet property="iField" destination="cDj-VA-xfj" id="wiG-41-0cw"/>
                 <outlet property="iLabel" destination="8Rc-bf-zbs" id="PJL-cH-f7H"/>
@@ -24,11 +25,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRr-yX-kMg">
-                    <rect key="frame" x="37" y="20" width="217" height="62"/>
+                    <rect key="frame" x="0.0" y="8" width="290" height="62"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Smith" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDj-VA-xfj">
-                            <rect key="frame" x="0.0" y="25" width="217" height="30"/>
+                            <rect key="frame" x="37" y="25" width="217" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" red="0.64130434782608692" green="0.64130434782608692" blue="0.64130434782608692" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -38,60 +39,73 @@
                             </connections>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rc-bf-zbs">
-                            <rect key="frame" x="83" y="0.0" width="51" height="21"/>
+                            <rect key="frame" x="120" y="0.0" width="51" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.45098042488098145" green="0.41568630933761597" blue="0.5058823823928833" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.66274511814117432" green="0.74901962280273438" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4dK-OY-IRS">
-                    <rect key="frame" x="37" y="111" width="217" height="62"/>
+                    <rect key="frame" x="0.0" y="88" width="290" height="62"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$1000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-Og-nKU">
-                            <rect key="frame" x="0.0" y="32" width="217" height="30"/>
+                            <rect key="frame" x="37" y="32" width="217" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" red="0.64130434780000001" green="0.64130434780000001" blue="0.64130434780000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Money:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oi-RV-O4h">
-                            <rect key="frame" x="80" y="5" width="57" height="21"/>
+                            <rect key="frame" x="117" y="5" width="57" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.49803924560546875" green="0.458823561668396" blue="0.55294120311737061" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.66274511814117432" green="0.74901962280273438" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uW5-Ah-Vfm">
-                    <rect key="frame" x="37" y="202" width="217" height="62"/>
+                    <rect key="frame" x="0.0" y="169" width="290" height="62"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="January 18th, 2015" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQ5-O7-r3f">
-                            <rect key="frame" x="0.0" y="29" width="217" height="30"/>
+                            <rect key="frame" x="37" y="29" width="217" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" red="0.64130434780000001" green="0.64130434780000001" blue="0.64130434780000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Due Date:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVq-7m-NZz">
-                            <rect key="frame" x="70" y="0.0" width="77" height="21"/>
+                            <rect key="frame" x="107" y="0.0" width="77" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPE-oS-wgS">
+                            <rect key="frame" x="123" y="8" width="45" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button" image="1397001691_alarm_clock.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="iGotTapped:" destination="-1" eventType="touchUpInside" id="xiw-M4-LUE"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.49803924560546875" green="0.458823561668396" blue="0.55294120311737061" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.70980393886566162" blue="0.15686275064945221" alpha="1" colorSpace="deviceRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.23137256503105164" green="0.23137256503105164" blue="0.30588236451148987" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" red="0.98358169392124206" green="0.98741649793464181" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="1397001691_alarm_clock.png" width="128" height="128"/>
+    </resources>
 </document>

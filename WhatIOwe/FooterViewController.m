@@ -16,6 +16,7 @@
 @end
 
 @implementation FooterViewController
+@synthesize footercontroller = _footer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +39,7 @@
     elasticityBehavior.elasticity = 0.7f;
     [self.animator addBehavior:elasticityBehavior];
 }
-static int amountToMove = 50;
+
 -(void)moveBack{
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
@@ -78,42 +79,14 @@ static int amountToMove = 50;
                      }];
     
 
-    
-    
-    //    [self.view addSubview:test.view];
+ 
     
     
 }
 
 
--(void)testDele{
-    
-    self.test  = [[MasterViewController alloc]init];
-    self.test.delegate = self;
-}
--(void)performForTheNiceMan{
-    self.test  = [[MasterViewController alloc]init];
-    self.test.delegate = self;
-    [UIView animateWithDuration:0.2
-                          delay:0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                                              self.view.transform = CGAffineTransformMakeTranslation(0, -170);
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                         
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Doned!");
-                     }];
-    
 
-}
+
 - (void)viewDidLoad
 {
     

@@ -23,7 +23,7 @@
  
     
     
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
         
         UIView* modalView = vc.view;
         UIView* coverView = vc.coverView;
@@ -41,7 +41,7 @@
         
     	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width - 30, modalView.frame.size.height/2);
         
-        modalView.transform = CGAffineTransformMakeTranslation(15, 80);
+        modalView.transform = CGAffineTransformMakeTranslation(15, 30);
     
         
         coverView.alpha = 0.3;
@@ -176,14 +176,12 @@
 -(CGPoint) offscreenCenter2 {
     CGPoint offScreenCenter2 = CGPointZero;
     
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
+  
     CGSize offSize = UIScreen.mainScreen.bounds.size;
     
-	if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-		offScreenCenter2 = CGPointMake(offSize.height / 2.0, offSize.width * 1.5);
-	} else {
+	
 		offScreenCenter2 = CGPointMake(offSize.width - 25, offSize.height);
-	}
+	
     
     return offScreenCenter2;
 }

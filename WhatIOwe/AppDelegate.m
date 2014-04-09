@@ -30,6 +30,14 @@
 
 
 
+- (void)customizeAppearance
+{
+    // Create resizable images
+       // Set the background image for *all* UINavigationBars
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"ClearSans-Bold" size:15]];
+   
+
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -55,6 +63,7 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+  //  [self customizeAppearance];
     return YES;
     
 }

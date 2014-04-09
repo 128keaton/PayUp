@@ -21,8 +21,9 @@
        IBOutlet UITextField *iField;
        IBOutlet UITextField *dueField;
     IBOutlet UIView *view1;
-    
+    BOOL tapped;
     IBOutlet UIView *view3;
+    IBOutlet UIButton *alarm;
     IBOutlet UIView *view2;
     OweInfo *info;
     OweDetails *details;
@@ -38,13 +39,13 @@
 @property (strong, nonatomic) NSString* owed;
 @property (strong, nonatomic) NSString* dateString;
 @property (nonatomic, strong) UIView *coverView;
+@property (nonatomic) UIDatePicker *picker;
 @property (nonatomic, retain) IBOutlet UILabel *name;
-@property (nonatomic, retain) IBOutlet UINavigationItem *navBar;
+@property (nonatomic) IBOutlet UINavigationItem *navBar;
 - (void)setDetailItem:(id)newDetailItem;
 @property (nonatomic, retain) MasterViewController *master;
-- (void)setMoneyItem:(NSString*)newMoneyItem;
 @property (nonatomic, strong) IBOutlet id delegate;
-@property (nonatomic, strong) IBOutlet UIStepper *stepper;
+
 @property (nonatomic, strong) IBOutlet UILabel *money;
 
 

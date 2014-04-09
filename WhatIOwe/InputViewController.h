@@ -23,13 +23,14 @@
     IBOutlet UIView *cell1;
     IBOutlet UIView *cell2;
     IBOutlet UIView *cell3;
-BOOL shouldHideStatusBar;
+    IBOutlet UIButton *addDate;
+    BOOL yes;
 
-   bool dateOwed;
 }
-
+@property BOOL statusBarHidden;
 @property (strong, nonatomic) id detailItem;
 - (void)setDetailItem:(id)newDetailItem;
+@property (nonatomic) UIDatePicker *picker;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

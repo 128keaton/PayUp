@@ -15,7 +15,8 @@
 #import "OweTableViewCell.h"
 #import "FooterViewController.h"
 #import "CSAnimationView.h"
-
+#import "EditTableViewCell.h"
+#define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 @interface MasterViewController ()
 
 @end
@@ -28,6 +29,8 @@
 @synthesize date = _date1;
 @synthesize dateOwed = _dateOwed1;
 @synthesize money = _money1;
+@synthesize delegate = _delegate;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,8 +47,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+    id delegate2 = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate2 managedObjectContext];
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.managedObjectContext deleteObject:object];
     
@@ -115,8 +118,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 - (NSFetchedResultsController *)fetchedResultsController {
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+    id thedelegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [thedelegate managedObjectContext];
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
@@ -154,6 +157,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		// Update to handle the error appropriately.
@@ -190,26 +194,25 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     return [sectionInfo numberOfObjects];
     
 }
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)configureCell:(OweTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    [cell.contentView.layer setCornerRadius:7.0f];
-    [cell.contentView.layer setMasksToBounds:YES];
-    cell.contentView.layer.cornerRadius = 5;
-    cell.contentView.layer.masksToBounds = YES;
-    cell.nameLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
-    cell.dateLabel.font = [UIFont fontWithName:@"ClearSans-Thin" size:10];
-    cell.moneyLabel.font = [UIFont fontWithName:@"ClearSans-Regular" size:12];
-    UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
-    separatorLineView.backgroundColor = [UIColor clearColor]; // set color as you want.
-    [cell.contentView addSubview:separatorLineView];
+
+    cell.nameLabel.font = [UIFont fontWithName:@"ClearSans-Regular" size:15];
+    cell.dateLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
     
+   cell.moneyLabel.font = [UIFont fontWithName:@"ClearSans-Thin" size:12];
+
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
     
     NSString *testBool = (info.dateowed.boolValue ? @"Yes" : @"No");
     OweDetails *details = info.details;
+
     
-    
+   
     if ([testBool isEqualToString:@"Yes"]) {
         cell.dateLabel.text = info.dateString;
         
@@ -239,13 +242,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     result = [today compare:details.date]; // comparing two dates
     
     if(result==NSOrderedAscending)
-        NSLog(@"We are good");
-    else if(result==NSOrderedDescending)
-        cell.thumbnailOwe.image = [UIImage imageNamed:@"Red.png"];
-    else
+        cell.thumbnailOwe.image = [UIImage imageNamed:@"Good.png"];
+    else if(result==NSOrderedDescending){
+            cell.thumbnailOwe.image = [UIImage imageNamed:@"Bad.png"];
+    if ([info.dateString  isEqual: @""]) {
+         cell.thumbnailOwe.image = [UIImage imageNamed:@"Dateless.png"];
+    }
+    } else
         NSLog(@"Both dates are same");
     
-    
+    cell.dateLabel.center = cell.thumbnailOwe.center;
     
     
     NSLog(@"Master: %@", info.name);
@@ -254,28 +260,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
 }
--(IBAction)test:(id)sender{
-    
-    
-    NSLog(@"Tapped!");
-    
-    //    [self.view addSubview:test.view];
-    //[self presentSemiModalViewController2:self.tdModal2];
-    
-    self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
-    
-    
-    //    [self.view addSubview:test.view];
-    [self presentSemiModalViewController2:self.tdModal2];
-    
-}
--(void)addSemi{
-    
-    self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
-    
-    
-    //    [self.view addSubview:test.view];
-    [self presentSemiModalViewController2:self.tdModal2];
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 
@@ -322,34 +312,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
-    NSLog(@"I tapped myself!");
-    
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    id delegate2 = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate2 managedObjectContext];
+   
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
     self.tdModal = [[TDSemiModalViewController alloc]init];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   OweTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell.listView startCanvasAnimation];
-    
 
-    [self.tableView reloadData];
-
+    
 	self.tdModal.info = info;
+            [self presentSemiModalViewController:self.tdModal];
+
+  // OweTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    [cell.listView startCanvasAnimation];
     
-        cell.layer.cornerRadius = 0;
+
     
-    [self presentSemiModalViewController:self.tdModal];
-    
-    
+
+
+
     
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
-}
+
 
 
 

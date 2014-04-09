@@ -13,7 +13,7 @@
 #import "FooterViewController.h"
 @implementation TDSemiModalViewController2
    
-@synthesize coverView;
+@synthesize coverView, delegate;
 
 -(void)viewDidLoad {
     
@@ -60,7 +60,7 @@
   //  [self.footer moveBack];
   
     [UIView animateWithDuration:0.5
-                          delay:1.0
+                          delay:0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          [self.delegate moveBack];
@@ -86,18 +86,19 @@
  
      [self.tdModal setDetailItem:@"NotOwed"];
     [UIView animateWithDuration:0.5
-                          delay:1.0
+                          delay:0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
+                                  [self presentViewController:self.tdModal animated:YES completion:nil];
                          [self.delegate moveBack];
-                         [self dismissSemiModalViewController:self];
-                            [self presentViewController:self.tdModal animated:YES completion:nil];
+                    [self dismissSemiModalViewController:self];
+                   
                          
                          
                          
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Done!");
+                  
                      }];
     // do any setup you need for myNewVC
 
@@ -114,13 +115,14 @@
                           delay:1.0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
+                           [self presentViewController:self.tdModal animated:YES completion:nil];
                          [self.delegate moveBack];
                          [self dismissSemiModalViewController:self];
-                         [self presentViewController:self.tdModal animated:YES completion:nil];
+                       
                          
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Done!");
+                  
                      }];
 }
 
