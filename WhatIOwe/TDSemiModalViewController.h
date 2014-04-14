@@ -6,6 +6,7 @@
 //  Copyright 2010 Nathan Reed. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
 #import "OweInfo.h"
 #import "OweDetails.h"
@@ -25,6 +26,10 @@
     IBOutlet UIView *view3;
     IBOutlet UIButton *alarm;
     IBOutlet UIView *view2;
+    NSString *name2;
+    NSString *datestring;
+    NSString *moneystring;
+    NSDate *date;
     OweInfo *info;
     OweDetails *details;
     NSManagedObjectContext *managedObjectContext;

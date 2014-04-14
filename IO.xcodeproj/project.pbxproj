@@ -61,6 +61,7 @@
 		8A95578D18EF7F8600469480 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578C18EF7F8600469480 /* InputViewController.m */; };
 		8A95579318EFB2F900469480 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95579218EFB2F900469480 /* DetailViewController.m */; };
 		8ABFAF8218F47F2000D503C4 /* 1397001691_alarm_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */; };
+		8ADCE10518F5FA7900065785 /* IO-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADCE10418F5FA7900065785 /* IO-Info.plist */; };
 		8AE2B63A18F48D4A00D4E203 /* Bad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63918F48D4A00D4E203 /* Bad.png */; };
 		8AE2B63C18F48D4E00D4E203 /* Good.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63B18F48D4E00D4E203 /* Good.png */; };
 		F398319583D741EBA9FEDA5B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 021A7D97EAF74EE2839B1EAF /* libPods.a */; };
@@ -119,24 +120,22 @@
 		8A4D431718F5B0E0001E7D76 /* EditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTableViewCell.m; sourceTree = "<group>"; };
 		8A4D432518F5C0BC001E7D76 /* Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Left.png; sourceTree = "<group>"; };
 		8A4D432618F5C0BC001E7D76 /* Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Right.png; sourceTree = "<group>"; };
-		8A95573218EF614400469480 /* OweIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OweIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A95573218EF614400469480 /* IO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A95573518EF614400469480 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A95573718EF614400469480 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8A95573918EF614400469480 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8A95573B18EF614400469480 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8A95573F18EF614400469480 /* OweIt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OweIt-Info.plist"; sourceTree = "<group>"; };
 		8A95574118EF614400469480 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A95574318EF614400469480 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A95574518EF614400469480 /* OweIt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OweIt-Prefix.pch"; sourceTree = "<group>"; };
 		8A95574618EF614400469480 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8A95574718EF614400469480 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8A95574A18EF614400469480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		8A95574D18EF614400469480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		8A95575018EF614400469480 /* WhatIOwe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhatIOwe.xcdatamodel; sourceTree = "<group>"; };
 		8A95575818EF614400469480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A95575E18EF614400469480 /* OweItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OweItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A95575E18EF614400469480 /* IOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A95575F18EF614400469480 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8A95576818EF614400469480 /* OweItTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OweItTests-Info.plist"; sourceTree = "<group>"; };
+		8A95576818EF614400469480 /* IOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IOTests-Info.plist"; sourceTree = "<group>"; };
 		8A95576A18EF614400469480 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A95576C18EF614400469480 /* WhatIOweTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatIOweTests.m; sourceTree = "<group>"; };
 		8A95577F18EF66AA00469480 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
@@ -150,6 +149,8 @@
 		8A95579118EFB2F900469480 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8A95579218EFB2F900469480 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1397001691_alarm_clock.png; sourceTree = "<group>"; };
+		8ADCE10418F5FA7900065785 /* IO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IO-Info.plist"; sourceTree = "<group>"; };
+		8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IO-Prefix.pch"; sourceTree = "<group>"; };
 		8AE2B63918F48D4A00D4E203 /* Bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bad.png; sourceTree = "<group>"; };
 		8AE2B63B18F48D4E00D4E203 /* Good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Good.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,8 +271,8 @@
 		8A95573318EF614400469480 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A95573218EF614400469480 /* OweIt.app */,
-				8A95575E18EF614400469480 /* OweItTests.xctest */,
+				8A95573218EF614400469480 /* IO.app */,
+				8A95575E18EF614400469480 /* IOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,10 +326,10 @@
 			isa = PBXGroup;
 			children = (
 				8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */,
-				8A95573F18EF614400469480 /* OweIt-Info.plist */,
+				8ADCE10418F5FA7900065785 /* IO-Info.plist */,
+				8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */,
 				8A95574018EF614400469480 /* InfoPlist.strings */,
 				8A95574318EF614400469480 /* main.m */,
-				8A95574518EF614400469480 /* OweIt-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -346,7 +347,7 @@
 		8A95576718EF614400469480 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A95576818EF614400469480 /* OweItTests-Info.plist */,
+				8A95576818EF614400469480 /* IOTests-Info.plist */,
 				8A95576918EF614400469480 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -355,9 +356,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A95573118EF614400469480 /* OweIt */ = {
+		8A95573118EF614400469480 /* IO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "OweIt" */;
+			buildConfigurationList = 8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "IO" */;
 			buildPhases = (
 				2CE8F76154FD4914A4B36001 /* Check Pods Manifest.lock */,
 				8A95572E18EF614400469480 /* Sources */,
@@ -369,14 +370,14 @@
 			);
 			dependencies = (
 			);
-			name = OweIt;
+			name = IO;
 			productName = WhatIOwe;
-			productReference = 8A95573218EF614400469480 /* OweIt.app */;
+			productReference = 8A95573218EF614400469480 /* IO.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8A95575D18EF614400469480 /* OweItTests */ = {
+		8A95575D18EF614400469480 /* IOTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "OweItTests" */;
+			buildConfigurationList = 8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "IOTests" */;
 			buildPhases = (
 				8A95575A18EF614400469480 /* Sources */,
 				8A95575B18EF614400469480 /* Frameworks */,
@@ -387,9 +388,9 @@
 			dependencies = (
 				8A95576518EF614400469480 /* PBXTargetDependency */,
 			);
-			name = OweItTests;
+			name = IOTests;
 			productName = WhatIOweTests;
-			productReference = 8A95575E18EF614400469480 /* OweItTests.xctest */;
+			productReference = 8A95575E18EF614400469480 /* IOTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -414,7 +415,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A95572D18EF614400469480 /* Build configuration list for PBXProject "OweIt" */;
+			buildConfigurationList = 8A95572D18EF614400469480 /* Build configuration list for PBXProject "IO" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -427,8 +428,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A95573118EF614400469480 /* OweIt */,
-				8A95575D18EF614400469480 /* OweItTests */,
+				8A95573118EF614400469480 /* IO */,
+				8A95575D18EF614400469480 /* IOTests */,
 			);
 		};
 /* End PBXProject section */
@@ -464,6 +465,7 @@
 				8A0F70B618F2554600D5732C /* +$.png in Resources */,
 				8A95574218EF614400469480 /* InfoPlist.strings in Resources */,
 				8A0F70B818F2560200D5732C /* -$.png in Resources */,
+				8ADCE10518F5FA7900065785 /* IO-Info.plist in Resources */,
 				8A0F70C318F2F40600D5732C /* ClearSans-BoldItalic.ttf in Resources */,
 				8A0F709618F1C94A00D5732C /* 11HLzyx.png in Resources */,
 				8A0F70CD18F2FF0400D5732C /* Red.png in Resources */,
@@ -551,7 +553,7 @@
 /* Begin PBXTargetDependency section */
 		8A95576518EF614400469480 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8A95573118EF614400469480 /* OweIt */;
+			target = 8A95573118EF614400469480 /* IO */;
 			targetProxy = 8A95576418EF614400469480 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -674,11 +676,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/OweIt-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOwe/OweIt-Info.plist";
+				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
+				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = OweIt;
+				PRODUCT_NAME = IO;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -693,11 +696,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/OweIt-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOwe/OweIt-Info.plist";
+				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
+				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = OweIt;
+				PRODUCT_NAME = IO;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -717,8 +721,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "WhatIOweTests/OweItTests-Info.plist";
-				PRODUCT_NAME = OweItTests;
+				INFOPLIST_FILE = "WhatIOweTests/IOTests-Info.plist";
+				PRODUCT_NAME = IOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -735,8 +739,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatIOwe/WhatIOwe-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOweTests/OweItTests-Info.plist";
-				PRODUCT_NAME = OweItTests;
+				INFOPLIST_FILE = "WhatIOweTests/IOTests-Info.plist";
+				PRODUCT_NAME = IOTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -745,7 +749,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A95572D18EF614400469480 /* Build configuration list for PBXProject "OweIt" */ = {
+		8A95572D18EF614400469480 /* Build configuration list for PBXProject "IO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95576E18EF614400469480 /* Debug */,
@@ -754,7 +758,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "OweIt" */ = {
+		8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "IO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95577118EF614400469480 /* Debug */,
@@ -763,7 +767,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "OweItTests" */ = {
+		8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "IOTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95577418EF614400469480 /* Debug */,

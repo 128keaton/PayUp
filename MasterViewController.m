@@ -185,6 +185,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // Return the number of sections.
     return 1;
 }
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -208,20 +222,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *testBool = (info.dateowed.boolValue ? @"Yes" : @"No");
+  
     OweDetails *details = info.details;
 
     
    
-    if ([testBool isEqualToString:@"Yes"]) {
-        cell.dateLabel.text = info.dateString;
-        
-        cell.nameLabel.text = info.name;
-    }else{
-        cell.dateLabel.text = @"No due date";
-        
-        cell.nameLabel.text = info.name;
-    }
+  
     NSLog(@"Master Input: %@",info.whooweswhat);
     if ([info.whooweswhat isEqualToString:@"someoneowes"]) {
         cell.nameLabel.text = [NSString stringWithFormat:@"%@ owes you.", info.name];
@@ -243,6 +249,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     if(result==NSOrderedAscending)
         cell.thumbnailOwe.image = [UIImage imageNamed:@"Good.png"];
+    if ([info.dateString  isEqual: @""]) {
+        cell.thumbnailOwe.image = [UIImage imageNamed:@"Dateless.png"];
+    }
     else if(result==NSOrderedDescending){
             cell.thumbnailOwe.image = [UIImage imageNamed:@"Bad.png"];
     if ([info.dateString  isEqual: @""]) {

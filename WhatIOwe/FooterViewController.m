@@ -11,6 +11,9 @@
 #import "TDSemiModalViewController2.h"
 #import "TDSemiModal.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SBJson4.h"
+
+
 @interface FooterViewController ()
 @property (strong, nonatomic) MasterViewController *Mvc;
 @end
@@ -39,6 +42,8 @@
     elasticityBehavior.elasticity = 0.7f;
     [self.animator addBehavior:elasticityBehavior];
 }
+
+
 
 -(void)moveBack{
     [UIView beginAnimations:nil context:NULL];
@@ -86,6 +91,11 @@
 
 
 
+-(IBAction)actionButtonItemTapped:(id)sender
+{
+    NSURL *myURL = [NSURL URLWithString:@"io://hello?10#200806231300"];
+    [[UIApplication sharedApplication] openURL:myURL];
+}
 
 - (void)viewDidLoad
 {

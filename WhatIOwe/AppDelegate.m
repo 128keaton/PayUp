@@ -67,7 +67,74 @@
     return YES;
     
 }
-							
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[url scheme] isEqualToString:@"io"]) {
+
+        NSManagedObject *item = [NSEntityDescription
+                                 insertNewObjectForEntityForName:@"OweInfo"
+                                 inManagedObjectContext:_managedObjectContext];
+        NSString *taskName = [url host];
+      
+        taskName = [taskName stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        NSManagedObject *details = [NSEntityDescription
+                                    insertNewObjectForEntityForName:@"OweDetails"
+                                    inManagedObjectContext:context];
+  
+        [item setValue:taskName forKeyPath:@"name"];
+        
+
+        NSString *dateString = [url fragment];
+        if (!dateString || [dateString isEqualToString:@"today"]) {
+            [details setValue:[NSDate date] forKeyPath:@"date"];
+        } else {
+          
+            // format: yyyymmddhhmm (24-hour clock)
+            NSString *curStr = [dateString substringWithRange:NSMakeRange(0, 4)];
+            NSInteger yeardigit = [curStr integerValue];
+            curStr = [dateString substringWithRange:NSMakeRange(4, 2)];
+            NSInteger monthdigit = [curStr integerValue];
+            curStr = [dateString substringWithRange:NSMakeRange(6, 2)];
+            NSInteger daydigit = [curStr integerValue];
+            curStr = [dateString substringWithRange:NSMakeRange(8, 2)];
+            NSInteger hourdigit = [curStr integerValue];
+            curStr = [dateString substringWithRange:NSMakeRange(10, 2)];
+            NSInteger minutedigit = [curStr integerValue];
+            
+            NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+            [dateComps setYear:yeardigit];
+            [dateComps setMonth:monthdigit];
+            [dateComps setDay:daydigit];
+            [dateComps setHour:hourdigit];
+            [dateComps setMinute:minutedigit];
+            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+            NSDate *itemDate = [calendar dateFromComponents:dateComps];
+            if (!itemDate) {
+                return NO;
+            }
+            [details setValue:itemDate forKeyPath:@"date"];
+            
+                     [details setValue:[url query] forKeyPath:@"money"];
+            
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            }
+            
+            
+        }
+        NSLog(@"YES!");
+     //   [(NSMutableArray *)_managedObjectContext addObject:item];
+        return YES;
+        
+    }
+         NSLog(@"NO!");
+    return NO;
+
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

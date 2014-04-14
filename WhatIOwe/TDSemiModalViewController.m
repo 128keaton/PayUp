@@ -39,6 +39,19 @@
     return YES;
 }
 
+-(IBAction)actionButtonItemTapped:(id)sender
+{
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYYMMddHHmmss"];
+    NSString*date2 = [dateFormat stringFromDate:self.picker.date];
+    
+    NSURL *myURL = [NSURL URLWithString:[NSString stringWithFormat:@"io://%@?%@#%@", name2, moneystring, date2]];
+    
+    NSLog(moneystring);
+    [[UIApplication sharedApplication] openURL:myURL];
+}
+
 
 -(IBAction)textFieldDidChange:(UITextField*)sender{
     NSString *s = oField.text;
@@ -85,15 +98,13 @@
     [self.info setValue:iField.text forKey:@"name"];
             NSError *error;
     
-    [self.info setValue:dateAsString forKey:@"dateString"];
+
     
-    if ([self.info.dateString  isEqual: @""]) {
-        
-    }
-        
+  
         
     if (tapped == YES){
                 [self.info.details setValue:self.picker.date forKey:@"date"];
+            [self.info setValue:dateAsString forKey:@"dateString"];
         NSLog(@"tapped");
     }else{
             NSLog(@"nottapped");
@@ -133,6 +144,8 @@
     return 44.f;
 }
 
+
+
 - (void)doneButtonDidPressed:(id)sender {
     NSLog(@"Sender: %@", sender);
     if (sender == dueField) {
@@ -145,6 +158,7 @@
     }
     
 }
+
 
 
 - (void)doneButtonDidPressed2:(id)sender {
@@ -163,6 +177,31 @@
     self.picker.frame = CGRectMake(0, 50, 300, 162);
 }
 
+-(IBAction)cancelAlarm:(UIButton*)sender{
+    
+    tapped = NO;
+    
+    [UIView animateWithDuration:0.3
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseInOut
+     
+                     animations:^{
+                         
+                        alarm.alpha = 1;
+                         oLabel.alpha = 0;
+                         dueField.alpha = 0;
+                         [dueField setEnabled:NO];
+                         self.info.dateString = @"";
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    [dueField resignFirstResponder];
+    
+    
+}
 
 -(IBAction)iGotTapped:(UIButton*)sender{
     
@@ -177,8 +216,8 @@
                          sender.alpha = 0;
                          oLabel.alpha = 1;
                          dueField.alpha = 1;
-                         
-                         
+                         [dueField setEnabled:YES];
+                        
                          
                      }
                      completion:^(BOOL finished){
@@ -192,28 +231,34 @@
     tapped = NO;
     NSLog(@"load begging");
       [super viewDidLoad];
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
+    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithTitle:@"Add Date" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonDidPressed2:)];
+        UIBarButtonItem *doneItem3 = [[UIBarButtonItem alloc] initWithTitle:@"Remove Date" style:UIBarButtonItemStyleDone target:self action:@selector(cancelAlarm:)];
     UIBarButtonItem *flexableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
     
     
     
-    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed2:)];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
     
     [toolbar setItems:[NSArray arrayWithObjects:flexableItem,doneItem, nil]];
     
-    [toolbar2 setItems:[NSArray arrayWithObjects:flexableItem2,doneItem2, nil]];
+    [toolbar2 setItems:[NSArray arrayWithObjects:doneItem2,flexableItem2,doneItem3, nil]];
+ 
+    [toolbar2 setBarTintColor:view1.backgroundColor];
+    [toolbar setBarTintColor:toolbar2.barTintColor];
     dueField.inputAccessoryView = toolbar2;
     oField.inputAccessoryView = toolbar;
-    
+  //  _picker.tintColor = [UIColor whiteColor];
   
-    
-    
+    doneItem2.tintColor = [UIColor whiteColor];
+    doneItem3.tintColor = [UIColor whiteColor];
+    doneItem.tintColor = [UIColor whiteColor];
     self.picker = [[UIDatePicker alloc] init];
    [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
      _picker.datePickerMode = UIDatePickerModeDate;
+    _picker.backgroundColor = self.view.backgroundColor;
   //   picker.frame = CGRectMake(0, 0, picker.frame.size.width, 162);
     dueField.inputView = self.picker;
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -235,19 +280,24 @@
     iField.text = self.info.name;
     oField.text = self.info.details.money;
     
+    date = self.details.date;
+    name2 = self.info.name;
+    moneystring = self.info.details.money;
     
-    
-    
+    NSLog(@"Date String: %@",self.info.dateString);
     if ([self.info.dateString  isEqual: @""]) {
         [dueField setEnabled:NO];
         oLabel.alpha = 0;
         dueField.alpha = 0;
-        [dueField setEnabled:YES];
-        [dueField becomeFirstResponder];
-    }else{
+        tapped = NO;
+        
+          }else{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
-    
+
+              oLabel.alpha = 1;
+              dueField.alpha = 1;
+              alarm.enabled = NO;
+              alarm.alpha=0;
     [formatter setDateFormat:@"ddMMyyyy"];
     [formatter setDateStyle:NSDateFormatterFullStyle];
     NSDate *dt = self.info.details.date;
@@ -302,7 +352,7 @@ button.frame = coverView.frame;
 -(void)updateTextField:(id)sender
 {
     
-    tapped = YES;
+   
     //UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
     
     

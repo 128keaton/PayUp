@@ -107,6 +107,18 @@
     [toolbar setItems:[NSArray arrayWithObjects:flexableItem,doneItem, nil]];
     
      [toolbar2 setItems:[NSArray arrayWithObjects:flexableItem2,doneItem2, nil]];
+    
+    
+    [toolbar2 setBarTintColor:cell1.backgroundColor];
+    [toolbar setBarTintColor:cell1.backgroundColor];
+
+    //  _picker.tintColor = [UIColor whiteColor];
+    
+    doneItem2.tintColor = [UIColor whiteColor];
+  
+    doneItem.tintColor = [UIColor whiteColor];
+
+    
     dueField.inputAccessoryView = toolbar2;
       oField.inputAccessoryView = toolbar;
     
