@@ -150,13 +150,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 
+
 - (void)viewDidUnload {
     self.fetchedResultsController = nil;
+}
+
+
+-(void)moveBack{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25];
+    NSLog(@"%f", self.view.frame.origin.y);
+    
+    NSLog(@"I tried moving back!");
+    [UIView animateWithDuration: 0.25 animations: ^(void) {
+        self.tableView.tableFooterView.transform = CGAffineTransformIdentity;
+        
+    }];
+    [UIView commitAnimations];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self setNeedsStatusBarAppearanceUpdate];
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -166,9 +182,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 	}
     self.title = @"Owed";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
+  addButton.layer.cornerRadius = 2;
+   addButton.layer.borderWidth = 1;
+    addButton.layer.borderColor = addButton.backgroundColor.CGColor;
+    addButton.titleLabel.font = [UIFont fontWithName:@"Neou-Bold" size:15];
     
-    
-    
+    self.tableView.bounces = YES;
  }
 
 - (void)didReceiveMemoryWarning
@@ -247,6 +267,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSLog(@"Money: %@", details.money);
     result = [today compare:details.date]; // comparing two dates
     
+    
+
+        
+              cell.dateLabel.text = info.dateString;
+    
     if(result==NSOrderedAscending)
         cell.thumbnailOwe.image = [UIImage imageNamed:@"Good.png"];
     if ([info.dateString  isEqual: @""]) {
@@ -289,20 +314,60 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     return 200.0f;
 }
 
+
+
 -  (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = nil;
-    //if (section == [tableView numberOfSections] - 1) {
+  if(view == nil) {
     // This UIView will only be created for the last section of your UITableView
     FooterViewController *footer = [[FooterViewController alloc]init];
-    self.footer =footer;
+    self.footer = footer;
     view = self.footer.view;
-    view.frame =  CGRectMake(0,500, view.frame.size.width, view.frame.size.height + 200);
+    view.frame =  CGRectMake(0,0, view.frame.size.width, view.frame.size.height);
     self.tableView.backgroundColor = view.backgroundColor;
     
-    // [view setBackgroundColor:[UIColor redColor]];
-    //  }
+
+    
+  }
+    
     return view;
+
 }
+
+-(IBAction)addPerson:(id)sender{
+    
+    self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
+    self.tdModal2.delegate = self;
+    
+    [UIView animateWithDuration:0.5
+     
+                          delay:0
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self presentSemiModalViewController2:self.tdModal2];
+                         self.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, -150);
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
+    
+    
+    
+    
+    
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -318,19 +383,74 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    
+    // Remove the mail view
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 
-
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    id delegate2 = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate2 managedObjectContext];
-   
-    OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
-    self.tdModal = [[TDSemiModalViewController alloc]init];
+
 
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    id delegate2 = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate2 managedObjectContext];
+    
+    
+    OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+    self.tdModal = [[TDSemiModalViewController alloc]init];
+    
+    self.tdModal.delegate = self;
 	self.tdModal.info = info;
-            [self presentSemiModalViewController:self.tdModal];
+
+    
+    [UIView animateWithDuration:0.5
+     
+                          delay:0
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:1.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                                             [self presentSemiModalViewController:self.tdModal];
+                         
+                         
+                      
+                         
+                         [self showPeople];
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                         [self performSelector:@selector(showPeople:) withObject:nil];
+                     }];
+
+    
+    
+
+
 
   // OweTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 //    [cell.listView startCanvasAnimation];
@@ -340,9 +460,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 
+}
+-(IBAction)showPeople:(id)sender{
+    self.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, +150);
+    NSLog(@"Moved");
+}
+-(void)showPeople{
+    self.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, +150);
+    NSLog(@"Moved");
     
 }
-
 
 
 
@@ -394,6 +521,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
  // Pass the selected object to the new view controller.
  }
  */
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

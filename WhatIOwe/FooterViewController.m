@@ -55,7 +55,7 @@
         self.view.transform = CGAffineTransformIdentity;
     }];
     [UIView commitAnimations];
-} // or whatever you want, make sure to declare it somewhere outside of the scope of a method.  I generally declare mine at the top of the file.
+}
 -(IBAction)addPerson:(id)sender{
  
         self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
@@ -101,13 +101,13 @@
 {
     
   
-    self.test  = [[MasterViewController alloc]init];
-    self.test.delegate = self;
+ //   self.test  = [[MasterViewController alloc]init];
+  //  self.test.delegate = self;
     
-        self.view.frame = CGRectMake(0,35,320,400);
+       // self.view.frame = CGRectMake(0,0,320,200);
     [super viewDidLoad];
-    MasterViewController *testTrans = [[MasterViewController alloc]init];
-     self.originalCenter = testTrans.view.center;
+  //  MasterViewController *testTrans = [[MasterViewController alloc]init];
+   //  self.originalCenter = testTrans.view.center;
     button.layer.cornerRadius = 2;
     button.layer.borderWidth = 1;
     button.layer.borderColor = button.backgroundColor.CGColor;

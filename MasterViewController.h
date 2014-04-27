@@ -14,7 +14,8 @@
 @interface MasterViewController : UITableViewController{
     id delegate;
     NSMutableArray *nameArray;
-  
+  IBOutlet UIView *footerview2;
+    IBOutlet UIButton *addButton;
 }
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
@@ -31,6 +32,8 @@
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
 @property (strong, nonatomic) FooterViewController *footer;
 @property (strong, nonatomic) id delegate;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic)IBOutlet UIView *footerview;
 
 
 @end

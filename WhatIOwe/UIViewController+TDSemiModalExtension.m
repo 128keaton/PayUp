@@ -39,9 +39,9 @@
         
         
         
-    	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width - 30, modalView.frame.size.height/2);
+    	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width, modalView.frame.size.height/2);
         
-        modalView.transform = CGAffineTransformMakeTranslation(15, 30);
+        modalView.transform = CGAffineTransformMakeTranslation(0, 300);
     
         
         coverView.alpha = 0.3;

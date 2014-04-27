@@ -39,16 +39,131 @@
     return YES;
 }
 
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{    self.view.transform = CGAffineTransformMakeTranslation(25, 30);
+    
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width - 30, self.view.frame.size.height/2);
+    
+
+    
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    
+    // Remove the mail view
+ 
+    [self dismissViewControllerAnimated:YES completion:nil];
+	self.view.frame = CGRectMake(0, 0, self.view.frame.size.width - 30, self.view.frame.size.height/2);
+    
+    self.view.transform = CGAffineTransformMakeTranslation(20, 30);
+    
+
+}
+
+- (IBAction)openMail:(id)sender
+{
+    
+
+    if ([MFMailComposeViewController canSendMail])
+    {
+        
+        MasterViewController *master2 = [[MasterViewController alloc]init];
+        self.master = master2;
+self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        
+        mailer.mailComposeDelegate = self;
+        
+        [mailer setSubject:@"You owe me"];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        
+        NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
+        NSLog(@"%@", strDate);
+        
+     
+        
+        id delegate = [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = [delegate managedObjectContext];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"YYYYMMddHHmmss"];
+ 
+        
+       
+
+        
+        NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
+   //     CGFloat alpha = self.coverView.alpha;
+        [self.delegate moveBack];
+               // mailer.view.alpha = s0;
+        NSString *emailBody = bodyString;
+        [mailer setMessageBody:emailBody isHTML:YES];
+        [UIView animateWithDuration:1.0
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^ {
+                             self.master.view.transform = CGAffineTransformMakeTranslation(0, -150);
+
+                             [self presentViewController:mailer animated:YES completion:nil];
+
+                                                                }
+                         completion:^(BOOL finished) {
+                                                    }];
+   
+
+   
+         //  [self.view removeFromSuperview];
+        
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support the composer sheet"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+    }
+    
+}
+
+
+
 -(IBAction)actionButtonItemTapped:(id)sender
 {
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
+    NSLog(@"%@", strDate);
+    
+
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYYMMddHHmmss"];
-    NSString*date2 = [dateFormat stringFromDate:self.picker.date];
     
-    NSURL *myURL = [NSURL URLWithString:[NSString stringWithFormat:@"io://%@?%@#%@", name2, moneystring, date2]];
+    NSURL *myURL = [NSURL URLWithString:[NSString stringWithFormat:@"io://%@?%@#%@", name2, moneystring, strDate]];
     
-    NSLog(moneystring);
+    NSLog(@"Money new: %@",moneystring);
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
@@ -68,7 +183,6 @@
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
 
-    
     NSLog(@"Sent!");
  //   [self dismissViewControllerAnimated:YES completion:nil];
 //    [self.view.superview removeFromSuperview];
@@ -227,8 +341,11 @@
 
     
 }
+
 -(void)viewDidLoad {
     tapped = NO;
+    originalFrame = self.view.frame;
+    originalPoint = self.view.center;
     NSLog(@"load begging");
       [super viewDidLoad];
     UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithTitle:@"Add Date" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonDidPressed2:)];
@@ -264,13 +381,13 @@
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
     [_picker setDate:info.details.date];
-  /*  iLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
+    iLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
     oLabel.font =[UIFont fontWithName:@"ClearSans-Bold" size:12];
     mLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
  
     iField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
     oField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
-    dueField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];*/
+    dueField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
     iField.textColor = [UIColor whiteColor];
     oField.textColor = [UIColor whiteColor];
     dueField.textColor = [UIColor whiteColor];

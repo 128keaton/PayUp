@@ -10,8 +10,9 @@
 #import <Foundation/Foundation.h>
 #import "OweInfo.h"
 #import "OweDetails.h"
+#import <MessageUI/MessageUI.h>
 @class MasterViewController;
-@interface TDSemiModalViewController : UIViewController{
+@interface TDSemiModalViewController : UIViewController <MFMailComposeViewControllerDelegate>{
     IBOutlet UILabel *iLabel;
     IBOutlet UILabel *oLabel;
         IBOutlet UILabel *mLabel;
@@ -34,7 +35,8 @@
     OweDetails *details;
     NSManagedObjectContext *managedObjectContext;
    
-    
+    CGRect originalFrame;
+    CGPoint originalPoint;
     
 }
 @property (strong, nonatomic) id detailItem;

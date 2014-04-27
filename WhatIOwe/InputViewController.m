@@ -256,12 +256,10 @@
     NSDate *dt = picker.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
     
-    if (yes == YES) {
-        dateAsString = @"";
-       
-    }
+
+
     
-    
+    NSLog(@"DATE STRING 2: %@", dateAsString);
     NSString *s = oField.text;
     NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
     s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
@@ -294,6 +292,32 @@
     NSManagedObject *info = [NSEntityDescription
                                           insertNewObjectForEntityForName:@"OweInfo"
                                           inManagedObjectContext:context];
+   if (yes == YES) {
+        dateAsString = @"";
+        
+   }else{
+       
+       NSDate *alertTime = dt;
+       UIApplication* app = [UIApplication sharedApplication];
+       UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
+       if (notifyAlarm) {
+           notifyAlarm.fireDate = alertTime;
+           notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+           notifyAlarm.repeatInterval = 0;
+           //notifyAlarm.soundName = @"dingping.mp3";
+           
+           if ([wow isEqualToString:@"someoneowes"]) {
+               notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", iField.text, editedMoney];
+           }else{
+                notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", iField.text, editedMoney];
+           }
+           [app scheduleLocalNotification:notifyAlarm];
+
+    
+       }
+   }
+    
+    
     [info setValue:dateAsString forKey:@"dateString"];
     [info setValue:iField.text forKey:@"name"];
     [info setValue:wow forKey:@"whooweswhat"];
