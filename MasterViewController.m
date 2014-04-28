@@ -425,7 +425,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     self.tdModal.delegate = self;
 	self.tdModal.info = info;
-
+    CGPoint center = self.view.center;
+    self.tableView.center = center;
     
     [UIView animateWithDuration:0.5
      
@@ -434,18 +435,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
           initialSpringVelocity:1.0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
+                         
+              
                                              [self presentSemiModalViewController:self.tdModal];
                          
                          
                       
                          
-                         [self showPeople];
+                 
                          
                          
                      }
                      completion:^(BOOL finished){
-                         [self performSelector:@selector(showPeople:) withObject:nil];
+                     
+                        
                      }];
+
+    
+ 
 
     
     
@@ -461,15 +468,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 }
--(IBAction)showPeople:(id)sender{
-    self.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, +150);
-    NSLog(@"Moved");
-}
--(void)showPeople{
-    self.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, +150);
-    NSLog(@"Moved");
+
+
+-(void)goBack{
     
+    self.view.transform = CGAffineTransformIdentity;
 }
+
+-(IBAction)showPeople:(id)sender{
+       NSLog(@"Moved");
+}
+
+
 
 
 

@@ -32,16 +32,14 @@
         coverView.alpha = 0.0f;
         
         modalView.frame = rootView.bounds;
-        modalView.center = self.offscreenCenter;
+        modalView.center = self.offscreenCenter2;
         
         [rootView addSubview:coverView];
         [rootView addSubview:modalView];
         
+         	modalView.frame = CGRectMake(0, 0, 320, 284);
         
-        
-    	modalView.frame = CGRectMake(0, 0, modalView.frame.size.width, modalView.frame.size.height/2);
-        
-        modalView.transform = CGAffineTransformMakeTranslation(0, 300);
+        modalView.transform = CGAffineTransformMakeTranslation(0, 100);
     
         
         coverView.alpha = 0.3;
@@ -180,7 +178,7 @@
     CGSize offSize = UIScreen.mainScreen.bounds.size;
     
 	
-		offScreenCenter2 = CGPointMake(offSize.width - 25, offSize.height);
+		        offScreenCenter2 = CGPointMake(offSize.width / 2.0, offSize.height - 500);
 	
     
     return offScreenCenter2;

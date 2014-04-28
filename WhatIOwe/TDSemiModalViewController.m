@@ -43,9 +43,17 @@
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {    self.view.transform = CGAffineTransformMakeTranslation(25, 30);
     
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width - 30, self.view.frame.size.height/2);
+    self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
     
-
+    CGSize offSize = UIScreen.mainScreen.bounds.size;
+    
+	
+    CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
+    
+    self.view.center = offScreenCenter2;
+    self.view.transform = CGAffineTransformIdentity;
+    self.view.frame = CGRectMake(0, 0, 320, 284);
+    
     
     switch (result)
     {
@@ -242,7 +250,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
                      animations:^{
                              [oField resignFirstResponder];
                                                [self dismissSemiModalViewController:self];
-                       
+                         [self.delegate goBack];
                      }
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
@@ -285,6 +293,35 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
     
     
 }
+-(void)viewDidAppear:(BOOL)animated{
+    
+   self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
+    
+    CGSize offSize = UIScreen.mainScreen.bounds.size;
+    
+	
+   CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
+
+    self.view.center = offScreenCenter2;
+    self.view.transform = CGAffineTransformIdentity;
+    self.view.frame = CGRectMake(0, 0, 320, 284);
+    
+   
+}
+
+-(CGPoint) offscreenCenter2 {
+    CGPoint offScreenCenter2 = CGPointZero;
+    
+    
+    CGSize offSize = UIScreen.mainScreen.bounds.size;
+    
+	
+    offScreenCenter2 = CGPointMake(offSize.width / 2.0, offSize.height - 500);
+	
+    
+    return offScreenCenter2;
+}
+
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -346,6 +383,9 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
     tapped = NO;
     originalFrame = self.view.frame;
     originalPoint = self.view.center;
+    MasterViewController *mvc = [[MasterViewController alloc]init];
+    self.master = mvc;
+  self.master.tableView.tableFooterView.transform = CGAffineTransformMakeTranslation(0, -100);
     NSLog(@"load begging");
       [super viewDidLoad];
     UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithTitle:@"Add Date" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonDidPressed2:)];
