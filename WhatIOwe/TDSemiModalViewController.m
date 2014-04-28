@@ -41,51 +41,97 @@
 
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{    self.view.transform = CGAffineTransformMakeTranslation(25, 30);
+{
+        [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         UIView* rootView = self.view;
+                         CGRect frame = rootView.frame;
+                         CGPoint oldOrigin = frame.origin;
+                         CGPoint newOrigin = CGPointMake(0, 100);
+                         frame.origin = newOrigin;
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                         frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), 284 );
+                        
+                         
+                        
+
+                         rootView.frame = frame;
+                
+
+                         
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+
     
-    self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
     
-    CGSize offSize = UIScreen.mainScreen.bounds.size;
+
     
-	
-    CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
-    
-    self.view.center = offScreenCenter2;
-    self.view.transform = CGAffineTransformIdentity;
-    self.view.frame = CGRectMake(0, 0, 320, 284);
-    
-    
-    switch (result)
-    {
-        case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
-            break;
-        default:
-            NSLog(@"Mail not sent.");
-            break;
-    }
-    
-    // Remove the mail view
  
-    [self dismissViewControllerAnimated:YES completion:nil];
-	self.view.frame = CGRectMake(0, 0, self.view.frame.size.width - 30, self.view.frame.size.height/2);
+
+
+
     
-    self.view.transform = CGAffineTransformMakeTranslation(20, 30);
     
 
 }
 
+- (IBAction)openMailComposer:(id)sender
+{
+    if (![MFMailComposeViewController canSendMail]) {
+        return;
+    }
+    
+    
+    
+    
+    
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    
+    
+    [controller setSubject:@"You owe me"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // [dateFormatter setDateFormat:@"MMM dd, yyyy, hh:mm a"];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
+    NSLog(@"%@", strDate);
+    
+    
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+
+    
+    
+    
+    
+    NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
+    //     CGFloat alpha = self.coverView.alpha;
+    
+    // mailer.view.alpha = s0;
+    NSString *emailBody = bodyString;
+    [controller setMessageBody:emailBody isHTML:YES];
+    
+    
+    [controller setMailComposeDelegate:self];
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+
 - (IBAction)openMail:(id)sender
 {
+    
+    UIView* rootView = self.view;
+    CGRect frame = rootView.frame;
+    CGPoint oldOrigin = frame.origin;
+    CGPoint newOrigin = CGPointMake(0, 100);
+    frame.origin = newOrigin;
+    frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), frame.size.height - (newOrigin.y - oldOrigin.y) );
+    rootView.frame = frame;
     
 
     if ([MFMailComposeViewController canSendMail])
@@ -101,24 +147,49 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
         
         [mailer setSubject:@"You owe me"];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateFormat:@"YYYYMMddHHmmss"];
         
-        NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
+        
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+      
+        [formatter  setDateFormat:@"YYYYMMddHHmmss"];
+        //[formatter setDateStyle:NSDateFormatterFullStyle];
+        NSDate *dt = self.info.details.date;
+        NSString *dateAsString = [formatter stringFromDate:dt];
+        
+        
+        NSLog(@"DateAsString2: %@", dateAsString);
+        
+      
+        
+
+        
+        
+        
+        NSString *strDate = dateAsString;
         NSLog(@"%@", strDate);
         
      
         
+        
+        
+        
         id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"YYYYMMddHHmmss"];
+
  
         
-       
+        NSLog(@"STRDate: %@", strDate);
+        
 
         
         NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
    //     CGFloat alpha = self.coverView.alpha;
-        [self.delegate moveBack];
+       
                // mailer.view.alpha = s0;
         NSString *emailBody = bodyString;
         [mailer setMessageBody:emailBody isHTML:YES];
@@ -295,18 +366,30 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
 }
 -(void)viewDidAppear:(BOOL)animated{
     
-   self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         UIView* rootView = self.view;
+                         CGRect frame = rootView.frame;
+                         CGPoint oldOrigin = frame.origin;
+                         CGPoint newOrigin = CGPointMake(0, 100);
+                         frame.origin = newOrigin;
+                     //    [self dismissViewControllerAnimated:YES completion:nil];
+                         frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), 284 );
+                         
+                         
+                         
+                         
+                         rootView.frame = frame;
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL finished) {
+                     }];
     
-    CGSize offSize = UIScreen.mainScreen.bounds.size;
-    
-	
-   CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
 
-    self.view.center = offScreenCenter2;
-    self.view.transform = CGAffineTransformIdentity;
-    self.view.frame = CGRectMake(0, 0, 320, 284);
-    
-   
 }
 
 -(CGPoint) offscreenCenter2 {
@@ -461,7 +544,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
     NSString *dateAsString = [formatter stringFromDate:dt];
     
     
-    NSLog(@"%@", dateAsString);
+    NSLog(@"DateAsString: %@", dateAsString);
     
         
         dueField.text = [NSString stringWithFormat:@"%@",dateAsString];

@@ -81,12 +81,16 @@
         
         
         NSString *dateString = [[url fragment] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         // this is imporant - we set our input date format to match our input string
         // if format doesn't match you'll get nil from your string, so be careful
     
         NSDate *dateFromString = [[NSDate alloc] init];
         // voila!
+        
+            [dateFormatter setDateFormat:@"MM/dd"];
         dateFromString = [dateFormatter dateFromString:dateString];
         
         
@@ -135,7 +139,9 @@
                                  insertNewObjectForEntityForName:@"OweInfo"
                                  inManagedObjectContext:context];
         [info setValue:[url fragment] forKey:@"dateString"];
-        [info setValue:taskName forKey:@"name"];
+        
+     NSString *name =   [taskName capitalizedString];
+        [info setValue:name forKey:@"name"];
         [info setValue:wow forKey:@"whooweswhat"];
         [info setValue:[NSNumber numberWithInt:1] forKey:@"dateowed"];
         [details setValue:info forKey:@"info"];
