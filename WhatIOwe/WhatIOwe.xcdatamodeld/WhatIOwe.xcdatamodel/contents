@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="OweDetails" representedClassName="OweDetails" syncable="YES">
+        <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="money" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OweInfo" inverseName="details" inverseEntity="OweInfo" syncable="YES"/>
@@ -13,7 +14,7 @@
         <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OweDetails" inverseName="info" inverseEntity="OweDetails" syncable="YES"/>
     </entity>
     <elements>
-        <element name="OweDetails" positionX="124" positionY="-18" width="128" height="88"/>
+        <element name="OweDetails" positionX="124" positionY="-18" width="128" height="105"/>
         <element name="OweInfo" positionX="-63" positionY="-27" width="128" height="118"/>
     </elements>
 </model>

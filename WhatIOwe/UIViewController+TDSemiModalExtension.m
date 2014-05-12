@@ -5,7 +5,7 @@
 //  Created by Nathan  Reed on 18/10/10.
 //  Copyright 2010 Nathan Reed. All rights reserved.
 //
-
+#define   IsIphone5     ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #import "UIViewController+TDSemiModalExtension.h"
 #import "MasterViewController.h"
 @implementation UIViewController (TDSemiModalExtension)
@@ -20,12 +20,12 @@
 - (void) presentSemiModalViewController:(TDSemiModalViewController*)vc inView:(UIView *)rootView {
 
     
- 
+     UIView* modalView = vc.view;
+               	modalView.frame = CGRectMake(0, 0, 320, 284);
     
-    
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
+    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut  animations:^{
         
-        UIView* modalView = vc.view;
+    
         UIView* coverView = vc.coverView;
         
         coverView.frame = rootView.bounds;
@@ -34,13 +34,19 @@
         modalView.frame = rootView.bounds;
         modalView.center = self.offscreenCenter2;
         
+        if(IsIphone5)
+        {
+           modalView.transform = CGAffineTransformMakeTranslation(0, 100);
+        }
+        else
+        {  
+            modalView.transform = CGAffineTransformMakeTranslation(0, 150);
+        }
+     
+
         [rootView addSubview:coverView];
         [rootView addSubview:modalView];
         
-         	modalView.frame = CGRectMake(0, 0, 320, 284);
-        
-        modalView.transform = CGAffineTransformMakeTranslation(0, 100);
-    
         
         coverView.alpha = 0.3;
         

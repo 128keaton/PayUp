@@ -10,11 +10,13 @@
 
 @class TDSemiModalViewController2;
 @class MasterViewController;
+#import <AVFoundation/AVFoundation.h>
 @interface FooterViewController : UIViewController{
     IBOutlet UIButton *button;
     id footercontroller;
 }
-
+@property (strong, nonatomic) AVAudioPlayer *card;
+@property (strong, nonatomic) AVAudioPlayer *pop;
 @property (strong, nonatomic) TDSemiModalViewController2 *tdModal2;
 @property  (nonatomic) CGPoint originalCenter;
 @property (nonatomic, strong)id footercontroller;

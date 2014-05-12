@@ -22,7 +22,12 @@
     
    
     
-    
+    NSURL* musicFile2 = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                pathForResource:@"pop"
+                                                ofType:@"aif"]];
+    self.card = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile2 error:nil];
+    [self.card prepareToPlay];
+
 	self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
 
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -81,6 +86,7 @@
     [super didReceiveMemoryWarning];
 }
 -(IBAction)NotOwed:(id)sender{
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     self.tdModal = (InputViewController *)[storyboard instantiateViewControllerWithIdentifier:@"VDI"];
  

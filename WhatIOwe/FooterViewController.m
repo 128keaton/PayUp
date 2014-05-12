@@ -12,7 +12,7 @@
 #import "TDSemiModal.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SBJson4.h"
-
+#import <AVFoundation/AVFoundation.h>
 
 @interface FooterViewController ()
 @property (strong, nonatomic) MasterViewController *Mvc;
@@ -60,6 +60,7 @@
  
         self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
     self.tdModal2.delegate = self;
+    [self.pop play];
     
     [UIView animateWithDuration:0.5
      
@@ -100,7 +101,21 @@
 - (void)viewDidLoad
 {
     
-  
+    NSURL* musicFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                               pathForResource:@"slow"
+                                               ofType:@"aif"]];
+    self.pop = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
+    [self.pop prepareToPlay];
+    
+    
+    NSURL* musicFile2 = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                                pathForResource:@"pop"
+                                                ofType:@"aif"]];
+    self.card = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile2 error:nil];
+    [self.card prepareToPlay];
+
+    
+    
  //   self.test  = [[MasterViewController alloc]init];
   //  self.test.delegate = self;
     

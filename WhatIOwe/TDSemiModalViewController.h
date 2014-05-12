@@ -52,7 +52,7 @@
 - (void)setDetailItem:(id)newDetailItem;
 @property (nonatomic, retain) MasterViewController *master;
 @property (nonatomic, strong) IBOutlet id delegate;
-
+@property (strong, nonatomic) NSDate *storageDate;
 @property (nonatomic, strong) IBOutlet UILabel *money;
 
 

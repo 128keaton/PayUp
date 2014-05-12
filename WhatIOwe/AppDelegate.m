@@ -11,7 +11,7 @@
 #import "oweDetails.h"
 #import "MasterViewController.h"
 #import "PersistentStack.h"
-
+#import "PayPal.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +40,15 @@
 }
 
 
+-(void)initializePayPal {
+    [PayPal initializeWithAppID:@"APP-80W284485P519543T"
+                 forEnvironment:ENV_SANDBOX];
+}
+
+
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
@@ -47,8 +56,14 @@
     
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     self.managedObjectContext = self.persistentStack.managedObjectContext;
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
+    }
     
-    
+    [NSThread detachNewThreadSelector:@selector(initializePayPal)
+                             toTarget:self withObject:nil];
        // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -63,6 +78,29 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    if (url != nil && [url isFileURL]) {
+     //   UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *info = [NSEntityDescription
+                                 insertNewObjectForEntityForName:@"OweInfo"
+                                 inManagedObjectContext:context];
+        NSData *zippedData = [NSData dataWithContentsOfURL:url];
+        NSDictionary *dict = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:zippedData];
+        
+        
+        [info setValue:[[dict objectForKey:@"dateString"] stringValue] forKey:@"dateString"];
+        [info setValue:[[dict objectForKey:@"name"] stringValue] forKey:@"name"];
+        // [info setValue:wow forKey:@"whooweswhat"];
+        [info setValue:[dict objectForKey:@"date"] forKey:@"dateowed"];
+        NSLog(@"Added! :D");
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+    }
+    
   //  [self customizeAppearance];
     return YES;
     
@@ -80,7 +118,7 @@
 
         
         
-        NSString *dateString = [[url fragment] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *dateString = [url fragment];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         // this is imporant - we set our input date format to match our input string
         // if format doesn't match you'll get nil from your string, so be careful
@@ -90,21 +128,30 @@
         dateFromString = [dateFormatter dateFromString:dateString];
         
         
-
+        NSLog(@"HI2:%@", dateFromString);
+        
      
         
                       //  [formatter setDateStyle:NSDateFormatterFullStyle];
         
-            
-            
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        
+      
+        [formatter setDateFormat:@"MM/dd"];
+        //  [formatter setDateStyle:NSDateFormatterFullStyle];
+
+        NSString *dateAsString = [formatter stringFromDate:dateFromString];
+
+        
             NSString *s = [url query];
         NSString *ss = [s stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
         
             NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
             NSString *sss = [[ss componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
-            
-            
+        dateString = dateAsString;
+        
             
             
    
@@ -149,6 +196,118 @@
      //   [(NSMutableArray *)_managedObjectContext addObject:item];
         return YES;
         
+    }else if ([url isFileURL]){
+        
+        
+        
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObject *info = [NSEntityDescription
+                                 insertNewObjectForEntityForName:@"OweInfo"
+                                 inManagedObjectContext:context];
+        NSManagedObject *details = [NSEntityDescription
+                                 insertNewObjectForEntityForName:@"OweDetails"
+                                 inManagedObjectContext:context];
+        NSData *zippedData = [NSData dataWithContentsOfURL:url];
+        NSDictionary *dict = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:zippedData];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        // Time format for the string value
+        
+        NSDate *date = [dict objectForKey:@"date"];
+        NSLog(@"date => %@", date);
+        NSString *wow = nil;
+       
+    
+        
+        if ([[dict objectForKey:@"whooweswhat"]  isEqual: @"someoneowes"]) {
+            wow = @"someoneowes";
+         //   editedMoney = [NSString stringWithFormat:@"$%@", s];
+            
+        }else{
+          //  editedMoney = [NSString stringWithFormat:@"$%@", s];
+            wow=@"nope";
+            
+        }
+        
+
+        if (![[dict objectForKey:@"dateString"] isEqualToString:@""]) {
+        
+            
+        
+            
+            NSDate *alertTime = date;
+            UIApplication* app = [UIApplication sharedApplication];
+            UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
+            if (notifyAlarm) {
+                notifyAlarm.fireDate = alertTime;
+                notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+                notifyAlarm.repeatInterval = 0;
+                //notifyAlarm.soundName = @"dingping.mp3";
+                
+                if ([wow isEqualToString:@"someoneowes"]) {
+                    notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", [dict objectForKey:@"name"] , [dict objectForKey:@"money"]];
+                }else{
+                    notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", [dict objectForKey:@"name"] , [dict objectForKey:@"money"]];
+                    [details setValue:[dict objectForKey:@"name"] forKey:@"alert"];
+                }
+                [app scheduleLocalNotification:notifyAlarm];
+                
+                notifyAlarm.applicationIconBadgeNumber = app.applicationIconBadgeNumber + 1;
+                
+                
+            }
+        }
+        
+               [info setValue:[dict objectForKey:@"name"]  forKey:@"name"];
+        [details setValue:[dict objectForKey:@"money"] forKey:@"money"];
+        
+        // [info setValue:wow forKey:@"whooweswhat"];
+        [details setValue:date forKey:@"date"];
+        NSLog(@"Added! :D");
+        NSString *dateString = [dict objectForKey:@"dateString"];
+        NSLog(@"Date String Dictionary: %@", [dict objectForKey:@"dateString"]);
+        if ([[dict objectForKey:@"dateString"] isEqualToString:@""])
+        {
+            dateString = @"";
+        }
+        
+          [info setValue:dateString forKey:@"dateString"];
+        
+     //   [info setValue:[url fragment] forKey:@"dateString"];
+     //   [info setValue:taskName forKey:@"name"];
+    //    [info setValue:wow forKey:@"whooweswhat"];
+        [info setValue:[NSNumber numberWithInt:1] forKey:@"dateowed"];
+        [details setValue:info forKey:@"info"];
+        [info setValue: details forKey:@"details"];
+        [info setValue:wow forKeyPath:@"whooweswhat"];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // this is imporant - we set our input date format to match our input string
+        // if format doesn't match you'll get nil from your string, so be careful
+        
+        
+        
+     
+        
+
+        
+        
+        return YES;
+
     }
          NSLog(@"NO!");
     return NO;
@@ -183,6 +342,27 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+-(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *info = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"OweInfo"
+                             inManagedObjectContext:context];
+    NSData *zippedData = [NSData dataWithContentsOfURL:url];
+    NSDictionary *dict = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:zippedData];
+    
+    
+    [info setValue:[[dict objectForKey:@"dateString"] stringValue] forKey:@"dateString"];
+    [info setValue:[[dict objectForKey:@"name"] stringValue] forKey:@"name"];
+    // [info setValue:wow forKey:@"whooweswhat"];
+    [info setValue:[dict objectForKey:@"date"] forKey:@"dateowed"];
+    NSLog(@"Added! :D");
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    return YES;
+}
+
 
 - (void)saveContext
 {

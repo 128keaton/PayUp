@@ -310,6 +310,7 @@
                notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", iField.text, editedMoney];
            }else{
                 notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", iField.text, editedMoney];
+               [details setValue:iField.text forKey:@"alert"];
            }
            [app scheduleLocalNotification:notifyAlarm];
 

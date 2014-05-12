@@ -11,6 +11,7 @@
 #import "FooterViewController.h"
 #import <UIKit/UIKit.h>
 #import "CSAnimationView.h"
+#import <AVFoundation/AVFoundation.h>
 @interface MasterViewController : UITableViewController{
     id delegate;
     NSMutableArray *nameArray;
@@ -24,6 +25,8 @@
 @property (strong, nonatomic) NSString *money;
 @property (strong, nonatomic) NSDate *date;
 @property ( nonatomic) BOOL dateOwed;
+@property (strong, nonatomic) AVAudioPlayer *tap;
+@property (strong, nonatomic) AVAudioPlayer *delete;
 @property (nonatomic) BOOL paused;
 @property (strong, nonatomic) IBOutlet UIView *flipView;
 @property (strong, nonatomic) id detailItem;
@@ -34,6 +37,6 @@
 @property (strong, nonatomic) id delegate;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)IBOutlet UIView *footerview;
-
+- (void)handleOpenURL:(NSURL *)url;
 
 @end

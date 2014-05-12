@@ -11,8 +11,9 @@
 #import "UIViewController+TDSemiModalExtension.h"
 #import "OweInfo.h"
 #import "OweDetails.h"
-
+#import <AVFoundation/AVFoundation.h>
 #import "CSAnimationView.h"
+#import "PaymentViewController.h"
 @implementation TDSemiModalViewController
 
 
@@ -77,13 +78,31 @@
     // Remove the mail view
  
     [self dismissViewControllerAnimated:YES completion:nil];
-	self.view.frame = CGRectMake(0, 0, self.view.frame.size.width - 30, self.view.frame.size.height/2);
+	self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2);
     
     self.view.transform = CGAffineTransformMakeTranslation(20, 30);
     
 
 }
+-(void)PlayClip:(NSString *)soundName
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:soundName ofType:@"mp3"];
+    AVAudioPlayer* theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+    
+    [theAudio play];
 
+    
+    
+}
+
+-(IBAction)payupsukka:(id)sender{
+    
+    PaymentViewController *pay = [[PaymentViewController alloc]init];
+
+    [self presentViewController:pay animated:YES completion:nil];
+   [self.delegate dismissSemiModalViewController:self];
+    pay.view.bounds = [[UIScreen mainScreen]bounds];
+}
 - (IBAction)openMail:(id)sender
 {
     
@@ -96,28 +115,66 @@
 self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
-        
+        NSString *bodyString = nil;
         mailer.mailComposeDelegate = self;
+        if ([self.info.whooweswhat  isEqual: @"someoneowes"]) {
+            [mailer setSubject:[NSString stringWithFormat:@"I Owe You %@", self.info.details.money]];
+            bodyString = [NSString stringWithFormat:@"I owe you %@.", moneystring];
+
+
+        }else{
+            
+            [mailer setSubject:[NSString stringWithFormat:@"You Owe Me %@", self.info.details.money]];
+      bodyString = [NSString stringWithFormat:@"You owe me %@.", moneystring];
+        }
         
-        [mailer setSubject:@"You owe me"];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        
-        NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
-        NSLog(@"%@", strDate);
-        
-     
-        
-        id delegate = [[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = [delegate managedObjectContext];
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"YYYYMMddHHmmss"];
  
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:10];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        // Time format for the string value
+               NSString *dateStr = [dateFormatter stringFromDate:self.info.details.date];
         
-       
+        if (tapped == YES){
+            [dict setObject:self.picker.date forKey:@"date"];
+            [dict setObject:self.info.dateString forKey:@"dateString"];
+            NSLog(@"tapped");
+        }else{
+            NSLog(@"nottapped");
+            [dict setObject:@"" forKey:@"dateString"];
+              [dict setObject:self.picker.date forKey:@"date"];
+            
+        }
+        
 
         
-        NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
-   //     CGFloat alpha = self.coverView.alpha;
+         [dict setObject:self.info.name forKey:@"name"];
+        [dict setObject:self.info.whooweswhat forKey:@"whooweswhat"];
+           [dict setObject:self.info.details.money forKey:@"money"];
+        NSLog(@"Money: %@", self.info.details.money);
+        
+
+       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+        
+         [mailer addAttachmentData:data mimeType:@"application/io" fileName:@"IO"];
+        
+        NSDate *startDateString = self.info.details.date;
+        NSDateFormatter *dateStartFormatter = [[NSDateFormatter alloc] init];
+       // [dateStartFormatter setDateFormat:@"dd MM yyyy"];
+        
+        NSString *strDate = [dateStartFormatter stringFromDate:startDateString];
+        NSLog(@"HI: %@", strDate);
+        NSDate *dt = self.picker.date;
+        NSString *dateAsString = [dateStartFormatter stringFromDate:dt];
+        
+               id delegate = [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = [delegate managedObjectContext];
+
+ 
+        
+        
+       
+        
+       //     CGFloat alpha = self.coverView.alpha;
         [self.delegate moveBack];
                // mailer.view.alpha = s0;
         NSString *emailBody = bodyString;
@@ -209,7 +266,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
 
     }
      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM"];
+    [formatter setDateFormat:@"MM/dd"];
     //  [formatter setDateStyle:NSDateFormatterFullStyle];
     NSDate *dt = self.picker.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
@@ -276,7 +333,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
     }else{
         
         [oField resignFirstResponder];
-        
+          
     }
     
 }
@@ -295,16 +352,28 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
 }
 -(void)viewDidAppear:(BOOL)animated{
     
-   self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
-    
-    CGSize offSize = UIScreen.mainScreen.bounds.size;
-    
-	
-   CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
-
-    self.view.center = offScreenCenter2;
-    self.view.transform = CGAffineTransformIdentity;
-    self.view.frame = CGRectMake(0, 0, 320, 284);
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         UIView* rootView = self.view;
+                         CGRect frame = rootView.frame;
+                         CGPoint oldOrigin = frame.origin;
+                         CGPoint newOrigin = CGPointMake(0, 100);
+                         frame.origin = newOrigin;
+                         //    [self dismissViewControllerAnimated:YES completion:nil];
+                         frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), 284 );
+                         
+                         
+                         
+                         
+                         rootView.frame = frame;
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL finished) {
+                     }];
     
    
 }
@@ -457,10 +526,12 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
               alarm.alpha=0;
     [formatter setDateFormat:@"ddMMyyyy"];
     [formatter setDateStyle:NSDateFormatterFullStyle];
+              
+              self.storageDate = self.info.details.date;
     NSDate *dt = self.info.details.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
     
-    
+              tapped=YES;
     NSLog(@"%@", dateAsString);
     
         

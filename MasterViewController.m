@@ -16,6 +16,8 @@
 #import "FooterViewController.h"
 #import "CSAnimationView.h"
 #import "EditTableViewCell.h"
+#import <POP/POP.h>
+#import <AVFoundation/AVFoundation.h>
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 @interface MasterViewController ()
 
@@ -51,7 +53,23 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     self.managedObjectContext = [delegate2 managedObjectContext];
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.managedObjectContext deleteObject:object];
+    [self.delete play];
+
+   // OweInfo *info = [[OweInfo alloc]init];
     
+   OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+    NSArray *arrayOfLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications] ;
+    
+    for (UILocalNotification *localNotification in arrayOfLocalNotifications) {
+        
+        if ([localNotification.alertBody isEqualToString: info.details.alert]) {
+            NSLog(@"the notification this is canceld is %@", localNotification.alertBody);
+            
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification] ; // delete the notification from the system
+            
+        }
+        
+    }
     // Save
     NSError *error;
     if ([self.managedObjectContext save:&error] == NO) {
@@ -172,7 +190,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL* musicFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                               pathForResource:@"slide-paper"
+                                               ofType:@"aif"]];
+    self.tap = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
+    [self.tap prepareToPlay];
     
+    
+    NSURL* musicFile2 = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                               pathForResource:@"slide-scissors"
+                                               ofType:@"aif"]];
+    self.delete = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile2 error:nil];
+    [self.delete prepareToPlay];
+
     [self setNeedsStatusBarAppearanceUpdate];
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -366,8 +396,39 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
 }
+- (void)handleOpenURL:(NSURL *)url {
+        NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *info = [NSEntityDescription
+                             insertNewObjectForEntityForName:@"OweInfo"
+                             inManagedObjectContext:context];
+     NSData *zippedData = [NSData dataWithContentsOfURL:url];
+    NSDictionary *dict = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:zippedData];
+    
+   
+    [info setValue:[[dict objectForKey:@"dateString"] stringValue] forKey:@"dateString"];
+    [info setValue:[[dict objectForKey:@"name"] stringValue] forKey:@"name"];
+   // [info setValue:wow forKey:@"whooweswhat"];
+    [info setValue:[dict objectForKey:@"date"] forKey:@"dateowed"];
+    NSLog(@"Added! :D");
+       NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+   
 
-
+}
+-(void)PlayClip:(NSString *)soundName
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:soundName ofType:@"aif"];
+    AVAudioPlayer* theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
+    [theAudio setVolume:10];
+    [theAudio prepareToPlay];
+    [theAudio play];
+    
+    
+    
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -415,6 +476,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+
+    
+    [self.tap play];
     
     id delegate2 = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate2 managedObjectContext];
@@ -427,17 +491,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 	self.tdModal.info = info;
     CGPoint center = self.view.center;
     self.tableView.center = center;
-    
-    [UIView animateWithDuration:0.5
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerBounds];
+    anim.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, 320, 220)];
+    CALayer *sublayer = self.tdModal.view.layer;
+                    [self presentSemiModalViewController:self.tdModal];
+    [sublayer pop_addAnimation:anim forKey:@"size"];
+      /*  [UIView animateWithDuration:0.5
      
                           delay:0
          usingSpringWithDamping:0.8
           initialSpringVelocity:1.0
                         options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
+                     animations:^{*/
                          
               
-                                             [self presentSemiModalViewController:self.tdModal];
+    
                          
                          
                       
@@ -445,12 +513,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                  
                          
                          
-                     }
+                  /*   }
                      completion:^(BOOL finished){
                      
                         
                      }];
-
+*/
     
  
 

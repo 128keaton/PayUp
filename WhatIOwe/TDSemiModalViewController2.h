@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "InputViewController.h"
 #import "FooterViewController.h"
+#import <AVFoundation/AVFoundation.h>
 @interface TDSemiModalViewController2 : UIViewController{
     IBOutlet UIButton *button1;
     IBOutlet UIButton *button2;
     
     id delegate;
 }
-    
+ @property (strong, nonatomic) AVAudioPlayer *card;
  @property(strong,nonatomic) FooterViewController *footer;
 @property(strong, nonatomic) id delegate;
 @property (nonatomic, strong) UIView *coverView;

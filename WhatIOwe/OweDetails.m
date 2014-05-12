@@ -11,7 +11,7 @@
 
 
 @implementation OweDetails
-
+@dynamic alert;
 @dynamic money;
 @dynamic date;
 @dynamic info;

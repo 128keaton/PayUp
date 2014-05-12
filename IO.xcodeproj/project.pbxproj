@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A07D079191ED525002DE54E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A07D078191ED525002DE54E /* AVFoundation.framework */; };
+		8A07D07B191ED609002DE54E /* tap-mellow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D07A191ED609002DE54E /* tap-mellow.aif */; };
+		8A07D07F191ED6AD002DE54E /* slide-scissors.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D07E191ED6AD002DE54E /* slide-scissors.aif */; };
+		8A07D081191ED854002DE54E /* slide-paper.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D080191ED854002DE54E /* slide-paper.aif */; };
+		8A07D083191EFFBB002DE54E /* pop.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D082191EFFBB002DE54E /* pop.aif */; };
+		8A07D085191F00FF002DE54E /* slow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D084191F00FF002DE54E /* slow.aif */; };
 		8A0F707F18F0E98300D5732C /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F707E18F0E98300D5732C /* PersistentStack.m */; };
 		8A0F708518F0EE7100D5732C /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F708218F0EE7100D5732C /* TDSemiModalViewController.m */; };
 		8A0F708618F0EE7100D5732C /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F708418F0EE7100D5732C /* UIViewController+TDSemiModalExtension.m */; };
@@ -63,6 +69,13 @@
 		8A95578D18EF7F8600469480 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578C18EF7F8600469480 /* InputViewController.m */; };
 		8A95579318EFB2F900469480 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95579218EFB2F900469480 /* DetailViewController.m */; };
 		8ABFAF8218F47F2000D503C4 /* 1397001691_alarm_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */; };
+		8AC162121920746E004DC078 /* libPayPalMPL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC162071920746E004DC078 /* libPayPalMPL.a */; };
+		8AC1622219207633004DC078 /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1622119207633004DC078 /* PaymentViewController.m */; };
+		8AC1622419207661004DC078 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622319207661004DC078 /* Security.framework */; };
+		8AC1622619207668004DC078 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622519207668004DC078 /* libz.1.2.5.dylib */; };
+		8AC16228192076B7004DC078 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC16227192076B7004DC078 /* libz.dylib */; };
+		8AC1622A19207714004DC078 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622919207714004DC078 /* libxml2.dylib */; };
+		8AC1622C19207BDD004DC078 /* Payment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1622B19207BDD004DC078 /* Payment.xib */; };
 		8ADCE10518F5FA7900065785 /* IO-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADCE10418F5FA7900065785 /* IO-Info.plist */; };
 		8AE2B63A18F48D4A00D4E203 /* Bad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63918F48D4A00D4E203 /* Bad.png */; };
 		8AE2B63C18F48D4E00D4E203 /* Good.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63B18F48D4E00D4E203 /* Good.png */; };
@@ -83,6 +96,12 @@
 /* Begin PBXFileReference section */
 		021A7D97EAF74EE2839B1EAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3FEF678A742628EDA3B4C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8A07D078191ED525002DE54E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8A07D07A191ED609002DE54E /* tap-mellow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-mellow.aif"; sourceTree = "<group>"; };
+		8A07D07E191ED6AD002DE54E /* slide-scissors.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-scissors.aif"; sourceTree = "<group>"; };
+		8A07D080191ED854002DE54E /* slide-paper.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-paper.aif"; sourceTree = "<group>"; };
+		8A07D082191EFFBB002DE54E /* pop.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop.aif; sourceTree = "<group>"; };
+		8A07D084191F00FF002DE54E /* slow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow.aif; sourceTree = "<group>"; };
 		8A0F707C18F0E6D000D5732C /* OweIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OweIt.entitlements; sourceTree = SOURCE_ROOT; };
 		8A0F707D18F0E98300D5732C /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
 		8A0F707E18F0E98300D5732C /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
@@ -154,6 +173,24 @@
 		8A95579118EFB2F900469480 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8A95579218EFB2F900469480 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1397001691_alarm_clock.png; sourceTree = "<group>"; };
+		8AC162071920746E004DC078 /* libPayPalMPL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMPL.a; sourceTree = "<group>"; };
+		8AC162081920746E004DC078 /* PayPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPal.h; sourceTree = "<group>"; };
+		8AC162091920746E004DC078 /* PayPalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalAddress.h; sourceTree = "<group>"; };
+		8AC1620A1920746E004DC078 /* PayPalAdvancedPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalAdvancedPayment.h; sourceTree = "<group>"; };
+		8AC1620B1920746E004DC078 /* PayPalAmounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalAmounts.h; sourceTree = "<group>"; };
+		8AC1620C1920746E004DC078 /* PayPalInvoiceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalInvoiceData.h; sourceTree = "<group>"; };
+		8AC1620D1920746E004DC078 /* PayPalInvoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalInvoiceItem.h; sourceTree = "<group>"; };
+		8AC1620E1920746E004DC078 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		8AC1620F1920746E004DC078 /* PayPalPreapprovalDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalPreapprovalDetails.h; sourceTree = "<group>"; };
+		8AC162101920746E004DC078 /* PayPalReceiverAmounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalReceiverAmounts.h; sourceTree = "<group>"; };
+		8AC162111920746E004DC078 /* PayPalReceiverPaymentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalReceiverPaymentDetails.h; sourceTree = "<group>"; };
+		8AC1622019207633004DC078 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		8AC1622119207633004DC078 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		8AC1622319207661004DC078 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8AC1622519207668004DC078 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		8AC16227192076B7004DC078 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8AC1622919207714004DC078 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8AC1622B19207BDD004DC078 /* Payment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Payment.xib; sourceTree = "<group>"; };
 		8ADCE10418F5FA7900065785 /* IO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IO-Info.plist"; sourceTree = "<group>"; };
 		8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IO-Prefix.pch"; sourceTree = "<group>"; };
 		8AE2B63918F48D4A00D4E203 /* Bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bad.png; sourceTree = "<group>"; };
@@ -166,9 +203,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC1622A19207714004DC078 /* libxml2.dylib in Frameworks */,
+				8AC16228192076B7004DC078 /* libz.dylib in Frameworks */,
+				8AC1622619207668004DC078 /* libz.1.2.5.dylib in Frameworks */,
+				8AC1622419207661004DC078 /* Security.framework in Frameworks */,
+				8A07D079191ED525002DE54E /* AVFoundation.framework in Frameworks */,
 				8AFEDC6F19088978004D8FE8 /* MessageUI.framework in Frameworks */,
 				8A95573818EF614400469480 /* CoreGraphics.framework in Frameworks */,
 				8A95573C18EF614400469480 /* CoreData.framework in Frameworks */,
+				8AC162121920746E004DC078 /* libPayPalMPL.a in Frameworks */,
 				8A95573A18EF614400469480 /* UIKit.framework in Frameworks */,
 				8A95573618EF614400469480 /* Foundation.framework in Frameworks */,
 				F398319583D741EBA9FEDA5B /* libPods.a in Frameworks */,
@@ -197,6 +240,8 @@
 				8A0F70AB18F1D57D00D5732C /* TDSemiModalViewController2.xib */,
 				8A0F708118F0EE6900D5732C /* TDSemiModalViewController.h */,
 				8A0F708218F0EE7100D5732C /* TDSemiModalViewController.m */,
+				8A07D07A191ED609002DE54E /* tap-mellow.aif */,
+				8A07D07E191ED6AD002DE54E /* slide-scissors.aif */,
 				8A0F708E18F0FBA500D5732C /* TDSemiModalViewController.xib */,
 			);
 			name = "Modal View Controllers";
@@ -267,6 +312,9 @@
 		8A95572918EF614400469480 = {
 			isa = PBXGroup;
 			children = (
+				8AC1622019207633004DC078 /* PaymentViewController.h */,
+				8AC1622119207633004DC078 /* PaymentViewController.m */,
+				8AC1622B19207BDD004DC078 /* Payment.xib */,
 				8A95573D18EF614400469480 /* OweIt */,
 				8A95576618EF614400469480 /* OweIt */,
 				8A95573418EF614400469480 /* Frameworks */,
@@ -287,6 +335,11 @@
 		8A95573418EF614400469480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AC1622919207714004DC078 /* libxml2.dylib */,
+				8AC16227192076B7004DC078 /* libz.dylib */,
+				8AC1622519207668004DC078 /* libz.1.2.5.dylib */,
+				8AC1622319207661004DC078 /* Security.framework */,
+				8A07D078191ED525002DE54E /* AVFoundation.framework */,
 				8AFEDC6E19088978004D8FE8 /* MessageUI.framework */,
 				8A95573518EF614400469480 /* Foundation.framework */,
 				8A95573718EF614400469480 /* CoreGraphics.framework */,
@@ -312,7 +365,10 @@
 				8A3A80E9190D80C6003DDB0F /* Neou-Bold.ttf */,
 				8A95578018EF66AA00469480 /* MasterViewController.m */,
 				8A4D431618F5B0E0001E7D76 /* EditTableViewCell.h */,
+				8A07D080191ED854002DE54E /* slide-paper.aif */,
+				8A07D082191EFFBB002DE54E /* pop.aif */,
 				8A4D431718F5B0E0001E7D76 /* EditTableViewCell.m */,
+				8A07D084191F00FF002DE54E /* slow.aif */,
 				8A95579118EFB2F900469480 /* DetailViewController.h */,
 				8A95579218EFB2F900469480 /* DetailViewController.m */,
 				8A4D430618F4B217001E7D76 /* Dateless.png */,
@@ -326,6 +382,7 @@
 				8A95574C18EF614400469480 /* Main_iPad.storyboard */,
 				8A95575818EF614400469480 /* Images.xcassets */,
 				8A95574F18EF614400469480 /* WhatIOwe.xcdatamodeld */,
+				8AC1621319207477004DC078 /* New Group */,
 				8A95573E18EF614400469480 /* Supporting Files */,
 			);
 			name = OweIt;
@@ -361,6 +418,24 @@
 				8A95576918EF614400469480 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8AC1621319207477004DC078 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				8AC162071920746E004DC078 /* libPayPalMPL.a */,
+				8AC162081920746E004DC078 /* PayPal.h */,
+				8AC162091920746E004DC078 /* PayPalAddress.h */,
+				8AC1620A1920746E004DC078 /* PayPalAdvancedPayment.h */,
+				8AC1620B1920746E004DC078 /* PayPalAmounts.h */,
+				8AC1620C1920746E004DC078 /* PayPalInvoiceData.h */,
+				8AC1620D1920746E004DC078 /* PayPalInvoiceItem.h */,
+				8AC1620E1920746E004DC078 /* PayPalPayment.h */,
+				8AC1620F1920746E004DC078 /* PayPalPreapprovalDetails.h */,
+				8AC162101920746E004DC078 /* PayPalReceiverAmounts.h */,
+				8AC162111920746E004DC078 /* PayPalReceiverPaymentDetails.h */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,11 +528,13 @@
 				8AE2B63C18F48D4E00D4E203 /* Good.png in Resources */,
 				8A95574E18EF614400469480 /* Main_iPad.storyboard in Resources */,
 				8A0F70B018F24E1600D5732C /* Green.png in Resources */,
+				8A07D083191EFFBB002DE54E /* pop.aif in Resources */,
 				8A95575918EF614400469480 /* Images.xcassets in Resources */,
 				8AE2B63A18F48D4A00D4E203 /* Bad.png in Resources */,
 				8A0F709C18F1CDAC00D5732C /* Add.png in Resources */,
 				8A0F70C518F2F40600D5732C /* ClearSans-Light.ttf in Resources */,
 				8ABFAF8218F47F2000D503C4 /* 1397001691_alarm_clock.png in Resources */,
+				8AC1622C19207BDD004DC078 /* Payment.xib in Resources */,
 				8A95574B18EF614400469480 /* Main_iPhone.storyboard in Resources */,
 				8A0F70CB18F2FC6400D5732C /* Test2.png in Resources */,
 				8A0F70C618F2F40600D5732C /* ClearSans-Medium.ttf in Resources */,
@@ -467,14 +544,18 @@
 				8A0F70C918F2F40600D5732C /* ClearSans-Thin.ttf in Resources */,
 				8A0F70C818F2F40600D5732C /* ClearSans-Regular.ttf in Resources */,
 				8A0F70B418F2542C00D5732C /* TEst1.png in Resources */,
+				8A07D07B191ED609002DE54E /* tap-mellow.aif in Resources */,
 				8A4D432818F5C0BC001E7D76 /* Right.png in Resources */,
 				8A4D430F18F5A826001E7D76 /* DeleteButton.png in Resources */,
+				8A07D085191F00FF002DE54E /* slow.aif in Resources */,
 				8A0F70AC18F1D57D00D5732C /* TDSemiModalViewController2.xib in Resources */,
 				8A0F70C418F2F40600D5732C /* ClearSans-Italic.ttf in Resources */,
+				8A07D07F191ED6AD002DE54E /* slide-scissors.aif in Resources */,
 				8A0F708F18F0FBA500D5732C /* TDSemiModalViewController.xib in Resources */,
 				8A0F70C218F2F40600D5732C /* ClearSans-Bold.ttf in Resources */,
 				8A0F70B618F2554600D5732C /* +$.png in Resources */,
 				8A95574218EF614400469480 /* InfoPlist.strings in Resources */,
+				8A07D081191ED854002DE54E /* slide-paper.aif in Resources */,
 				8A0F70B818F2560200D5732C /* -$.png in Resources */,
 				8ADCE10518F5FA7900065785 /* IO-Info.plist in Resources */,
 				8A0F70C318F2F40600D5732C /* ClearSans-BoldItalic.ttf in Resources */,
@@ -549,6 +630,7 @@
 				8A0F70A218F1D14D00D5732C /* FooterViewController.m in Sources */,
 				8A95578A18EF684700469480 /* OweInfo.m in Sources */,
 				8A0F707F18F0E98300D5732C /* PersistentStack.m in Sources */,
+				8AC1622219207633004DC078 /* PaymentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +773,10 @@
 				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
 				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WhatIOwe",
+				);
 				PRODUCT_NAME = IO;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -711,6 +797,10 @@
 				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
 				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WhatIOwe",
+				);
 				PRODUCT_NAME = IO;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

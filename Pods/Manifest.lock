@@ -1,13 +1,16 @@
 PODS:
   - Canvas (0.1.1)
+  - pop (1.0.2)
   - SBJson (4.0.0)
 
 DEPENDENCIES:
   - Canvas (~> 0.1)
+  - pop
   - SBJson (~> 4.0.0)
 
 SPEC CHECKSUMS:
   Canvas: f1911025fc9ec9c7339df6e4399c90c87ce6b631
-  SBJson: f3c686806e8e36ab89e020189ac582ba26ec4220
+  pop: 55f6c972fbfb644dfcf1bd6892d001feaa32cc38
+  SBJson: 5579157749446dd166fe054fff7530d0ab111a3a
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1
