@@ -42,47 +42,91 @@
 
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{    self.view.transform = CGAffineTransformMakeTranslation(25, 30);
+{
+        [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^ {
+                         UIView* rootView = self.view;
+                         CGRect frame = rootView.frame;
+                         CGPoint oldOrigin = frame.origin;
+                         CGPoint newOrigin = CGPointMake(0, 100);
+                         frame.origin = newOrigin;
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                         frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), 284 );
+                        
+                         
+                        
+
+                         rootView.frame = frame;
+                
+
+                         
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+
     
-    self.view.frame = UIApplication.sharedApplication.delegate.window.rootViewController.view.bounds;
     
-    CGSize offSize = UIScreen.mainScreen.bounds.size;
+
     
-	
-    CGPoint offScreenCenter2 = CGPointMake(offSize.width, offSize.height - 200);
-    
-    self.view.center = offScreenCenter2;
-    self.view.transform = CGAffineTransformIdentity;
-    self.view.frame = CGRectMake(0, 0, 320, 284);
+ 
+
+
+
     
     
-    switch (result)
-    {
-        case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
-            break;
-        default:
-            NSLog(@"Mail not sent.");
-            break;
+
+}
+
+- (IBAction)openMailComposer:(id)sender
+{
+    if (![MFMailComposeViewController canSendMail]) {
+        return;
     }
     
+<<<<<<< HEAD
     // Remove the mail view
  
     [self dismissViewControllerAnimated:YES completion:nil];
 	self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2);
+=======
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
     
-    self.view.transform = CGAffineTransformMakeTranslation(20, 30);
     
+    
+    
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    
+    
+    [controller setSubject:@"You owe me"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // [dateFormatter setDateFormat:@"MMM dd, yyyy, hh:mm a"];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
+    NSLog(@"%@", strDate);
+    
+    
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
 
+    
+    
+    
+    
+    NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
+    //     CGFloat alpha = self.coverView.alpha;
+    
+    // mailer.view.alpha = s0;
+    NSString *emailBody = bodyString;
+    [controller setMessageBody:emailBody isHTML:YES];
+    
+    
+    [controller setMailComposeDelegate:self];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 -(void)PlayClip:(NSString *)soundName
 {
@@ -99,12 +143,24 @@
     
     PaymentViewController *pay = [[PaymentViewController alloc]init];
 
+<<<<<<< HEAD
     [self presentViewController:pay animated:YES completion:nil];
    [self.delegate dismissSemiModalViewController:self];
     pay.view.bounds = [[UIScreen mainScreen]bounds];
 }
+=======
+
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
 - (IBAction)openMail:(id)sender
 {
+    
+    UIView* rootView = self.view;
+    CGRect frame = rootView.frame;
+    CGPoint oldOrigin = frame.origin;
+    CGPoint newOrigin = CGPointMake(0, 100);
+    frame.origin = newOrigin;
+    frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), frame.size.height - (newOrigin.y - oldOrigin.y) );
+    rootView.frame = frame;
     
 
     if ([MFMailComposeViewController canSendMail])
@@ -131,6 +187,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
  
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithCapacity:10];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+<<<<<<< HEAD
         // Time format for the string value
                NSString *dateStr = [dateFormatter stringFromDate:self.info.details.date];
         
@@ -146,6 +203,32 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
         }
         
 
+=======
+                [dateFormatter setDateFormat:@"YYYYMMddHHmmss"];
+        
+        
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+      
+        [formatter  setDateFormat:@"YYYYMMddHHmmss"];
+        //[formatter setDateStyle:NSDateFormatterFullStyle];
+        NSDate *dt = self.info.details.date;
+        NSString *dateAsString = [formatter stringFromDate:dt];
+        
+        
+        NSLog(@"DateAsString2: %@", dateAsString);
+        
+      
+        
+
+        
+        
+        
+        NSString *strDate = dateAsString;
+        NSLog(@"%@", strDate);
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
         
          [dict setObject:self.info.name forKey:@"name"];
         [dict setObject:self.info.whooweswhat forKey:@"whooweswhat"];
@@ -166,6 +249,7 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
         NSDate *dt = self.picker.date;
         NSString *dateAsString = [dateStartFormatter stringFromDate:dt];
         
+<<<<<<< HEAD
                id delegate = [[UIApplication sharedApplication] delegate];
         self.managedObjectContext = [delegate managedObjectContext];
 
@@ -176,6 +260,24 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
         
        //     CGFloat alpha = self.coverView.alpha;
         [self.delegate moveBack];
+=======
+        
+        
+        
+        id delegate = [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = [delegate managedObjectContext];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+
+ 
+        
+        NSLog(@"STRDate: %@", strDate);
+        
+
+        
+        NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
+   //     CGFloat alpha = self.coverView.alpha;
+       
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
                // mailer.view.alpha = s0;
         NSString *emailBody = bodyString;
         [mailer setMessageBody:emailBody isHTML:YES];
@@ -361,7 +463,11 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
                          CGPoint oldOrigin = frame.origin;
                          CGPoint newOrigin = CGPointMake(0, 100);
                          frame.origin = newOrigin;
+<<<<<<< HEAD
                          //    [self dismissViewControllerAnimated:YES completion:nil];
+=======
+                     //    [self dismissViewControllerAnimated:YES completion:nil];
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
                          frame.size = CGSizeMake( frame.size.width - (newOrigin.x - oldOrigin.x), 284 );
                          
                          
@@ -375,7 +481,11 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
                      completion:^(BOOL finished) {
                      }];
     
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
 }
 
 -(CGPoint) offscreenCenter2 {
@@ -531,8 +641,13 @@ self.master.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]]
     NSDate *dt = self.info.details.date;
     NSString *dateAsString = [formatter stringFromDate:dt];
     
+<<<<<<< HEAD
               tapped=YES;
     NSLog(@"%@", dateAsString);
+=======
+    
+    NSLog(@"DateAsString: %@", dateAsString);
+>>>>>>> 8057a7eee6b6583d013c2aa1373e160e2799bbf7
     
         
         dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
