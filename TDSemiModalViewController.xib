@@ -53,7 +53,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="payupsukka:" destination="-1" eventType="touchUpInside" id="KMm-RI-s24"/>
+                                <action selector="openMail:" destination="-1" eventType="touchUpInside" id="4PF-CW-DBp"/>
                             </connections>
                         </button>
                     </subviews>
