@@ -39,6 +39,15 @@
 		8A0F70C918F2F40600D5732C /* ClearSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70C118F2F40600D5732C /* ClearSans-Thin.ttf */; };
 		8A0F70CB18F2FC6400D5732C /* Test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70CA18F2FC6400D5732C /* Test2.png */; };
 		8A0F70CD18F2FF0400D5732C /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70CC18F2FF0400D5732C /* Red.png */; };
+		8A22171A19216D4200E0DDDB /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A22171819216D4200E0DDDB /* Instabug.bundle */; };
+		8A22171B19216D4200E0DDDB /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22171919216D4200E0DDDB /* Instabug.framework */; };
+		8A22171D19216D5600E0DDDB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22171C19216D5600E0DDDB /* AudioToolbox.framework */; };
+		8A22171F19216D6200E0DDDB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22171E19216D6200E0DDDB /* OpenGLES.framework */; };
+		8A22172119216D6700E0DDDB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22172019216D6700E0DDDB /* GLKit.framework */; };
+		8A22172319216D6F00E0DDDB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22172219216D6F00E0DDDB /* QuartzCore.framework */; };
+		8A22172519216D7600E0DDDB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22172419216D7600E0DDDB /* SystemConfiguration.framework */; };
+		8A22172719216D7C00E0DDDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22172619216D7C00E0DDDB /* CoreLocation.framework */; };
+		8A22172919216D8100E0DDDB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22172819216D8100E0DDDB /* CoreTelephony.framework */; };
 		8A3A80EA190D80C6003DDB0F /* Neou-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A80E9190D80C6003DDB0F /* Neou-Bold.ttf */; };
 		8A3A80EC190D852C003DDB0F /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A80EB190D852C003DDB0F /* Neou-Thin.ttf */; };
 		8A4D430718F4B217001E7D76 /* Dateless.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D430618F4B217001E7D76 /* Dateless.png */; };
@@ -136,6 +145,15 @@
 		8A0F70C118F2F40600D5732C /* ClearSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClearSans-Thin.ttf"; sourceTree = "<group>"; };
 		8A0F70CA18F2FC6400D5732C /* Test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test2.png; sourceTree = "<group>"; };
 		8A0F70CC18F2FF0400D5732C /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
+		8A22171819216D4200E0DDDB /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
+		8A22171919216D4200E0DDDB /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
+		8A22171C19216D5600E0DDDB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8A22171E19216D6200E0DDDB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8A22172019216D6700E0DDDB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		8A22172219216D6F00E0DDDB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8A22172419216D7600E0DDDB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A22172619216D7C00E0DDDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8A22172819216D8100E0DDDB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8A3A80E9190D80C6003DDB0F /* Neou-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Bold.ttf"; sourceTree = "<group>"; };
 		8A3A80EB190D852C003DDB0F /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
 		8A4D430618F4B217001E7D76 /* Dateless.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dateless.png; sourceTree = "<group>"; };
@@ -203,6 +221,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A22172919216D8100E0DDDB /* CoreTelephony.framework in Frameworks */,
+				8A22172719216D7C00E0DDDB /* CoreLocation.framework in Frameworks */,
+				8A22172519216D7600E0DDDB /* SystemConfiguration.framework in Frameworks */,
+				8A22172319216D6F00E0DDDB /* QuartzCore.framework in Frameworks */,
+				8A22172119216D6700E0DDDB /* GLKit.framework in Frameworks */,
+				8A22171F19216D6200E0DDDB /* OpenGLES.framework in Frameworks */,
+				8A22171D19216D5600E0DDDB /* AudioToolbox.framework in Frameworks */,
 				8AC1622A19207714004DC078 /* libxml2.dylib in Frameworks */,
 				8AC16228192076B7004DC078 /* libz.dylib in Frameworks */,
 				8AC1622619207668004DC078 /* libz.1.2.5.dylib in Frameworks */,
@@ -215,6 +240,7 @@
 				8A95573A18EF614400469480 /* UIKit.framework in Frameworks */,
 				8A95573618EF614400469480 /* Foundation.framework in Frameworks */,
 				F398319583D741EBA9FEDA5B /* libPods.a in Frameworks */,
+				8A22171B19216D4200E0DDDB /* Instabug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +276,7 @@
 		8A0F709118F1B93300D5732C /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8A22171719216D4200E0DDDB /* Instabug */,
 				8A0F709218F1C6F100D5732C /* OweTableViewCell.h */,
 				8A0F709318F1C6F100D5732C /* OweTableViewCell.m */,
 				8A0F707D18F0E98300D5732C /* PersistentStack.h */,
@@ -309,6 +336,15 @@
 			name = Templates;
 			sourceTree = "<group>";
 		};
+		8A22171719216D4200E0DDDB /* Instabug */ = {
+			isa = PBXGroup;
+			children = (
+				8A22171819216D4200E0DDDB /* Instabug.bundle */,
+				8A22171919216D4200E0DDDB /* Instabug.framework */,
+			);
+			path = Instabug;
+			sourceTree = "<group>";
+		};
 		8A95572918EF614400469480 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +371,13 @@
 		8A95573418EF614400469480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A22172819216D8100E0DDDB /* CoreTelephony.framework */,
+				8A22172619216D7C00E0DDDB /* CoreLocation.framework */,
+				8A22172419216D7600E0DDDB /* SystemConfiguration.framework */,
+				8A22172219216D6F00E0DDDB /* QuartzCore.framework */,
+				8A22172019216D6700E0DDDB /* GLKit.framework */,
+				8A22171E19216D6200E0DDDB /* OpenGLES.framework */,
+				8A22171C19216D5600E0DDDB /* AudioToolbox.framework */,
 				8AC1622919207714004DC078 /* libxml2.dylib */,
 				8AC16227192076B7004DC078 /* libz.dylib */,
 				8AC1622519207668004DC078 /* libz.1.2.5.dylib */,
@@ -559,6 +602,7 @@
 				8A0F70B818F2560200D5732C /* -$.png in Resources */,
 				8ADCE10518F5FA7900065785 /* IO-Info.plist in Resources */,
 				8A0F70C318F2F40600D5732C /* ClearSans-BoldItalic.ttf in Resources */,
+				8A22171A19216D4200E0DDDB /* Instabug.bundle in Resources */,
 				8A0F709618F1C94A00D5732C /* 11HLzyx.png in Resources */,
 				8A3A80EC190D852C003DDB0F /* Neou-Thin.ttf in Resources */,
 				8A0F70CD18F2FF0400D5732C /* Red.png in Resources */,
@@ -769,6 +813,10 @@
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WhatIOwe/Instabug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
 				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
@@ -793,6 +841,10 @@
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WhatIOwe/Instabug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
 				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";

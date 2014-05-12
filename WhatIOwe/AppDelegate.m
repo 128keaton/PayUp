@@ -26,7 +26,7 @@
 
 #import "PayPal.h"
 
-
+#import <Instabug/Instabug.h>
 
 @interface AppDelegate ()
 
@@ -105,6 +105,7 @@
 {
     
     
+    [Instabug KickOffWithToken:@"843568d566cc6549aad9b1f12283cb48" CaptureSource:InstabugCaptureSourceUIKit FeedbackEvent:InstabugFeedbackEventShake IsTrackingLocation:YES];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
