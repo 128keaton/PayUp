@@ -318,9 +318,17 @@
        }
    }
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     
+    NSString *firstName = [defaults objectForKey:@"name"];
+    
+    if (![firstName isEqual:@""]) {
+ [details setValue:firstName forKey:@"name"];
+    }
     [info setValue:dateAsString forKey:@"dateString"];
     [info setValue:iField.text forKey:@"name"];
+    
     [info setValue:wow forKey:@"whooweswhat"];
     [info setValue:[NSNumber numberWithInt:1] forKey:@"dateowed"];
     [details setValue:info forKey:@"info"];

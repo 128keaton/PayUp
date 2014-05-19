@@ -56,8 +56,25 @@
     }];
     [UIView commitAnimations];
 }
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [name resignFirstResponder];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    [defaults setObject:name.text forKey:@"name"];
+    [defaults synchronize];
+    return YES;
+}
+
 -(IBAction)addPerson:(id)sender{
- 
+    [name resignFirstResponder];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:name.text forKey:@"name"];
+    [defaults synchronize];
+    
         self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
     self.tdModal2.delegate = self;
     [self.pop play];
@@ -113,8 +130,13 @@
                                                 ofType:@"aif"]];
     self.card = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile2 error:nil];
     [self.card prepareToPlay];
-
+NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *firstName = [defaults objectForKey:@"name"];
     
+    if (![firstName isEqual:@""]) {
+        name.text = firstName;
+    }
+   
     
  //   self.test  = [[MasterViewController alloc]init];
   //  self.test.delegate = self;
@@ -127,6 +149,15 @@
     button.layer.borderWidth = 1;
     button.layer.borderColor = button.backgroundColor.CGColor;
     button.titleLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
+    
+    
+    iLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
+    
+  
+    name.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
+       name.textColor = [UIColor whiteColor];
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 

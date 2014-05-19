@@ -307,9 +307,11 @@
     
     
 
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *firstName2 = [defaults objectForKey:@"name"];
+
     
-    
-    
+    if(![firstName2 isEqual:@"" ]){
     
     if ([MFMailComposeViewController canSendMail])
         
@@ -331,7 +333,7 @@
         
         mailer.mailComposeDelegate = self;
         
-        if ([self.info.whooweswhat  isEqual: @"someoneowes"]) {
+        if (![self.info.whooweswhat  isEqual: @"someoneowes"]) {
             
             [mailer setSubject:[NSString stringWithFormat:@"I Owe You %@", self.info.details.money]];
             
@@ -441,12 +443,34 @@
         
         NSLog(@"%@", strDate);
         
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *firstName = [defaults objectForKey:@"name"];
+        
+       
+        
+             NSLog(@"WHO OWES: %@", self.info.whooweswhat);
         
         
+   
         
-        [dict setObject:self.info.name forKey:@"name"];
         
-        [dict setObject:self.info.whooweswhat forKey:@"whooweswhat"];
+        NSString *wow = nil;
+        
+        if ([self.info.whooweswhat  isEqual: @"nope"]) {
+            wow = @"someoneowes";
+            
+          
+                [dict setObject:firstName forKey:@"myname"];
+                }else{
+            
+            wow = @"nope";
+            
+       
+                [dict setObject:firstName forKey:@"myname"];
+       
+
+        }
+        [dict setObject:wow forKey:@"whooweswhat"];
         
         [dict setObject:self.info.details.money forKey:@"money"];
         
@@ -580,7 +604,10 @@
         
     }
     
-    
+    }else{
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"You need to enter your name on the main screen" delegate: nil cancelButtonTitle:@"Ok, sorry!" otherButtonTitles:nil]; [alert show];
+    }
     
 }
 

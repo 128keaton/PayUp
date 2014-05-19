@@ -14,6 +14,9 @@
 @interface FooterViewController : UIViewController{
     IBOutlet UIButton *button;
     id footercontroller;
+    IBOutlet UITextField *name;
+    IBOutlet UILabel *iLabel;
+    
 }
 @property (strong, nonatomic) AVAudioPlayer *card;
 @property (strong, nonatomic) AVAudioPlayer *pop;

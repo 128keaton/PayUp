@@ -536,7 +536,6 @@
         
         
         
-        [info setValue:[dict objectForKey:@"name"]  forKey:@"name"];
         
         [details setValue:[dict objectForKey:@"money"] forKey:@"money"];
         
@@ -578,7 +577,14 @@
         
         [info setValue: details forKey:@"details"];
         
-        [info setValue:wow forKeyPath:@"whooweswhat"];
+        [info setValue:[dict objectForKey:@"whooweswhat"]forKeyPath:@"whooweswhat"];
+        
+        NSLog(@"WHO OWES APP: %@", [dict objectForKey:@"whooweswhat"]);
+    
+            
+            
+              [info setValue:[dict objectForKey:@"myname"]  forKey:@"name"];
+            
         
         
         
