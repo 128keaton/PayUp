@@ -8,12 +8,10 @@
 
 #import "FooterViewController.h"
 #import "MasterViewController.h"
-#import "TDSemiModalViewController2.h"
-#import "TDSemiModal.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SBJson4.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "SettingsViewController.h"
 @interface FooterViewController ()
 @property (strong, nonatomic) MasterViewController *Mvc;
 @end
@@ -37,10 +35,7 @@
     self.test.delegate = self;
     
     
-    UIDynamicItemBehavior *elasticityBehavior =
-    [[UIDynamicItemBehavior alloc] initWithItems:@[self.view]];
-    elasticityBehavior.elasticity = 0.7f;
-    [self.animator addBehavior:elasticityBehavior];
+
 }
 
 
@@ -66,47 +61,6 @@
     [defaults synchronize];
     return YES;
 }
-
--(IBAction)addPerson:(id)sender{
-    [name resignFirstResponder];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:name.text forKey:@"name"];
-    [defaults synchronize];
-    
-        self.tdModal2 = [[TDSemiModalViewController2 alloc]init];
-    self.tdModal2.delegate = self;
-    [self.pop play];
-    
-    [UIView animateWithDuration:0.5
-     
-                          delay:0
-                        usingSpringWithDamping:0.8
-                        initialSpringVelocity:1.0
-                        options: UIViewAnimationOptionCurveEaseIn
-                     animations:^{
-                           [self presentSemiModalViewController2:self.tdModal2];
-                           self.view.transform = CGAffineTransformMakeTranslation(0, -150);
-                         
-                                         
-                         
-        
-                         
-           
-                     
-
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
-    
-
- 
-    
-    
-}
-
 
 
 -(IBAction)actionButtonItemTapped:(id)sender

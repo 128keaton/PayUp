@@ -7,11 +7,21 @@
 		<key>IO.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
+		</dict>
+		<key>IO_Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8A1761D319D060A5009A94C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8A95573118EF614400469480</key>
 		<dict>
 			<key>primary</key>

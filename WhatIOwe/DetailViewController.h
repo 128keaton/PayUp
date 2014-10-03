@@ -22,6 +22,6 @@
 - (void)setDateItem:(id)newDateItem;
 - (void)setMoneyItem:(id)newMoneyItem;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @end

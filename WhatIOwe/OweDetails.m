@@ -15,5 +15,6 @@
 @dynamic money;
 @dynamic date;
 @dynamic info;
-
+@dynamic hasImage;
+@dynamic image;
 @end

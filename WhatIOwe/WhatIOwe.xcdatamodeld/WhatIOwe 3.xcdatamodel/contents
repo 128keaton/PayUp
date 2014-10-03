@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="OweDetails" representedClassName="OweDetails" syncable="YES">
+        <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hasImage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="money" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OweInfo" inverseName="details" inverseEntity="OweInfo" syncable="YES"/>
+    </entity>
+    <entity name="OweInfo" representedClassName="OweInfo" syncable="YES">
+        <attribute name="dateowed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dateString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forwhat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="whooweswhat" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OweDetails" inverseName="info" inverseEntity="OweDetails" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="OweDetails" positionX="124" positionY="-18" width="128" height="148"/>
+        <element name="OweInfo" positionX="-63" positionY="-27" width="128" height="133"/>
+    </elements>
+</model>

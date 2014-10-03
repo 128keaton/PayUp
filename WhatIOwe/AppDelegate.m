@@ -22,12 +22,13 @@
 
 #import "MasterViewController.h"
 
-#import "PersistentStack.h"
 
-#import "PayPal.h"
+
+
 
 #import <Instabug/Instabug.h>
 
+#import "StyleController.h"
 @interface AppDelegate ()
 
 
@@ -82,17 +83,6 @@
 
 
 
--(void)initializePayPal {
-    
-    [PayPal initializeWithAppID:@"APP-80W284485P519543T"
-     
-                 forEnvironment:ENV_SANDBOX];
-    
-}
-
-
-
-
 
 
 
@@ -105,31 +95,42 @@
 {
     
     
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
     [Instabug KickOffWithToken:@"843568d566cc6549aad9b1f12283cb48" CaptureSource:InstabugCaptureSourceUIKit FeedbackEvent:InstabugFeedbackEventShake IsTrackingLocation:YES];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+    StyleController *styleController = [[StyleController alloc]init];
+    styleController.style = @"blue";
+      [styleController applyStyle];
     
     
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     
     self.managedObjectContext = self.persistentStack.managedObjectContext;
     
-    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+#ifdef __IPHONE_8_0
+    //Right, that is the point
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
+                                                                                         |UIRemoteNotificationTypeSound
+                                                                                         |UIRemoteNotificationTypeAlert) categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+#else
+    //register to receive notifications
+    UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+#endif
     
-    if (locationNotification) {
-        
-        // Set icon badge number to zero
-        
-        application.applicationIconBadgeNumber = 0;
-        
-    }
     
+ [[UIApplication sharedApplication]  registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
-    
-    [NSThread detachNewThreadSelector:@selector(initializePayPal)
+   // [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+   // [NSThread detachNewThreadSelector:@selector(initializePayPal)
      
-                             toTarget:self withObject:nil];
+                            // toTarget:self withObject:nil];
     
     // Override point for customization after application launch.
     
@@ -156,9 +157,24 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         
         controller.managedObjectContext = self.managedObjectContext;
+        navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
         
     }
     
+    
+    
+    self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.masterViewController];
+    
+    NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
+    if ([[ver objectAtIndex:0] intValue] >= 7) {
+        navController.navigationBar.barTintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
+        navController.navigationBar.translucent = NO;
+    }else {
+        navController.navigationBar.tintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
+    }
+
     
     
     NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
@@ -399,7 +415,7 @@
         
         
         
-        
+   
         
         
         NSLog(@"YES!");
@@ -510,11 +526,11 @@
                 
                 if ([wow isEqualToString:@"someoneowes"]) {
                     
-                    notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", [dict objectForKey:@"name"] , [dict objectForKey:@"money"]];
+                    notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", [dict objectForKey:@"firstName"] , [dict objectForKey:@"money"]];
                     
                 }else{
                     
-                    notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", [dict objectForKey:@"name"] , [dict objectForKey:@"money"]];
+                    notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", [dict objectForKey:@"firstName"] , [dict objectForKey:@"money"]];
                     
                     [details setValue:[dict objectForKey:@"name"] forKey:@"alert"];
                     
@@ -539,14 +555,14 @@
         
         [details setValue:[dict objectForKey:@"money"] forKey:@"money"];
         
+        [info setValue:@"shared" forKey:@"shared"];
         
-        
-        // [info setValue:wow forKey:@"whooweswhat"];
-        
+        [info setValue:wow forKey:@"whooweswhat"];
+        [details setValue:[dict objectForKey:@"image"] forKey:@"image"];
         [details setValue:date forKey:@"date"];
         
-        NSLog(@"Added! :D");
-        
+        NSLog(@"Added to delegate 1 :D: %@", [dict objectForKey:@"firstName"]);
+       
         NSString *dateString = [dict objectForKey:@"dateString"];
         
         NSLog(@"Date String Dictionary: %@", [dict objectForKey:@"dateString"]);
@@ -576,14 +592,17 @@
         [details setValue:info forKey:@"info"];
         
         [info setValue: details forKey:@"details"];
-        
+    
         [info setValue:[dict objectForKey:@"whooweswhat"]forKeyPath:@"whooweswhat"];
+        
+        [info setValue:[dict objectForKey:@"firstName"] forKey:@"name"];
         
         NSLog(@"WHO OWES APP: %@", [dict objectForKey:@"whooweswhat"]);
     
+        [info setValue:[dict objectForKey:@"forwhat"] forKey:@"forwhat"];
             
             
-              [info setValue:[dict objectForKey:@"myname"]  forKey:@"name"];
+            //  [info setValue:[dict objectForKey:@"myname"]  forKey:@"name"];
             
         
         
@@ -728,9 +747,10 @@
     
     [info setValue:[[dict objectForKey:@"dateString"] stringValue] forKey:@"dateString"];
     
-    [info setValue:[[dict objectForKey:@"name"] stringValue] forKey:@"name"];
+    [info setValue:[[dict objectForKey:@"firstName"] stringValue] forKey:@"name"];
     
     // [info setValue:wow forKey:@"whooweswhat"];
+    NSLog(@"First Name Delegate:: %@", [[dict objectForKey:@"firstName"] stringValue]);
     
     [info setValue:[dict objectForKey:@"date"] forKey:@"dateowed"];
     
@@ -781,7 +801,7 @@
 
 
 
-
+/*
 #pragma mark - Core Data stack
 
 
@@ -865,10 +885,14 @@
     NSError *error = nil;
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSDictionary *options = @{
+                              NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES
+                              };
     
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        
-        /*
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil
+                                                             URL:storeURL options:options error:&error]) {
+    
          
          Replace this implementation with code to handle the error appropriately.
          
@@ -910,9 +934,9 @@
          
          Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
          
+     *//*
          
-         
-         */
+ 
         
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         
@@ -928,46 +952,22 @@
 
 
 
+
+
 #pragma mark - Application's Documents directory
 
-
-
-// Returns the URL to the application's Documents directory.
-
-- (NSURL *)applicationDocumentsDirectory
-
-{
-    
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    
-}
-
-
-
-
+*/
 
 - (NSURL*)storeURL
-
 {
-    
     NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
-    
     return [documentsDirectory URLByAppendingPathComponent:@"WhatIOwe.sqlite"];
-    
 }
-
-
 
 - (NSURL*)modelURL
-
 {
-    
     return [[NSBundle mainBundle] URLForResource:@"WhatIOwe" withExtension:@"momd"];
-    
 }
-
-
-
 
 
 

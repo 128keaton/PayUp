@@ -7,13 +7,9 @@
 //
 
 #import "OweTableViewCell.h"
-
+#import "SWTableViewCell.h"
 @implementation OweTableViewCell
-@synthesize nameLabel = _nameLabel;
-@synthesize dateLabel = _dateLabel;
-@synthesize thumbnailOwe = _thumbnailOwe;
 
-@synthesize moneyLabel = _moneyLabel;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -23,14 +19,27 @@
     return self;
 }
 
--(void)willTransitionToState:(UITableViewCellStateMask)state{
-    NSLog(@"EventTableCell willTransitionToState");
-    [super willTransitionToState:state];
-    if((state & UITableViewCellStateShowingDeleteConfirmationMask) == UITableViewCellStateShowingDeleteConfirmationMask){
-        [self recurseAndReplaceSubViewIfDeleteConfirmationControl:self.subviews];
-        [self performSelector:@selector(recurseAndReplaceSubViewIfDeleteConfirmationControl:) withObject:self.subviews afterDelay:0];
+
+/*- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    for (UIView *subview in self.subviews) {
+        //iterate through subviews until you find the right one...
+        for(UIView *subview2 in subview.subviews){
+            if ([NSStringFromClass([subview2 class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
+                //your color
+                ((UIView*)[subview2.subviews firstObject]).backgroundColor=[UIColor colorWithRed:0.5922 green:0.7098 blue:0.1882 alpha:1.0];
+  
+            }
+        }
     }
 }
+ 
+ -(void)layoutSubviews
+ {
+ 
+ }
+ 
 -(void)recurseAndReplaceSubViewIfDeleteConfirmationControl:(NSArray*)subviews{
 
     for (UIView *subview in subviews)
@@ -39,9 +48,9 @@
         if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationButton"])
         {
             UIButton *deleteButton = (UIButton *)subview;
-            [deleteButton setImage:[UIImage imageNamed:@"Right.png"] forState:UIControlStateNormal];
-            [deleteButton setTitle:@"" forState:UIControlStateNormal];
-            [deleteButton setBackgroundColor:[UIColor clearColor]];
+                      [deleteButton setTitle:@"Payed" forState:UIControlStateNormal];
+            [deleteButton setBackgroundColor:[UIColor colorWithRed:0.5922 green:0.7098 blue:0.1882 alpha:1.0]];
+            [deleteButton setFrame:CGRectMake(0, 0, 40, 75)];
            NSLog(@"width = %f, height = %f", deleteButton.frame.size.width, deleteButton.frame.size.height);
             for(UIView* view in subview.subviews){
                 if([view isKindOfClass:[UILabel class]]){
@@ -51,6 +60,13 @@
         }
         if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"])
         {
+            UIButton *deleteButton = (UIButton *)subview;
+ 
+            [deleteButton setTitle:@"Payed" forState:UIControlStateNormal];
+            [deleteButton setBackgroundColor:[UIColor colorWithRed:0.5922 green:0.7098 blue:0.1882 alpha:1.0]];
+    
+            [deleteButton setTintColor:[UIColor colorWithRed:0.5922 green:0.7098 blue:0.1882 alpha:1.0]];
+                    [deleteButton setFrame:CGRectMake(0, 0, 40, 75)];
             for(UIView* innerSubView in subview.subviews){
                 if(![innerSubView isKindOfClass:[UIButton class]]){
                     [innerSubView removeFromSuperview];
@@ -62,11 +78,24 @@
         }
         
     }
-}
+}*/
+
 - (void)awakeFromNib
 {
     // Initialization code
 }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+}
+
+    
+
+
+
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

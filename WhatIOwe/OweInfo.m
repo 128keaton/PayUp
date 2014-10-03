@@ -17,5 +17,6 @@
 @dynamic dateowed;
 @dynamic details;
 @dynamic whooweswhat;
-
+@dynamic forwhat;
+@dynamic uid;
 @end

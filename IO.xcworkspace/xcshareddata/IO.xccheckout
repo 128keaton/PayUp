@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>488A23A1-5EAC-44BA-93F6-F0F0895E9AC2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IO</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2005510169FFC502A0E92984F2002B39797B4BAA</key>
+		<string>https://bitbucket.org/bittank/io/</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IO.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2005510169FFC502A0E92984F2002B39797B4BAA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/bittank/io/</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2005510169FFC502A0E92984F2002B39797B4BAA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2005510169FFC502A0E92984F2002B39797B4BAA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WIOTemp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

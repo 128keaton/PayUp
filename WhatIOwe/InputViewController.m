@@ -5,14 +5,16 @@
 //  Created by Keaton Burleson on 4/4/14.
 //  Copyright (c) 2014 Revision. All rights reserved.
 //
-
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+@import AddressBook;
 #import "InputViewController.h"
 #import "OweInfo.h"
 #import "OweDetails.h"
 #import "MasterViewController.h"
-#import "UIViewController+TDSemiModalExtension.h"
 
-@interface InputViewController ()
+
+@interface InputViewController () <ABPeoplePickerNavigationControllerDelegate, UITextFieldDelegate>
 
 @end
 
@@ -31,7 +33,7 @@
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         
-       NSLog(@"THIS: %@", _detailItem);
+       NSLog(@"Detail Item: %@", _detailItem);
         [self configureView];
         
          }
@@ -43,14 +45,9 @@
 }
 
 - (IBAction)unwindToRed:(id)sender{
-    
-    [UIView beginAnimations:@"LeftFlip" context:nil];
-    [UIView setAnimationDuration:0.8];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.superview cache:YES];
-    [UIView commitAnimations];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.view.superview removeFromSuperview];
+    [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
     
  
     
@@ -78,12 +75,21 @@
 - (void)viewDidLoad
 {
     
+   
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont
+                                                                           fontWithName:@"Helvetica Neue" size:12], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     [self prefersStatusBarHidden];
     [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     self.statusBarHidden = YES;
-    
-    
+  /*  oField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    if (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 4.1)) {
+        oField.keyboardType = UIKeyboardTypeDecimalPad;
+    }*/
+      
 [self setNeedsStatusBarAppearanceUpdate];
  
     [[UIApplication sharedApplication] setStatusBarHidden:YES
@@ -94,13 +100,13 @@
     self.navigationController.navigationBar.translucent = NO;
     id delegate = [[UIApplication sharedApplication] delegate]; self.managedObjectContext = [delegate managedObjectContext];
     
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
+    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     UIBarButtonItem *flexableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
    
 
     
-    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed2:)];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(moveFromMoneyToWhat:)];
     UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
 
@@ -109,9 +115,8 @@
      [toolbar2 setItems:[NSArray arrayWithObjects:flexableItem2,doneItem2, nil]];
     
     
-    [toolbar2 setBarTintColor:cell1.backgroundColor];
-    [toolbar setBarTintColor:cell1.backgroundColor];
-
+    [toolbar2 setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    [toolbar setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
     //  _picker.tintColor = [UIColor whiteColor];
     
     doneItem2.tintColor = [UIColor whiteColor];
@@ -122,18 +127,7 @@
     dueField.inputAccessoryView = toolbar2;
       oField.inputAccessoryView = toolbar;
     
-    [oField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
-    [iField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
-    iLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
-    oLabel.font =[UIFont fontWithName:@"ClearSans-Bold" size:12];
-    mLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
-    dueLabel.font = [UIFont fontWithName:@"ClearSans-Bold" size:12];
-    iField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
-     oField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
-     dueField.font = [UIFont fontWithName:@"ClearSans-Bold" size:15];
-    iField.textColor = [UIColor whiteColor];
-      oField.textColor = [UIColor whiteColor];
-      dueField.textColor = [UIColor whiteColor];
+
     
     [super viewDidLoad];
   /*  id delegate = [[UIApplication sharedApplication] delegate];
@@ -144,9 +138,12 @@
   //  UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 120.0)];
     _picker = [[UIDatePicker alloc]init];
 
-    _picker.datePickerMode = UIDatePickerModeDate;
+    _picker.datePickerMode = UIDatePickerModeDateAndTime;
       dueField.inputView = _picker;
     [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    [iField addTarget:self action:@selector(updateButtonState:) forControlEvents:UIControlEventEditingChanged];
+        [oField addTarget:self action:@selector(updateButtonState:) forControlEvents:UIControlEventEditingChanged];
+        [wField addTarget:self action:@selector(updateButtonState:) forControlEvents:UIControlEventEditingChanged];
   _picker.backgroundColor = [UIColor whiteColor];
     cell1.layer.cornerRadius = 2;
     cell1.layer.borderWidth = 1;
@@ -197,14 +194,28 @@
     s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
     NSString *newS = [NSString stringWithFormat:@"$%@", s];
     oField.text = newS;
+    NSLog(@"changed!");
+    
+   
+    
+}
 
+-(IBAction)updateButtonState:(UITextField*)sender{
+ 
+    if (iField.text.length != 0) {
+        if (oField.text.length != 0) {
+            if (wField.text.length != 0) {
+                theButton.enabled = YES;
+            }
+        }
+    }
     
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-     _picker.frame = CGRectMake(0, 50, 300, 162);
+   //  _picker.frame = CGRectMake(0, 0, 300, 0);
 }
 
 - (void)configureView
@@ -228,11 +239,12 @@
             oLabel.hidden = true;
             iField.center = CGPointMake(iField.center.x, iField.center.y -3);
             mLabel.text = @"owes me the sum of";
+        
             
-        }else{
+        }else if([[_detailItem description] isEqual: @"NotOwed"]){
             iLabel.hidden = false;
             oLabel.hidden = false;
-            
+            NSLog(@"not owed");
             mLabel.text = @"the sum of";
         }
     }
@@ -271,7 +283,7 @@
                 wow = @"someoneowes";
     editedMoney = [NSString stringWithFormat:@"$%@", s];
  
-    }else{
+    }else if([_detailItem isEqual:@"NotOwed"]){
        editedMoney = [NSString stringWithFormat:@"$%@", s];
         wow=@"nope";
 
@@ -282,40 +294,53 @@
 
 
 
+  
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *details = [NSEntityDescription
                                        insertNewObjectForEntityForName:@"OweDetails"
                                        inManagedObjectContext:context];
     [details setValue:editedMoney  forKey:@"money"];
-    [details setValue:picker.date forKey:@"date"];
+  
+    [details setValue:imageData forKey:@"image"];
 
     NSManagedObject *info = [NSEntityDescription
                                           insertNewObjectForEntityForName:@"OweInfo"
                                           inManagedObjectContext:context];
    if (yes == YES) {
         dateAsString = @"";
+       
         
    }else{
+       NSLog(@"Registering for notification");
+         [details setValue:picker.date forKey:@"date"];
+      // NSDate *alertTime = picker.date;
+       NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+       [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+       formatter.timeZone = [NSTimeZone localTimeZone];
+ 
+       NSLog(@"Picker Date: %@", [picker.date descriptionWithLocale:[NSLocale currentLocale]]);
+       UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+       NSDate *fireDate = picker.date;
+       localNotification.fireDate = fireDate;
+       NSString *uid =[[self class]generateRandomString:5];
+       NSLog(@"Edit UUID: %@", uid);
+       [info setValue:uid forKey:@"uid"];
+           localNotification.timeZone = [NSTimeZone defaultTimeZone];
+       localNotification.soundName = UILocalNotificationDefaultSoundName;
+
        
-       NSDate *alertTime = dt;
-       UIApplication* app = [UIApplication sharedApplication];
-       UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
-       if (notifyAlarm) {
-           notifyAlarm.fireDate = alertTime;
-           notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
-           notifyAlarm.repeatInterval = 0;
-           //notifyAlarm.soundName = @"dingping.mp3";
-           
            if ([wow isEqualToString:@"someoneowes"]) {
-               notifyAlarm.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", iField.text, editedMoney];
+               localNotification.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", iField.text, editedMoney];
            }else{
-                notifyAlarm.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", iField.text, editedMoney];
+               localNotification.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", iField.text, editedMoney];
                [details setValue:iField.text forKey:@"alert"];
            }
-           [app scheduleLocalNotification:notifyAlarm];
+       [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+
 
     
-       }
+       
    }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -338,25 +363,13 @@
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
- 
-   
-    
+    [defaults setObject:iField.text forKey:@"firstName"];
+      [info setValue:wField.text forKey:@"forwhat"];
 
+    [wField resignFirstResponder];
 
-    [UIView animateWithDuration:0.5
-                          delay:1.0
-                        options: UIViewAnimationOptionCurveEaseInOut
-     
-                     animations:^{
-                        self.view.frame = CGRectMake(0, -358, self.view.frame.size.width, self.view.frame.size.height);
-
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"Done!");
-                     }];
-
-        [self dismissViewControllerAnimated:YES completion:nil];
-    [self.view.superview removeFromSuperview];
+    [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];//    [self.view.superview removeFromSuperview];
     
 
 }
@@ -370,14 +383,31 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 }
 
++(NSString*)generateRandomString:(int)num {
+    NSMutableString* string = [NSMutableString stringWithCapacity:num];
+    for (int i = 0; i < num; i++) {
+        [string appendFormat:@"%C", (unichar)('a' + arc4random_uniform(25))];
+    }
+    return string;
+}
+-(IBAction)moveFromMoneyToWhat:(id)sender{
+    [wField becomeFirstResponder];
+   // [theButton setEnabled:YES];
+    //[oField becomeFirstResponder];
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == iField) {
         [textField resignFirstResponder];
         [oField becomeFirstResponder];
     } else if (textField == oField) {
         [oField resignFirstResponder];
-
-    } else if (textField == dueField){
+          [wField becomeFirstResponder];
+    } else if (textField == wField){
+          [wField resignFirstResponder];
+        [theButton setEnabled:YES];
+        //[oField becomeFirstResponder];
+    }  else if (textField == dueField){
+               [theButton setEnabled:YES];
         [self performSelector:@selector(submit:) withObject:nil];
     }
     return YES;
@@ -411,6 +441,7 @@
     // This method will handle the case that the height of toolbar may change in future iOS.
     return 44.f;
 }
+
 
 -(void)updateTextField:(id)sender
 {
@@ -452,6 +483,95 @@
 -(void)pickerView:(UIDatePicker*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     dueField.text = [NSString stringWithFormat:@"%@", pickerView.date];
     
+}
+
+- (IBAction)showPicker:(id)sender
+{
+    ABPeoplePickerNavigationController *picker =
+    [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    _peoplePicker = picker;
+    _peoplePicker.navigationBar.tintColor = [UIColor whiteColor];
+    [self presentViewController:_peoplePicker animated:YES completion:nil];
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
+                         didSelectPerson:(ABRecordRef)person{
+    
+    NSLog(@"last name:%@", (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty));
+ //   NSString *lastName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    if ((__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty) != Nil) {
+        NSString* fullName = [NSString stringWithFormat:@"%@ %@", (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty), (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty)];
+        iField.text = fullName;
+
+    }else{
+      
+        iField.text = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+
+    }
+    
+    
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *details = [NSEntityDescription
+                                insertNewObjectForEntityForName:@"OweDetails"
+                                inManagedObjectContext:context];
+    NSData *contactImageData;
+
+    
+    if (ABPersonHasImageData(person)) {
+        imageData = (__bridge NSData *)ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
+     
+        
+        
+        contactImageData = imageData;
+        
+        hasImage = YES;
+         [details setValue:contactImageData forKey:@"image"];
+        NSError *error;
+        [self.managedObjectContext save:&error];
+          NSLog(@"%@", error);
+    }else{
+    
+        imageData= UIImagePNGRepresentation([UIImage imageNamed:@"user.png"]);
+         [details setValue:contactImageData forKey:@"image"];
+        NSError *error;
+           contactImageData = imageData;
+        [self.managedObjectContext save:&error];
+        NSLog(@"%@", error);
+        
+    }
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+
+}
+
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    [self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[UITextField class]]) {
+            if (obj != dueField) {
+                
+                if(![obj isEqualToString:@""]){
+                    theButton.enabled = YES;
+                }
+                
+            }
+        }
+    }];
+
 }
 /*
 #pragma mark - Navigation

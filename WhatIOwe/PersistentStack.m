@@ -10,7 +10,7 @@
 
 @implementation PersistentStack
 
-- (id)initWithStoreURL:(NSURL*)storeURL modelURL:(NSURL*)modelURL 
+- (id)initWithStoreURL:(NSURL*)storeURL modelURL:(NSURL*)modelURL
 {
     self = [super init];
     if (self) {
@@ -51,7 +51,7 @@
     // the only difference in this call that makes the store an iCloud enabled store
     // is the NSPersistentStoreUbiquitousContentNameKey in options. I use "iCloudStore"
     // but you can use what you like. For a non-iCloud enabled store, I pass "nil" for options.
-
+    
     // Note that the store URL is the same regardless of whether you're using iCloud or not.
     // If you create a non-iCloud enabled store, it will be created in the App's Documents directory.
     // An iCloud enabled store will be created below a directory called CoreDataUbiquitySupport
@@ -59,7 +59,9 @@
     [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                                        configuration:nil
                                                                                  URL:self.storeURL
-                                                                             options:@{ NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore" }
+                                                                             options:@{ NSPersistentStoreUbiquitousContentNameKey : @"WhatIOwe",
+                                                                                        NSMigratePersistentStoresAutomaticallyOption : @YES,
+                                                                                        NSInferMappingModelAutomaticallyOption : @YES }
                                                                                error:&error];
     if (error) {
         NSLog(@"error: %@", error);
@@ -82,7 +84,7 @@
         [moc mergeChangesFromContextDidSaveNotification:note];
         
         // you may want to post a notification here so that which ever part of your app
-        // needs to can react appropriately to what was merged. 
+        // needs to can react appropriately to what was merged.
         // An exmaple of how to iterate over what was merged follows, although I wouldn't
         // recommend doing it here. Better handle it in a delegate or use notifications.
         // Note that the notification contains NSManagedObjectIDs
@@ -93,17 +95,16 @@
         [allChanges unionSet:changes[NSUpdatedObjectsKey]];
         [allChanges unionSet:changes[NSDeletedObjectsKey]];
         
-     /*   for (NSManagedObjectID *objID in allChanges) {
+        for (NSManagedObjectID *objID in allChanges) {
             // do whatever you need to with the NSManagedObjectID
             // you can retrieve the object from with [moc objectWithID:objID]
-          
-        }*/
-
+        }
+        
     }];
 }
 
 // Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
-// most likely to be called if the user enables / disables iCloud 
+// most likely to be called if the user enables / disables iCloud
 // (either globally, or just for your app) or if the user changes
 // iCloud accounts.
 - (void)storesWillChange:(NSNotification *)note {
