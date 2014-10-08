@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OweTableViewCell.h"
 @interface TodayViewController :  UIViewController <UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *widgetArray;
     NSArray *localList;
@@ -15,6 +15,8 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end

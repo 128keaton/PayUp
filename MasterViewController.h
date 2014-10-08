@@ -51,6 +51,7 @@
 @property (strong, nonatomic) IBActionSheet *addPerson;
 @property (strong, nonatomic) InputViewController *inputViewController;
 @property (strong, nonatomic) id delegate;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *plusButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)IBOutlet UIView *footerview;
 - (void)handleOpenURL:(NSURL *)url;

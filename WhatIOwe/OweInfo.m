@@ -19,4 +19,5 @@
 @dynamic whooweswhat;
 @dynamic forwhat;
 @dynamic uid;
+@dynamic shared;
 @end

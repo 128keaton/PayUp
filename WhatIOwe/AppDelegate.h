@@ -20,6 +20,6 @@
 @property (nonatomic, strong) MasterViewController *masterViewController;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+
 
 @end

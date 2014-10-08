@@ -20,4 +20,5 @@
 @property (nonatomic, retain) NSNumber * dateowed;
 @property (nonatomic, retain) OweDetails *details;
 @property (nonatomic, retain) NSString * whooweswhat;
+@property (nonatomic, retain) NSString * shared;
 @end

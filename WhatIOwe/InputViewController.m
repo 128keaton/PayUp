@@ -293,7 +293,7 @@
     NSLog(@"Nope Input: %@",wow);
 
 
-
+    
   
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *details = [NSEntityDescription
@@ -363,6 +363,7 @@
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     
+    [info setValue:@"NotShared" forKey:@"shared"];
     [defaults setObject:iField.text forKey:@"firstName"];
       [info setValue:wField.text forKey:@"forwhat"];
 

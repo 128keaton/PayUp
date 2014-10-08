@@ -41,7 +41,7 @@
     self.transparentView.backgroundColor = [UIColor blackColor];
     self.transparentView.alpha = 0.0f;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeFromView)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSelection)];
     tap.numberOfTapsRequired = 1;
     [self.transparentView addGestureRecognizer:tap];
     
@@ -63,6 +63,24 @@
     }
     return [self initWithTitle:title delegate:delegate cancelButtonTitle:cancelTitle destructiveButtonTitle:destructiveTitle otherButtonTitlesArray:titles];
 }
+
+- (id)initWithTitle:(NSString *)title callback:(IBActionCallback)callback cancelButtonTitle:(NSString *)cancelTitle destructiveButtonTitle:(NSString *)destructiveTitle otherButtonTitles:(NSString *)otherTitles, ... {
+    NSMutableArray *titles = [[NSMutableArray alloc] init];
+    
+    if (otherTitles) {
+        va_list args;
+        va_start(args, otherTitles);
+        for (NSString *arg = otherTitles; arg != nil; arg = va_arg(args, NSString* ))
+        {
+            [titles addObject:arg];
+        }
+        va_end(args);
+    }
+    return [self initWithTitle:title callback:callback cancelButtonTitle:cancelTitle destructiveButtonTitle:destructiveTitle otherButtonTitlesArray:titles];
+}
+
+
+
 
 
 - (id)initWithTitle:(NSString *)title delegate:(id<IBActionSheetDelegate>)delegate cancelButtonTitle:(NSString *)cancelTitle destructiveButtonTitle:(NSString *)destructiveTitle otherButtonTitlesArray:(NSArray *)otherTitlesArray {
@@ -180,6 +198,123 @@
     return self;
 }
 
+- (id)initWithTitle:(NSString *)title callback:(IBActionCallback)callback cancelButtonTitle:(NSString *)cancelTitle destructiveButtonTitle:(NSString *)destructiveTitle otherButtonTitlesArray:(NSArray *)otherTitlesArray {
+    
+    self = [self init];
+    self.callback = callback;
+    
+    NSMutableArray* titles = [otherTitlesArray mutableCopy];
+    
+    if (destructiveTitle) {
+        [titles insertObject:destructiveTitle atIndex:0];
+        self.hasDestructiveButton = YES;
+    } else {
+        self.hasDestructiveButton = NO;
+    }
+    
+    // set up cancel button
+    if (cancelTitle) {
+        IBActionSheetButton *cancelButton = [[IBActionSheetButton alloc] initWithAllCornersRounded];
+        cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:21];
+        [cancelButton setTitle:cancelTitle forState:UIControlStateAll];
+        [self.buttons addObject:cancelButton];
+        self.hasCancelButton = YES;
+    } else {
+        self.shouldCancelOnTouch = NO;
+        self.hasCancelButton = NO;
+    }
+    
+    switch (titles.count) {
+            
+        case 0: {
+            break;
+        }
+            
+        case 1: {
+            
+            IBActionSheetButton *otherButton;
+            
+            if (title) {
+                otherButton = [[IBActionSheetButton alloc] initWithBottomCornersRounded];
+            } else {
+                otherButton = [[IBActionSheetButton alloc] initWithAllCornersRounded];
+            }
+            
+            [otherButton setTitle:[titles objectAtIndex:0] forState:UIControlStateAll];
+            [self.buttons insertObject:otherButton atIndex:0];
+            
+            break;
+            
+        } case 2: {
+            
+            IBActionSheetButton *otherButton = [[IBActionSheetButton alloc] initWithBottomCornersRounded];
+            [otherButton setTitle:[titles objectAtIndex:1] forState:UIControlStateAll];
+            
+            IBActionSheetButton *secondButton;
+            
+            if (title) {
+                secondButton = [[IBActionSheetButton alloc] init];
+            } else {
+                secondButton = [[IBActionSheetButton alloc] initWithTopCornersRounded];
+            }
+            
+            [secondButton setTitle:[titles objectAtIndex:0] forState:UIControlStateAll];
+            [self.buttons insertObject:secondButton atIndex:0];
+            [self.buttons insertObject:otherButton atIndex:1];
+            
+            break;
+            
+        } default: {
+            
+            IBActionSheetButton *bottomButton = [[IBActionSheetButton alloc] initWithBottomCornersRounded];
+            [bottomButton setTitle:[titles lastObject] forState:UIControlStateAll];
+            
+            IBActionSheetButton *topButton;
+            
+            if (title) {
+                topButton = [[IBActionSheetButton alloc] init];
+            } else {
+                topButton = [[IBActionSheetButton alloc] initWithTopCornersRounded];
+            }
+            
+            [topButton setTitle:[titles objectAtIndex:0] forState:UIControlStateAll];
+            [self.buttons insertObject:topButton atIndex:0];
+            
+            int whereToStop = titles.count - 1;
+            for (int i = 1; i < whereToStop; ++i) {
+                IBActionSheetButton *middleButton = [[IBActionSheetButton alloc] init];
+                [middleButton setTitle:[titles objectAtIndex:i] forState:UIControlStateAll];
+                [self.buttons insertObject:middleButton atIndex:i];
+            }
+            
+            [self.buttons insertObject:bottomButton atIndex:(titles.count - 1)];
+            
+            break;
+        }
+    }
+    
+    [self setUpTheActions];
+    
+    if (destructiveTitle) {
+        [[self.buttons objectAtIndex:0] setTextColor:[UIColor colorWithRed:1.000 green:0.229 blue:0.000 alpha:1.000]];
+        [[self.buttons objectAtIndex:0] setOriginalTextColor:[UIColor colorWithRed:1.000 green:0.229 blue:0.000 alpha:1.000]];
+    }
+    
+    for (int i = 0; i < self.buttons.count; ++i) {
+        [[self.buttons objectAtIndex:i] setIndex:i];
+    }
+    
+    if (title) {
+        self.title = title;
+    } else {
+        [self setUpTheActionSheet];
+    }
+    
+    return self;
+}
+
+
+
 - (void)setUpTheActionSheet {
     
     float height;
@@ -223,11 +358,11 @@
             [[self.buttons lastObject] setCenter:pointOfReference];
             [[self.buttons objectAtIndex:0] setCenter:CGPointMake(pointOfReference.x, pointOfReference.y - 52)];
             pointOfReference = CGPointMake(pointOfReference.x, pointOfReference.y - 52);
-            whereToStop = (int) self.buttons.count - 2;
+            whereToStop = self.buttons.count - 2;
         } else {
             [self addSubview:[self.buttons lastObject]];
             [[self.buttons lastObject] setCenter:pointOfReference];
-            whereToStop = (int) self.buttons.count - 1;
+            whereToStop = self.buttons.count - 1;
         }
         
         for (int i = 0, j = whereToStop; i <= whereToStop; ++i, --j) {
@@ -313,7 +448,7 @@
                              [button setTitleColor:button.highlightTextColor forState:UIControlStateAll];
                              
                          } else {
-                         
+                             
                              UIColor *tempColor = button.titleLabel.textColor;
                              [button setTitleColor:button.backgroundColor forState:UIControlStateAll];
                              button.backgroundColor = tempColor;
@@ -460,7 +595,8 @@
 
 - (void)buttonClicked:(IBActionSheetButton *)button {
     
-    [self.delegate actionSheet:self clickedButtonAtIndex:button.index];
+    if(self.delegate) [self.delegate actionSheet:self clickedButtonAtIndex:button.index];
+    if(self.callback) self.callback(self, button.index);
     self.shouldCancelOnTouch = YES;
     [self removeFromView];
 }
@@ -471,10 +607,13 @@
         [self.transparentView removeFromSuperview];
         [self removeFromSuperview];
         self.visible = NO;
-        [self.delegate actionSheet:self clickedButtonAtIndex:buttonIndex];
+        if(self.delegate) [self.delegate actionSheet:self clickedButtonAtIndex:buttonIndex];
+        if(self.callback) self.callback(self, buttonIndex);
+        
     } else {
         [self removeFromView];
-        [self.delegate actionSheet:self clickedButtonAtIndex:buttonIndex];
+        if(self.delegate) [self.delegate actionSheet:self clickedButtonAtIndex:buttonIndex];
+        if(self.callback) self.callback(self, buttonIndex);
     }
 }
 
@@ -483,7 +622,7 @@
     [theView addSubview:self];
     [theView insertSubview:self.transparentView belowSubview:self];
     
-    CGRect theScreenRect = [UIScreen mainScreen].bounds;
+    CGRect theScreenRect = CGRectMake([UIScreen mainScreen].bounds.origin.x, [UIScreen mainScreen].bounds.origin.y + 50, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 60);
     
     float height;
     float x;
@@ -505,7 +644,7 @@
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         
         
-        [UIView animateWithDuration:0.2f
+        [UIView animateWithDuration:0.3f
                               delay:0.0f
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^() {
@@ -517,10 +656,10 @@
                          }];
     } else {
         
-        [UIView animateWithDuration:0.5f
+        [UIView animateWithDuration:0.3f
                               delay:0
-             usingSpringWithDamping:0.6f
-              initialSpringVelocity:0
+             usingSpringWithDamping:0.85f
+              initialSpringVelocity:1.0f
                             options:UIViewAnimationOptionCurveLinear
                          animations:^{
                              self.transparentView.alpha = 0.4f;
@@ -532,6 +671,11 @@
     }
 }
 
+- (void) cancelSelection {
+    if(self.callback) self.callback(self, NSIntegerMax);
+    [self removeFromView];
+}
+
 - (void)removeFromView {
     
     if (self.shouldCancelOnTouch) {
@@ -539,7 +683,7 @@
         if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
             
             
-            [UIView animateWithDuration:0.2f
+            [UIView animateWithDuration:0.3f
                                   delay:0.0f
                                 options:UIViewAnimationOptionCurveEaseOut
                              animations:^() {
@@ -553,10 +697,10 @@
                              }];
         } else {
             
-            [UIView animateWithDuration:0.5f
+            [UIView animateWithDuration:0.3f
                                   delay:0
-                 usingSpringWithDamping:0.6f
-                  initialSpringVelocity:0
+                 usingSpringWithDamping:0.85f
+                  initialSpringVelocity:1.0f
                                 options:UIViewAnimationOptionCurveLinear
                              animations:^{
                                  self.transparentView.alpha = 0.0f;
@@ -585,12 +729,12 @@
         height = CGRectGetHeight([UIScreen mainScreen].bounds);
         
         
-            for (IBActionSheetButton * button in self.buttons) {
-                [button resizeForPortraitOrientation];
-            }
+        for (IBActionSheetButton * button in self.buttons) {
+            [button resizeForPortraitOrientation];
+        }
         
-            [self.titleView resizeForPortraitOrientation];
-            [self setUpTheActionSheet];
+        [self.titleView resizeForPortraitOrientation];
+        [self setUpTheActionSheet];
         
         
         
@@ -599,7 +743,7 @@
         
         width = CGRectGetHeight([UIScreen mainScreen].bounds);
         height = CGRectGetWidth([UIScreen mainScreen].bounds);
-
+        
         
         for (IBActionSheetButton * button in self.buttons) {
             [button resizeForLandscapeOrientation];
@@ -621,7 +765,7 @@
 - (void)setButtonTextColor:(UIColor *)color {
     
     for (IBActionSheetButton *button in self.buttons) {
-            [button setTitleColor:color forState:UIControlStateAll];
+        [button setTitleColor:color forState:UIControlStateAll];
         button.originalTextColor = color;
     }
     
@@ -634,7 +778,7 @@
         button.backgroundColor = color;
         button.originalBackgroundColor = color;
     }
-
+    
     [self setTitleBackgroundColor:color];
 }
 
@@ -838,7 +982,7 @@
         default:
             break;
     }
-
+    
 }
 
 - (void)setMaskTo:(UIView*)view byRoundingCorners:(UIRectCorner)corners
@@ -890,7 +1034,7 @@
     
     [self.titleLabel sizeToFit];
     
-   
+    
     
     if ((CGRectGetHeight(self.titleLabel.frame) + 30) < 44) {
         self.frame = CGRectMake(0, 0, width - 16, 44);

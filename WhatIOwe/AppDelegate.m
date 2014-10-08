@@ -95,16 +95,10 @@
 {
     
     
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeAlert |
-     UIRemoteNotificationTypeSound];
-    [Instabug KickOffWithToken:@"843568d566cc6549aad9b1f12283cb48" CaptureSource:InstabugCaptureSourceUIKit FeedbackEvent:InstabugFeedbackEventShake IsTrackingLocation:YES];
+
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    StyleController *styleController = [[StyleController alloc]init];
-    styleController.style = @"blue";
-      [styleController applyStyle];
-    
+  
     
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     
@@ -123,8 +117,7 @@
 #endif
     
     
- [[UIApplication sharedApplication]  registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
-    
+
    // [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
     //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
@@ -456,7 +449,6 @@
         
         
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         
         // Time format for the string value
         
@@ -596,7 +588,7 @@
         [info setValue:[dict objectForKey:@"whooweswhat"]forKeyPath:@"whooweswhat"];
         
         [info setValue:[dict objectForKey:@"firstName"] forKey:@"name"];
-        
+        [info setValue:@"Shared" forKey:@"shared"];
         NSLog(@"WHO OWES APP: %@", [dict objectForKey:@"whooweswhat"]);
     
         [info setValue:[dict objectForKey:@"forwhat"] forKey:@"forwhat"];

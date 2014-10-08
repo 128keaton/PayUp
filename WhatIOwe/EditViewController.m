@@ -282,12 +282,10 @@
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *firstName2 = [defaults objectForKey:@"name"];
-    
-    if (self.info.) {
-        <#statements#>
-    }
-    if(![firstName2 isEqual:@"" ]){
+    NSString *firstName2 = [defaults objectForKey:@"firstNameSettings"];
+
+   
+    if(![firstName2 isEqual:@""] & [self.info.shared  isEqual: @"NotShared"]){
         
         if ([MFMailComposeViewController canSendMail])
             
@@ -596,7 +594,7 @@
         
     }else{
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"You need to enter your name on the main screen" delegate: nil cancelButtonTitle:@"Ok, sorry!" otherButtonTitles:nil]; [alert show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Error" message: @"You need to set your contact on the main screen" delegate: nil cancelButtonTitle:@"Ok, sorry!" otherButtonTitles:nil]; [alert show];
     }
     
 }
@@ -1174,6 +1172,16 @@
     
     tapped = NO;
     
+    // setup a pinch gesture recognizer and make the target the custom transition handler
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self.gestureTarget action:@selector(handlePinch:)];
+    [self.view addGestureRecognizer:pinchRecognizer];
+    
+    // setup an edge pan gesture recognizer and make the target the custom transition handler
+    UIScreenEdgePanGestureRecognizer *edgePanRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.gestureTarget action:@selector(handleEdgePan:)];
+    edgePanRecognizer.edges = UIRectEdgeLeft;
+    [self.view addGestureRecognizer:edgePanRecognizer];
+    
+    
     //originalFrame = self.view.frame;
     
     NSLog(@"Loading Edit View");
@@ -1340,31 +1348,12 @@
     
     
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+
+
     
     
     
-    [button addTarget:self
-     
-               action:@selector(cancel:)
-     
-     forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    
-    
-    UISwipeGestureRecognizer *swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cancel:)];
-    
-    [swipeGestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
-    
-    [view1 addGestureRecognizer:swipeGestureRecognizer];
-    
-    [view2 addGestureRecognizer:swipeGestureRecognizer];
-    
-    [view3 addGestureRecognizer:swipeGestureRecognizer];
-    
-    [self.view addGestureRecognizer:swipeGestureRecognizer];
+
     
     
     

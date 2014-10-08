@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -33,15 +32,15 @@
         <scene sceneID="VgW-fR-Quf">
             <objects>
                 <tableViewController storyboardIdentifier="Master" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pGg-6v-bdr" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.15728458049999999" green="0.15640589569999999" blue="0.15816326529999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" red="0.15728458049999999" green="0.15640589569999999" blue="0.15816326529999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OweCell" id="m0d-ak-lc9" customClass="OweTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OweCell" rowHeight="75" id="m0d-ak-lc9" customClass="OweTableViewCell">
                                 <rect key="frame" x="0.0" y="55" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="d3P-M7-ByW">
@@ -88,7 +87,7 @@
                                     <outlet property="moneyLabel" destination="65v-f6-FLd" id="aqd-tp-2K1"/>
                                     <outlet property="nameLabel" destination="e6U-JM-K8r" id="U1Q-PE-ycV"/>
                                     <outlet property="untilDate" destination="bhJ-7I-eeO" id="1xA-ih-c8M"/>
-                                    <segue destination="krt-Ir-JSS" kind="show" identifier="pushToEdit" id="07a-TD-oie"/>
+                                    <segue destination="krt-Ir-JSS" kind="push" identifier="pushToEdit" id="07a-TD-oie"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,6 +97,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="tQt-TN-PWz">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="6is-bU-3aB">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,6 +113,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="plusButton" destination="6is-bU-3aB" id="3Hq-VC-VAm"/>
                         <outlet property="settingsButton" destination="2Gs-PD-UJj" id="vvb-DF-ZzR"/>
                         <outlet property="tableView" destination="mLL-gJ-YKr" id="Pfb-TL-agC"/>
                     </connections>
@@ -420,8 +421,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtA-7G-xjV">
-                                <rect key="frame" x="93" y="245" width="192" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtA-7G-xjV">
+                                <rect key="frame" x="93" y="245" width="192" height="36"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Select your contact.">
@@ -463,75 +464,28 @@
                                     <constraint firstAttribute="height" constant="180" id="fYF-66-b3w"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-EU-uyI">
-                                <rect key="frame" x="0.0" y="289" width="375" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="329-mO-zMZ"/>
-                                    <constraint firstAttribute="width" constant="240" id="OyJ-LK-iCT"/>
-                                    <constraint firstAttribute="width" constant="240" id="kBf-2n-fyP"/>
-                                    <constraint firstAttribute="height" constant="128" id="nAA-im-yyZ"/>
-                                    <constraint firstAttribute="height" constant="200" id="uHD-UA-50v"/>
-                                    <constraint firstAttribute="height" constant="128" id="xWw-ll-Cqb"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="329-mO-zMZ"/>
-                                        <exclude reference="OyJ-LK-iCT"/>
-                                        <exclude reference="nAA-im-yyZ"/>
-                                        <exclude reference="xWw-ll-Cqb"/>
-                                    </mask>
-                                </variation>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.15728458049999999" green="0.15640589569999999" blue="0.15816326529999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="3Zi-9P-gL9" secondAttribute="width" id="090-Ug-q60"/>
                             <constraint firstItem="pIS-fx-EVe" firstAttribute="top" secondItem="bPZ-rz-3YT" secondAttribute="bottom" constant="150" id="3Wz-1k-jfr"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="centerX" secondItem="NtA-7G-xjV" secondAttribute="centerX" id="9k6-IS-Ot1"/>
                             <constraint firstAttribute="centerX" secondItem="3Zi-9P-gL9" secondAttribute="centerX" id="9vT-eO-NaB"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="trailing" secondItem="bPZ-rz-3YT" secondAttribute="trailing" id="GLO-dO-eJj"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="centerX" secondItem="pIS-fx-EVe" secondAttribute="centerX" id="HE6-Nd-FFr"/>
                             <constraint firstItem="NtA-7G-xjV" firstAttribute="top" secondItem="hhL-dm-bvi" secondAttribute="bottom" constant="26" id="KkX-g5-5cg"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="top" secondItem="NtA-7G-xjV" secondAttribute="bottom" constant="24" id="Oss-81-ZfK"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="trailing" secondItem="bPZ-rz-3YT" secondAttribute="trailing" id="OyU-ve-5mH"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="top" secondItem="pIS-fx-EVe" secondAttribute="bottom" constant="39" id="PVX-QO-rNm"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="centerX" secondItem="hhL-dm-bvi" secondAttribute="centerX" id="RjC-qK-DyL"/>
                             <constraint firstAttribute="centerX" secondItem="NtA-7G-xjV" secondAttribute="centerX" constant="-1" id="T5A-al-2q5"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="centerX" secondItem="pIS-fx-EVe" secondAttribute="centerX" id="UwL-SO-IN8"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="top" secondItem="3Zi-9P-gL9" secondAttribute="bottom" id="XBQ-0Q-ioB"/>
-                            <constraint firstItem="Sfe-V3-ryi" firstAttribute="top" secondItem="tWM-EU-uyI" secondAttribute="bottom" constant="250" id="Xyq-rJ-DjY"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="top" secondItem="NtA-7G-xjV" secondAttribute="bottom" constant="13" id="Yg6-lr-caZ"/>
-                            <constraint firstAttribute="centerX" secondItem="tWM-EU-uyI" secondAttribute="centerX" id="dms-BZ-PEq"/>
                             <constraint firstAttribute="centerX" secondItem="pIS-fx-EVe" secondAttribute="centerX" constant="0.5" id="gZx-Oa-6UY"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="leading" secondItem="OkY-Pq-pcd" secondAttribute="leadingMargin" constant="51" id="kXd-qO-sqD"/>
-                            <constraint firstItem="Sfe-V3-ryi" firstAttribute="top" secondItem="tWM-EU-uyI" secondAttribute="bottom" constant="236" id="mOk-wX-AdE"/>
-                            <constraint firstItem="Sfe-V3-ryi" firstAttribute="top" secondItem="tWM-EU-uyI" secondAttribute="bottom" constant="225" id="owQ-CC-vHz"/>
                             <constraint firstAttribute="centerX" secondItem="hhL-dm-bvi" secondAttribute="centerX" constant="0.5" id="qwv-Bo-TFa"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="leading" secondItem="OkY-Pq-pcd" secondAttribute="leadingMargin" constant="-17" id="scJ-uk-Bu6"/>
-                            <constraint firstItem="Sfe-V3-ryi" firstAttribute="top" secondItem="tWM-EU-uyI" secondAttribute="bottom" constant="225" id="tAg-Ad-Cks"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hhL-dm-bvi" secondAttribute="trailing" constant="-16" id="w68-KL-ahE"/>
-                            <constraint firstAttribute="width" secondItem="tWM-EU-uyI" secondAttribute="width" id="xL4-fz-n4W"/>
-                            <constraint firstItem="tWM-EU-uyI" firstAttribute="leading" secondItem="OkY-Pq-pcd" secondAttribute="leadingMargin" constant="53" id="y6z-7e-Xue"/>
                             <constraint firstItem="hhL-dm-bvi" firstAttribute="top" secondItem="OkY-Pq-pcd" secondAttribute="top" constant="39" id="yTT-2W-62P"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="GLO-dO-eJj"/>
                                 <exclude reference="HE6-Nd-FFr"/>
-                                <exclude reference="Oss-81-ZfK"/>
-                                <exclude reference="RjC-qK-DyL"/>
-                                <exclude reference="UwL-SO-IN8"/>
-                                <exclude reference="Yg6-lr-caZ"/>
-                                <exclude reference="kXd-qO-sqD"/>
-                                <exclude reference="y6z-7e-Xue"/>
-                                <exclude reference="mOk-wX-AdE"/>
-                                <exclude reference="owQ-CC-vHz"/>
-                                <exclude reference="tAg-Ad-Cks"/>
                             </mask>
                         </variation>
                     </view>
@@ -545,7 +499,6 @@
                         <outlet property="chooseName" destination="NtA-7G-xjV" id="03c-PD-gY6"/>
                         <outlet property="circleImage" destination="pIS-fx-EVe" id="f37-7x-Qrf"/>
                         <outlet property="normalView" destination="OkY-Pq-pcd" id="YiQ-HJ-QMd"/>
-                        <outlet property="quotes" destination="tWM-EU-uyI" id="ohf-FU-2ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBe-To-8Ec" userLabel="First Responder" sceneMemberID="firstResponder"/>
