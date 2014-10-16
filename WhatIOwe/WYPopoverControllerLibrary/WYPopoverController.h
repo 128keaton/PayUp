@@ -30,6 +30,7 @@
 @protocol WYPopoverControllerDelegate;
 @class WYPopoverTheme;
 
+
 #ifndef WY_POPOVER_DEFAULT_ANIMATION_DURATION
     #define WY_POPOVER_DEFAULT_ANIMATION_DURATION    .25f
 #endif
@@ -86,6 +87,8 @@ typedef NS_OPTIONS(NSUInteger, WYPopoverAnimationOptions) {
 @property (nonatomic, assign) UIEdgeInsets viewContentInsets    UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, strong) UIColor *overlayColor             UI_APPEARANCE_SELECTOR;
+
+
 
 @end
 

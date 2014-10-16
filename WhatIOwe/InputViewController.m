@@ -12,7 +12,8 @@
 #import "OweInfo.h"
 #import "OweDetails.h"
 #import "MasterViewController.h"
-
+#import "WYPopoverController.h"
+#import "WYStoryboardPopoverSegue.h"
 
 @interface InputViewController () <ABPeoplePickerNavigationControllerDelegate, UITextFieldDelegate>
 
@@ -444,7 +445,7 @@
 }
 
 
--(void)updateTextField:(id)sender
+/*-(void)updateTextField:(id)sender
 {
     
     
@@ -473,7 +474,7 @@
     
     
     dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
-}
+}*/
 
 - (void)didReceiveMemoryWarning
 {
@@ -574,6 +575,105 @@
     }];
 
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"pushToEdit"])
+    {
+        
+        
+        NSLog(@"Going back home");
+    }else if ([segue.identifier isEqual:@"pushToDate"]){
+        datePicker  = [[DatePickerViewController alloc]init];
+        WYStoryboardPopoverSegue *popoverSegue = (WYStoryboardPopoverSegue *)segue;
+        popoverController = [popoverSegue popoverControllerWithSender:sender
+                                             permittedArrowDirections:WYPopoverArrowDirectionDown
+                                                             animated:YES
+                                                              options:WYPopoverAnimationOptionFadeWithScale];
+        popoverController.delegate = self;
+        DatePickerViewController *datePickerVC = [[DatePickerViewController alloc]init];
+        //   datePickerVC.picker.date = self.info.details.date;
+        popoverController.popoverContentSize = CGSizeMake(300, 280);
+  
+            datePickerVC.date = [NSDate date];
+            
+    
+        
+    }
+}
+
+-(void)updateTextField:(NSDate *)pickerDate;
+
+{
+    
+    
+    
+    
+    
+    //UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
+    
+    
+    
+    
+    
+    
+    [self.info.details setValue:pickerDate forKey:@"date"];
+    
+    
+    
+    
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    
+    
+    
+    
+    [formatter setDateFormat:@"ddMMyyyy"];
+    
+    [formatter setDateStyle:NSDateFormatterFullStyle];
+    
+    NSDate *dt = pickerDate;
+    
+    NSString *dateAsString = [formatter stringFromDate:dt];
+    
+    
+    
+    
+    info.dateString = dateAsString;
+    
+    NSLog(@"%@", dateAsString);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
+    
+    
+}
+
+
+
+
+
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    NSLog(@"popdown");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self updateTextField:[defaults objectForKey:@"pickerDate"]];
+    return YES;
+}
+
+
+
 /*
 #pragma mark - Navigation
 

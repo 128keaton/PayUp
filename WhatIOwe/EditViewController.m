@@ -1021,7 +1021,13 @@
         DatePickerViewController *datePickerVC = [[DatePickerViewController alloc]init];
      //   datePickerVC.picker.date = self.info.details.date;
         popoverController.popoverContentSize = CGSizeMake(300, 280);
-        datePickerVC.date = self.info.details.date;
+        if (self.info.details.date != nil) {
+            datePickerVC.date = self.info.details.date;
+
+        }else{
+            datePickerVC.date = [NSDate date];
+
+        }
         
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Revision. All rights reserved.
 //
 #import "DetailViewController.h"
-
+#import "InputViewController.h"
 #import "FooterViewController.h"
 #import <UIKit/UIKit.h>
 #import "LCZoomTransition.h"
@@ -17,6 +17,7 @@
 #import "WYPopoverController.h"
 #import "IBActionSheet.h"
 @class EditViewController;
+@class InputViewController;
 @interface MasterViewController : UITableViewController <WYPopoverControllerDelegate, IBActionSheetDelegate>{
     id delegate;
     NSMutableArray *nameArray;
@@ -53,8 +54,8 @@
 @property (strong, nonatomic) id delegate;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *plusButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic)IBOutlet UIView *footerview;
-- (void)handleOpenURL:(NSURL *)url;
+
+
 @property (strong, nonatomic) id owedItem;
 - (void)setOwedItem:(id)owedItem;
 -(void)openInput;

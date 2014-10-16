@@ -108,6 +108,7 @@
 		8A95578A18EF684700469480 /* OweInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578918EF684700469480 /* OweInfo.m */; };
 		8A95578D18EF7F8600469480 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578C18EF7F8600469480 /* InputViewController.m */; };
 		8A95579318EFB2F900469480 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95579218EFB2F900469480 /* DetailViewController.m */; };
+		8AACC50719E76AF3005397F4 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AACC50619E76AF3005397F4 /* DismissSegue.m */; };
 		8ABFAF8218F47F2000D503C4 /* 1397001691_alarm_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */; };
 		8AC1622419207661004DC078 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622319207661004DC078 /* Security.framework */; };
 		8AC1622619207668004DC078 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622519207668004DC078 /* libz.1.2.5.dylib */; };
@@ -291,6 +292,8 @@
 		8A95578C18EF7F8600469480 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		8A95579118EFB2F900469480 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8A95579218EFB2F900469480 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8AACC50519E76AF3005397F4 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
+		8AACC50619E76AF3005397F4 /* DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissSegue.m; sourceTree = "<group>"; };
 		8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1397001691_alarm_clock.png; sourceTree = "<group>"; };
 		8AC1622319207661004DC078 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8AC1622519207668004DC078 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
@@ -585,6 +588,8 @@
 		8A95572918EF614400469480 = {
 			isa = PBXGroup;
 			children = (
+				8AACC50519E76AF3005397F4 /* DismissSegue.h */,
+				8AACC50619E76AF3005397F4 /* DismissSegue.m */,
 				8A95573D18EF614400469480 /* OweIt */,
 				8A95576618EF614400469480 /* OweIt */,
 				8A1761D719D060A5009A94C0 /* IO_Widget */,
@@ -966,6 +971,7 @@
 				8A34E6B119CBD84D00D19F3A /* SWTableViewCell.m in Sources */,
 				8A95574418EF614400469480 /* main.m in Sources */,
 				8A6EAB0419C8E0EE004CCFFA /* SettingsViewController.m in Sources */,
+				8AACC50719E76AF3005397F4 /* DismissSegue.m in Sources */,
 				8A34E6B319CBD84D00D19F3A /* SWUtilityButtonView.m in Sources */,
 				8A95578118EF66AA00469480 /* MasterViewController.m in Sources */,
 				8AE330C719DC6A0400F93648 /* LCZoomTransition.m in Sources */,

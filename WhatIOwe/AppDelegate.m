@@ -118,9 +118,9 @@
     
     
 
-   // [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
-    //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
    // [NSThread detachNewThreadSelector:@selector(initializePayPal)
      
                             // toTarget:self withObject:nil];
@@ -150,8 +150,7 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         
         controller.managedObjectContext = self.managedObjectContext;
-        navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
-        
+        navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0];
     }
     
     
@@ -162,10 +161,11 @@
     
     NSArray *ver = [[UIDevice currentDevice].systemVersion componentsSeparatedByString:@"."];
     if ([[ver objectAtIndex:0] intValue] >= 7) {
-        navController.navigationBar.barTintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
+        navController.navigationBar.barTintColor = [UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0];
         navController.navigationBar.translucent = NO;
     }else {
-        navController.navigationBar.tintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
+        navController.navigationBar.tintColor = [UIColor whiteColor];
+        navController.navigationBar.backgroundColor = [UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0];
     }
 
     

@@ -10,6 +10,7 @@
 #import "InputViewController.h"
 #import "MasterViewController.h"
 #import "WYPopoverController.h"
+@class InputViewController;
 @protocol SelectionViewControllerDelegate;
 
 @interface SelectionViewController : UIViewController <WYPopoverControllerDelegate>{

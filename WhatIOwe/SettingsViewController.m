@@ -11,8 +11,9 @@
 #import "StyleController.h"
 #import "SettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
-@interface SettingsViewController () <ABPeoplePickerNavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
-
+#import "WYPopoverController.h"
+@interface SettingsViewController () <ABPeoplePickerNavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UIAlertViewDelegate, WYPopoverControllerDelegate>
+    
 @end
 
 @implementation SettingsViewController
@@ -161,7 +162,7 @@
         [defaults removeObjectForKey:@"image"];
         
     }
-    
+  //  self.view.frame = CGRectMake(0, 0, 300, 300);
     if ([defaults objectForKey:@"image"] !=nil) {
         UIImage *theImage = [UIImage imageWithData: [defaults objectForKey:@"image"]];
         circleImage.image = theImage;
@@ -214,6 +215,9 @@
 -(IBAction)done:(id)sender{
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    WYPopoverBackgroundView *backgroundView = [[self.view.window subviews]lastObject];
+    
+    
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color
@@ -282,14 +286,16 @@
     picker.peoplePickerDelegate = self;
 
     picker.navigationBar.tintColor = [UIColor blackColor];
-
     [self presentViewController:picker animated:YES completion:nil];
+    
+    
    }
 
 - (void)peoplePickerNavigationControllerDidCancel:
 (ABPeoplePickerNavigationController *)peoplePicker
 {
     [self clearUser];
+  //  [self.view setFrame:CGRectMake(0, 0, 300, 300)];
     [self dismissViewControllerAnimated:peoplePicker completion:nil];
 }
 -(void)clearUser{
@@ -303,7 +309,7 @@
     
     NSString* firstName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+      ///  [self.view setFrame:CGRectMake(0, 0, 300, 300)];
     
     NSData *contactImageData;
     
@@ -343,6 +349,36 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleDefault;
+}
+-(IBAction)removeAll:(id)sender{
+    
+    UIAlertView *reallyAlert = [[UIAlertView alloc]initWithTitle:@"Really?" message:@"Do you really want to clear all?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [reallyAlert show];
+  
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }else{
+        NSFetchedResultsController *fetchedResultsController;
+        id delegate2 = [[UIApplication sharedApplication] delegate];
+       NSManagedObjectContext * managedObjectContext = [delegate2 managedObjectContext];
+        NSFetchRequest * fetch = [[NSFetchRequest alloc]init];
+        [fetch setEntity:[NSEntityDescription entityForName:@"OweInfo" inManagedObjectContext:managedObjectContext]];
+        NSArray * result = [managedObjectContext executeFetchRequest:fetch error:nil];
+        for (id item in result) {
+            [managedObjectContext deleteObject:item];
+        }
+        
+        [fetch setEntity:[NSEntityDescription entityForName:@"OweDetails" inManagedObjectContext:managedObjectContext]];
+        for (id item in result) {
+            [managedObjectContext deleteObject:item];
+        }
+        [managedObjectContext save:nil];
+       
+    }
+
 }
 
 @end

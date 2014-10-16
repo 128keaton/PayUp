@@ -562,6 +562,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         selection.delegate = self;
         
         popoverController.popoverContentSize = CGSizeMake(300, 215);
+    }else if ([segue.identifier isEqualToString:@"pushToSettings"]){
+        
+       /* WYStoryboardPopoverSegue *popoverSegue = (WYStoryboardPopoverSegue *)segue;
+        popoverController = [popoverSegue popoverControllerWithSender:sender
+                                             permittedArrowDirections:WYPopoverArrowDirectionUp
+                                                             animated:YES
+                                                              options:WYPopoverAnimationOptionScale];
+        popoverController.delegate = self;
+        
+        SelectionViewController *selection = [[SelectionViewController alloc]init];
+        selection.delegate = self;
+        
+        popoverController.popoverContentSize = CGSizeMake(320, 300);
+*/
+        
     }
     
 
@@ -709,5 +724,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // This will create a "invisible" footer
     return 0.01f;
 }
+
 
 @end

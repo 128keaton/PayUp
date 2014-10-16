@@ -14,7 +14,7 @@
 #import "WYPopoverController.h"
 #import "DatePickerViewController.h"
 #import "LCZoomTransition.h"
-
+@class MasterViewController;
 @class DatePickerViewController;
 
 @interface EditViewController : UIViewController <MFMailComposeViewControllerDelegate, WYPopoverControllerDelegate, UITextFieldDelegate>{

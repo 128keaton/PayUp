@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "WYStoryboardPopoverSegue.h"
+#import "WYPopoverController.h"
+#import "DatePickerViewController.h"
 @import AddressBook;
 
-
+@class DatePickerViewController;
 @class MasterViewController;
 
 @interface InputViewController : UIViewController{
@@ -34,6 +37,8 @@
     BOOL yes;
     BOOL hasImage;
     NSString *contactName;
+    WYPopoverController *popoverController;
+    DatePickerViewController *datePicker;
 
 }
 @property BOOL statusBarHidden;

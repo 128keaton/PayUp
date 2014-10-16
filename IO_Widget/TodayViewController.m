@@ -35,7 +35,7 @@
     NSUserDefaults *userDefaults = [[NSUserDefaults alloc]initWithSuiteName:@"group.com.bittank.io"];
     widgetArray = [userDefaults objectForKey:@"name"];
 
-    CoreDa
+ //   CoreDa
     localList = [widgetArray copy];
     NSLog(@"hello world!");
     NSLog(@"%lu", (unsigned long)widgetArray.count);
@@ -235,7 +235,7 @@
     return [[self managedObjectContext] executeFetchRequest:fetchRequest error:nil];
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
+/*- (NSFetchedResultsController *)fetchedResultsController {
     id thedelegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [thedelegate managedObjectContext];
     if (_fetchedResultsController != nil) {
@@ -244,7 +244,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"OweInfo" inManagedObjectContext:managedObjectContext];
+                                   entityForName:@"OweInfo" inManagedObjectContext:_managedObjectContext];
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
@@ -255,7 +255,7 @@
     
     NSFetchedResultsController *theFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:managedObjectContext sectionNameKeyPath:nil
+                                        managedObjectContext:_managedObjectContext sectionNameKeyPath:nil
                                                    cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
     _fetchedResultsController.delegate = self;
@@ -264,9 +264,10 @@
     
 }
 
+*/
 
 
--(void)f {
+/*-(void)f {
     if !_fetchedResultsController {
         // set up fetch request
         var fetchRequest = NSFetchRequest()
@@ -286,6 +287,6 @@
 }
 var _fetchedResultsController: NSFetchedResultsController? = nil
 
-
+*/
 
 @end

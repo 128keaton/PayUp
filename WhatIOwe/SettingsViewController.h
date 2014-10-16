@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+#import "WYPopoverController.h"
 @interface SettingsViewController : UIViewController {
 
     IBOutlet UIButton *chooseName;
@@ -26,6 +26,7 @@
      int selectedCell;
     NSArray *quotesArray;
     IBOutlet UITextView *quotes;
+    WYPopoverController* popoverController;
 }
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet      UIPickerView *picker;
