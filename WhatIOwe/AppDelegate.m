@@ -118,9 +118,9 @@
     
     
 
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0]];
+
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.2627 green:0.8353 blue:0.6196 alpha:1.0]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
    // [NSThread detachNewThreadSelector:@selector(initializePayPal)
      
                             // toTarget:self withObject:nil];

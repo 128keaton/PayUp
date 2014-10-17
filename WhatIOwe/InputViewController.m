@@ -140,7 +140,7 @@
     _picker = [[UIDatePicker alloc]init];
 
     _picker.datePickerMode = UIDatePickerModeDateAndTime;
-      dueField.inputView = _picker;
+     // dueField.inputView = _picker;
     [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [iField addTarget:self action:@selector(updateButtonState:) forControlEvents:UIControlEventEditingChanged];
         [oField addTarget:self action:@selector(updateButtonState:) forControlEvents:UIControlEventEditingChanged];
@@ -266,10 +266,12 @@
     NSString *editedMoney = [[NSString alloc]init];
     [formatter setDateFormat:@"MM/dd"];
   //  [formatter setDateStyle:NSDateFormatterFullStyle];
-    NSDate *dt = picker.date;
-    NSString *dateAsString = [formatter stringFromDate:dt];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *datePickerDate = [defaults objectForKey:@"pickerDate"];
     
-
+    NSString *dateAsString = [formatter stringFromDate:datePickerDate];
+    
+    
 
     
     NSLog(@"DATE STRING 2: %@", dateAsString);
@@ -307,25 +309,25 @@
     NSManagedObject *info = [NSEntityDescription
                                           insertNewObjectForEntityForName:@"OweInfo"
                                           inManagedObjectContext:context];
-   if (yes == YES) {
-        dateAsString = @"";
-       
-        
-   }else{
+   // self.info = info;
+    
+ if(tapped == YES){
        NSLog(@"Registering for notification");
-         [details setValue:picker.date forKey:@"date"];
+     
       // NSDate *alertTime = picker.date;
        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
        [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
        formatter.timeZone = [NSTimeZone localTimeZone];
  
-       NSLog(@"Picker Date: %@", [picker.date descriptionWithLocale:[NSLocale currentLocale]]);
+       NSLog(@"Picker Date: %@", [datePickerDate descriptionWithLocale:[NSLocale currentLocale]]);
        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
        NSDate *fireDate = picker.date;
        localNotification.fireDate = fireDate;
        NSString *uid =[[self class]generateRandomString:5];
        NSLog(@"Edit UUID: %@", uid);
        [info setValue:uid forKey:@"uid"];
+     self.info.dateString = dateAsString;
+     [details setValue:datePickerDate forKey:@"date"];
            localNotification.timeZone = [NSTimeZone defaultTimeZone];
        localNotification.soundName = UILocalNotificationDefaultSoundName;
 
@@ -344,8 +346,7 @@
        
    }
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+   
     
     NSString *firstName = [defaults objectForKey:@"name"];
     
@@ -409,6 +410,7 @@
         [theButton setEnabled:YES];
         //[oField becomeFirstResponder];
     }  else if (textField == dueField){
+        NSLog(@"dueField");
                [theButton setEnabled:YES];
         [self performSelector:@selector(submit:) withObject:nil];
     }
@@ -605,16 +607,12 @@
 -(void)updateTextField:(NSDate *)pickerDate;
 
 {
+    NSManagedObjectContext *context = [self managedObjectContext];
     
     
     
     
-    
-    //UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
-    
-    
-    
-    
+ 
     
     
     [self.info.details setValue:pickerDate forKey:@"date"];
@@ -640,21 +638,46 @@
     
     
     
+    self.info.details.date = pickerDate;
+    self.info.dateString = dateAsString;
     
-    info.dateString = dateAsString;
-    
-    NSLog(@"%@", dateAsString);
-    
-    
+    NSLog(@"Date Updated: %@", dateAsString);
     
     
-    
+    NSError *error;
     
     
     
     
+    if (![context save:&error]) {
+        
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        
+    }
     
-    dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
+    
+    
+    
+    
+
+    [UIView animateWithDuration:0.1f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^(void){
+                         [dueField setAlpha:1];
+                         [dueLabel setAlpha:1];
+                         [addDate setAlpha:0];
+                         tapped = YES;
+                             dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
+                        
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+    
+    
+    
     
     
 }
@@ -672,8 +695,22 @@
     return YES;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if(textField == dueField){
+        dueField.inputView = nil;
+        [self performSegueWithIdentifier:@"pushToDate" sender:addDate];
+    }
+    
+}
 
-
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == dueField) {
+             [self performSegueWithIdentifier:@"pushToDate" sender:addDate];
+        return NO;
+    }
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

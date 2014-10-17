@@ -44,8 +44,9 @@
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    
-  
+
+    CJMTwitterFollowButton *button = twitterButton;
+    [button setTwitterAccount:@"128keaton"];
     // 2 - Get random index
     int index = (arc4random() % [quotesArray count]);
     // 3 - Get the quote string for the index
@@ -132,11 +133,7 @@
        chooseName.titleLabel.text = firstName;
     }*/
 
-    self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 480, 320, 270)];
-    self.picker.delegate = self;
-    self.picker.dataSource = self;
-    [self.view addSubview:self.picker];
-/*    pickerToolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,320,44)];
+  /*    pickerToolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,320,44)];
     [pickerToolbar setBarStyle:UIBarStyleBlackOpaque];
     UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:@"Done"
                                                                       style:UIBarButtonItemStyleBordered target:self action:@selector(removePicker:)];

@@ -249,7 +249,7 @@
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
                               initWithKey:@"details.date" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];œ
     
     [fetchRequest setFetchBatchSize:20];
     

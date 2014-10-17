@@ -285,7 +285,7 @@
     NSString *firstName2 = [defaults objectForKey:@"firstNameSettings"];
 
    
-    if(![firstName2 isEqual:@""] & [self.info.shared  isEqual: @"NotShared"]){
+    if(![firstName2 isEqual:@""] & ![self.info.shared isEqual:@"Shared"]){
         
         if ([MFMailComposeViewController canSendMail])
             
@@ -503,7 +503,7 @@
             
             //     CGFloat alpha = self.coverView.alpha;
             
-            [self.delegate moveBack];
+          //  [self.delegate moveBack];
             
             
             
@@ -1157,10 +1157,12 @@
     }
     
     
+    MasterViewController *master = [[MasterViewController alloc]init];
+     [master.tableView setContentOffset:CGPointMake(0, -78)];
     
     
-    
-    
+    self.master = master;
+    [_master.tableView setContentOffset:CGPointMake(0, -65)];
    [self.navigationController popViewControllerAnimated:YES];
     
 }

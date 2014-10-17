@@ -4,53 +4,55 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CJMTwitterFollowButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Canvas.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-SBJson.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22C73DF98BC8474297967EF0</key>
+		<key>67C87F98DC244098A3AE6185</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4723F61E90204FEE90856F78</key>
+		<key>8599763F3F5643B3B350DF2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7058C2AD0CAC4040B2819DDD</key>
+		<key>AA2CA7DEFAA8441D9133C0B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>98860C15DEB341FB9C72CB0E</key>
+		<key>E16ABCADA7DC4A7A93D167A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBD0A2DBA2BF4D9CAA81A591</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CJMTwitterFollowButton/CJMTwitterFollowButton.h>
 #import "WYPopoverController.h"
 @interface SettingsViewController : UIViewController {
 
@@ -27,6 +27,7 @@
     NSArray *quotesArray;
     IBOutlet UITextView *quotes;
     WYPopoverController* popoverController;
+    IBOutlet CJMTwitterFollowButton *twitterButton;
 }
 @property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet      UIPickerView *picker;

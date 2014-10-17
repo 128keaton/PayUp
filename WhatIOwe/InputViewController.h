@@ -13,7 +13,7 @@
 #import "WYPopoverController.h"
 #import "DatePickerViewController.h"
 @import AddressBook;
-
+#import "OweInfo.h"
 @class DatePickerViewController;
 @class MasterViewController;
 
@@ -35,6 +35,7 @@
     NSData *imageData;
     IBOutlet UIButton *addDate;
     BOOL yes;
+    BOOL tapped;
     BOOL hasImage;
     NSString *contactName;
     WYPopoverController *popoverController;
@@ -44,6 +45,7 @@
 @property BOOL statusBarHidden;
 @property (strong, nonatomic) id detailItem;
 - (void)setDetailItem:(id)newDetailItem;
+@property (nonatomic) OweInfo *info;
 @property (nonatomic) UIDatePicker *picker;
 @property(strong, nonatomic) ABPeoplePickerNavigationController *peoplePicker;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

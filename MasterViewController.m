@@ -14,9 +14,9 @@
 #import "AppDelegate.h"
 #import "OweTableViewCell.h"
 #import "FooterViewController.h"
-#import "CSAnimationView.h"
+
 #import "EditTableViewCell.h"
-#import <POP/POP.h>
+
 #import <AVFoundation/AVFoundation.h>
 #import "SettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -202,6 +202,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 -(void)viewDidAppear:(BOOL)animated{
+       
     [self setNeedsStatusBarAppearanceUpdate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
@@ -214,7 +215,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
     [super viewDidLoad];
-    
+   
     NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     
     [sharedDefaults setObject:_fetchedResultsController forKey:@"array"];
@@ -225,9 +226,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                ofType:@"aif"]];
     self.tap = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
     [self.tap prepareToPlay];
-    	selectedIndexes = [[NSMutableDictionary alloc] init];
-    flipped = 0;
-    currentSelection = -1;
+
     NSURL* musicFile2 = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                                pathForResource:@"slide-scissors"
                                                ofType:@"aif"]];
@@ -244,6 +243,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     self.title = @"Owed";
     self.zoomTransition = [[LCZoomTransition alloc] initWithNavigationController:self.navigationController];
+    
     addButton.layer.cornerRadius = 2;
     addButton.layer.borderWidth = 1;
     addButton.layer.borderColor = addButton.backgroundColor.CGColor;
@@ -297,7 +297,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 - (void)configureCell:(OweTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    tableViewSize = 75;
+  //  tableViewSize = 75;
     
     
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
@@ -408,7 +408,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     } else
               cell.dateLabel.center = cell.thumbnailOwe.center;
 
-    [self.today configureCell:cell atIndexPath:indexPath];
+  //  [self.today configureCell:cell atIndexPath:indexPath];
 
     
 
@@ -477,7 +477,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+  
     EditViewController *edit = [[EditViewController alloc]init];
     
     NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];
@@ -501,7 +501,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     edit.delegate = self;
     edit.managedObjectContext = [appDelegate managedObjectContext];
 
-    
+    [self.tableView setContentOffset:CGPointMake(0, -65)];
     
 
     self.editView.managedObjectContext = [appDelegate managedObjectContext];
@@ -519,8 +519,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         self.zoomTransition.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
-        
-        // pass the custom transition to the destination controller
+               // pass the custom transition to the destination controller
         // so it can use it when setting up its gesture recognizers
         [[segue destinationViewController] setGestureTarget:self.zoomTransition];
     EditViewController *edit = segue.destinationViewController;

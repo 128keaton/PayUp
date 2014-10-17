@@ -74,6 +74,7 @@
 		8A3F331B19E3B34A0075ECC2 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3F331019E3B3490075ECC2 /* Icon-Small.png */; };
 		8A3F331C19E3B34A0075ECC2 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3F331119E3B3490075ECC2 /* Icon-Small@2x.png */; };
 		8A3F331D19E3B34A0075ECC2 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A3F331219E3B3490075ECC2 /* Icon-Small@3x.png */; };
+		8A4A916619F08CCF00BD38C9 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A916519F08CCF00BD38C9 /* Launch Screen.xib */; };
 		8A4D430718F4B217001E7D76 /* Dateless.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D430618F4B217001E7D76 /* Dateless.png */; };
 		8A4D430F18F5A826001E7D76 /* DeleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D430E18F5A826001E7D76 /* DeleteButton.png */; };
 		8A4D431818F5B0E0001E7D76 /* EditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D431718F5B0E0001E7D76 /* EditTableViewCell.m */; };
@@ -249,6 +250,7 @@
 		8A3F331019E3B3490075ECC2 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		8A3F331119E3B3490075ECC2 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8A3F331219E3B3490075ECC2 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		8A4A916519F08CCF00BD38C9 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "Pods/Launch Screen.xib"; sourceTree = "<group>"; };
 		8A4D430618F4B217001E7D76 /* Dateless.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dateless.png; sourceTree = "<group>"; };
 		8A4D430E18F5A826001E7D76 /* DeleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteButton.png; sourceTree = "<group>"; };
 		8A4D431618F5B0E0001E7D76 /* EditTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTableViewCell.h; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 		8A95572918EF614400469480 = {
 			isa = PBXGroup;
 			children = (
+				8A4A916519F08CCF00BD38C9 /* Launch Screen.xib */,
 				8AACC50519E76AF3005397F4 /* DismissSegue.h */,
 				8AACC50619E76AF3005397F4 /* DismissSegue.m */,
 				8A95573D18EF614400469480 /* OweIt */,
@@ -868,6 +871,7 @@
 				8A0F70C918F2F40600D5732C /* ClearSans-Thin.ttf in Resources */,
 				8A3F331819E3B34A0075ECC2 /* Icon-60@3x.png in Resources */,
 				8A0F70C818F2F40600D5732C /* ClearSans-Regular.ttf in Resources */,
+				8A4A916619F08CCF00BD38C9 /* Launch Screen.xib in Resources */,
 				8A3F331719E3B34A0075ECC2 /* Icon-60@2x.png in Resources */,
 				8A3F331419E3B34A0075ECC2 /* Icon-40.png in Resources */,
 				8A3F331B19E3B34A0075ECC2 /* Icon-Small.png in Resources */,

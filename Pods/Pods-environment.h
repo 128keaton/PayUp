@@ -6,6 +6,12 @@
 // project.
 
 
+// CJMTwitterFollowButton
+#define COCOAPODS_POD_AVAILABLE_CJMTwitterFollowButton
+#define COCOAPODS_VERSION_MAJOR_CJMTwitterFollowButton 0
+#define COCOAPODS_VERSION_MINOR_CJMTwitterFollowButton 1
+#define COCOAPODS_VERSION_PATCH_CJMTwitterFollowButton 0
+
 // Canvas
 #define COCOAPODS_POD_AVAILABLE_Canvas
 #define COCOAPODS_VERSION_MAJOR_Canvas 0

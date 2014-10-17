@@ -1,16 +1,19 @@
 PODS:
   - Canvas (0.1.1)
+  - CJMTwitterFollowButton (0.1.0)
   - pop (1.0.2)
   - SBJson (4.0.0)
 
 DEPENDENCIES:
   - Canvas (~> 0.1)
+  - CJMTwitterFollowButton (~> 0.1.0)
   - pop
   - SBJson (~> 4.0.0)
 
 SPEC CHECKSUMS:
-  Canvas: f1911025fc9ec9c7339df6e4399c90c87ce6b631
-  pop: 55f6c972fbfb644dfcf1bd6892d001feaa32cc38
-  SBJson: 5579157749446dd166fe054fff7530d0ab111a3a
+  Canvas: 45356a2e61087a776bfde5090676d290cf67f7f2
+  CJMTwitterFollowButton: f3433315f394944a871ae03d4de2871eaf2eeac9
+  pop: 4c63d3b36617606008c564173a7c766d9016abdd
+  SBJson: a44f61c96e29bbb94fca67b5fa2bef70faa8d38f
 
 COCOAPODS: 0.32.1
