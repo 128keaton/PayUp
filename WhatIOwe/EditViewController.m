@@ -51,15 +51,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    if (textField == iField) {
+    if (textField == nameField) {
         
         [textField resignFirstResponder];
         
-        [oField becomeFirstResponder];
+        [moneyField becomeFirstResponder];
         
-    } else if (textField == oField) {
+    } else if (textField == moneyField) {
         
-        [oField resignFirstResponder];
+        [moneyField resignFirstResponder];
         
         
         
@@ -653,7 +653,7 @@
 
 -(IBAction)textFieldDidChange:(UITextField*)sender{
     
-    NSString *s = oField.text;
+    NSString *s = moneyField.text;
     
     NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
     
@@ -661,7 +661,7 @@
     
     NSString *newS = [NSString stringWithFormat:@"$%@", s];
     
-    oField.text = newS;
+    moneyField.text = newS;
     
     
     
@@ -691,7 +691,7 @@
     
     
     
-    NSString *s = oField.text;
+    NSString *s = moneyField.text;
     
     NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
     
@@ -733,7 +733,7 @@
     
     
     
-    [self.info setValue:iField.text forKey:@"name"];
+    [self.info setValue:nameField.text forKey:@"name"];
     NSLog(@"Name from Edit: %@", self.info.name);
     
     NSError *error;
@@ -796,7 +796,7 @@
      
                      animations:^{
                          
-                         [oField resignFirstResponder];
+                         [moneyField resignFirstResponder];
                          
                          //[self dismissSemiModalViewController:self];
                          
@@ -850,7 +850,7 @@
         
         
         
-        [oField resignFirstResponder];
+        [moneyField resignFirstResponder];
         
         
         
@@ -926,7 +926,7 @@
                          
                          alarm.alpha = 1;
                          
-                         oLabel.alpha = 0;
+                         dateLabel.alpha = 0;
                          
                          self.dueField.alpha = 0;
                          
@@ -978,7 +978,7 @@
                          
                          sender.alpha = 0;
                          
-                         oLabel.alpha = 1;
+                         moneyField.alpha = 1;
                          
                          self.dueField.alpha = 1;
                          
@@ -1048,7 +1048,7 @@
     
     
     
-    NSString *s = oField.text;
+    NSString *s = moneyField.text;
     
     NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
     
@@ -1091,7 +1091,7 @@
     
     
     
-    [self.info setValue:iField.text forKey:@"name"];
+    [self.info setValue:nameField.text forKey:@"name"];
     NSLog(@"Name from Edit: %@", self.info.name);
     
     NSError *error;
@@ -1101,9 +1101,9 @@
     
     
     
-    [self.info setValue:wField.text forKey:@"forwhat"];
+    [self.info setValue:reasonField forKey:@"forwhat"];
     
-    self.info.forwhat = wField.text;
+    self.info.forwhat = reasonField;
     
     NSString *uid = self.info.uid;
     if (tapped == YES){
@@ -1133,10 +1133,10 @@
         NSString *wow = self.info.whooweswhat;
         
         if ([wow isEqualToString:@"someoneowes"]) {
-            localNotification.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", iField.text, editedMoney];
+            localNotification.alertBody = [NSString stringWithFormat:@"%@ owes you %@ today", nameField.text, editedMoney];
         }else{
-            localNotification.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", iField.text,editedMoney ];
-            [details setValue:iField.text forKey:@"alert"];
+            localNotification.alertBody = [NSString stringWithFormat:@"You owe %@ %@ today", nameField.text,editedMoney ];
+            [details setValue:nameField.text forKey:@"alert"];
         }
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
@@ -1222,7 +1222,7 @@
     
     self.dueField.inputAccessoryView = toolbar2;
    
-    oField.inputAccessoryView = toolbar;
+    moneyField.inputAccessoryView = toolbar;
     
     //  _picker.tintColor = [UIColor whiteColor];
     
@@ -1257,10 +1257,10 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     NSLog(@"Name from Edit: %@", self.info.name);
-    iField.text = self.info.name;
+    nameField.text = self.info.name;
     
-    oField.text = self.info.details.money;
-    wField.text = self.info.forwhat;
+    moneyField.text = self.info.details.money;
+    reasonField.text = self.info.forwhat;
     date = self.details.date;
     
     name2 = self.info.name;
@@ -1270,7 +1270,7 @@
     if (!self.info.details.date) {
         [self.dueField setEnabled:NO];
         
-        oLabel.alpha = 0;
+        moneyField.alpha = 0;
         
         self.dueField.alpha = 0;
         
@@ -1282,7 +1282,7 @@
         
         
         
-        oLabel.alpha = 1;
+        moneyField.alpha = 1;
         
         self.dueField.alpha = 1;
         
@@ -1343,12 +1343,7 @@
         
     }
     
-    if ([self.info.whooweswhat  isEqual: @"someoneowes"]) {
-        iLabel.hidden = YES;
-    }else if ([self.info.whooweswhat  isEqual: @"nope"]){
-        iLabel.hidden = NO;
-    }
-    
+ 
     
     
     

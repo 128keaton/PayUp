@@ -19,21 +19,19 @@
 
 @interface EditViewController : UIViewController <MFMailComposeViewControllerDelegate, WYPopoverControllerDelegate, UITextFieldDelegate>{
     
-    IBOutlet UILabel *iLabel;
-    IBOutlet UILabel *oLabel;
-    IBOutlet UILabel *mLabel;
+
     IBOutlet UINavigationItem *navBar;
     //    id delegate;
-    IBOutlet UIStepper *stepper;
-    IBOutlet UITextField *oField;
-    IBOutlet UITextField *iField;
+    IBOutlet UITextField *dateField;
+    IBOutlet UITextField *moneyField;
+    IBOutlet UITextField *nameField;
   //  IBOutlet UITextField *dueField;
     IBOutlet UIView *view1;
-    IBOutlet UITextField *wField;
+    IBOutlet UITextField *reasonField;
     BOOL tapped;
     IBOutlet UIView *view3;
     IBOutlet UIButton *alarm;
-    IBOutlet UIView *view2;
+
     NSString *name2;
     NSString *datestring;
     NSString *moneystring;
@@ -45,6 +43,11 @@
     DatePickerViewController *datePicker;
     CGRect originalFrame;
     CGPoint originalPoint;
+    
+   IBOutlet UILabel *nameLabel;
+   IBOutlet    UILabel *moneyLabel;
+   IBOutlet   UILabel *reasonLabel;
+   IBOutlet   UILabel *dateLabel;
     
 }
 

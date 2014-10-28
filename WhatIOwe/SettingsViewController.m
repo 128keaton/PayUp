@@ -212,8 +212,7 @@
 -(IBAction)done:(id)sender{
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    WYPopoverBackgroundView *backgroundView = [[self.view.window subviews]lastObject];
-    
+      
     
 }
 
