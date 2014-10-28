@@ -17,7 +17,7 @@
 @class MasterViewController;
 @class DatePickerViewController;
 
-@interface EditViewController : UIViewController <MFMailComposeViewControllerDelegate, WYPopoverControllerDelegate, UITextFieldDelegate>{
+@interface EditViewController : UITableViewController <MFMailComposeViewControllerDelegate, WYPopoverControllerDelegate, UITextFieldDelegate>{
     
 
     IBOutlet UINavigationItem *navBar;
