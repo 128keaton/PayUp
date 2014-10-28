@@ -242,7 +242,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 	}
     
     self.title = @"Owed";
-    self.zoomTransition = [[LCZoomTransition alloc] initWithNavigationController:self.navigationController];
+   //self.zoomTransition = [[LCZoomTransition alloc] initWithNavigationController:self.navigationController];
     
     addButton.layer.cornerRadius = 2;
     addButton.layer.borderWidth = 1;
@@ -518,10 +518,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        self.zoomTransition.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
+      //  self.zoomTransition.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
                // pass the custom transition to the destination controller
         // so it can use it when setting up its gesture recognizers
-        [[segue destinationViewController] setGestureTarget:self.zoomTransition];
+ //     [[segue destinationViewController] setGestureTarget:self.zoomTransition];
     EditViewController *edit = segue.destinationViewController;
     
         NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];

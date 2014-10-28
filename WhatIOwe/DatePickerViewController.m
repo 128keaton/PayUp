@@ -25,17 +25,20 @@
     [super viewDidLoad];
     NSLog(@"picker view loaded");
     
-    CGRect pickerFrame = CGRectMake(0, 31, 300, 200);
+    CGRect pickerFrame = CGRectMake(0, 31, 200, 200);
     //self.whatATool.barTintColor = self.navigationController.navigationBar.barTintColor;
-    UIDatePicker *myPicker = [[UIDatePicker alloc] initWithFrame:pickerFrame];
-    [myPicker addTarget:self action:@selector(pickerChanged:)               forControlEvents:UIControlEventValueChanged];
+  UIDatePicker *myPicker = [[UIDatePicker alloc] initWithFrame:pickerFrame];
+
+[myPicker addTarget:self action:@selector(pickerChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    
     [self.view addSubview:myPicker];
-    [self.view setFrame:CGRectMake(0, 0, 300, 280)];
+  //  [self.view setFrame:CGRectMake(0, 0, 320, 280)];
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  //  [defaults setObject:self.info.details.date forKey:@"pickerDate"];
-    //[defaults synchronize];
+    
     if([defaults objectForKey:@"pickerDate"] != nil){
-   myPicker.date = [defaults objectForKey:@"pickerDate"];
+ //  myPicker.date = [defaults objectForKey:@"pickerDate"];
     }else{
         myPicker.date = [NSDate date];
     }

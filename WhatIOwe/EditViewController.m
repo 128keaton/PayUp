@@ -1014,13 +1014,13 @@
     }else if ([segue.identifier isEqual:@"pushToDate"]){
         WYStoryboardPopoverSegue *popoverSegue = (WYStoryboardPopoverSegue *)segue;
         popoverController = [popoverSegue popoverControllerWithSender:sender
-                                                    permittedArrowDirections:WYPopoverArrowDirectionDown
+                                                    permittedArrowDirections:WYPopoverArrowDirectionNone
                                                                     animated:YES
                                                                      options:WYPopoverAnimationOptionFadeWithScale];
         popoverController.delegate = self;
         DatePickerViewController *datePickerVC = [[DatePickerViewController alloc]init];
      //   datePickerVC.picker.date = self.info.details.date;
-        popoverController.popoverContentSize = CGSizeMake(300, 280);
+        popoverController.popoverContentSize = CGSizeMake(349, 279);
         if (self.info.details.date != nil) {
             datePickerVC.date = self.info.details.date;
 
@@ -1180,15 +1180,7 @@
     
     tapped = NO;
     
-    // setup a pinch gesture recognizer and make the target the custom transition handler
-    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self.gestureTarget action:@selector(handlePinch:)];
-    [self.view addGestureRecognizer:pinchRecognizer];
-    
-    // setup an edge pan gesture recognizer and make the target the custom transition handler
-    UIScreenEdgePanGestureRecognizer *edgePanRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.gestureTarget action:@selector(handleEdgePan:)];
-    edgePanRecognizer.edges = UIRectEdgeLeft;
-    [self.view addGestureRecognizer:edgePanRecognizer];
-    
+
     
     //originalFrame = self.view.frame;
     
@@ -1275,10 +1267,7 @@
     
     moneystring = self.info.details.money;
     
-    
-    
-    if ([self.info.dateString  isEqual: @""]) {
-        
+    if (!self.info.details.date) {
         [self.dueField setEnabled:NO];
         
         oLabel.alpha = 0;
@@ -1286,9 +1275,7 @@
         self.dueField.alpha = 0;
         
         tapped = NO;
-        
-        
-        
+        NSLog(@"no date");
     }else{
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -1307,7 +1294,7 @@
         
         [formatter setDateStyle:NSDateFormatterFullStyle];
         
-
+        
         
         self.storageDate = self.info.details.date;
         
@@ -1315,39 +1302,19 @@
         
         NSString *dateAsString = [formatter stringFromDate:dt];
         
-      //  _picker.date = details.date;
-        
-        
+
         _picker.date = dt;
         //self.datePickerViewController.date = dt;
-     //   self.datePickerViewController.picker.date = dt;
+        //   self.datePickerViewController.picker.date = dt;
         tapped=YES;
-        
-        NSLog(@"%@", dateAsString);
-        
-        
-        
-        
-        NSLog(@"DateAsString: %@", dateAsString);
-        
-        
-        
-        
-        
-        
-        
         self.dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    
     }
     
+    
+        
+        
+   
     
     
     

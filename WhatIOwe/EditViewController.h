@@ -13,7 +13,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "WYPopoverController.h"
 #import "DatePickerViewController.h"
-#import "LCZoomTransition.h"
+
 @class MasterViewController;
 @class DatePickerViewController;
 
@@ -60,7 +60,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *name;
 @property (nonatomic) IBOutlet UINavigationItem *navBar;
 - (void)setDetailItem:(id)newDetailItem;
-@property (nonatomic, strong) id<LCZoomTransitionGestureTarget> gestureTarget;
+
 @property (nonatomic, retain) MasterViewController *master;
 @property (nonatomic, strong) IBOutlet id delegate;
 @property (strong, nonatomic) NSDate *storageDate;

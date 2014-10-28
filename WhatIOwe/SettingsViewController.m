@@ -234,9 +234,7 @@
 
 - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if([navigationController isKindOfClass:[ABPeoplePickerNavigationController class]]) {
-        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleDone target:self action:@selector(peoplePickerNavigationControllerDidCancel:)];
-        navigationController.topViewController.navigationItem.rightBarButtonItem = bbi;
-        navigationController.navigationBar.tintColor = [UIColor whiteColor];
+             navigationController.navigationBar.tintColor = [UIColor whiteColor];
         navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     }
 }
@@ -295,6 +293,8 @@
   //  [self.view setFrame:CGRectMake(0, 0, 300, 300)];
     [self dismissViewControllerAnimated:peoplePicker completion:nil];
 }
+
+
 -(void)clearUser{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 

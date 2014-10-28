@@ -9,13 +9,14 @@
 #import "InputViewController.h"
 #import "FooterViewController.h"
 #import <UIKit/UIKit.h>
-#import "LCZoomTransition.h"
+//#import "LCZoomTransition.h"
 #import <AVFoundation/AVFoundation.h>
 #import "OweTableViewCell.h"
 #import "EditViewController.h"
 #import "SelectionViewController.h"
 #import "WYPopoverController.h"
 #import "IBActionSheet.h"
+#import "Pods/LCZoomTransition/LCZoomTransition/LCZoomTransition.h"
 @class EditViewController;
 @class InputViewController;
 @interface MasterViewController : UITableViewController <WYPopoverControllerDelegate, IBActionSheetDelegate>{
