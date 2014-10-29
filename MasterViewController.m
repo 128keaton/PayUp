@@ -28,7 +28,7 @@
 #import "WYStoryboardPopoverSegue.h"
 #import "SelectionViewController.h"
 #import "IBActionSheet.h"
-#import "TodayViewController.h"
+
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 @interface MasterViewController  () <UITableViewDelegate, NSFetchedResultsControllerDelegate, WYPopoverControllerDelegate, SelectionViewControllerDelegate>
 {
@@ -38,7 +38,7 @@
  - (BOOL)cellIsSelected2:(NSIndexPath *)indexPath;
 - (void)inputViewController:(SelectionViewController *)controller;
 
-@property (strong, nonatomic) TodayViewController *today;
+
 
 @end
 
@@ -123,8 +123,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             
         case NSFetchedResultsChangeUpdate:
             [self configureCell: (OweTableViewCell*) [tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            [self.today configureCell: (UITableViewCell*) [tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-
+         
             break;
             
         case NSFetchedResultsChangeMove:

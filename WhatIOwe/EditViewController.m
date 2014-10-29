@@ -60,14 +60,15 @@
     } else if (textField == moneyField) {
         
         [moneyField resignFirstResponder];
+        [reasonField becomeFirstResponder];
         
         
         
-    } else if (textField == self.dueField){
-        
-        [self performSelector:@selector(cancel:) withObject:nil];
-        
+    }else if(textField == reasonField){
+        [self.info setValue:reasonField.text forKey:@"forwhat"];
+        [reasonField resignFirstResponder];
     }
+
     
     return YES;
     
@@ -285,7 +286,7 @@
     NSString *firstName2 = [defaults objectForKey:@"firstNameSettings"];
 
    
-    if(![firstName2 isEqual:@""] & ![self.info.shared isEqual:@"Shared"]){
+    if(firstName2 != nil && ![self.info.shared isEqual:@"Shared"]){
         
         if ([MFMailComposeViewController canSendMail])
             
@@ -840,9 +841,9 @@
     
     NSLog(@"Sender: %@", sender);
     
-    if (sender == self.dueField) {
+    if (sender == dateField) {
         
-        [self.dueField resignFirstResponder];
+        [dateField resignFirstResponder];
         
         [self performSelector:@selector(cancel:) withObject:nil];
         
@@ -872,7 +873,7 @@
     
     
     
-    [self.dueField resignFirstResponder];
+    [dateField resignFirstResponder];
     
     [self performSelector:@selector(cancel:) withObject:nil];
     
@@ -1101,9 +1102,9 @@
     
     
     
-    [self.info setValue:reasonField forKey:@"forwhat"];
-    
-    self.info.forwhat = reasonField;
+    if (reasonField.text != nil) {
+        [self.info setValue:reasonField.text forKey:@"forwhat"];
+    }
     
     NSString *uid = self.info.uid;
     if (tapped == YES){
@@ -1167,7 +1168,7 @@
     
 }
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField.tag == 15) {
+    if (textField == dateField) {
         
         [self performSegueWithIdentifier:@"pushToDate" sender:textField];
         return NO;
@@ -1176,10 +1177,23 @@
     }
 }
 
+-(void)nextNumberPad{
+    [moneyField resignFirstResponder];
+    [reasonField becomeFirstResponder];
+    
+}
+-(void)clearNumberPad{
+    [moneyField setText:nil];
+    
+}
+
 -(void)viewDidLoad {
     
     tapped = NO;
     
+    UISwipeGestureRecognizer *showExtrasSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(cellSwipe:)];
+    showExtrasSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:showExtrasSwipe];
 
     
     //originalFrame = self.view.frame;
@@ -1188,41 +1202,35 @@
     
     [super viewDidLoad];
     
-    UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithTitle:@"Add Date" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonDidPressed2:)];
+   
     
-    UIBarButtonItem *doneItem3 = [[UIBarButtonItem alloc] initWithTitle:@"Remove Date" style:UIBarButtonItemStyleDone target:self action:@selector(cancelAlarm:)];
     
-    UIBarButtonItem *flexableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(clearNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(nextNumberPad)],
+                           nil];
     
+    moneyField.inputAccessoryView = numberToolbar;
+    numberToolbar.barTintColor = self.navigationController.navigationBar.barTintColor;
+    numberToolbar.tintColor = self.navigationController.navigationBar.tintColor;
 
+    
+    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(openMail:)];
+ 
     self.title = @"Edit";
     
     
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     
-    UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
-    
-    UIToolbar *toolbar2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
+
     
     
-    
-    [toolbar setItems:[NSArray arrayWithObjects:flexableItem,doneItem, nil]];
-    
+      [self.navigationItem setRightBarButtonItem:shareItem];
     
     
-    [toolbar2 setItems:[NSArray arrayWithObjects:doneItem2,flexableItem2,doneItem3, nil]];
-    
-    
-    
-    [toolbar2 setBarTintColor:view1.backgroundColor];
-    
-    [toolbar setBarTintColor:toolbar2.barTintColor];
-    
-    self.dueField.inputAccessoryView = toolbar2;
-   
-    moneyField.inputAccessoryView = toolbar;
     
     //  _picker.tintColor = [UIColor whiteColor];
     
@@ -1230,17 +1238,12 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.info.details.date forKey:@"pickerDate"];
     [defaults synchronize];
-    doneItem2.tintColor = [UIColor whiteColor];
-    
-    doneItem3.tintColor = [UIColor whiteColor];
-    
-    doneItem.tintColor = [UIColor whiteColor];
+
     DatePickerViewController *datePickerView = [[DatePickerViewController alloc]init];
     self.datePickerViewController = datePickerView;
 
    
-    toolbar2.barTintColor = [UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0];
-    [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+      [_picker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
     _picker.datePickerMode = UIDatePickerModeDateAndTime;
     _picker.date = self.info.details.date;
@@ -1268,11 +1271,9 @@
     moneystring = self.info.details.money;
     
     if (!self.info.details.date) {
-        [self.dueField setEnabled:NO];
+ 
         
-        moneyField.alpha = 0;
-        
-        self.dueField.alpha = 0;
+     
         
         tapped = NO;
         NSLog(@"no date");
@@ -1282,9 +1283,9 @@
         
         
         
-        moneyField.alpha = 1;
+
         
-        self.dueField.alpha = 1;
+        
         
         alarm.enabled = NO;
         
@@ -1307,7 +1308,7 @@
         //self.datePickerViewController.date = dt;
         //   self.datePickerViewController.picker.date = dt;
         tapped=YES;
-        self.dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
+        dateField.text = [NSString stringWithFormat:@"%@",dateAsString];
     
     }
     
@@ -1376,7 +1377,8 @@
     
     
     
-    
+    if (pickerDate != nil) {
+
     
     //UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
     
@@ -1387,13 +1389,20 @@
     
     [self.info.details setValue:pickerDate forKey:@"date"];
 
-    
-    
-    
+
     
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
+    
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    
+    
+
+    
+    NSError *error;
     
     
     
@@ -1419,10 +1428,66 @@
     
     
     
+    [self.info setValue:dateAsString forKey:@"dateString"];
+    if (![context save:&error]) {
+        
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        
+    }
     
+ dateField.text = [NSString stringWithFormat:@"%@",dateAsString];
+    }else{
+        [self.info.details setValue:pickerDate forKey:@"date"];
+        
+        
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        
+        
+        NSManagedObjectContext *context = [self managedObjectContext];
+        
+        
+        
+        
+        
+        NSError *error;
+        
+        
+        
+        
+        [formatter setDateFormat:@"ddMMyyyy"];
+        
+        [formatter setDateStyle:NSDateFormatterFullStyle];
+        
+        NSDate *dt = pickerDate;
+        
+        NSString *dateAsString = [formatter stringFromDate:dt];
+        
+        
+        
+        
+        self.info.dateString = dateAsString;
+        
+        NSLog(@"%@", dateAsString);
+        
+        
+        
+        
+        
+        
+        
+        [self.info setValue:dateAsString forKey:@"dateString"];
+        if (![context save:&error]) {
+            
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+            
+        }
+        dateField.text = nil;
+        
+    }
     
-    
-  self.dueField.text = [NSString stringWithFormat:@"%@",dateAsString];
     
     
 }
@@ -1439,7 +1504,7 @@
 
 -(void)pickerView:(UIDatePicker*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    self.dueField.text = [NSString stringWithFormat:@"%@", pickerView.date];
+    dateField.text = [NSString stringWithFormat:@"%@", pickerView.date];
     
     
     
@@ -1464,6 +1529,7 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self updateTextField:[defaults objectForKey:@"pickerDate"]];
+    
     return YES;
 }
 
@@ -1480,7 +1546,68 @@
 
 
 
+- (BOOL)tableView:(UITableView *)iTableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+    
+    if (indexPath.row >= 2) {
+        return YES;
+    }else{
+        return NO;
+    }
+    
+}
 
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)iTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+ 
+    return UITableViewCellEditingStyleDelete;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if (indexPath.row == 0) {
+           // nameField.text = nil;
+            
+        }else if(indexPath.row == 1){
+          //  moneyField.text = nil;
+        }else if (indexPath.row == 2){
+            reasonField.text = nil;
+            
+        }else if (indexPath.row == 3){
+            dateField.text = nil;
+            
+            [self updateTextField:nil];
+            
+        }
+        // Do whatever data deletion you need to do...
+        // Delete the row from the data source
+          //  UITableViewCell *swipedCell  = [self.tableView cellForRowAtIndexPath:indexPath];
+ 
+
+        self.tableView.editing=false;
+    }
+    [tableView endUpdates];
+}
+
+-(void)cellSwipe:(UISwipeGestureRecognizer *)gesture
+{
+    CGPoint location = [gesture locationInView:self.tableView];
+    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:location];
+    //UITableViewCell *swipedCell  = [self.tableView cellForRowAtIndexPath:swipedIndexPath];
+    
+    SWTableViewCell *cell = (SWTableViewCell *)[self.tableView cellForRowAtIndexPath:swipedIndexPath];
+   
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return @"Clear";
+}
 
 @end
 

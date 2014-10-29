@@ -117,7 +117,7 @@
     
     
     [toolbar2 setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
-    [toolbar setBarTintColor:[UIColor colorWithRed:0.9333 green:0.3647 blue:0.3843 alpha:1.0]];
+    [toolbar setBarTintColor:[UIColor colorWithRed:0.2275 green:0.8549 blue:0.6078 alpha:1.0]];
     //  _picker.tintColor = [UIColor whiteColor];
     
     doneItem2.tintColor = [UIColor whiteColor];

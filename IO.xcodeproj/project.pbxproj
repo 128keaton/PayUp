@@ -36,10 +36,6 @@
 		8A0F70C918F2F40600D5732C /* ClearSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70C118F2F40600D5732C /* ClearSans-Thin.ttf */; };
 		8A0F70CB18F2FC6400D5732C /* Test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70CA18F2FC6400D5732C /* Test2.png */; };
 		8A0F70CD18F2FF0400D5732C /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F70CC18F2FF0400D5732C /* Red.png */; };
-		8A1761D619D060A5009A94C0 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1761D519D060A5009A94C0 /* NotificationCenter.framework */; };
-		8A1761DC19D060A5009A94C0 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1761DB19D060A5009A94C0 /* TodayViewController.m */; };
-		8A1761DE19D060A5009A94C0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1761DD19D060A5009A94C0 /* MainInterface.storyboard */; };
-		8A1761E119D060A5009A94C0 /* IO_Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8A1761D419D060A5009A94C0 /* IO_Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A22171A19216D4200E0DDDB /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A22171819216D4200E0DDDB /* Instabug.bundle */; };
 		8A22171B19216D4200E0DDDB /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22171919216D4200E0DDDB /* Instabug.framework */; };
 		8A22171D19216D5600E0DDDB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A22171C19216D5600E0DDDB /* AudioToolbox.framework */; };
@@ -126,20 +122,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A1761DF19D060A5009A94C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A95572A18EF614400469480 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8A1761D319D060A5009A94C0;
-			remoteInfo = IO_Widget;
-		};
-		8A1761E219D060A5009A94C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A95572A18EF614400469480 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8A1761D319D060A5009A94C0;
-			remoteInfo = IO_Widget;
-		};
 		8A95576418EF614400469480 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A95572A18EF614400469480 /* Project object */;
@@ -156,7 +138,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8A1761E119D060A5009A94C0 /* IO_Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,12 +181,7 @@
 		8A0F70C118F2F40600D5732C /* ClearSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClearSans-Thin.ttf"; sourceTree = "<group>"; };
 		8A0F70CA18F2FC6400D5732C /* Test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test2.png; sourceTree = "<group>"; };
 		8A0F70CC18F2FF0400D5732C /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
-		8A1761D419D060A5009A94C0 /* IO_Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IO_Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1761D519D060A5009A94C0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		8A1761D919D060A5009A94C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A1761DA19D060A5009A94C0 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
-		8A1761DB19D060A5009A94C0 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
-		8A1761DD19D060A5009A94C0 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		8A22171819216D4200E0DDDB /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
 		8A22171919216D4200E0DDDB /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
 		8A22171C19216D5600E0DDDB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -302,7 +278,6 @@
 		8AC1622919207714004DC078 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8ADCE10418F5FA7900065785 /* IO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IO-Info.plist"; sourceTree = "<group>"; };
 		8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IO-Prefix.pch"; sourceTree = "<group>"; };
-		8AE131C619D0D869001C92C4 /* IO_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IO_Widget.entitlements; sourceTree = "<group>"; };
 		8AE2B63918F48D4A00D4E203 /* Bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bad.png; sourceTree = "<group>"; };
 		8AE2B63B18F48D4E00D4E203 /* Good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Good.png; sourceTree = "<group>"; };
 		8AE3309F19DB268A00F93648 /* WhatIOwe 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WhatIOwe 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -319,14 +294,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8A1761D119D060A5009A94C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A1761D619D060A5009A94C0 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A95572F18EF614400469480 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,26 +423,6 @@
 			name = Templates;
 			sourceTree = "<group>";
 		};
-		8A1761D719D060A5009A94C0 /* IO_Widget */ = {
-			isa = PBXGroup;
-			children = (
-				8AE131C619D0D869001C92C4 /* IO_Widget.entitlements */,
-				8A1761DA19D060A5009A94C0 /* TodayViewController.h */,
-				8A1761DB19D060A5009A94C0 /* TodayViewController.m */,
-				8A1761DD19D060A5009A94C0 /* MainInterface.storyboard */,
-				8A1761D819D060A5009A94C0 /* Supporting Files */,
-			);
-			path = IO_Widget;
-			sourceTree = "<group>";
-		};
-		8A1761D819D060A5009A94C0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8A1761D919D060A5009A94C0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		8A22171719216D4200E0DDDB /* Instabug */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,7 +548,6 @@
 				8AACC50619E76AF3005397F4 /* DismissSegue.m */,
 				8A95573D18EF614400469480 /* OweIt */,
 				8A95576618EF614400469480 /* OweIt */,
-				8A1761D719D060A5009A94C0 /* IO_Widget */,
 				8A95573418EF614400469480 /* Frameworks */,
 				8A95573318EF614400469480 /* Products */,
 				7C65ACC9AC3574EF196A28AC /* Pods */,
@@ -613,7 +559,6 @@
 			children = (
 				8A95573218EF614400469480 /* IO.app */,
 				8A95575E18EF614400469480 /* IOTests.xctest */,
-				8A1761D419D060A5009A94C0 /* IO_Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -711,23 +656,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A1761D319D060A5009A94C0 /* IO_Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8A1761E419D060A6009A94C0 /* Build configuration list for PBXNativeTarget "IO_Widget" */;
-			buildPhases = (
-				8A1761D019D060A5009A94C0 /* Sources */,
-				8A1761D119D060A5009A94C0 /* Frameworks */,
-				8A1761D219D060A5009A94C0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = IO_Widget;
-			productName = IO_Widget;
-			productReference = 8A1761D419D060A5009A94C0 /* IO_Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		8A95573118EF614400469480 /* IO */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "IO" */;
@@ -742,8 +670,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A1761E019D060A5009A94C0 /* PBXTargetDependency */,
-				8A1761E319D060A5009A94C0 /* PBXTargetDependency */,
 			);
 			name = IO;
 			productName = WhatIOwe;
@@ -777,15 +703,6 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Revision;
 				TargetAttributes = {
-					8A1761D319D060A5009A94C0 = {
-						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = Z48RKT6B3T;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					8A95573118EF614400469480 = {
 						DevelopmentTeam = Z48RKT6B3T;
 						SystemCapabilities = {
@@ -820,20 +737,11 @@
 			targets = (
 				8A95573118EF614400469480 /* IO */,
 				8A95575D18EF614400469480 /* IOTests */,
-				8A1761D319D060A5009A94C0 /* IO_Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8A1761D219D060A5009A94C0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A1761DE19D060A5009A94C0 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A95573018EF614400469480 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -945,14 +853,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8A1761D019D060A5009A94C0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A1761DC19D060A5009A94C0 /* TodayViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A95572E18EF614400469480 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -998,16 +898,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A1761E019D060A5009A94C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8A1761D319D060A5009A94C0 /* IO_Widget */;
-			targetProxy = 8A1761DF19D060A5009A94C0 /* PBXContainerItemProxy */;
-		};
-		8A1761E319D060A5009A94C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8A1761D319D060A5009A94C0 /* IO_Widget */;
-			targetProxy = 8A1761E219D060A5009A94C0 /* PBXContainerItemProxy */;
-		};
 		8A95576518EF614400469480 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8A95573118EF614400469480 /* IO */;
@@ -1051,44 +941,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8A1761E519D060A6009A94C0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = IO_Widget/IO_Widget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = IO_Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8A1761E619D060A6009A94C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = IO_Widget/IO_Widget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = IO_Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		8A95576E18EF614400469480 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1260,15 +1112,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A1761E419D060A6009A94C0 /* Build configuration list for PBXNativeTarget "IO_Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8A1761E519D060A6009A94C0 /* Debug */,
-				8A1761E619D060A6009A94C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8A95572D18EF614400469480 /* Build configuration list for PBXProject "IO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
