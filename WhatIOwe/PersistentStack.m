@@ -27,8 +27,11 @@
     self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     
-    
+    NSError *error;
     __weak NSPersistentStoreCoordinator *psc = self.managedObjectContext.persistentStoreCoordinator;
+    
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:nil error:&error];
+    
     
     // iCloud notification subscriptions
     NSNotificationCenter *dc = [NSNotificationCenter defaultCenter];
@@ -47,7 +50,7 @@
                name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
              object:psc];
     
-    NSError* error;
+  //  NSError* error;
     // the only difference in this call that makes the store an iCloud enabled store
     // is the NSPersistentStoreUbiquitousContentNameKey in options. I use "iCloudStore"
     // but you can use what you like. For a non-iCloud enabled store, I pass "nil" for options.
@@ -95,10 +98,10 @@
         [allChanges unionSet:changes[NSUpdatedObjectsKey]];
         [allChanges unionSet:changes[NSDeletedObjectsKey]];
         
-        for (NSManagedObjectID *objID in allChanges) {
+       // for (NSManagedObjectID *objID in allChanges) {
             // do whatever you need to with the NSManagedObjectID
             // you can retrieve the object from with [moc objectWithID:objID]
-        }
+       // }
         
     }];
 }

@@ -71,6 +71,8 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[sender date] forKey:@"pickerDate"];
     NSLog(@"picker changed: %@", [sender date]);
+    [defaults synchronize];
+    
     
 }
 

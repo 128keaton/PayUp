@@ -357,7 +357,7 @@
                 NSLog(@"nottapped");
                 
                 [dict setObject:@"" forKey:@"dateString"];
-                NSDate *today = [NSDate date];
+               // NSDate *today = [NSDate date];
                 //[dict setObject:today forKey:@"date"];
                 
                 
@@ -419,7 +419,7 @@
             NSLog(@"%@", strDate);
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSString *firstName = [defaults objectForKey:@"firstName"];
+           // NSString *firstName = [defaults objectForKey:@"firstName"];
             
             
             NSString *humanName = [defaults objectForKey:@"firstNameSettings"];
@@ -1033,6 +1033,24 @@
     }
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if(textField == moneyField){
+    NSString *s = moneyField.text;
+    
+    NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"$"];
+    
+    s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
+
+    NSLog(@"%@", s);
+    
+    
+    
+    [self.info.details setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
+    }
+    
+}
+
 
 -(IBAction)goHome:(id)sender{
     NSLog(@"Going back home");
@@ -1057,21 +1075,13 @@
     NSString *editedMoney;
     NSLog(@"%@", s);
     
-    if ([s  isEqual: @"9001"]){
+
         
-        s = @"ITS OVER 9000";
+    [self.info.details setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
         
-        [self.info.details setValue:s forKey:@"money"];
+    editedMoney = [NSString stringWithFormat:@"$%@", s];
         
-        editedMoney = s;
-        
-    }else{
-        
-        [self.info.details setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
-        
-        editedMoney = [NSString stringWithFormat:@"$%@", s];
-        
-    }
+    
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
@@ -1086,7 +1096,7 @@
     
     
     
-    
+
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -1169,8 +1179,9 @@
 }
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField == dateField) {
-        
+        [self.view endEditing:YES];
         [self performSegueWithIdentifier:@"pushToDate" sender:textField];
+        
         return NO;
     }else{
     return YES;
@@ -1195,13 +1206,15 @@
     showExtrasSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.tableView addGestureRecognizer:showExtrasSwipe];
 
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
     //originalFrame = self.view.frame;
     
     NSLog(@"Loading Edit View");
     
     [super viewDidLoad];
-    
+   
    
     
     
@@ -1223,7 +1236,7 @@
     self.title = @"Edit";
     
     
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
+   //UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     
 
     
@@ -1352,6 +1365,17 @@
     
     
 }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if ([self.info.whooweswhat isEqualToString:@"someoneowes"]) {
+        return @"You are owed";
+    }else{
+        return @"You owe";
+    }
+    return nil;
+    
+}
+
 
 -(void)removeNotification: (NSString *)uid{
     UIApplication *app = [UIApplication sharedApplication];
@@ -1595,11 +1619,11 @@
 
 -(void)cellSwipe:(UISwipeGestureRecognizer *)gesture
 {
-    CGPoint location = [gesture locationInView:self.tableView];
-    NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:location];
+  //  CGPoint location = [gesture locationInView:self.tableView];
+   // NSIndexPath *swipedIndexPath = [self.tableView indexPathForRowAtPoint:location];
     //UITableViewCell *swipedCell  = [self.tableView cellForRowAtIndexPath:swipedIndexPath];
     
-    SWTableViewCell *cell = (SWTableViewCell *)[self.tableView cellForRowAtIndexPath:swipedIndexPath];
+   // SWTableViewCell *cell = (SWTableViewCell *)[self.tableView cellForRowAtIndexPath:swipedIndexPath];
    
     
 }

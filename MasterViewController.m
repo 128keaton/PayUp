@@ -133,6 +133,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                                arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
+
 }
 
 
@@ -215,10 +216,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     [super viewDidLoad];
    
-    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
-    
-    [sharedDefaults setObject:_fetchedResultsController forKey:@"array"];
-    [sharedDefaults synchronize];   // (!!) This is crucial.
+ 
     
     NSURL* musicFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                                pathForResource:@"slide-paper"
@@ -410,8 +408,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
   //  [self.today configureCell:cell atIndexPath:indexPath];
 
     
-
-
+    NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.bittank.io"];
+    NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:fetchedObjects];
+    [sharedUserDefaults setObject:dataSave forKey:@"peopleArray"];
+    NSLog(@"People Array: %lu", (unsigned long)[fetchedObjects count]);
+    
+    [sharedUserDefaults synchronize];
 
     
 }
@@ -543,7 +546,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         edit.info = info;
         edit.delegate = self;
 
-      
+       
+
+        
       
         
         

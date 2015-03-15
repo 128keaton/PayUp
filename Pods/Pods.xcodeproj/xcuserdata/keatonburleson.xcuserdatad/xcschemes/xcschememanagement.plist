@@ -8,61 +8,73 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-Canvas.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-LCZoomTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-SBJson.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>568D6B99D0167CAE46B2B4B2</key>
+		<key>084CFBE644CE1649FD04CE16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65EDACE2D2C5584A28C6DBA2</key>
+		<key>48F463768D0AA14843DAC616</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>672D94D2425F5EE62566474F</key>
+		<key>62B2B462787760D4147791FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9028746D1783894DE7C378DB</key>
+		<key>AB9C600B8B1B8A743FA368CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>948B6FF7303CBD91F0FC47F7</key>
+		<key>B261D1D61424056ED4C96308</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7C0FA3DB080111E47F37F17</key>
+		<key>E9ECE83EE0E36A70BFDB5C12</key>
 		<dict>
 			<key>primary</key>
 			<true/>

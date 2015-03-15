@@ -318,10 +318,16 @@
        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
        [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
        formatter.timeZone = [NSTimeZone localTimeZone];
- 
+ //This isnt code at all.
+     
        NSLog(@"Picker Date: %@", [datePickerDate descriptionWithLocale:[NSLocale currentLocale]]);
        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-       NSDate *fireDate = picker.date;
+      // NSDate *fireDate = picker.date;
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     
+     NSDate *fireDate = [defaults objectForKey:@"pickerDate"];
+     NSLog(@"Fire date: %@", fireDate);
+     
        localNotification.fireDate = fireDate;
        NSString *uid =[[self class]generateRandomString:5];
        NSLog(@"Edit UUID: %@", uid);
@@ -586,6 +592,8 @@
         
         NSLog(@"Going back home");
     }else if ([segue.identifier isEqual:@"pushToDate"]){
+        [self.view endEditing:YES];
+        
         datePicker  = [[DatePickerViewController alloc]init];
         WYStoryboardPopoverSegue *popoverSegue = (WYStoryboardPopoverSegue *)segue;
         popoverController = [popoverSegue popoverControllerWithSender:sender

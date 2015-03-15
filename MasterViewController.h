@@ -59,7 +59,6 @@
 
 @property (strong, nonatomic) id owedItem;
 - (void)setOwedItem:(id)owedItem;
--(void)openInput;
 @property(strong, nonatomic) NSString *publicName;
 @property (strong, nonatomic) NSMutableArray *widgetArray;
 

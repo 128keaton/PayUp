@@ -105,11 +105,27 @@
 		8A95578D18EF7F8600469480 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578C18EF7F8600469480 /* InputViewController.m */; };
 		8A95579318EFB2F900469480 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95579218EFB2F900469480 /* DetailViewController.m */; };
 		8AACC50719E76AF3005397F4 /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AACC50619E76AF3005397F4 /* DismissSegue.m */; };
+		8ABB4E2B1AB1F3C600214333 /* WhatIOwe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A95574F18EF614400469480 /* WhatIOwe.xcdatamodeld */; };
+		8ABB4E2D1AB2273F00214333 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F707E18F0E98300D5732C /* PersistentStack.m */; };
+		8ABB4E2E1AB228D200214333 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD0689F1AB1EB42000190B9 /* TodayViewController.m */; };
+		8ABB4E341AB2322600214333 /* OweInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578918EF684700469480 /* OweInfo.m */; };
+		8ABB4E361AB2322600214333 /* OweDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578618EF682600469480 /* OweDetails.m */; };
+		8ABB4E391AB23DD600214333 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A95575818EF614400469480 /* Images.xcassets */; };
+		8ABB4E451AB2731900214333 /* TodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4E431AB2731900214333 /* TodayTableViewCell.m */; };
+		8ABB4E461AB27A8800214333 /* TodayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB4E431AB2731900214333 /* TodayTableViewCell.m */; };
+		8ABB4E481AB2966500214333 /* TodayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4E471AB2966500214333 /* TodayViewCell.xib */; };
+		8ABB4E491AB2966500214333 /* TodayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4E471AB2966500214333 /* TodayViewCell.xib */; };
+		8ABB4E4B1AB299FA00214333 /* user_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4E4A1AB299FA00214333 /* user_white.png */; };
+		8ABB4E4C1AB299FA00214333 /* user_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABB4E4A1AB299FA00214333 /* user_white.png */; };
 		8ABFAF8218F47F2000D503C4 /* 1397001691_alarm_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */; };
 		8AC1622419207661004DC078 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622319207661004DC078 /* Security.framework */; };
 		8AC1622619207668004DC078 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622519207668004DC078 /* libz.1.2.5.dylib */; };
 		8AC16228192076B7004DC078 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC16227192076B7004DC078 /* libz.dylib */; };
 		8AC1622A19207714004DC078 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1622919207714004DC078 /* libxml2.dylib */; };
+		8AD0689A1AB1EB42000190B9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1761D519D060A5009A94C0 /* NotificationCenter.framework */; };
+		8AD068A01AB1EB42000190B9 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD0689F1AB1EB42000190B9 /* TodayViewController.m */; };
+		8AD068A21AB1EB42000190B9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD068A11AB1EB42000190B9 /* MainInterface.storyboard */; };
+		8AD068A51AB1EB42000190B9 /* PayUp.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AD068991AB1EB42000190B9 /* PayUp.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8AE2B63A18F48D4A00D4E203 /* Bad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63918F48D4A00D4E203 /* Bad.png */; };
 		8AE2B63C18F48D4E00D4E203 /* Good.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE2B63B18F48D4E00D4E203 /* Good.png */; };
 		8AE330A219DB2CF000F93648 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE330A119DB2CF000F93648 /* DatePickerViewController.m */; };
@@ -129,6 +145,13 @@
 			remoteGlobalIDString = 8A95573118EF614400469480;
 			remoteInfo = WhatIOwe;
 		};
+		8AD068A31AB1EB42000190B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A95572A18EF614400469480 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AD068981AB1EB42000190B9;
+			remoteInfo = "PayUp-Today";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,6 +161,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				8AD068A51AB1EB42000190B9 /* PayUp.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +265,7 @@
 		8A7A7EED19D7482500F0F651 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		8A7A7F2A19DAF69600F0F651 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		8A7A7F2E19DAFD5C00F0F651 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		8A95573218EF614400469480 /* IO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A95573218EF614400469480 /* PayUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A95573518EF614400469480 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A95573718EF614400469480 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8A95573918EF614400469480 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -254,9 +278,9 @@
 		8A95574D18EF614400469480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		8A95575018EF614400469480 /* WhatIOwe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhatIOwe.xcdatamodel; sourceTree = "<group>"; };
 		8A95575818EF614400469480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A95575E18EF614400469480 /* IOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A95575E18EF614400469480 /* PayUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A95575F18EF614400469480 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8A95576818EF614400469480 /* IOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IOTests-Info.plist"; sourceTree = "<group>"; };
+		8A95576818EF614400469480 /* PayUpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PayUpTests-Info.plist"; sourceTree = "<group>"; };
 		8A95576A18EF614400469480 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A95576C18EF614400469480 /* WhatIOweTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatIOweTests.m; sourceTree = "<group>"; };
 		8A95577F18EF66AA00469480 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
@@ -271,13 +295,23 @@
 		8A95579218EFB2F900469480 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8AACC50519E76AF3005397F4 /* DismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissSegue.h; sourceTree = "<group>"; };
 		8AACC50619E76AF3005397F4 /* DismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissSegue.m; sourceTree = "<group>"; };
+		8ABB4E2A1AB1ECCC00214333 /* PayUp-Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "PayUp-Today.entitlements"; sourceTree = "<group>"; };
+		8ABB4E421AB2731900214333 /* TodayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TodayTableViewCell.h; path = ../WhatIOwe/TodayTableViewCell.h; sourceTree = "<group>"; };
+		8ABB4E431AB2731900214333 /* TodayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TodayTableViewCell.m; path = ../WhatIOwe/TodayTableViewCell.m; sourceTree = "<group>"; };
+		8ABB4E471AB2966500214333 /* TodayViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewCell.xib; sourceTree = "<group>"; };
+		8ABB4E4A1AB299FA00214333 /* user_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_white.png; sourceTree = "<group>"; };
 		8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1397001691_alarm_clock.png; sourceTree = "<group>"; };
 		8AC1622319207661004DC078 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8AC1622519207668004DC078 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		8AC16227192076B7004DC078 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8AC1622919207714004DC078 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		8ADCE10418F5FA7900065785 /* IO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IO-Info.plist"; sourceTree = "<group>"; };
-		8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IO-Prefix.pch"; sourceTree = "<group>"; };
+		8AD068991AB1EB42000190B9 /* PayUp.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PayUp.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD0689D1AB1EB42000190B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AD0689E1AB1EB42000190B9 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		8AD0689F1AB1EB42000190B9 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		8AD068A11AB1EB42000190B9 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		8ADCE10418F5FA7900065785 /* PayUp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PayUp-Info.plist"; sourceTree = "<group>"; };
+		8ADCE10618F5FA9D00065785 /* PayUp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PayUp-Prefix.pch"; sourceTree = "<group>"; };
 		8AE2B63918F48D4A00D4E203 /* Bad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bad.png; sourceTree = "<group>"; };
 		8AE2B63B18F48D4E00D4E203 /* Good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Good.png; sourceTree = "<group>"; };
 		8AE3309F19DB268A00F93648 /* WhatIOwe 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WhatIOwe 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -328,6 +362,14 @@
 				8A95576318EF614400469480 /* CoreData.framework in Frameworks */,
 				8A95576218EF614400469480 /* UIKit.framework in Frameworks */,
 				8A95576118EF614400469480 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AD068961AB1EB42000190B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AD0689A1AB1EB42000190B9 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +434,7 @@
 				8AE2B63918F48D4A00D4E203 /* Bad.png */,
 				8AE2B63B18F48D4E00D4E203 /* Good.png */,
 				8A0B1E1319D1D84A00C92141 /* user.png */,
+				8ABB4E4A1AB299FA00214333 /* user_white.png */,
 				8A4D432518F5C0BC001E7D76 /* Left.png */,
 				8A4D432618F5C0BC001E7D76 /* Right.png */,
 				8A7A7F2E19DAFD5C00F0F651 /* plus.png */,
@@ -439,6 +482,7 @@
 				8A7A7EED19D7482500F0F651 /* EditViewController.m */,
 				8A95577F18EF66AA00469480 /* MasterViewController.h */,
 				8A95578018EF66AA00469480 /* MasterViewController.m */,
+				8ABB4E471AB2966500214333 /* TodayViewCell.xib */,
 				8AE330CE19DC6DD800F93648 /* SelectionViewController.h */,
 				8AE330CF19DC6DD800F93648 /* SelectionViewController.m */,
 				8A95579118EFB2F900469480 /* DetailViewController.h */,
@@ -548,6 +592,7 @@
 				8AACC50619E76AF3005397F4 /* DismissSegue.m */,
 				8A95573D18EF614400469480 /* OweIt */,
 				8A95576618EF614400469480 /* OweIt */,
+				8AD0689B1AB1EB42000190B9 /* PayUp-Today */,
 				8A95573418EF614400469480 /* Frameworks */,
 				8A95573318EF614400469480 /* Products */,
 				7C65ACC9AC3574EF196A28AC /* Pods */,
@@ -557,8 +602,9 @@
 		8A95573318EF614400469480 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A95573218EF614400469480 /* IO.app */,
-				8A95575E18EF614400469480 /* IOTests.xctest */,
+				8A95573218EF614400469480 /* PayUp.app */,
+				8A95575E18EF614400469480 /* PayUpTests.xctest */,
+				8AD068991AB1EB42000190B9 /* PayUp.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -615,8 +661,8 @@
 			isa = PBXGroup;
 			children = (
 				8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */,
-				8ADCE10418F5FA7900065785 /* IO-Info.plist */,
-				8ADCE10618F5FA9D00065785 /* IO-Prefix.pch */,
+				8ADCE10418F5FA7900065785 /* PayUp-Info.plist */,
+				8ADCE10618F5FA9D00065785 /* PayUp-Prefix.pch */,
 				8A95574018EF614400469480 /* InfoPlist.strings */,
 				8A95574318EF614400469480 /* main.m */,
 			);
@@ -636,8 +682,30 @@
 		8A95576718EF614400469480 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A95576818EF614400469480 /* IOTests-Info.plist */,
+				8A95576818EF614400469480 /* PayUpTests-Info.plist */,
 				8A95576918EF614400469480 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8AD0689B1AB1EB42000190B9 /* PayUp-Today */ = {
+			isa = PBXGroup;
+			children = (
+				8ABB4E421AB2731900214333 /* TodayTableViewCell.h */,
+				8ABB4E431AB2731900214333 /* TodayTableViewCell.m */,
+				8ABB4E2A1AB1ECCC00214333 /* PayUp-Today.entitlements */,
+				8AD0689E1AB1EB42000190B9 /* TodayViewController.h */,
+				8AD0689F1AB1EB42000190B9 /* TodayViewController.m */,
+				8AD068A11AB1EB42000190B9 /* MainInterface.storyboard */,
+				8AD0689C1AB1EB42000190B9 /* Supporting Files */,
+			);
+			path = "PayUp-Today";
+			sourceTree = "<group>";
+		};
+		8AD0689C1AB1EB42000190B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AD0689D1AB1EB42000190B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -656,9 +724,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A95573118EF614400469480 /* IO */ = {
+		8A95573118EF614400469480 /* PayUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "IO" */;
+			buildConfigurationList = 8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "PayUp" */;
 			buildPhases = (
 				2CE8F76154FD4914A4B36001 /* Check Pods Manifest.lock */,
 				8A95572E18EF614400469480 /* Sources */,
@@ -670,15 +738,16 @@
 			buildRules = (
 			);
 			dependencies = (
+				8AD068A41AB1EB42000190B9 /* PBXTargetDependency */,
 			);
-			name = IO;
+			name = PayUp;
 			productName = WhatIOwe;
-			productReference = 8A95573218EF614400469480 /* IO.app */;
+			productReference = 8A95573218EF614400469480 /* PayUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8A95575D18EF614400469480 /* IOTests */ = {
+		8A95575D18EF614400469480 /* PayUpTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "IOTests" */;
+			buildConfigurationList = 8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "PayUpTests" */;
 			buildPhases = (
 				8A95575A18EF614400469480 /* Sources */,
 				8A95575B18EF614400469480 /* Frameworks */,
@@ -689,10 +758,27 @@
 			dependencies = (
 				8A95576518EF614400469480 /* PBXTargetDependency */,
 			);
-			name = IOTests;
+			name = PayUpTests;
 			productName = WhatIOweTests;
-			productReference = 8A95575E18EF614400469480 /* IOTests.xctest */;
+			productReference = 8A95575E18EF614400469480 /* PayUpTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8AD068981AB1EB42000190B9 /* PayUp-Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AD068A81AB1EB43000190B9 /* Build configuration list for PBXNativeTarget "PayUp-Today" */;
+			buildPhases = (
+				8AD068951AB1EB42000190B9 /* Sources */,
+				8AD068961AB1EB42000190B9 /* Frameworks */,
+				8AD068971AB1EB42000190B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PayUp-Today";
+			productName = "PayUp-Today";
+			productReference = 8AD068991AB1EB42000190B9 /* PayUp.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -720,9 +806,18 @@
 					8A95575D18EF614400469480 = {
 						TestTargetID = 8A95573118EF614400469480;
 					};
+					8AD068981AB1EB42000190B9 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Z48RKT6B3T;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
-			buildConfigurationList = 8A95572D18EF614400469480 /* Build configuration list for PBXProject "IO" */;
+			buildConfigurationList = 8A95572D18EF614400469480 /* Build configuration list for PBXProject "PayUp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -735,8 +830,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A95573118EF614400469480 /* IO */,
-				8A95575D18EF614400469480 /* IOTests */,
+				8A95573118EF614400469480 /* PayUp */,
+				8A95575D18EF614400469480 /* PayUpTests */,
+				8AD068981AB1EB42000190B9 /* PayUp-Today */,
 			);
 		};
 /* End PBXProject section */
@@ -781,6 +877,7 @@
 				8A3F331B19E3B34A0075ECC2 /* Icon-Small.png in Resources */,
 				8A0F70B418F2542C00D5732C /* TEst1.png in Resources */,
 				8A07D07B191ED609002DE54E /* tap-mellow.aif in Resources */,
+				8ABB4E481AB2966500214333 /* TodayViewCell.xib in Resources */,
 				8A4D432818F5C0BC001E7D76 /* Right.png in Resources */,
 				8A3F331319E3B3490075ECC2 /* Contents.json in Resources */,
 				8A0B1E1419D1D84A00C92141 /* user.png in Resources */,
@@ -793,6 +890,7 @@
 				8A0F70C218F2F40600D5732C /* ClearSans-Bold.ttf in Resources */,
 				8A0F70B618F2554600D5732C /* +$.png in Resources */,
 				8A95574218EF614400469480 /* InfoPlist.strings in Resources */,
+				8ABB4E4B1AB299FA00214333 /* user_white.png in Resources */,
 				8A07D081191ED854002DE54E /* slide-paper.aif in Resources */,
 				8A0F70B818F2560200D5732C /* -$.png in Resources */,
 				8A3F331619E3B34A0075ECC2 /* Icon-40@3x.png in Resources */,
@@ -814,6 +912,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A95576B18EF614400469480 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AD068971AB1EB42000190B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ABB4E4C1AB299FA00214333 /* user_white.png in Resources */,
+				8ABB4E391AB23DD600214333 /* Images.xcassets in Resources */,
+				8AD068A21AB1EB42000190B9 /* MainInterface.storyboard in Resources */,
+				8ABB4E491AB2966500214333 /* TodayViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +966,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABB4E2E1AB228D200214333 /* TodayViewController.m in Sources */,
 				8AE330D719DC833100F93648 /* WYStoryboardPopoverSegue.m in Sources */,
 				8A34E6B219CBD84D00D19F3A /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				8A95578D18EF7F8600469480 /* InputViewController.m in Sources */,
@@ -883,6 +993,7 @@
 				8A7A7EEE19D7482500F0F651 /* EditViewController.m in Sources */,
 				8A34E6AF19CBD84D00D19F3A /* SWCellScrollView.m in Sources */,
 				8AE330D619DC833100F93648 /* WYPopoverController.m in Sources */,
+				8ABB4E461AB27A8800214333 /* TodayTableViewCell.m in Sources */,
 				8A34E69519CB3A9000D19F3A /* StyleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,13 +1006,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8AD068951AB1EB42000190B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ABB4E341AB2322600214333 /* OweInfo.m in Sources */,
+				8ABB4E451AB2731900214333 /* TodayTableViewCell.m in Sources */,
+				8ABB4E361AB2322600214333 /* OweDetails.m in Sources */,
+				8ABB4E2D1AB2273F00214333 /* PersistentStack.m in Sources */,
+				8AD068A01AB1EB42000190B9 /* TodayViewController.m in Sources */,
+				8ABB4E2B1AB1F3C600214333 /* WhatIOwe.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		8A95576518EF614400469480 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8A95573118EF614400469480 /* IO */;
+			target = 8A95573118EF614400469480 /* PayUp */;
 			targetProxy = 8A95576418EF614400469480 /* PBXContainerItemProxy */;
+		};
+		8AD068A41AB1EB42000190B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AD068981AB1EB42000190B9 /* PayUp-Today */;
+			targetProxy = 8AD068A31AB1EB42000190B9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1021,21 +1150,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burleson (27M5T5UFQX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-Prefix.pch";
+				INFOPLIST_FILE = "WhatIOwe/PayUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe",
 				);
-				PRODUCT_NAME = IO;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = PayUp;
+				PROVISIONING_PROFILE = "2853d851-9ebb-4518-b893-a1ecf3dfa15b";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1049,21 +1178,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tim Burleson (Z48RKT6B3T)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/IO-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOwe/IO-Info.plist";
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-Prefix.pch";
+				INFOPLIST_FILE = "WhatIOwe/PayUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe",
 				);
-				PRODUCT_NAME = IO;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = PayUp;
+				PROVISIONING_PROFILE = "2853d851-9ebb-4518-b893-a1ecf3dfa15b";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1084,8 +1213,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "WhatIOweTests/IOTests-Info.plist";
-				PRODUCT_NAME = IOTests;
+				INFOPLIST_FILE = "WhatIOweTests/PayUpTests-Info.plist";
+				PRODUCT_NAME = PayUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1102,17 +1231,63 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatIOwe/WhatIOwe-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOweTests/IOTests-Info.plist";
-				PRODUCT_NAME = IOTests;
+				INFOPLIST_FILE = "WhatIOweTests/PayUpTests-Info.plist";
+				PRODUCT_NAME = PayUpTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		8AD068A61AB1EB43000190B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "PayUp-Today/PayUp-Today.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PayUp-Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PayUp;
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8AD068A71AB1EB43000190B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "PayUp-Today/PayUp-Today.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "PayUp-Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PayUp;
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A95572D18EF614400469480 /* Build configuration list for PBXProject "IO" */ = {
+		8A95572D18EF614400469480 /* Build configuration list for PBXProject "PayUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95576E18EF614400469480 /* Debug */,
@@ -1121,7 +1296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "IO" */ = {
+		8A95577018EF614400469480 /* Build configuration list for PBXNativeTarget "PayUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95577118EF614400469480 /* Debug */,
@@ -1130,11 +1305,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "IOTests" */ = {
+		8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "PayUpTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A95577418EF614400469480 /* Debug */,
 				8A95577518EF614400469480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AD068A81AB1EB43000190B9 /* Build configuration list for PBXNativeTarget "PayUp-Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AD068A61AB1EB43000190B9 /* Debug */,
+				8AD068A71AB1EB43000190B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

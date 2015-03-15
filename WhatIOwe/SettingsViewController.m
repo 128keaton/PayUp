@@ -357,7 +357,7 @@
     if (buttonIndex == 0) {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }else{
-        NSFetchedResultsController *fetchedResultsController;
+        //NSFetchedResultsController *fetchedResultsController;
         id delegate2 = [[UIApplication sharedApplication] delegate];
        NSManagedObjectContext * managedObjectContext = [delegate2 managedObjectContext];
         NSFetchRequest * fetch = [[NSFetchRequest alloc]init];
