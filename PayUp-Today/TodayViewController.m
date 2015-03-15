@@ -160,7 +160,7 @@ NSUInteger count;
 
 - (void)configureCell:(TodayTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
-    @try {
+  
         
  
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
@@ -234,15 +234,9 @@ NSUInteger count;
     cell.dateLabel.text = info.dateString;
     
     }
-    @catch (NSException *exception) {
-        NSLog(@"Everything is broken");
-    }
-    @finally {
-        
-    }
+
     
-    
-}
+
     
     
     

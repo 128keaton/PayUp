@@ -1150,7 +1150,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burleson (27M5T5UFQX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
@@ -1164,7 +1164,7 @@
 					"$(PROJECT_DIR)/WhatIOwe",
 				);
 				PRODUCT_NAME = PayUp;
-				PROVISIONING_PROFILE = "2853d851-9ebb-4518-b893-a1ecf3dfa15b";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1178,7 +1178,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = OweIt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tim Burleson (Z48RKT6B3T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
@@ -1192,7 +1192,7 @@
 					"$(PROJECT_DIR)/WhatIOwe",
 				);
 				PRODUCT_NAME = PayUp;
-				PROVISIONING_PROFILE = "2853d851-9ebb-4518-b893-a1ecf3dfa15b";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
