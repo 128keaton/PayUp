@@ -132,11 +132,7 @@ BOOL didDrugCheck;
     
 }
 -(void)refreshTableView{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView scrollToRowAtIndexPath:indexPath
-                          atScrollPosition:UITableViewScrollPositionTop
-                                  animated:YES];
-    self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.top);
+
     dispatch_async(dispatch_get_main_queue(), ^{
 
        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationMiddle];
