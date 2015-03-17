@@ -218,7 +218,7 @@
     if (buttonIndex == 1) {
         if (![[alertView textFieldAtIndex:0].text isEqual:@""]) {
             NSString *passwordTextFromAlertView = [alertView textFieldAtIndex:0].text;
-
+            [defaults setBool:false forKey:@"drugCheck"];
             [defaults setObject:passwordTextFromAlertView forKey:@"password"];
             [defaults synchronize];
             NSLog(@"Changed password to %@", passwordTextFromAlertView);
@@ -249,6 +249,8 @@
                     changePasswordCell.userInteractionEnabled = NO;
                     touchIDStatusLabel.textColor = [UIColor lightGrayColor];
                     passwordChangeLabel.textColor = [UIColor lightGrayColor];
+                    [defaults setBool:false forKey:@"drugCheck"];
+ 
                     [defaults setObject:nil forKey:@"password"];
                     [defaults setBool:NO forKey:@"passwordOn"];
                     [defaults synchronize];

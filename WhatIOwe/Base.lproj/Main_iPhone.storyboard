@@ -537,7 +537,7 @@
                                     <constraint firstAttribute="height" constant="44" id="jq0-UA-ahB"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Password" id="gR5-Q2-LdL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Password" id="gR5-Q2-LdL" customClass="PasswordTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gR5-Q2-LdL" id="yUE-S1-cTp">
@@ -562,6 +562,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="statusLabel" destination="RYb-7X-TSc" id="nWO-Iq-Nqg"/>
                                             <segue destination="84f-M8-KAz" kind="show" identifier="goToPassword" id="bLo-Ea-gpm"/>
                                         </connections>
                                     </tableViewCell>

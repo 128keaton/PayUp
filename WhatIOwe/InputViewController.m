@@ -295,7 +295,9 @@
 
     NSLog(@"Nope Input: %@",wow);
 
-
+    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    [defaultSuite setBool:true forKey:@"drugCheck"];
+    [defaultSuite synchronize];
     
   
     NSManagedObjectContext *context = [self managedObjectContext];

@@ -12,6 +12,7 @@
 #import "SettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WYPopoverController.h"
+#import "PasswordTableViewCell.h"
 
 @interface SettingsViewController () <ABPeoplePickerNavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UIAlertViewDelegate, WYPopoverControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
     IBOutlet UILabel *statusLabel;
@@ -50,13 +51,10 @@
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    
 
-    if ([defaultSuite objectForKey:@"password"] == nil) {
-        [statusLabel setText:@"Off"];
-    }else{
-         [statusLabel setText:@"On"]; 
-    }
+
+    
     // 2 - Get random index
     int index = (arc4random() % [quotesArray count]);
     // 3 - Get the quote string for the index
@@ -156,10 +154,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-
+    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Password"];
-                             
+    PasswordTableViewCell *cell = (PasswordTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Password"];
+    if ([defaultSuite objectForKey:@"password"] == nil) {
+        [cell.statusLabel setText:@"Off"];
+    }else{
+        [cell.statusLabel setText:@"On"];
+    }
+    
      return cell;
     
 }

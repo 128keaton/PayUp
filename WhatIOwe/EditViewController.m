@@ -1096,7 +1096,9 @@
     NSError *error;
     
     
-    
+    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    [defaultSuite setBool:true forKey:@"drugCheck"];
+    [defaultSuite synchronize];
     
     
     
@@ -1185,6 +1187,7 @@
     
 }
 
+
 -(void)viewDidLoad {
     
     tapped = NO;
@@ -1224,7 +1227,9 @@
    //UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
     
 
-    
+    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    [defaultSuite setBool:true forKey:@"drugCheck"];
+    [defaultSuite synchronize];
     
       [self.navigationItem setRightBarButtonItem:shareItem];
     

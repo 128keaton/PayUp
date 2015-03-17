@@ -15,6 +15,7 @@
 		8A07D083191EFFBB002DE54E /* pop.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D082191EFFBB002DE54E /* pop.aif */; };
 		8A07D085191F00FF002DE54E /* slow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D084191F00FF002DE54E /* slow.aif */; };
 		8A08371C1AB78C94004F2F78 /* PasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */; };
+		8A08371F1AB7E4EF004F2F78 /* PasswordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A08371E1AB7E4EF004F2F78 /* PasswordTableViewCell.m */; };
 		8A0B1E1419D1D84A00C92141 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B1E1319D1D84A00C92141 /* user.png */; };
 		8A0B1E1B19D1DF1000C92141 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B1E1A19D1DF1000C92141 /* pencil.png */; };
 		8A0F707F18F0E98300D5732C /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F707E18F0E98300D5732C /* PersistentStack.m */; };
@@ -171,6 +172,8 @@
 		8A07D084191F00FF002DE54E /* slow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow.aif; sourceTree = "<group>"; };
 		8A08371A1AB78C93004F2F78 /* PasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewController.h; sourceTree = "<group>"; };
 		8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewController.m; sourceTree = "<group>"; };
+		8A08371D1AB7E4EF004F2F78 /* PasswordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewCell.h; sourceTree = "<group>"; };
+		8A08371E1AB7E4EF004F2F78 /* PasswordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewCell.m; sourceTree = "<group>"; };
 		8A0B1E1319D1D84A00C92141 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		8A0B1E1A19D1DF1000C92141 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		8A0F707C18F0E6D000D5732C /* OweIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OweIt.entitlements; sourceTree = SOURCE_ROOT; };
@@ -474,6 +477,8 @@
 				8A0F70A018F1D14D00D5732C /* FooterViewController.m */,
 				8A6EAB0219C8E0EE004CCFFA /* SettingsViewController.h */,
 				8A6EAB0319C8E0EE004CCFFA /* SettingsViewController.m */,
+				8A08371D1AB7E4EF004F2F78 /* PasswordTableViewCell.h */,
+				8A08371E1AB7E4EF004F2F78 /* PasswordTableViewCell.m */,
 				8A08371A1AB78C93004F2F78 /* PasswordTableViewController.h */,
 				8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */,
 				8A95578B18EF7F8600469480 /* InputViewController.h */,
@@ -933,6 +938,7 @@
 				8AE330D019DC6DD800F93648 /* SelectionViewController.m in Sources */,
 				8A34E6B119CBD84D00D19F3A /* SWTableViewCell.m in Sources */,
 				8A95574418EF614400469480 /* main.m in Sources */,
+				8A08371F1AB7E4EF004F2F78 /* PasswordTableViewCell.m in Sources */,
 				8A6EAB0419C8E0EE004CCFFA /* SettingsViewController.m in Sources */,
 				8AACC50719E76AF3005397F4 /* DismissSegue.m in Sources */,
 				8A34E6B319CBD84D00D19F3A /* SWUtilityButtonView.m in Sources */,

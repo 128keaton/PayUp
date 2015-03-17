@@ -82,7 +82,7 @@ BOOL didDrugCheck;
                                          if (succes) {
                                              
                                              self.tableView.dataSource = self;
-                                             [self.tableView reloadData];
+  
                                              [self refreshTableView];
                                              NSLog(@"User is authenticated successfully");
                                             didDrugCheck = false;
@@ -91,12 +91,12 @@ BOOL didDrugCheck;
                                              switch (error.code) {
                                                  case LAErrorAuthenticationFailed:
                                                      NSLog(@"Authentication Failed");
-                                                    [self showPasswordAlert];
+                                                    [self authenticateUser];
                                                      break;
                                                      
                                                  case LAErrorUserCancel:
                                                      NSLog(@"User pressed Cancel button");
-                                                     [self showPasswordAlert];
+                                                     [self authenticateUser];
                                                      break;
                                                      
                                                  case LAErrorUserFallback:{
@@ -127,7 +127,8 @@ BOOL didDrugCheck;
         [self showPasswordAlert];
         didDrugCheck = false;
     }
-    
+    [defaults setBool:didDrugCheck forKey:@"drugCheck"];
+    [defaults synchronize];
     
 }
 -(void)refreshTableView{
@@ -135,6 +136,12 @@ BOOL didDrugCheck;
     [self.tableView scrollToRowAtIndexPath:indexPath
                           atScrollPosition:UITableViewScrollPositionTop
                                   animated:YES];
+    self.tableView.contentOffset = CGPointMake(0, 0 - self.tableView.contentInset.top);
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+       [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationMiddle];
+   
+    });
 
     
 }
@@ -269,14 +276,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)viewDidUnload {
     self.fetchedResultsController = nil;
+    
 }
-
 
 
 -(void)viewDidAppear:(BOOL)animated{
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    didDrugCheck = [defaults boolForKey:@"drugCheck"];
     if ([defaults objectForKey:@"password"]!= nil && didDrugCheck == false) {
+        [self.tableView setDataSource:nil];
+        [self refreshTableView];
         [self authenticateUser];
     }else{
         NSLog(@"No password, have a nice day :D");
@@ -300,8 +310,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
     [super viewDidLoad];
-    didDrugCheck = YES;
+
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    [defaults setBool:YES forKey:@"drugCheck"];
+    [defaults synchronize];
+    didDrugCheck = [defaults boolForKey:@"drugCheck"];
     if ([defaults objectForKey:@"password"]!= nil) {
       [self authenticateUser];
     }else{
@@ -678,7 +691,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         selection.delegate = self;
         
         popoverController.popoverContentSize = CGSizeMake(320, 300);
-*/
+        */
         
     }else if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[AppDelegate class]]){
 
@@ -867,7 +880,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         if (![[alertView textFieldAtIndex:0].text isEqual:@""]) {
             if ([[alertView textFieldAtIndex:0].text isEqual:[defaults objectForKey:@"password"]]) {
                 self.tableView.dataSource = self;
-                [self.tableView reloadData];
+            [self refreshTableView];
             }else{
                 [self showPasswordAlert];
             }
