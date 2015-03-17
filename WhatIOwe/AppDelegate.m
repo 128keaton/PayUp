@@ -656,6 +656,16 @@
         
     }else if ([[url scheme]isEqualToString:@"payup"]){
         NSLog(@"Welcome people of earth");
+            NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[defaults objectForKey:@"indexPath.row"] integerValue] inSection:[[defaults objectForKey:@"indexPath.row"] integerValue]];
+        NSLog(@"Index Path %@", indexPath);
+        
+        UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
+        UIViewController *rootController = [[navigationController viewControllers] objectAtIndex:0];
+        
+        [rootController performSegueWithIdentifier:@"pushToEdit" sender:self];
+        
+        
         
     }
     

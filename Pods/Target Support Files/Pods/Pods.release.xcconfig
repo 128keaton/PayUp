@@ -1,8 +1,8 @@
 CLANG_CXX_LANGUAGE_STANDARD = c++11
 CLANG_CXX_LIBRARY = libc++
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CJMTwitterFollowButton" "${PODS_ROOT}/Headers/Public/Canvas" "${PODS_ROOT}/Headers/Public/LCZoomTransition" "${PODS_ROOT}/Headers/Public/SBJson" "${PODS_ROOT}/Headers/Public/pop"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CJMTwitterFollowButton" -isystem "${PODS_ROOT}/Headers/Public/Canvas" -isystem "${PODS_ROOT}/Headers/Public/LCZoomTransition" -isystem "${PODS_ROOT}/Headers/Public/SBJson" -isystem "${PODS_ROOT}/Headers/Public/pop"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-CJMTwitterFollowButton" -l"Pods-Canvas" -l"Pods-LCZoomTransition" -l"Pods-SBJson" -l"Pods-pop" -l"c++"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ABPadLockScreen" "${PODS_ROOT}/Headers/Public/CJMTwitterFollowButton" "${PODS_ROOT}/Headers/Public/Canvas" "${PODS_ROOT}/Headers/Public/LCZoomTransition" "${PODS_ROOT}/Headers/Public/SBJson" "${PODS_ROOT}/Headers/Public/pop"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ABPadLockScreen" -isystem "${PODS_ROOT}/Headers/Public/CJMTwitterFollowButton" -isystem "${PODS_ROOT}/Headers/Public/Canvas" -isystem "${PODS_ROOT}/Headers/Public/LCZoomTransition" -isystem "${PODS_ROOT}/Headers/Public/SBJson" -isystem "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-ABPadLockScreen" -l"Pods-CJMTwitterFollowButton" -l"Pods-Canvas" -l"Pods-LCZoomTransition" -l"Pods-SBJson" -l"Pods-pop" -l"c++"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

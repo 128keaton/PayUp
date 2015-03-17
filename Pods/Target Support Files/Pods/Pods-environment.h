@@ -6,6 +6,12 @@
 // project.
 
 
+// ABPadLockScreen
+#define COCOAPODS_POD_AVAILABLE_ABPadLockScreen
+#define COCOAPODS_VERSION_MAJOR_ABPadLockScreen 3
+#define COCOAPODS_VERSION_MINOR_ABPadLockScreen 2
+#define COCOAPODS_VERSION_PATCH_ABPadLockScreen 0
+
 // CJMTwitterFollowButton
 #define COCOAPODS_POD_AVAILABLE_CJMTwitterFollowButton
 #define COCOAPODS_VERSION_MAJOR_CJMTwitterFollowButton 0

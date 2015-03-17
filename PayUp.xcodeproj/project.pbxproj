@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A07A7C61AB5493800E5217F /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A07A7C51AB5493800E5217F /* LocalAuthentication.framework */; };
 		8A07D079191ED525002DE54E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A07D078191ED525002DE54E /* AVFoundation.framework */; };
 		8A07D07B191ED609002DE54E /* tap-mellow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D07A191ED609002DE54E /* tap-mellow.aif */; };
 		8A07D07F191ED6AD002DE54E /* slide-scissors.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D07E191ED6AD002DE54E /* slide-scissors.aif */; };
 		8A07D081191ED854002DE54E /* slide-paper.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D080191ED854002DE54E /* slide-paper.aif */; };
 		8A07D083191EFFBB002DE54E /* pop.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D082191EFFBB002DE54E /* pop.aif */; };
 		8A07D085191F00FF002DE54E /* slow.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8A07D084191F00FF002DE54E /* slow.aif */; };
+		8A08371C1AB78C94004F2F78 /* PasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */; };
 		8A0B1E1419D1D84A00C92141 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B1E1319D1D84A00C92141 /* user.png */; };
 		8A0B1E1B19D1DF1000C92141 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B1E1A19D1DF1000C92141 /* pencil.png */; };
 		8A0F707F18F0E98300D5732C /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F707E18F0E98300D5732C /* PersistentStack.m */; };
@@ -93,12 +95,6 @@
 		8A95574E18EF614400469480 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A95574C18EF614400469480 /* Main_iPad.storyboard */; };
 		8A95575118EF614400469480 /* WhatIOwe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A95574F18EF614400469480 /* WhatIOwe.xcdatamodeld */; };
 		8A95575918EF614400469480 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A95575818EF614400469480 /* Images.xcassets */; };
-		8A95576018EF614400469480 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A95575F18EF614400469480 /* XCTest.framework */; };
-		8A95576118EF614400469480 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A95573518EF614400469480 /* Foundation.framework */; };
-		8A95576218EF614400469480 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A95573918EF614400469480 /* UIKit.framework */; };
-		8A95576318EF614400469480 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A95573B18EF614400469480 /* CoreData.framework */; };
-		8A95576B18EF614400469480 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A95576918EF614400469480 /* InfoPlist.strings */; };
-		8A95576D18EF614400469480 /* WhatIOweTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95576C18EF614400469480 /* WhatIOweTests.m */; };
 		8A95578118EF66AA00469480 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578018EF66AA00469480 /* MasterViewController.m */; };
 		8A95578718EF682600469480 /* OweDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578618EF682600469480 /* OweDetails.m */; };
 		8A95578A18EF684700469480 /* OweInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A95578918EF684700469480 /* OweInfo.m */; };
@@ -138,13 +134,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A95576418EF614400469480 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A95572A18EF614400469480 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8A95573118EF614400469480;
-			remoteInfo = WhatIOwe;
-		};
 		8AD068A31AB1EB42000190B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A95572A18EF614400469480 /* Project object */;
@@ -172,12 +161,16 @@
 		021A7D97EAF74EE2839B1EAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		146122C4007F8088BC023479 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3B51BA624DBE3F73916DF38A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A07A7C41AB51B7800E5217F /* PayUp-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PayUp-PrefixHeader.pch"; sourceTree = "<group>"; };
+		8A07A7C51AB5493800E5217F /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		8A07D078191ED525002DE54E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A07D07A191ED609002DE54E /* tap-mellow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-mellow.aif"; sourceTree = "<group>"; };
 		8A07D07E191ED6AD002DE54E /* slide-scissors.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-scissors.aif"; sourceTree = "<group>"; };
 		8A07D080191ED854002DE54E /* slide-paper.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-paper.aif"; sourceTree = "<group>"; };
 		8A07D082191EFFBB002DE54E /* pop.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop.aif; sourceTree = "<group>"; };
 		8A07D084191F00FF002DE54E /* slow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = slow.aif; sourceTree = "<group>"; };
+		8A08371A1AB78C93004F2F78 /* PasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordTableViewController.h; sourceTree = "<group>"; };
+		8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordTableViewController.m; sourceTree = "<group>"; };
 		8A0B1E1319D1D84A00C92141 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		8A0B1E1A19D1DF1000C92141 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		8A0F707C18F0E6D000D5732C /* OweIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OweIt.entitlements; sourceTree = SOURCE_ROOT; };
@@ -278,8 +271,6 @@
 		8A95574D18EF614400469480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		8A95575018EF614400469480 /* WhatIOwe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhatIOwe.xcdatamodel; sourceTree = "<group>"; };
 		8A95575818EF614400469480 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A95575E18EF614400469480 /* PayUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A95575F18EF614400469480 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8A95576818EF614400469480 /* PayUpTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PayUpTests-Info.plist"; sourceTree = "<group>"; };
 		8A95576A18EF614400469480 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A95576C18EF614400469480 /* WhatIOweTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatIOweTests.m; sourceTree = "<group>"; };
@@ -332,6 +323,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A07A7C61AB5493800E5217F /* LocalAuthentication.framework in Frameworks */,
 				8A22172919216D8100E0DDDB /* CoreTelephony.framework in Frameworks */,
 				8A22172719216D7C00E0DDDB /* CoreLocation.framework in Frameworks */,
 				8A22172519216D7600E0DDDB /* SystemConfiguration.framework in Frameworks */,
@@ -351,17 +343,6 @@
 				8A95573618EF614400469480 /* Foundation.framework in Frameworks */,
 				F398319583D741EBA9FEDA5B /* libPods.a in Frameworks */,
 				8A22171B19216D4200E0DDDB /* Instabug.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A95575B18EF614400469480 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A95576018EF614400469480 /* XCTest.framework in Frameworks */,
-				8A95576318EF614400469480 /* CoreData.framework in Frameworks */,
-				8A95576218EF614400469480 /* UIKit.framework in Frameworks */,
-				8A95576118EF614400469480 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +474,8 @@
 				8A0F70A018F1D14D00D5732C /* FooterViewController.m */,
 				8A6EAB0219C8E0EE004CCFFA /* SettingsViewController.h */,
 				8A6EAB0319C8E0EE004CCFFA /* SettingsViewController.m */,
+				8A08371A1AB78C93004F2F78 /* PasswordTableViewController.h */,
+				8A08371B1AB78C93004F2F78 /* PasswordTableViewController.m */,
 				8A95578B18EF7F8600469480 /* InputViewController.h */,
 				8A95578C18EF7F8600469480 /* InputViewController.m */,
 			);
@@ -603,7 +586,6 @@
 			isa = PBXGroup;
 			children = (
 				8A95573218EF614400469480 /* PayUp.app */,
-				8A95575E18EF614400469480 /* PayUpTests.xctest */,
 				8AD068991AB1EB42000190B9 /* PayUp.appex */,
 			);
 			name = Products;
@@ -612,6 +594,7 @@
 		8A95573418EF614400469480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A07A7C51AB5493800E5217F /* LocalAuthentication.framework */,
 				8A22172819216D8100E0DDDB /* CoreTelephony.framework */,
 				8A22172619216D7C00E0DDDB /* CoreLocation.framework */,
 				8A22172419216D7600E0DDDB /* SystemConfiguration.framework */,
@@ -629,7 +612,6 @@
 				8A95573718EF614400469480 /* CoreGraphics.framework */,
 				8A95573918EF614400469480 /* UIKit.framework */,
 				8A95573B18EF614400469480 /* CoreData.framework */,
-				8A95575F18EF614400469480 /* XCTest.framework */,
 				021A7D97EAF74EE2839B1EAF /* libPods.a */,
 				8A1761D519D060A5009A94C0 /* NotificationCenter.framework */,
 			);
@@ -663,6 +645,7 @@
 				8ABFAF8118F47F2000D503C4 /* 1397001691_alarm_clock.png */,
 				8ADCE10418F5FA7900065785 /* PayUp-Info.plist */,
 				8ADCE10618F5FA9D00065785 /* PayUp-Prefix.pch */,
+				8A07A7C41AB51B7800E5217F /* PayUp-PrefixHeader.pch */,
 				8A95574018EF614400469480 /* InfoPlist.strings */,
 				8A95574318EF614400469480 /* main.m */,
 			);
@@ -745,24 +728,6 @@
 			productReference = 8A95573218EF614400469480 /* PayUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8A95575D18EF614400469480 /* PayUpTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "PayUpTests" */;
-			buildPhases = (
-				8A95575A18EF614400469480 /* Sources */,
-				8A95575B18EF614400469480 /* Frameworks */,
-				8A95575C18EF614400469480 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8A95576518EF614400469480 /* PBXTargetDependency */,
-			);
-			name = PayUpTests;
-			productName = WhatIOweTests;
-			productReference = 8A95575E18EF614400469480 /* PayUpTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		8AD068981AB1EB42000190B9 /* PayUp-Today */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AD068A81AB1EB43000190B9 /* Build configuration list for PBXNativeTarget "PayUp-Today" */;
@@ -796,15 +761,12 @@
 								enabled = 1;
 							};
 							com.apple.OMC = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
-					};
-					8A95575D18EF614400469480 = {
-						TestTargetID = 8A95573118EF614400469480;
 					};
 					8AD068981AB1EB42000190B9 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -831,7 +793,6 @@
 			projectRoot = "";
 			targets = (
 				8A95573118EF614400469480 /* PayUp */,
-				8A95575D18EF614400469480 /* PayUpTests */,
 				8AD068981AB1EB42000190B9 /* PayUp-Today */,
 			);
 		};
@@ -904,14 +865,6 @@
 				8A0F70CD18F2FF0400D5732C /* Red.png in Resources */,
 				8A0F70A318F1D14D00D5732C /* FooterViewController.xib in Resources */,
 				8A0F709E18F1CDAF00D5732C /* Subtract.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A95575C18EF614400469480 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A95576B18EF614400469480 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,6 +941,7 @@
 				8A95575118EF614400469480 /* WhatIOwe.xcdatamodeld in Sources */,
 				8AE330A219DB2CF000F93648 /* DatePickerViewController.m in Sources */,
 				8A0F70A218F1D14D00D5732C /* FooterViewController.m in Sources */,
+				8A08371C1AB78C94004F2F78 /* PasswordTableViewController.m in Sources */,
 				8A95578A18EF684700469480 /* OweInfo.m in Sources */,
 				8A0F707F18F0E98300D5732C /* PersistentStack.m in Sources */,
 				8A7A7EEE19D7482500F0F651 /* EditViewController.m in Sources */,
@@ -995,14 +949,6 @@
 				8AE330D619DC833100F93648 /* WYPopoverController.m in Sources */,
 				8ABB4E461AB27A8800214333 /* TodayTableViewCell.m in Sources */,
 				8A34E69519CB3A9000D19F3A /* StyleController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A95575A18EF614400469480 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A95576D18EF614400469480 /* WhatIOweTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,11 +968,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A95576518EF614400469480 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8A95573118EF614400469480 /* PayUp */;
-			targetProxy = 8A95576418EF614400469480 /* PBXContainerItemProxy */;
-		};
 		8AD068A41AB1EB42000190B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AD068981AB1EB42000190B9 /* PayUp-Today */;
@@ -1073,7 +1014,7 @@
 		8A95576E18EF614400469480 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1091,6 +1032,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1112,7 +1054,7 @@
 		8A95576F18EF614400469480 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1129,6 +1071,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1155,8 +1098,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-PrefixHeader.pch";
 				INFOPLIST_FILE = "WhatIOwe/PayUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1183,8 +1126,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WhatIOwe/Instabug",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "WhatIOwe/PayUp-PrefixHeader.pch";
 				INFOPLIST_FILE = "WhatIOwe/PayUp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -1195,46 +1138,6 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		8A95577418EF614400469480 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WhatIOwe.app/WhatIOwe";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/WhatIOwe-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "WhatIOweTests/PayUpTests-Info.plist";
-				PRODUCT_NAME = PayUpTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		8A95577518EF614400469480 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WhatIOwe.app/WhatIOwe";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatIOwe/WhatIOwe-Prefix.pch";
-				INFOPLIST_FILE = "WhatIOweTests/PayUpTests-Info.plist";
-				PRODUCT_NAME = PayUpTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1301,15 +1204,6 @@
 			buildConfigurations = (
 				8A95577118EF614400469480 /* Debug */,
 				8A95577218EF614400469480 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8A95577318EF614400469480 /* Build configuration list for PBXNativeTarget "PayUpTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8A95577418EF614400469480 /* Debug */,
-				8A95577518EF614400469480 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

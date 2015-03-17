@@ -28,9 +28,10 @@
 #import "WYStoryboardPopoverSegue.h"
 #import "SelectionViewController.h"
 #import "IBActionSheet.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
-@interface MasterViewController  () <UITableViewDelegate, NSFetchedResultsControllerDelegate, WYPopoverControllerDelegate, SelectionViewControllerDelegate>
+@interface MasterViewController  () <UITableViewDelegate, NSFetchedResultsControllerDelegate, WYPopoverControllerDelegate, SelectionViewControllerDelegate, UIAlertViewDelegate>
 {
       WYPopoverController *popoverController;
 }
@@ -38,6 +39,7 @@
  - (BOOL)cellIsSelected2:(NSIndexPath *)indexPath;
 - (void)inputViewController:(SelectionViewController *)controller;
 
+@property (nonatomic, strong) PersistentStack* persistentStack;
 
 
 @end
@@ -53,6 +55,7 @@
 @synthesize money = _money1;
 @synthesize delegate = _delegate;
 
+BOOL didDrugCheck;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -64,8 +67,77 @@
 }
 
 
+-(void)authenticateUser{
+    LAContext *context = [[LAContext alloc]init];
+    NSError *error;
+    NSString *reasonString = @"Authentication Required";
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
 
+    self.tableView.dataSource = nil;
+    if ([context canEvaluatePolicy:(LAPolicyDeviceOwnerAuthenticationWithBiometrics) error:&error] && [defaults boolForKey:@"touchIDOn"] == YES) {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                           localizedReason:reasonString
+                                     reply:^(BOOL succes, NSError *error) {
+                                         
+                                         if (succes) {
+                                             
+                                             self.tableView.dataSource = self;
+                                             [self.tableView reloadData];
+                                             [self refreshTableView];
+                                             NSLog(@"User is authenticated successfully");
+                                            didDrugCheck = false;
+                                         } else {
+                                             
+                                             switch (error.code) {
+                                                 case LAErrorAuthenticationFailed:
+                                                     NSLog(@"Authentication Failed");
+                                                    [self showPasswordAlert];
+                                                     break;
+                                                     
+                                                 case LAErrorUserCancel:
+                                                     NSLog(@"User pressed Cancel button");
+                                                     [self showPasswordAlert];
+                                                     break;
+                                                     
+                                                 case LAErrorUserFallback:{
+                                                     NSLog(@"User pressed \"Enter Password\"");
+                                                     [[NSOperationQueue mainQueue]addOperationWithBlock:^(void){
+                                                         [self showPasswordAlert];
+                                                          didDrugCheck = false;
+                                                     }];
+                                                     
+                                                     break;
+                                                 }
+                                                     
+                                                 default:{
+                                                     NSLog(@"Touch ID is not configured");
+                                                     [[NSOperationQueue mainQueue]addOperationWithBlock:^(void){
+                                                         [self showPasswordAlert];
+                                                         didDrugCheck = false;
+                                                         
+                                                     }];
+                                                     break;
+                                                 }
+                                             }
+                                             
+                                             NSLog(@"Authentication Fails");
+                                         }
+                                     }];
+    }else {
+        [self showPasswordAlert];
+        didDrugCheck = false;
+    }
+    
+    
+}
+-(void)refreshTableView{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionTop
+                                  animated:YES];
 
+    
+}
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -170,7 +242,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
+  //  self.managedObjectContext.persistentStoreCoordinator = self.persistentStack.persistentStoreCoordinator;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"OweInfo" inManagedObjectContext:managedObjectContext];
@@ -202,11 +274,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 
 -(void)viewDidAppear:(BOOL)animated{
-       
+    
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    if ([defaults objectForKey:@"password"]!= nil && didDrugCheck == false) {
+        [self authenticateUser];
+    }else{
+        NSLog(@"No password, have a nice day :D");
+    }
+    
+    
     [self setNeedsStatusBarAppearanceUpdate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
+}
+-(void)showPasswordAlert{
+    UIAlertView *passwordAlert = [[UIAlertView alloc]initWithTitle:@"Password" message:@"Input Password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    passwordAlert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+    [passwordAlert show];
 }
 
 - (void)viewDidLoad
@@ -215,21 +300,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
     [super viewDidLoad];
-   
- 
+    didDrugCheck = YES;
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    if ([defaults objectForKey:@"password"]!= nil) {
+      [self authenticateUser];
+    }else{
+        NSLog(@"No password, have a nice day :D");
+    }
     
-    NSURL* musicFile = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                               pathForResource:@"slide-paper"
-                                               ofType:@"aif"]];
-    self.tap = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile error:nil];
-    [self.tap prepareToPlay];
 
-    NSURL* musicFile2 = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                               pathForResource:@"slide-scissors"
-                                               ofType:@"aif"]];
-    self.delete = [[AVAudioPlayer alloc] initWithContentsOfURL:musicFile2 error:nil];
-    [self.delete prepareToPlay];
-
+    self.clearsSelectionOnViewWillAppear = NO;
     [self setNeedsStatusBarAppearanceUpdate];
     NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -238,7 +318,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 		exit(-1);  // Fail
 	}
     
+    
     self.title = @"Owed";
+
    //self.zoomTransition = [[LCZoomTransition alloc] initWithNavigationController:self.navigationController];
     
     addButton.layer.cornerRadius = 2;
@@ -345,7 +427,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSDate *today = [NSDate date];
     if (info.details.date != nil) {
         NSString *ifReplace;
-        if ([[self class] daysBetweenDate:today andDate:info.details.date] >= 1) {
+        if ([[self class] daysBetweenDate:today andDate:info.details.date] >= 2) {
             cell.untilDate.text = [NSString stringWithFormat:@"%ld days.", (long)[[self class] daysBetweenDate:today andDate:info.details.date]];
 
         }else if ([[self class] daysBetweenDate:today andDate:info.details.date] == 0){
@@ -373,7 +455,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     NSComparisonResult result;
     
-  
+    NSLog(@"Date results: %@", info.details.date);
+    
     result = [today compare:details.date]; // comparing two dates
     cell.contactImage.layer.masksToBounds = YES;
     
@@ -406,13 +489,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
               cell.dateLabel.center = cell.thumbnailOwe.center;
 
   //  [self.today configureCell:cell atIndexPath:indexPath];
-
+    cell.contactImage.layer.borderColor = [UIColor blackColor].CGColor;
+    cell.contactImage.layer.borderWidth = 1.5f;
+    
     
     NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
     NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.bittank.io"];
     NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:fetchedObjects];
     [sharedUserDefaults setObject:dataSave forKey:@"peopleArray"];
-    NSLog(@"People Array: %lu", (unsigned long)[fetchedObjects count]);
+
     
     [sharedUserDefaults synchronize];
 
@@ -427,6 +512,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 
+-(BOOL)youDriveMeCrazy{
+    return false;
+}
 
 
 
@@ -513,10 +601,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
 }
 
+-(void)selectRow{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+                                
+                                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[defaults objectForKey:@"indexPath.row"] integerValue] inSection:0];
+                                
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:0];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    
+    
+}
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
  
-    if([segue.identifier  isEqual: @"pushToEdit"]){
+    if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[UITableViewCell class]]){
         
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -579,6 +679,35 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         popoverController.popoverContentSize = CGSizeMake(320, 300);
 */
+        
+    }else if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[AppDelegate class]]){
+
+        NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[defaults objectForKey:@"indexPath.row"] integerValue] inSection:0];
+        EditViewController *edit = segue.destinationViewController;
+        
+        NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];
+        [edit setManagedObjectContext:mo];
+        
+        
+        id appDelegate= [[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = [appDelegate managedObjectContext];
+        
+        
+        OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+        self.editView = edit;
+        
+        
+        self.editView.delegate = self;
+        self.editView.info = info;
+        self.editView.managedObjectContext = self.managedObjectContext;
+        edit.managedObjectContext = self.managedObjectContext;
+        
+        edit.info = info;
+        edit.delegate = self;
+        
+       
         
     }
     
@@ -712,7 +841,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             // Save
             NSError *error;
             if ([self.managedObjectContext save:&error] == NO) {
-                // Handle Error.
+                NSLog(@"Save error: %@", error);
+                
+            }else{
+                NSLog(@"Saved like a boss");
+                
             }
 
         
@@ -726,6 +859,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     // This will create a "invisible" footer
     return 0.01f;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    if (buttonIndex == 1) {
+        if (![[alertView textFieldAtIndex:0].text isEqual:@""]) {
+            if ([[alertView textFieldAtIndex:0].text isEqual:[defaults objectForKey:@"password"]]) {
+                self.tableView.dataSource = self;
+                [self.tableView reloadData];
+            }else{
+                [self showPasswordAlert];
+            }
+        }else{
+            [self showPasswordAlert];
+        }
+    }
 }
 
 

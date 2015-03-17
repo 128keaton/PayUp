@@ -18,21 +18,24 @@
 }
 @property (strong, nonatomic) NSArray *peopleArray;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic)NSManagedObjectContext *privateManagedObjectContext;
+
+
+@property (nonatomic, strong) PersistentStack* persistentStack;
+
+
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) PersistentStack *persistentStack;
+
 
 @end
 
 @implementation TodayViewController
 
+@synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize managedObjectContext = _managedObjectContext;
 
-@synthesize managedObjectContext = managedObjectContext;
 
-@synthesize managedObjectModel = managedObjectModel;
-
-@synthesize persistentStoreCoordinator = persistentStoreCoordinator;
 
 
 NSUInteger count;
@@ -41,22 +44,23 @@ NSUInteger count;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
+  self.managedObjectContext = self.persistentStack.managedObjectContext;
     
-    self.managedObjectContext = self.persistentStack.managedObjectContext;
-    [self.managedObjectContext setRetainsRegisteredObjects:YES];
+    self.privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    
+    // Configure Managed Object Context
+    [self.privateManagedObjectContext setParentContext:self.managedObjectContext];
+    
     self.preferredContentSize = self.tableView.frame.size;
-    
+
     NSError *error;
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        // Update to handle the error appropriately.
+    
+    if (! [[self fetchedResultsController] performFetch:&error]) {
+        // Update to `handle the error appropriately.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1);  // Fail
-    }else{
-        NSLog(@"Fetched successfully");
-        
     }
-    
-
+  
  
     // Do any additional setup after loading the view from its nib.
 }
@@ -68,8 +72,15 @@ NSUInteger count;
 }
 
 
+
 -(void) viewDidAppear:(BOOL)animated{
+
+    
+    
     self.preferredContentSize=self.tableView.contentSize;
+    NSError *error;
+    
+    [self.fetchedResultsController performFetch:&error];
 }
 -(void)viewWillAppear:(BOOL)animated{
     NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.view
@@ -103,10 +114,6 @@ NSUInteger count;
 }
 
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 44;
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 77;
 }
@@ -122,11 +129,11 @@ NSUInteger count;
     TodayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"TodayViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"OweCell"];
     
-    
-    [self configureCell:cell atIndexPath:indexPath];
- 
-    
-      NSLog(@"Cell exists: %@", cell);
+
+        [self configureCell:cell atIndexPath:indexPath];
+
+
+
     
     
     
@@ -160,10 +167,13 @@ NSUInteger count;
 
 - (void)configureCell:(TodayTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
-  
-        
- 
+    BOOL triedOnce;
+
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+    self.managedObjectContext.stalenessInterval = 0;
+    
+    if (![info isFault]) {
+   
     cell.nameLabel.text = info.name;
     
     OweDetails *details = info.details;
@@ -230,12 +240,30 @@ NSUInteger count;
     NSComparisonResult result;
     result = [today compare:details.date]; // comparing two dates
     cell.contactImage.layer.masksToBounds = YES;
+    cell.contactImage.layer.borderWidth = 1.0f;
+    cell.contactImage.backgroundColor = [UIColor whiteColor];
     
+    cell.contactImage.layer.borderColor = [UIColor whiteColor].CGColor;
     cell.dateLabel.text = info.dateString;
     
-    }
-
+    }else{
+       
     
+     
+        NSLog(@"Broken");
+        [self.fetchedResultsController performFetch:nil];
+  
+            triedOnce = YES;
+            
+      
+
+        
+        
+    }
+}
+
+
+
 
     
     
@@ -275,46 +303,48 @@ NSUInteger count;
 
 - (NSFetchedResultsController *)fetchedResultsController {
 
-    self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
-    
-    self.managedObjectContext = self.persistentStack.managedObjectContext;
-
+  
     
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
+    self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
+    self.managedObjectContext = self.persistentStack.managedObjectContext;
+
+    [self.managedObjectContext setStalenessInterval:0];
+    
+    
+    self.privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    
+    // Configure Managed Object Context
+    [self.privateManagedObjectContext setParentContext:self.managedObjectContext];
+
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"OweInfo" inManagedObjectContext:managedObjectContext];
+                                   entityForName:@"OweInfo" inManagedObjectContext:self.privateManagedObjectContext];
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
                               initWithKey:@"details.date" ascending:NO];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     
+    
     [fetchRequest setFetchBatchSize:20];
     
     NSFetchedResultsController *theFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:managedObjectContext sectionNameKeyPath:nil
+                                        managedObjectContext:self.privateManagedObjectContext sectionNameKeyPath:nil
                                                    cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
     _fetchedResultsController.delegate = self;
-
+    
     
     return _fetchedResultsController;
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIButton *openButton = [[UIButton alloc]initWithFrame:CGRectMake(footerView.frame.origin.x, footerView.frame.origin.y, 300, 30)];
-    [footerView addSubview:openButton];
-    
-    return footerView;
-}
 
 
 
@@ -327,6 +357,16 @@ NSUInteger count;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSURL *pjURL = [NSURL URLWithString:@"payup://"];
     [self.extensionContext openURL:pjURL completionHandler:nil];
+    NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    NSUInteger row = indexPath.row;
+    NSUInteger section = indexPath.section;
+    
+    [defaults setObject:[NSNumber numberWithInteger:row] forKey:@"indexPath.row"];
+    [defaults setObject:[NSNumber numberWithInteger:section] forKey:@"indexPath.section"];
+
+    
+    [defaults synchronize];
+    
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {

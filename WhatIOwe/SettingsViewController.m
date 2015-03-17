@@ -12,8 +12,13 @@
 #import "SettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WYPopoverController.h"
-@interface SettingsViewController () <ABPeoplePickerNavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UIAlertViewDelegate, WYPopoverControllerDelegate>
-    
+
+@interface SettingsViewController () <ABPeoplePickerNavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate, UIAlertViewDelegate, WYPopoverControllerDelegate, UITableViewDelegate, UITableViewDataSource>{
+    IBOutlet UILabel *statusLabel;
+ 
+}
+@property (strong, nonatomic)IBOutlet UITableView *tableView;
+
 @end
 
 @implementation SettingsViewController
@@ -24,6 +29,7 @@
     [super viewDidLoad];
       UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, self.tableView.frame.origin.y, self.tableView.frame.size.width, 44);
     
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -44,9 +50,13 @@
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
 
-    CJMTwitterFollowButton *button = twitterButton;
-    [button setTwitterAccount:@"128keaton"];
+    if ([defaultSuite objectForKey:@"password"] == nil) {
+        [statusLabel setText:@"Off"];
+    }else{
+         [statusLabel setText:@"On"]; 
+    }
     // 2 - Get random index
     int index = (arc4random() % [quotesArray count]);
     // 3 - Get the quote string for the index
@@ -143,6 +153,36 @@
 
     // Do any additional setup after loading the view.
   }
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+
+   
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Password"];
+                             
+     return cell;
+    
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger row = indexPath.row;
+    
+    switch (row) {
+        case 0:
+            NSLog(@"Password");
+            break;
+            
+        case 1:
+            NSLog(@"Other");
+            break;
+    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

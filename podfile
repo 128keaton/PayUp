@@ -5,3 +5,4 @@ pod 'SBJson', '~> 4.0.0'
 pod 'pop'
 pod 'CJMTwitterFollowButton', '~>0.1.0'
 pod 'LCZoomTransition'
+pod "ABPadLockScreen"

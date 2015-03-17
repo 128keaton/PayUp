@@ -27,11 +27,12 @@
     self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
     self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     
-    NSError *error;
+    NSError* error;
+    
     __weak NSPersistentStoreCoordinator *psc = self.managedObjectContext.persistentStoreCoordinator;
-    
-    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:nil error:&error];
-    
+    self.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
+   
+    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:nil error:&error];
     
     // iCloud notification subscriptions
     NSNotificationCenter *dc = [NSNotificationCenter defaultCenter];
@@ -50,6 +51,7 @@
                name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
              object:psc];
     
+  
   //  NSError* error;
     // the only difference in this call that makes the store an iCloud enabled store
     // is the NSPersistentStoreUbiquitousContentNameKey in options. I use "iCloudStore"
@@ -59,13 +61,16 @@
     // If you create a non-iCloud enabled store, it will be created in the App's Documents directory.
     // An iCloud enabled store will be created below a directory called CoreDataUbiquitySupport
     // in your App's Documents directory
-    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+
+
+   /* [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                                        configuration:nil
                                                                                  URL:self.storeURL
                                                                              options:@{ NSPersistentStoreUbiquitousContentNameKey : @"WhatIOwe",
                                                                                         NSMigratePersistentStoresAutomaticallyOption : @YES,
-                                                                                        NSInferMappingModelAutomaticallyOption : @YES }
-                                                                               error:&error];
+                                                                                        NSInferMappingModelAutomaticallyOption : @YES,
+                                                                                    }
+                                                                               error:&error];*/
     if (error) {
         NSLog(@"error: %@", error);
     }
@@ -79,7 +84,7 @@
 // Subscribe to NSPersistentStoreDidImportUbiquitousContentChangesNotification
 - (void)persistentStoreDidImportUbiquitousContentChanges:(NSNotification*)note
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+   NSLog(@"%s", __PRETTY_FUNCTION__);
     NSLog(@"%@", note.userInfo.description);
     
     NSManagedObjectContext *moc = self.managedObjectContext;
@@ -98,12 +103,16 @@
         [allChanges unionSet:changes[NSUpdatedObjectsKey]];
         [allChanges unionSet:changes[NSDeletedObjectsKey]];
         
-       // for (NSManagedObjectID *objID in allChanges) {
+        for (NSManagedObjectID *objID in allChanges) {
             // do whatever you need to with the NSManagedObjectID
             // you can retrieve the object from with [moc objectWithID:objID]
-       // }
+        }
         
     }];
+    
+
+
+    
 }
 
 // Subscribe to NSPersistentStoreCoordinatorStoresWillChangeNotification
@@ -111,7 +120,7 @@
 // (either globally, or just for your app) or if the user changes
 // iCloud accounts.
 - (void)storesWillChange:(NSNotification *)note {
-    NSManagedObjectContext *moc = self.managedObjectContext;
+   NSManagedObjectContext *moc = self.managedObjectContext;
     [moc performBlockAndWait:^{
         NSError *error = nil;
         if ([moc hasChanges]) {
@@ -121,15 +130,45 @@
         [moc reset];
     }];
     
+
+    
+    
     // now reset your UI to be prepared for a totally different
     // set of data (eg, popToRootViewControllerAnimated:)
     // but don't load any new data yet.
+    
+    
 }
 
 // Subscribe to NSPersistentStoreCoordinatorStoresDidChangeNotification
 - (void)storesDidChange:(NSNotification *)note {
-    // here is when you can refresh your UI and
-    // load new data from the new store
+    NSManagedObjectContext *changedContext = note.object;
+    NSManagedObjectContext *childContext = self.managedObjectContext;
+    BOOL isParentContext = childContext.parentContext == changedContext;
+    if (!isParentContext) return;
+    
+    //Collect the objectIDs of the objects that changed
+    NSMutableSet *objectIDs = [NSMutableSet set];
+    [changedContext performBlockAndWait:^{
+        NSDictionary *userInfo = note.userInfo;
+        for (NSManagedObject *changedObject in userInfo[NSUpdatedObjectsKey]) {
+            [objectIDs addObject:changedObject.objectID];
+        }
+        for (NSManagedObject *changedObject in userInfo[NSInsertedObjectsKey]) {
+            [objectIDs addObject:changedObject.objectID];
+        }
+        for (NSManagedObject *changedObject in userInfo[NSDeletedObjectsKey]) {
+            [objectIDs addObject:changedObject.objectID];
+        }
+    }];
+    
+    //Refresh the changed objects
+    [childContext performBlockAndWait:^{
+        for (NSManagedObjectID *objectID in objectIDs) {
+            NSManagedObject *object = [childContext objectRegisteredForID:objectID];
+            [childContext refreshObject:object mergeChanges:YES];
+        }
+    }];
 }
 
 

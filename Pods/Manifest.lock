@@ -1,4 +1,5 @@
 PODS:
+  - ABPadLockScreen (3.2.0)
   - Canvas (0.1.1)
   - CJMTwitterFollowButton (0.1.0)
   - LCZoomTransition (1.0.0)
@@ -6,6 +7,7 @@ PODS:
   - SBJson (4.0.0)
 
 DEPENDENCIES:
+  - ABPadLockScreen
   - Canvas (~> 0.1)
   - CJMTwitterFollowButton (~> 0.1.0)
   - LCZoomTransition
@@ -13,6 +15,7 @@ DEPENDENCIES:
   - SBJson (~> 4.0.0)
 
 SPEC CHECKSUMS:
+  ABPadLockScreen: 07df4e03531803fb9aa1bc1cf16e70b8ff5c1f67
   Canvas: 45356a2e61087a776bfde5090676d290cf67f7f2
   CJMTwitterFollowButton: f3433315f394944a871ae03d4de2871eaf2eeac9
   LCZoomTransition: 4fed6017ebe5dbc8ab373fc6395faabe558fa90d

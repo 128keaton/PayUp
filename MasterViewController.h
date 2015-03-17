@@ -59,6 +59,7 @@
 
 @property (strong, nonatomic) id owedItem;
 - (void)setOwedItem:(id)owedItem;
+-(void)selectRow;
 @property(strong, nonatomic) NSString *publicName;
 @property (strong, nonatomic) NSMutableArray *widgetArray;
 

@@ -205,7 +205,7 @@
     
     NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
     
-    NSLog(@"%@", strDate);
+
     
     
     
@@ -227,7 +227,7 @@
     
     
     
-    NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to IO</a>", name2, moneystring, strDate];
+    NSString *bodyString = [NSString stringWithFormat:@"<a href=io://%@?%@#%@>Add to PayUp</a>", name2, moneystring, strDate];
     
     //     CGFloat alpha = self.coverView.alpha;
     
@@ -350,12 +350,11 @@
                 
                 [dict setObject:self.info.dateString forKey:@"dateString"];
                 
-                NSLog(@"tapped");
+            
                 
             }else{
                 
-                NSLog(@"nottapped");
-                
+          
                 [dict setObject:@"" forKey:@"dateString"];
                // NSDate *today = [NSDate date];
                 //[dict setObject:today forKey:@"date"];
@@ -398,8 +397,7 @@
             
             
             
-            NSLog(@"DateAsString2: %@", dateAsString);
-            
+ 
             
             
             
@@ -415,29 +413,21 @@
             
             
             NSString *strDate = dateAsString;
-            
-            NSLog(@"%@", strDate);
+     
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
            // NSString *firstName = [defaults objectForKey:@"firstName"];
             
             
             NSString *humanName = [defaults objectForKey:@"firstNameSettings"];
-            NSLog(@"WHO OWES: %@", self.info.whooweswhat);
-            
-            
-            NSLog(@"Name from sent: %@", humanName);
-
-            NSLog(@"Name from sent2: %@", self.info.name);
-            
-            
+     
             NSString *wow = nil;
             
-            NSLog(@"Who owes what? %@", self.info.whooweswhat);
+       
             if ([self.info.whooweswhat  isEqual: @"nope"]) {
                 wow = @"someoneowes";
           
-                NSLog(@"this is someone");
+       
                 [dict setObject:humanName forKey:@"firstName"];
                 UIImage *image = [UIImage imageWithData:[defaults objectForKey:@"image"]];
                  NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
@@ -450,7 +440,7 @@
                 NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
                 [dict setObject:imageData forKey:@"image"];
 
-                NSLog(@"this is nope");
+               
                 [dict setObject:self.info.name forKey:@"firstName"];
                 
                 
@@ -463,7 +453,7 @@
             }else{
                 [dict setObject:@"" forKey:@"forwhat"];
             }
-                       NSLog(@"Money: %@", self.info.details.money);
+            
             
             
             
@@ -524,7 +514,7 @@
             
             
             
-            NSLog(@"STRDate: %@", strDate);
+    
             
             
             
@@ -620,7 +610,7 @@
     
     NSString *strDate = [dateFormatter stringFromDate:self.info.details.date];
     
-    NSLog(@"%@", strDate);
+
     
     
     
@@ -642,7 +632,7 @@
     
     
     
-    NSLog(@"Money new: %@",moneystring);
+
     
     [[UIApplication sharedApplication] openURL:myURL];
     
@@ -682,7 +672,7 @@
     
     
     
-    NSLog(@"Sent!");
+
     
     //   [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -698,7 +688,7 @@
     
     s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
     
-    NSLog(@"%@", s);
+
     
     if ([s  isEqual: @"9001"]){
         
@@ -735,8 +725,7 @@
     
     
     [self.info setValue:nameField.text forKey:@"name"];
-    NSLog(@"Name from Edit: %@", self.info.name);
-    
+
     NSError *error;
     
     
@@ -755,11 +744,11 @@
         
         [self.info setValue:dateAsString forKey:@"dateString"];
         
-        NSLog(@"tapped");
+    
         
     }else{
         
-        NSLog(@"nottapped");
+      
         
         
         
@@ -839,7 +828,7 @@
 
 - (void)doneButtonDidPressed:(id)sender {
     
-    NSLog(@"Sender: %@", sender);
+
     
     if (sender == dateField) {
         
@@ -869,8 +858,7 @@
 
 - (void)doneButtonDidPressed2:(id)sender {
     
-    NSLog(@"Sender: %@", sender);
-    
+
     
     
     [dateField resignFirstResponder];
@@ -1011,7 +999,7 @@
     {
         
         
-        NSLog(@"Going back home");
+     
     }else if ([segue.identifier isEqual:@"pushToDate"]){
         WYStoryboardPopoverSegue *popoverSegue = (WYStoryboardPopoverSegue *)segue;
         popoverController = [popoverSegue popoverControllerWithSender:sender
@@ -1042,7 +1030,7 @@
     
     s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
 
-    NSLog(@"%@", s);
+
     
     
     
@@ -1073,7 +1061,7 @@
     
     s = [[s componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
     NSString *editedMoney;
-    NSLog(@"%@", s);
+  
     
 
         
@@ -1103,7 +1091,7 @@
     
     
     [self.info setValue:nameField.text forKey:@"name"];
-    NSLog(@"Name from Edit: %@", self.info.name);
+   
     
     NSError *error;
     
@@ -1132,7 +1120,6 @@
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
         formatter.timeZone = [NSTimeZone localTimeZone];
         
-        NSLog(@"Picker Date: %@", [self.picker.date descriptionWithLocale:[NSLocale currentLocale]]);
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         NSDate *fireDate = [defaults objectForKey:@"pickerDate"];
         localNotification.fireDate = fireDate;
@@ -1206,12 +1193,10 @@
     showExtrasSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.tableView addGestureRecognizer:showExtrasSwipe];
 
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+
     //originalFrame = self.view.frame;
     
-    NSLog(@"Loading Edit View");
+
     
     [super viewDidLoad];
    
@@ -1272,7 +1257,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-    NSLog(@"Name from Edit: %@", self.info.name);
+ 
     nameField.text = self.info.name;
     
     moneyField.text = self.info.details.money;
@@ -1289,7 +1274,7 @@
      
         
         tapped = NO;
-        NSLog(@"no date");
+      
     }else{
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -1385,7 +1370,7 @@
         UILocalNotification* oneEvent = [eventArray objectAtIndex:i];
         NSDictionary *userInfoCurrent = oneEvent.userInfo;
         NSString *uid=[NSString stringWithFormat:@"%@",[userInfoCurrent valueForKey:@"uid"]];
-        NSLog(@"Edit UUID: %@", uid);
+
         if ([uid isEqualToString:uid])
         {
             //Cancelling local notification
@@ -1444,8 +1429,7 @@
     
     self.info.dateString = dateAsString;
     
-    NSLog(@"%@", dateAsString);
-    
+
     
     
     
@@ -1494,7 +1478,6 @@
         
         self.info.dateString = dateAsString;
         
-        NSLog(@"%@", dateAsString);
         
         
         
@@ -1549,7 +1532,7 @@
 
 - (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
 {
-    NSLog(@"popdown");
+ 
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self updateTextField:[defaults objectForKey:@"pickerDate"]];
