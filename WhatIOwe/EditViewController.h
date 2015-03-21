@@ -31,7 +31,9 @@
     BOOL tapped;
     IBOutlet UIView *view3;
     IBOutlet UIButton *alarm;
-
+    NSIndexPath *selectedPath;
+    NSMutableArray *todayData;
+    NSUInteger row;
     NSString *name2;
     NSString *datestring;
     NSString *moneystring;

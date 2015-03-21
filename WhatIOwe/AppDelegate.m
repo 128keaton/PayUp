@@ -104,6 +104,19 @@
     
     self.managedObjectContext = self.persistentStack.managedObjectContext;
     
+    
+    NSURL *containerURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:@"iCloud.com.bittank.IO"];
+    
+    if(containerURL == nil)
+    {
+        NSLog(@"containerURL == nil");
+    }
+    else
+    {
+        NSLog(@"hurray?");
+    }
+
+    
 #ifdef __IPHONE_8_0
     //Right, that is the point
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
@@ -808,22 +821,14 @@
 
 - (NSURL*)storeURL
 {
-    //NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
-   // return [documentsDirectory URLByAppendingPathComponent:@"WhatIOwe.sqlite"];
-    NSURL *directory = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.bittank.io"];
-    NSURL *storeURL = [directory  URLByAppendingPathComponent:@"WhatIOwe.sqlite"];
-    
-
-    
-    return  storeURL;
-    
+    NSURL* documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:NULL];
+    return [documentsDirectory URLByAppendingPathComponent:@"WhatIOwe.sqlite"];
 }
 
 - (NSURL*)modelURL
 {
     return [[NSBundle mainBundle] URLForResource:@"WhatIOwe" withExtension:@"momd"];
 }
-
 
 
 

@@ -7,820 +7,803 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0394A77DE3A7FE57EF7D7EF9 /* ABPadLockScreenViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 751C7532D0CD92CA6DE25C80 /* ABPadLockScreenViewController.h */; };
-		08F788CCFA886096718A90CE /* POPPropertyAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = B9C9DF47EA9FAD50A5B35E8B /* POPPropertyAnimationInternal.h */; };
-		10F40E5C9D59762ABA1192A6 /* Pods-Canvas-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A63DF35D6A503BEE32A5FAED /* Pods-Canvas-dummy.m */; };
-		111021E5430A6A6285B2DD92 /* CSAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = E19EA17B2D05ED86DDB77B71 /* CSAnimationView.h */; };
-		15171694F58551CCCE37EC1C /* ABPadButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C082E990D5633FCA000DB69D /* ABPadButton.h */; };
-		19739412979640B39947B887 /* POPAnimationTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 814AE3751659D683E917A98D /* POPAnimationTracer.mm */; };
-		1ABE9564F7064D5C580C6356 /* POPVector.h in Headers */ = {isa = PBXBuildFile; fileRef = EA9EBE331090CD75EB3D54C7 /* POPVector.h */; };
-		1AF2D3BBE1B9E52A47DA4DEE /* SBJson4Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 31D82DB88D1D2D0B8B5B6C3D /* SBJson4Parser.h */; };
-		22B450FE0BB49F7FF1361EFD /* SBJson4StreamTokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = B3AFA18769FDCE219342C6BA /* SBJson4StreamTokeniser.h */; };
-		23D56EB4CBD0F3199BE12BEE /* POPAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5374675E1E08EF52C11AE2 /* POPAnimationInternal.h */; };
-		24C1F5CF3E18AF2D5E6C5017 /* UILabel+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 39AA88C0762079F6C1D247BD /* UILabel+TCCustomFont.m */; };
-		2D31A840789E9F83F3168FEC /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C4A0CDA67C6F0CAF23743D /* TransformationMatrix.cpp */; };
-		2E9F11A93229370627DE4F21 /* SBJson4StreamParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE0BC5EBBC5C30E1C8B1BC1 /* SBJson4StreamParserState.h */; };
-		31593582199F26B23650C43A /* UnitBezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 03024A47F05B132B196D5B65 /* UnitBezier.h */; };
-		323B2B1E7184624E56CFFDBD /* POPAnimationRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6D5BD0C06566E4416EAEF0C /* POPAnimationRuntime.mm */; };
-		33FCD7C63038B8535682C5A3 /* POPAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5D97F9CC564DEF7B59D57A3 /* POPAnimationExtras.mm */; };
-		375424E35F59CB6874ED64C4 /* TransformationMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B984034AD4B6F35BD0FA65 /* TransformationMatrix.h */; };
-		37DBA1F4B2886555198170B5 /* Pods-LCZoomTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F8BAD43658A52F7A4C4D43 /* Pods-LCZoomTransition-dummy.m */; };
-		38895CC80539EE28CAD8B53C /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 804F84E02EEF9C7295857C05 /* POPAnimation.mm */; };
-		38EDF06B675F4AC8D4750632 /* POPDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CEE4DE9E76F292555FA72A0 /* POPDefines.h */; };
-		38F301BD33617BDD7FBE9A5F /* POPAnimationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = E4BEE5C1B5904CC83122B3D1 /* POPAnimationEvent.h */; };
-		3D2144123EA261B31A65FBA9 /* ABPadLockScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68D795EC86D29AFA78B110 /* ABPadLockScreenView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3F032430872628D7E18F2C53 /* POPSpringAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = B39E5FA40B4FAC074E09F064 /* POPSpringAnimationInternal.h */; };
-		408B8930FE3CC6FF85292F1C /* SBJson4Writer.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BF0A85FB41CF156FD292F /* SBJson4Writer.h */; };
-		413C8B8602B7E8D8911FD366 /* UILabel+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EADF72970618AEC4C481C01 /* UILabel+TCCustomFont.h */; };
-		4158350C8EF99BB61D8FD707 /* POPDecayAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 012D2DA72E36BCAFF0A6312E /* POPDecayAnimation.mm */; };
-		4640BE3CA703CBA52EF6B79C /* POP.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B821C8DDC95F6362E9C348 /* POP.h */; };
-		47F38CB4EC79281074676A34 /* UITextView+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F9CAB4E559415C7B39AC9A /* UITextView+TCCustomFont.h */; };
-		4A1731295914D708521008FC /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44651BA8E21344F597CD4601 /* POPSpringAnimation.mm */; };
-		4B66BC99A3E3C9976D19C97D /* ABPadLockScreenAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E110AEBA2419A81123A274 /* ABPadLockScreenAbstractViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4F2821E3A50ACF90A72190C0 /* POPAnimatableProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8B8CC084E3B6BCE4BF8A17 /* POPAnimatableProperty.h */; };
-		5157E02B6B94EF444C3AA482 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CF56368E2C03AE1BF728C9 /* Pods-dummy.m */; };
-		5347A428E22A9ED5C6F8713D /* POPBasicAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7BFCB024A6FB3B9EED559694 /* POPBasicAnimation.mm */; };
-		5368BA308B4ED1E2D114DCB3 /* POPAnimationTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CE5CE0935EE031E51BF735 /* POPAnimationTracer.h */; };
-		539831BF3E5824ABB7C696ED /* POPGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 661B950E461012EE50D35C4E /* POPGeometry.h */; };
-		54434872FDF4A260DD8CBB85 /* FloatConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 529A7D869A8F9F4E031BC6A4 /* FloatConversion.h */; };
-		5647F1CD101E9759CB7AB523 /* UITextField+PlaceholderColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 41F98620D2571AB0186E4825 /* UITextField+PlaceholderColor.h */; };
-		567CC79DC3701980B0A17A98 /* LCZoomTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = CBDBA96BDA546B1C37317FC9 /* LCZoomTransition.h */; };
-		580FB2D60817D39D47FDF89A /* POPSpringSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6787CAFB6C657927385F60FC /* POPSpringSolver.h */; };
-		589F9540ABD31B4D02C6392F /* POPMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 05555B79BB495514EFBBC55B /* POPMath.h */; };
-		5EBA25DB6A2B2D0A9F852138 /* POPAnimationRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BA94735C5645D968559EF39 /* POPAnimationRuntime.h */; };
-		5EFB7901E448A9EB37FCD3DE /* POPPropertyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 003D6C407FBA83988679A374 /* POPPropertyAnimation.h */; };
-		5FED03A7CD9D22B61C07B904 /* CSAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 520640A7641E1AC359FB4346 /* CSAnimation.h */; };
-		6003A3393A89D75A78FACF44 /* POPAnimationEventInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = F5A5818B7735385AF7E1954A /* POPAnimationEventInternal.h */; };
-		64D24AE3ADE04BC6F3E9B747 /* POPAnimationExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C366D8359A1B372D861348A /* POPAnimationExtras.h */; };
-		64E3C31CA505AAB5A6CE3C9D /* CJMTwitterFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A922AEEAC29937A25287A9 /* CJMTwitterFollowButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		67D9C34C15705D4C459478F7 /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05CD06FAF1BE413A88739B54 /* POPCustomAnimation.mm */; };
-		68529D950D75D8104925CA47 /* POPGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44A8B665DDD36570F13CFC71 /* POPGeometry.mm */; };
-		6A35C2D3EC860EDFBCBEB1DA /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F60A28B25B8372FA2B54C6C2 /* SBJson4Parser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6D1A7A14AF1EA428151CEE7B /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F911299B98116AE49754934 /* POPAnimationEvent.mm */; };
-		6D91D0B6D00968C4449EB81F /* POPMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1B7DA3DDC803A652B538F3E /* POPMath.mm */; };
-		755C448B878C9D824CF44E04 /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = F149226053965E066647FBD1 /* POPAnimatableProperty.mm */; };
-		75D82E3B2395D6B9A9F7083B /* UIButton+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 8546200CCA6FB96671E09661 /* UIButton+TCCustomFont.h */; };
-		75E15CED3026784EEC803D73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		7654D4A314F5D030CB6483C1 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB652C60694A603F71EEB52 /* SBJson4StreamWriterState.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		78E958BB9BE01106306BEBAE /* SBJson4.h in Headers */ = {isa = PBXBuildFile; fileRef = D35F824F58397CBDEDAC4DDE /* SBJson4.h */; };
-		7BE36B6F989FE2FEC7B4F994 /* POPPropertyAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16204DD6DFC1E067010AAD0 /* POPPropertyAnimation.mm */; };
-		7CD71134593821FC00B5CC1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		7EE154921CEB3F42A41CC1D6 /* POPAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 41BEE820E4D553B4508C922D /* POPAnimation.h */; };
-		848A1F2AF4089A6D929DEF9D /* ABPadLockScreenView.h in Headers */ = {isa = PBXBuildFile; fileRef = F1ED5BC765F6508A6768CE24 /* ABPadLockScreenView.h */; };
-		85CC07B2BE495590A2764464 /* POPBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D7FF07BD394072614C437C /* POPBasicAnimation.h */; };
-		8693E2619E02B30A5080C8E3 /* POPBasicAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = CA3D5BC683B01223926203AF /* POPBasicAnimationInternal.h */; };
-		8739336BAB7D4B73BC4AABB4 /* POPSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2EDB59319043E414BD06E7 /* POPSpringAnimation.h */; };
-		880A0F332A29BC82E1EC1799 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D2DAF1E3F30359AF5C8E7A /* SBJson4StreamParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8814F96EF21E115D28F1ED7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		8A4C4BCF2C0CC9BDCFE51B3A /* SBJson4StreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = A2CAA2CCCC0A277A0AAB2985 /* SBJson4StreamParser.h */; };
-		8B09B5480825EED9AF0B7EB6 /* POPCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CD67728419025A1A984D970 /* POPCGUtils.h */; };
-		8CB725E6B4D91E506DE648AA /* POPLayerExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C0737569F9E4E9858F13740 /* POPLayerExtras.h */; };
-		8DC35309E5EE4E54B6CB728D /* CSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 094229BA4D0BD072AF2AA2C5 /* CSNavigationController.h */; };
-		91392A3DB9FD284BA80BB7D0 /* ABPinSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 289EC9E7A4A1D1BDDA16060E /* ABPinSelectionView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		950EF2DC69706292FC828EC2 /* ABPadLockScreenAbstractViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BC126AFE787A45D403FE4AA3 /* ABPadLockScreenAbstractViewController.h */; };
-		953B20AAF7D1ED4412A58F60 /* POPAnimatorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C382C1502DA0FB1FAD23DD7 /* POPAnimatorPrivate.h */; };
-		95FE69397353442BD67CA571 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		9762C8D5C528ABCC4026EB26 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A09AD548ACA7F0B4C60A62E /* SBJson4StreamParserState.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		99E4E457C69940D71FC27AF9 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6C5E34A2086094A0CAD094 /* SBJson4StreamTokeniser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9C131938302498CB0A82A031 /* POPAnimationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E4029FF3CE562649E4CE0114 /* POPAnimationPrivate.h */; };
-		9CEA9AA37DC7DED9EF2A0F5F /* UINavigationBar+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F085B9E052E74E7DCADDEFA /* UINavigationBar+TCCustomFont.m */; };
-		A48F4F8C4616D83715A118FA /* CSAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3CDB3D1CF267C80945C46A /* CSAnimationView.m */; };
-		A4FC2F5A08CA57265A2013C0 /* POPLayerExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82A7EFABB14167B294061E52 /* POPLayerExtras.mm */; };
-		A85EE3CA9AB276EA5E73F3F2 /* ABPinSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F43C9853A7F0A567E00245B /* ABPinSelectionView.h */; };
-		A910E1E01AFE33FC7CE4871E /* CSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C50262457D3D99EDC707017 /* CSNavigationController.m */; };
-		AE2E3E397BC675B924199128 /* UITextField+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 64F290BA2A119E9DF74C90CB /* UITextField+TCCustomFont.h */; };
-		B013646807980231F62A50D1 /* UITextField+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DD20D278C45634B2592176A /* UITextField+TCCustomFont.m */; };
-		B0D376AE814E2686A76CBF95 /* POPAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB405941D446220F1B915ABF /* POPAnimator.mm */; };
-		B24B4F4A77C7A9130D90C559 /* SBJson4StreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = F9366C7A30FE471D9C22CC63 /* SBJson4StreamWriter.h */; };
-		B36235963BF494920577CA11 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = F983D9DCE6ADD23BD76F2B9D /* SBJson4Writer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B52B51F6B86B42F13C2ACB1B /* ABPadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B80F97497FA06D237CCEE66 /* ABPadButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B618C5FAA24E1244E56B5BE6 /* POPAction.h in Headers */ = {isa = PBXBuildFile; fileRef = D7778A3AD76E96A4C18527BB /* POPAction.h */; };
-		BBF2941454C9DE67F02B7E9A /* CSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A9F7C25699A790E14C8AC /* CSBlurView.m */; };
-		BCAD1048535C13D30B5D0ED3 /* POPCustomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = F9AB952F43FABBDE3BC157B4 /* POPCustomAnimation.h */; };
-		BCE1A07A27EABEDB47A313DB /* ABPadLockScreenSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCEDCB3A1C0E4EF369068EF /* ABPadLockScreenSetupViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		BD6B3087D42EFD2B7E76C1D4 /* UITextView+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AE57AD42DFE1505E5BC8D190 /* UITextView+TCCustomFont.m */; };
-		BDCF84C31CEBEB594F72A8E8 /* UIButton+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F65A3476E5B9ABCE16C3C9EA /* UIButton+TCCustomFont.m */; };
-		C3D27B638AB4CD60769B0169 /* CJMTwitterFollowButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A908661FF90446964435AB6 /* CJMTwitterFollowButton.h */; };
-		C42547BDFE649D40C4F21E43 /* Pods-CJMTwitterFollowButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BD07076298A7B2C1B1F717 /* Pods-CJMTwitterFollowButton-dummy.m */; };
-		C453938C88F13CEF9EA5BC40 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D46B5C4F4692EAE3B0C4BDC /* SBJson4StreamWriter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C8D4035BD17132F435AE3C81 /* LCZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = CD916047549A677B8C1AA2CE /* LCZoomTransition.m */; };
-		CD0E15D17C2DB23ABCBD164A /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D6BCE2F472FC98725A2803 /* UITextField+PlaceholderColor.m */; };
-		D028E762E349DD326F51BDF1 /* CSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = EC75037BC13AFD346630A3DE /* CSBlurView.h */; };
-		D60778ED4FA93770F04CCFB7 /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4FD9F71CE5FE0C232335CCD /* POPVector.mm */; };
-		D7C57A076497354D610F285C /* Pods-SBJson-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AABD8ED6780A2BA597388E19 /* Pods-SBJson-dummy.m */; };
-		D7E17A79DD62298D0B974F6B /* Pods-ABPadLockScreen-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C86AB8324400CFA3F9CF81 /* Pods-ABPadLockScreen-dummy.m */; };
-		DACFA48DC0DF94FDDC02182B /* POPDecayAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BC21E92A14E1B51F12723E3 /* POPDecayAnimationInternal.h */; };
-		DB4998FA8A772C0DF8EA92D7 /* UINavigationBar+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = AAFEA4D1DD0F46591CAF7080 /* UINavigationBar+TCCustomFont.h */; };
-		E0F30436052DE2650BEB03FE /* SBJson4StreamWriterState.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E029038D418F2DA130798D /* SBJson4StreamWriterState.h */; };
-		E87097F48586F3521B774495 /* ABPadLockScreenSetupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 320F2F7F1879439B945F67DA /* ABPadLockScreenSetupViewController.h */; };
-		E92F4FF0547EA5052946F1E5 /* ABPadLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B308D7649574D6307E6CA570 /* ABPadLockScreenViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E9F61665C5048301879777C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		EBAF102111D6B5112E7322BF /* POPDecayAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E08397987B488A214725CE8 /* POPDecayAnimation.h */; };
-		F0779E953CA8D58830254116 /* POPAnimationTracerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = E9C5EEF23489EA0DEC1E2C10 /* POPAnimationTracerInternal.h */; };
-		F375648CF4ACBB85272F167E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		F3B962440CDDB20EA96BE2FF /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30805D66EB30C7BE98BA5166 /* POPCGUtils.mm */; };
-		F459184150CF54A69794E271 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C74A23DE366E9CBAD74C41 /* Foundation.framework */; };
-		F88FDE16AFBD6C8017D0279E /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6749BBA128C60C4776AC971 /* CSAnimation.m */; };
-		FB84211D94F4ECD75E24198C /* Pods-pop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 036A00C2D9BEE9A8D4E58A85 /* Pods-pop-dummy.m */; };
-		FCF245081F00C64078FCECC9 /* POPAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BCD727A473F5125A987BE71 /* POPAnimator.h */; };
+		00AF7AB2E56E452A75991994 /* UINavigationBar+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = DBF8FF40B0E4EA8368C6086B /* UINavigationBar+TCCustomFont.h */; };
+		01F4135193D7634E46E84E9B /* POPAnimatorPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 869FBD740B5C76F3EE45360F /* POPAnimatorPrivate.h */; };
+		0952FD22BE26225FC99DD22F /* Pods-ABPadLockScreen-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FF077FBB5127881A25E2C0 /* Pods-ABPadLockScreen-dummy.m */; };
+		0AD44C7D73DB524D6CF2B90D /* POPAnimatableProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA55DBC45CA4B4A33862CD2 /* POPAnimatableProperty.h */; };
+		0BA643754F9A88E74EE2C153 /* UITextView+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D202BD997C776B1BAA4528A /* UITextView+TCCustomFont.h */; };
+		0CDB5D5D830E4DBD4D490906 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 875BBE705965EDEFD8D30B0F /* SBJson4StreamTokeniser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0DA93E2B95296BFA0E024BC1 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB40331242D4D9E7F353DF0 /* Pods-dummy.m */; };
+		100988FCA023149A6825C5F6 /* POPPropertyAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11CB9AD3F3127596B8538CC9 /* POPPropertyAnimation.mm */; };
+		15F35228444C39CA96340C91 /* FloatConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 299DB699D1EA1927DDCB61B0 /* FloatConversion.h */; };
+		1EE6C6861D79F56AF6217288 /* POPSpringSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = E4263D3FCED573A4800518E2 /* POPSpringSolver.h */; };
+		20544FF9AD5B480477519723 /* UITextField+PlaceholderColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 791879A601734CEA42CA202D /* UITextField+PlaceholderColor.h */; };
+		27EC2978D0F1CBFD900E2C2E /* POPBasicAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1A462E5D12D20C856DBE9FD /* POPBasicAnimation.mm */; };
+		288B6C1C653F3B8412C13627 /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6096B82B6381C0238B08D5C9 /* POPAnimatableProperty.mm */; };
+		2A24B4BE9D4C4B3D8A10AB63 /* LCZoomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B686456A8F0C5F14F13A7 /* LCZoomTransition.m */; };
+		2B66BC609BB1F522CF27BE39 /* SBJson4Parser.h in Headers */ = {isa = PBXBuildFile; fileRef = 354CA46F6A9FB30175970284 /* SBJson4Parser.h */; };
+		2CC64FB220CBD2916C470511 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 802999073C56E4BC7B8C667E /* SBJson4StreamWriter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2D2F2C11E1128B22BCD84FEC /* POPMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDE08E037C07451F6491088B /* POPMath.mm */; };
+		2DDA13948FA44A43E546699E /* POPPropertyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 79F0C9216B4E5F5EE85C1D16 /* POPPropertyAnimation.h */; };
+		334C42BD0DD1D15A4842C60E /* ABPadLockScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80174EED4E774E2B9C419821 /* ABPadLockScreenView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		342AA493A477FE140F5233F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		3431A09E7E4EED2714BB91C0 /* POPDecayAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = FD1B13425C51953B9743CED5 /* POPDecayAnimationInternal.h */; };
+		3958DB2C98C172FE09775A39 /* ABPadLockScreenSetupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EDF645CCD1E885B0EF98BDD /* ABPadLockScreenSetupViewController.h */; };
+		3C0A8F74F86B099754592FC0 /* LCZoomTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 84486DD72FFBD132C57B6A08 /* LCZoomTransition.h */; };
+		40A69A14021794F427A1EB40 /* POPCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DE29DD17897B6652B216340 /* POPCGUtils.h */; };
+		432E71860AC720A4D3821F52 /* POPAnimationTracerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F166C322DF8F92EEEDA730 /* POPAnimationTracerInternal.h */; };
+		439C8953774D7587B6277807 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFABDE6EECFD84F669F6620 /* SBJson4StreamWriterState.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		447C23C9977CB2A8FB7374F7 /* POPDecayAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C44B6AB3EF40AD49CE43E1 /* POPDecayAnimation.h */; };
+		459BE35C23EAF090D87D5E8A /* SBJson4StreamParserState.h in Headers */ = {isa = PBXBuildFile; fileRef = 42E97B6033FFE5203D04D049 /* SBJson4StreamParserState.h */; };
+		4B991CAB1914450094F22472 /* POPLayerExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = B003C215BF281C3CAA9BE9EB /* POPLayerExtras.h */; };
+		4BF25E5E9DD9B6B509833C30 /* ABPadButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 033A47E9E73E2C38151976D3 /* ABPadButton.h */; };
+		5188FD31DED6DFC26277742A /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E3D5807B2F95337808207 /* TransformationMatrix.cpp */; };
+		5357515340B4389478DA5B66 /* CSAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A5DC0F99EC0E6D456C3A0CDF /* CSAnimation.h */; };
+		53F848ABA6CA136A9B19B51D /* POP.h in Headers */ = {isa = PBXBuildFile; fileRef = E56358A68DD64B0280694FB5 /* POP.h */; };
+		54D47A1296BEAB7CD5743514 /* SBJson4.h in Headers */ = {isa = PBXBuildFile; fileRef = C7ED9FC5C685AD8B2DEFAFED /* SBJson4.h */; };
+		57D9E63E670287BF1FA61487 /* ABPadLockScreenView.h in Headers */ = {isa = PBXBuildFile; fileRef = F8C27717CFBB55151843B395 /* ABPadLockScreenView.h */; };
+		57EC6EA4BE7416D57DB8330C /* SBJson4StreamTokeniser.h in Headers */ = {isa = PBXBuildFile; fileRef = F771AFE2BA383AA6D4F79498 /* SBJson4StreamTokeniser.h */; };
+		5939AA7285D24E168CBC9EC0 /* POPGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EC299568D54C500E6A06574 /* POPGeometry.mm */; };
+		5A7F6A2A3197FC7EB8055167 /* POPDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C56C1318FDAF0FB7AC2432D /* POPDefines.h */; };
+		5C17CFB2028AA0C3848B87B7 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDE1B03CDE06D86B5EB0763 /* SBJson4StreamParserState.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5C1902D43F0D901C73CEF325 /* POPAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B127664A7D6351F154939CF /* POPAnimator.h */; };
+		609D068E7EED472891DD4D6C /* POPVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 5310FD1789CDA68C618CF5FB /* POPVector.h */; };
+		644AA65A1901B46E0246D727 /* UITextField+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC829F6544D4AD00CE6F954 /* UITextField+TCCustomFont.h */; };
+		65961C87C0DE336C86B04545 /* ABPadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8247A49449918D3DA74D1102 /* ABPadButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		65C22304C70674EFC5CB8858 /* POPAnimationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B705502E72FC57DF82C6F0 /* POPAnimationPrivate.h */; };
+		65E307711306318E5FB92DC6 /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 592A9F215CC3C23AEBBC135F /* POPAnimation.mm */; };
+		671D69057307251EAB401B14 /* ABPadLockScreenViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B2197E5F76E63F5681576BD9 /* ABPadLockScreenViewController.h */; };
+		686757B77BCED4A493D044B0 /* SBJson4StreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 374639DBEA73F545D8D222FF /* SBJson4StreamWriter.h */; };
+		6C174E63569EC4F58E225CE0 /* SBJson4Writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88C32A45E95E4AC3D9A3AB1C /* SBJson4Writer.h */; };
+		6C80C3390D79EF3999687801 /* POPSpringAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 417E0994F8BD7CCB23A1E456 /* POPSpringAnimation.h */; };
+		6F113B62A191E3FBCAA2003C /* SBJson4StreamWriterState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B513DBADCE24068F95276E9 /* SBJson4StreamWriterState.h */; };
+		6FCB393696F604BBF42D545B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		705C10119727D8CA71998A13 /* POPDecayAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE6CB8402512980246CCE279 /* POPDecayAnimation.mm */; };
+		71DECEF3A010170C99914472 /* CSAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE6C49330BE551E278CE7BE /* CSAnimationView.m */; };
+		75737F376FF6CA05C79D45AF /* Pods-SBJson-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E9C44F63F87670F53348CF /* Pods-SBJson-dummy.m */; };
+		76FA853A0457777C640A1501 /* CSBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F359A7BF4F8C92724C59EFC /* CSBlurView.h */; };
+		789E41C8A577ECCA2C583339 /* POPAnimationExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 39A655EADDEB8B8293BCEF91 /* POPAnimationExtras.h */; };
+		790CF4617427D9036C6D40A7 /* ABPinSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA2874964BD1A67003E6635 /* ABPinSelectionView.h */; };
+		7DEC379585E60E9CEEDE173E /* CSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA1B8100E6EF1E0DA1091DD /* CSBlurView.m */; };
+		7E62CAA960050ABC35E9082D /* CSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = E6B71019D34F3BBB460B903B /* CSNavigationController.h */; };
+		7F63AA10D44A94B7A923F90C /* ABPadLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB700347C89243C5D209A7E /* ABPadLockScreenViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		84D49402BCAD5DC6359340D2 /* POPBasicAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = F26BE4C670529676050D3C68 /* POPBasicAnimationInternal.h */; };
+		8595BFEE6D1C0C232F673FF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		8671CB448D9FA9C33663662A /* POPSpringAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DE75DC9514D972277537802 /* POPSpringAnimationInternal.h */; };
+		8D167496F11903F55D37C752 /* POPMath.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8595463B164E67BDD52A5D /* POPMath.h */; };
+		8E00681516A04763BE63D502 /* ABPinSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1435BA518C85D3F759FE6B0 /* ABPinSelectionView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		90AF161233ADFC685BD6A570 /* UIButton+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = E82885ACA010D5E123DE7F22 /* UIButton+TCCustomFont.h */; };
+		927A6FAD369033E1BA8711E9 /* POPAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE0799676146B37E57AB1B8 /* POPAnimationInternal.h */; };
+		938D301CD8B1E114ACD25DBD /* POPAnimationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = E2061B7219DD1105076AC486 /* POPAnimationEvent.h */; };
+		977CD5FD4243EF4BBC34584F /* POPAnimationTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = E50723A3B9E1C46948152042 /* POPAnimationTracer.h */; };
+		9808F3E6B9708F813931065E /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = C67D55FFB551750CAA053F5A /* POPSpringAnimation.mm */; };
+		9D91D775D18479DFFA40C4F3 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E548C45D29791E298F9CD0 /* SBJson4Writer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9DCC60C32BBDDBEC73EDA740 /* ABPadLockScreenAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F2E711D830C9AD75B7C9C8 /* ABPadLockScreenAbstractViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A20A7C5C42AAA5ED6D32C3AD /* CSAnimationView.h in Headers */ = {isa = PBXBuildFile; fileRef = A63D18FD0083EC17272264D1 /* CSAnimationView.h */; };
+		A6381BD3659BE64889C1C969 /* ABPadLockScreenAbstractViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC0BB0549C989AF0D51B277 /* ABPadLockScreenAbstractViewController.h */; };
+		A66197F3171538F52416ECF0 /* CSAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C266D3E15543E794DD288 /* CSAnimation.m */; };
+		A6934720849D174085D2ABA4 /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35A6280DB2C5E709B473C9CF /* POPCustomAnimation.mm */; };
+		A736681813CE03ACC2C6E9BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		A7B542F2985E574D045B67BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		ABEDD51B7EC9D2ED5F62F9C4 /* SBJson4StreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CEBEEEC7450A02607CE25E4 /* SBJson4StreamParser.h */; };
+		B45E60241080F838A60525DD /* UITextField+PlaceholderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D5FD28CD1B3384AB13731 /* UITextField+PlaceholderColor.m */; };
+		B48F1BA70B2E46B09A70C476 /* POPBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2394D30836CE1F451F25697C /* POPBasicAnimation.h */; };
+		B6A658CD9AC2CD5683139857 /* UILabel+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC2A7232B56D703EECE3BDA /* UILabel+TCCustomFont.m */; };
+		B750AC727ECB9BD7965448C8 /* POPGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C2C87279D16A19AEE6BD1F2 /* POPGeometry.h */; };
+		BB9B6C7EB9FE208E4DFE4C0E /* POPAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 50C74587F5A37AC720B265BD /* POPAnimator.mm */; };
+		C4DBE2092B6DC53EDA68CE88 /* UITextView+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 06BEEFD73D34A69CE5702037 /* UITextView+TCCustomFont.m */; };
+		C5BC5DAACB5A97DC76924DCE /* Pods-pop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4A4D042871C6507B8D331F /* Pods-pop-dummy.m */; };
+		CC4F1C4E0A472616EF9271AF /* Pods-LCZoomTransition-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B4209D2846BD4E23593F347A /* Pods-LCZoomTransition-dummy.m */; };
+		CCD5BF9C13F8419305208B9F /* POPAnimationTracer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3F96DA33E0FF7C51B50C7F7F /* POPAnimationTracer.mm */; };
+		CDC02349301D5AA918891DA2 /* UnitBezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 33E65B16EBAF7F2742DB8AB7 /* UnitBezier.h */; };
+		CE231B5C4CCA27E6BD189230 /* POPPropertyAnimationInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A257431AABD2036B8F347EC /* POPPropertyAnimationInternal.h */; };
+		CE6FCBCFBACFA5B61CADFFCB /* CJMTwitterFollowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDAA85C092B48A31AA08660 /* CJMTwitterFollowButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D108CE27C3CE1D424FA5AC55 /* POPAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 598F2E800B50AC3A44CDDE52 /* POPAnimation.h */; };
+		D6F6E2A652EC8597361E1997 /* POPAnimationRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EDAFB9DDA1A5AE7D574F41E /* POPAnimationRuntime.h */; };
+		D79DD75CD1197D350351663A /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = B357BCC50B3E240467120DE4 /* POPAnimationEvent.mm */; };
+		DBF83FB0CBC4646EED9B4BC3 /* POPLayerExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10C65B26056BEE7B1EA5002F /* POPLayerExtras.mm */; };
+		DC7C073DFA93C5693C18C4B1 /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE19C5472347F6589721E6F /* SBJson4Parser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DDE4463BD5777FC26922E914 /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = B816C4D560DE8A5203D83856 /* POPCGUtils.mm */; };
+		DE63DF66EFD35D9DA9FB1736 /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F556BC951E9EDAE771C47E41 /* SBJson4StreamParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E0403E6A8F3C9056C45323A4 /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = E583A1F37A9FC1E14902EF6C /* POPVector.mm */; };
+		E0DC527C5DE1D75E5997A2A5 /* Pods-Canvas-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF38B1A0FF45ED167757B79D /* Pods-Canvas-dummy.m */; };
+		E302D99D0CB380301B49F001 /* POPAnimationRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40A40B568B504D195B700FA7 /* POPAnimationRuntime.mm */; };
+		E30A2BE42A200B5CDFA6D718 /* UILabel+TCCustomFont.h in Headers */ = {isa = PBXBuildFile; fileRef = A4419E2114DFE62A7C3A33A5 /* UILabel+TCCustomFont.h */; };
+		E6CF83DD913034C12C9D6DBD /* Pods-CJMTwitterFollowButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CC601502DCC5C9C485A58E /* Pods-CJMTwitterFollowButton-dummy.m */; };
+		EABC1358FF2C3FE16CCA91CC /* CSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E740F2FB6D850716E62AC4 /* CSNavigationController.m */; };
+		EF5D8BFC5DC8DA8E1DD6C947 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
+		F20F523F5C9CFD85310D7523 /* UINavigationBar+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = A3385D37F9C0FD376D0ECF16 /* UINavigationBar+TCCustomFont.m */; };
+		F50F8B264D336A97E2078E0D /* POPAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 570456B96D6768EFEB460C98 /* POPAnimationExtras.mm */; };
+		F79FDEC2516F32869CFCC698 /* UITextField+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C73DCCCA91C9290F46400B0D /* UITextField+TCCustomFont.m */; };
+		F7ED3F3B5D5BF4F388741ECC /* TransformationMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C12034F5B33B07F748C7D09 /* TransformationMatrix.h */; };
+		F83A41D0EC7EAE3FAEC0D17C /* UIButton+TCCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 524F445661184D559B7C7318 /* UIButton+TCCustomFont.m */; };
+		FA3E114BC8E5719F34340BC5 /* ABPadLockScreenSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E472D3697ED362AFA7F645 /* ABPadLockScreenSetupViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FA7DE78314FA783DC2839E66 /* POPCustomAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC0C0FAFB459CEEA0C96535 /* POPCustomAnimation.h */; };
+		FAF79089A5171FA1B7504D6C /* CJMTwitterFollowButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CF7A68C2B618379FC8B363DF /* CJMTwitterFollowButton.h */; };
+		FB882CD78249687BBD47FB60 /* POPAction.h in Headers */ = {isa = PBXBuildFile; fileRef = BEC1BF7FEFEB140839C65E6B /* POPAction.h */; };
+		FEA2CCD2F54EF5A3B06B1B75 /* POPAnimationEventInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = EB3C08C6CF946795EB9D9EC2 /* POPAnimationEventInternal.h */; };
+		FFDAFFF7A260F5437BF449DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8440BEA23419EE53DF965 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0D4DF389496E0E6293DB7139 /* PBXContainerItemProxy */ = {
+		085F9F612CD4DE17E498171C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4E504B451D894B2CE8DC8AB8;
-			remoteInfo = "Pods-CJMTwitterFollowButton";
-		};
-		40A1BC7254474EBEA3557820 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 290387171ED34BFAB50B74C1;
-			remoteInfo = "Pods-LCZoomTransition";
-		};
-		426CAE000EECC326A483C0EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00532500298E348B3FCACB77;
-			remoteInfo = "Pods-SBJson";
-		};
-		74FB12F8C1A8FB48679F9AFC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2B61037290650E8A356825AA;
+			remoteGlobalIDString = ABA4B01B50ECC9E997DA169F;
 			remoteInfo = "Pods-ABPadLockScreen";
 		};
-		756C036593C299DDE4E90087 /* PBXContainerItemProxy */ = {
+		3009E3E9A22AD7F76ADE0FB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1046CA192A546F68A0915284;
+			remoteGlobalIDString = EE6E67CD377BB3F12F528BBA;
+			remoteInfo = "Pods-LCZoomTransition";
+		};
+		7C9C7374B6272B90F5D4B2A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BC8B70163B7BA21A4CE4871;
+			remoteInfo = "Pods-CJMTwitterFollowButton";
+		};
+		999FFB4409A9A9354263D542 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FD10C77D5E200CE3118E350;
 			remoteInfo = "Pods-Canvas";
 		};
-		C74B2CD034B1FE7D4219E653 /* PBXContainerItemProxy */ = {
+		E27F59625CB45193E219617B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8B697746351C0029005D6264 /* Project object */;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7386D9213FE0B40F1D621ED6;
+			remoteGlobalIDString = 4477A82C0871324BDE576826;
 			remoteInfo = "Pods-pop";
+		};
+		E880B3D44201E3109F99832B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD12AE875E2CEA684E88CCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D37712B6199CBE885F68AC52;
+			remoteInfo = "Pods-SBJson";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		003D6C407FBA83988679A374 /* POPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimation.h; path = pop/POPPropertyAnimation.h; sourceTree = "<group>"; };
-		012D2DA72E36BCAFF0A6312E /* POPDecayAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPDecayAnimation.mm; path = pop/POPDecayAnimation.mm; sourceTree = "<group>"; };
-		03024A47F05B132B196D5B65 /* UnitBezier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UnitBezier.h; path = pop/WebCore/UnitBezier.h; sourceTree = "<group>"; };
-		036A00C2D9BEE9A8D4E58A85 /* Pods-pop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pop-dummy.m"; sourceTree = "<group>"; };
-		05555B79BB495514EFBBC55B /* POPMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPMath.h; path = pop/POPMath.h; sourceTree = "<group>"; };
-		05CD06FAF1BE413A88739B54 /* POPCustomAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCustomAnimation.mm; path = pop/POPCustomAnimation.mm; sourceTree = "<group>"; };
-		073FA3181CCE169D251006BD /* CJMFollowMeButtonSmall@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CJMFollowMeButtonSmall@2x.png"; path = "CJMTwitterFollowButton/Resources/CJMFollowMeButtonSmall@2x.png"; sourceTree = "<group>"; };
-		07B821C8DDC95F6362E9C348 /* POP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POP.h; path = pop/POP.h; sourceTree = "<group>"; };
-		091ACCBA12F6C6C8358180B5 /* CJMFollowMeButtonSmall.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CJMFollowMeButtonSmall.png; path = CJMTwitterFollowButton/Resources/CJMFollowMeButtonSmall.png; sourceTree = "<group>"; };
-		094229BA4D0BD072AF2AA2C5 /* CSNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSNavigationController.h; path = CanvasLibrary/CSNavigationController.h; sourceTree = "<group>"; };
-		0A201135D9DBA201E36BCF97 /* libPods-Canvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Canvas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F43C9853A7F0A567E00245B /* ABPinSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPinSelectionView.h; path = ABPadLockScreen/ABPinSelectionView.h; sourceTree = "<group>"; };
-		19987BB15128C7AA03DB79E1 /* Pods-CJMTwitterFollowButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CJMTwitterFollowButton-prefix.pch"; sourceTree = "<group>"; };
-		1CB652C60694A603F71EEB52 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamWriterState.m; path = src/main/objc/SBJson4StreamWriterState.m; sourceTree = "<group>"; };
-		1CEE4DE9E76F292555FA72A0 /* POPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDefines.h; path = pop/POPDefines.h; sourceTree = "<group>"; };
-		2628C4FCB1E6A8FF268703BF /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		269E5DEC451D0FB4943626F0 /* Pods-SBJson-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SBJson-prefix.pch"; sourceTree = "<group>"; };
-		289EC9E7A4A1D1BDDA16060E /* ABPinSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPinSelectionView.m; path = ABPadLockScreen/ABPinSelectionView.m; sourceTree = "<group>"; };
-		2C382C1502DA0FB1FAD23DD7 /* POPAnimatorPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatorPrivate.h; path = pop/POPAnimatorPrivate.h; sourceTree = "<group>"; };
-		2F085B9E052E74E7DCADDEFA /* UINavigationBar+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+TCCustomFont.m"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.m"; sourceTree = "<group>"; };
-		30805D66EB30C7BE98BA5166 /* POPCGUtils.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCGUtils.mm; path = pop/POPCGUtils.mm; sourceTree = "<group>"; };
-		31D82DB88D1D2D0B8B5B6C3D /* SBJson4Parser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4Parser.h; path = src/main/objc/SBJson4Parser.h; sourceTree = "<group>"; };
-		320F2F7F1879439B945F67DA /* ABPadLockScreenSetupViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenSetupViewController.h; path = ABPadLockScreen/ABPadLockScreenSetupViewController.h; sourceTree = "<group>"; };
-		346494134DF70CEFB9318698 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		34D1E059EDDF73F2DFC9BE3E /* Pods-SBJson-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SBJson-Private.xcconfig"; sourceTree = "<group>"; };
-		3500BA03BCF5CFD1DC217F7D /* Pods-pop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pop.xcconfig"; sourceTree = "<group>"; };
-		36D2DAF1E3F30359AF5C8E7A /* SBJson4StreamParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamParser.m; path = src/main/objc/SBJson4StreamParser.m; sourceTree = "<group>"; };
-		374748B2C6EE000A8393BE3F /* libPods-LCZoomTransition.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCZoomTransition.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		39AA88C0762079F6C1D247BD /* UILabel+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+TCCustomFont.m"; path = "CanvasLibrary/UILabel+TCCustomFont.m"; sourceTree = "<group>"; };
-		39CE5CE0935EE031E51BF735 /* POPAnimationTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracer.h; path = pop/POPAnimationTracer.h; sourceTree = "<group>"; };
-		3BC21E92A14E1B51F12723E3 /* POPDecayAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimationInternal.h; path = pop/POPDecayAnimationInternal.h; sourceTree = "<group>"; };
-		3D46B5C4F4692EAE3B0C4BDC /* SBJson4StreamWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamWriter.m; path = src/main/objc/SBJson4StreamWriter.m; sourceTree = "<group>"; };
-		3F107B35CB1C7178B76D5B70 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		3F2EDB59319043E414BD06E7 /* POPSpringAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimation.h; path = pop/POPSpringAnimation.h; sourceTree = "<group>"; };
-		40FD13CBC5F0A1F873DCC5C5 /* Pods-LCZoomTransition-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LCZoomTransition-Private.xcconfig"; sourceTree = "<group>"; };
-		41BEE820E4D553B4508C922D /* POPAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimation.h; path = pop/POPAnimation.h; sourceTree = "<group>"; };
-		41F98620D2571AB0186E4825 /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+PlaceholderColor.h"; path = "CanvasLibrary/UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
-		44651BA8E21344F597CD4601 /* POPSpringAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPSpringAnimation.mm; path = pop/POPSpringAnimation.mm; sourceTree = "<group>"; };
-		44A8B665DDD36570F13CFC71 /* POPGeometry.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPGeometry.mm; path = pop/POPGeometry.mm; sourceTree = "<group>"; };
-		48A922AEEAC29937A25287A9 /* CJMTwitterFollowButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CJMTwitterFollowButton.m; path = CJMTwitterFollowButton/CJMTwitterFollowButton.m; sourceTree = "<group>"; };
-		4A849CEAF55C89BD30D22A5F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4BCD727A473F5125A987BE71 /* POPAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimator.h; path = pop/POPAnimator.h; sourceTree = "<group>"; };
-		4C50262457D3D99EDC707017 /* CSNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSNavigationController.m; path = CanvasLibrary/CSNavigationController.m; sourceTree = "<group>"; };
-		4C68D795EC86D29AFA78B110 /* ABPadLockScreenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenView.m; path = ABPadLockScreen/ABPadLockScreenView.m; sourceTree = "<group>"; };
-		4E08397987B488A214725CE8 /* POPDecayAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimation.h; path = pop/POPDecayAnimation.h; sourceTree = "<group>"; };
-		520640A7641E1AC359FB4346 /* CSAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimation.h; path = CanvasLibrary/CSAnimation.h; sourceTree = "<group>"; };
-		529A7D869A8F9F4E031BC6A4 /* FloatConversion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FloatConversion.h; path = pop/WebCore/FloatConversion.h; sourceTree = "<group>"; };
-		5567B7B84C9ED2D80282B2D8 /* Pods-Canvas-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Canvas-prefix.pch"; sourceTree = "<group>"; };
-		58B8730993772827AAEA51ED /* Pods-LCZoomTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LCZoomTransition.xcconfig"; sourceTree = "<group>"; };
-		59C74A23DE366E9CBAD74C41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5C366D8359A1B372D861348A /* POPAnimationExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationExtras.h; path = pop/POPAnimationExtras.h; sourceTree = "<group>"; };
-		5E0E23DF211B4D3E3C47D9D8 /* libPods-CJMTwitterFollowButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJMTwitterFollowButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F5374675E1E08EF52C11AE2 /* POPAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationInternal.h; path = pop/POPAnimationInternal.h; sourceTree = "<group>"; };
-		612EE0275C2E5150F4291809 /* CJMFollowMeButtonLarge@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CJMFollowMeButtonLarge@2x.png"; path = "CJMTwitterFollowButton/Resources/CJMFollowMeButtonLarge@2x.png"; sourceTree = "<group>"; };
-		64F290BA2A119E9DF74C90CB /* UITextField+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+TCCustomFont.h"; path = "CanvasLibrary/UITextField+TCCustomFont.h"; sourceTree = "<group>"; };
-		64F9CAB4E559415C7B39AC9A /* UITextView+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+TCCustomFont.h"; path = "CanvasLibrary/UITextView+TCCustomFont.h"; sourceTree = "<group>"; };
-		661B950E461012EE50D35C4E /* POPGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPGeometry.h; path = pop/POPGeometry.h; sourceTree = "<group>"; };
-		6787CAFB6C657927385F60FC /* POPSpringSolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringSolver.h; path = pop/POPSpringSolver.h; sourceTree = "<group>"; };
-		69B984034AD4B6F35BD0FA65 /* TransformationMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransformationMatrix.h; path = pop/WebCore/TransformationMatrix.h; sourceTree = "<group>"; };
-		6CD67728419025A1A984D970 /* POPCGUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCGUtils.h; path = pop/POPCGUtils.h; sourceTree = "<group>"; };
-		6EADF72970618AEC4C481C01 /* UILabel+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+TCCustomFont.h"; path = "CanvasLibrary/UILabel+TCCustomFont.h"; sourceTree = "<group>"; };
-		6F3CDB3D1CF267C80945C46A /* CSAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimationView.m; path = CanvasLibrary/CSAnimationView.m; sourceTree = "<group>"; };
-		751C7532D0CD92CA6DE25C80 /* ABPadLockScreenViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenViewController.h; path = ABPadLockScreen/ABPadLockScreenViewController.h; sourceTree = "<group>"; };
-		7BFCB024A6FB3B9EED559694 /* POPBasicAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPBasicAnimation.mm; path = pop/POPBasicAnimation.mm; sourceTree = "<group>"; };
-		7DCEDCB3A1C0E4EF369068EF /* ABPadLockScreenSetupViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenSetupViewController.m; path = ABPadLockScreen/ABPadLockScreenSetupViewController.m; sourceTree = "<group>"; };
-		7F911299B98116AE49754934 /* POPAnimationEvent.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationEvent.mm; path = pop/POPAnimationEvent.mm; sourceTree = "<group>"; };
-		800CA8EAA99D43463F794C6C /* Pods-ABPadLockScreen-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ABPadLockScreen-prefix.pch"; sourceTree = "<group>"; };
-		804F84E02EEF9C7295857C05 /* POPAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimation.mm; path = pop/POPAnimation.mm; sourceTree = "<group>"; };
-		814AE3751659D683E917A98D /* POPAnimationTracer.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationTracer.mm; path = pop/POPAnimationTracer.mm; sourceTree = "<group>"; };
-		82A7EFABB14167B294061E52 /* POPLayerExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPLayerExtras.mm; path = pop/POPLayerExtras.mm; sourceTree = "<group>"; };
-		8466ABBB10CB9A110440B342 /* Pods-CJMTwitterFollowButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CJMTwitterFollowButton.xcconfig"; sourceTree = "<group>"; };
-		84C4A0CDA67C6F0CAF23743D /* TransformationMatrix.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = TransformationMatrix.cpp; path = pop/WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
-		8546200CCA6FB96671E09661 /* UIButton+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+TCCustomFont.h"; path = "CanvasLibrary/UIButton+TCCustomFont.h"; sourceTree = "<group>"; };
-		8A09AD548ACA7F0B4C60A62E /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamParserState.m; path = src/main/objc/SBJson4StreamParserState.m; sourceTree = "<group>"; };
-		8A908661FF90446964435AB6 /* CJMTwitterFollowButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CJMTwitterFollowButton.h; path = CJMTwitterFollowButton/CJMTwitterFollowButton.h; sourceTree = "<group>"; };
-		8AE0BC5EBBC5C30E1C8B1BC1 /* SBJson4StreamParserState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamParserState.h; path = src/main/objc/SBJson4StreamParserState.h; sourceTree = "<group>"; };
-		8BE65641A569310E91B3A8BA /* Pods-Canvas-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Canvas-Private.xcconfig"; sourceTree = "<group>"; };
-		97D7FF07BD394072614C437C /* POPBasicAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimation.h; path = pop/POPBasicAnimation.h; sourceTree = "<group>"; };
-		9B80F97497FA06D237CCEE66 /* ABPadButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadButton.m; path = ABPadLockScreen/ABPadButton.m; sourceTree = "<group>"; };
-		9BA94735C5645D968559EF39 /* POPAnimationRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationRuntime.h; path = pop/POPAnimationRuntime.h; sourceTree = "<group>"; };
-		9C0737569F9E4E9858F13740 /* POPLayerExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPLayerExtras.h; path = pop/POPLayerExtras.h; sourceTree = "<group>"; };
-		9DD20D278C45634B2592176A /* UITextField+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+TCCustomFont.m"; path = "CanvasLibrary/UITextField+TCCustomFont.m"; sourceTree = "<group>"; };
-		A2CAA2CCCC0A277A0AAB2985 /* SBJson4StreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamParser.h; path = src/main/objc/SBJson4StreamParser.h; sourceTree = "<group>"; };
-		A5D97F9CC564DEF7B59D57A3 /* POPAnimationExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationExtras.mm; path = pop/POPAnimationExtras.mm; sourceTree = "<group>"; };
-		A63DF35D6A503BEE32A5FAED /* Pods-Canvas-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Canvas-dummy.m"; sourceTree = "<group>"; };
-		A6D5BD0C06566E4416EAEF0C /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationRuntime.mm; path = pop/POPAnimationRuntime.mm; sourceTree = "<group>"; };
-		A6E029038D418F2DA130798D /* SBJson4StreamWriterState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamWriterState.h; path = src/main/objc/SBJson4StreamWriterState.h; sourceTree = "<group>"; };
-		A961D214C84836352E247EC5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		AABD8ED6780A2BA597388E19 /* Pods-SBJson-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SBJson-dummy.m"; sourceTree = "<group>"; };
-		AAFEA4D1DD0F46591CAF7080 /* UINavigationBar+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+TCCustomFont.h"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.h"; sourceTree = "<group>"; };
-		AE57AD42DFE1505E5BC8D190 /* UITextView+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+TCCustomFont.m"; path = "CanvasLibrary/UITextView+TCCustomFont.m"; sourceTree = "<group>"; };
-		B097EB7224D25A20286BED18 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		B1D6BCE2F472FC98725A2803 /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+PlaceholderColor.m"; path = "CanvasLibrary/UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
-		B25BF0A85FB41CF156FD292F /* SBJson4Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4Writer.h; path = src/main/objc/SBJson4Writer.h; sourceTree = "<group>"; };
-		B308D7649574D6307E6CA570 /* ABPadLockScreenViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenViewController.m; path = ABPadLockScreen/ABPadLockScreenViewController.m; sourceTree = "<group>"; };
-		B39E5FA40B4FAC074E09F064 /* POPSpringAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimationInternal.h; path = pop/POPSpringAnimationInternal.h; sourceTree = "<group>"; };
-		B3AFA18769FDCE219342C6BA /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamTokeniser.h; path = src/main/objc/SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
-		B3EE994347E3117610A93E2F /* Pods-pop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pop-Private.xcconfig"; sourceTree = "<group>"; };
-		B66A9F7C25699A790E14C8AC /* CSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSBlurView.m; path = CanvasLibrary/CSBlurView.m; sourceTree = "<group>"; };
-		B6749BBA128C60C4776AC971 /* CSAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimation.m; path = CanvasLibrary/CSAnimation.m; sourceTree = "<group>"; };
-		B9C9DF47EA9FAD50A5B35E8B /* POPPropertyAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimationInternal.h; path = pop/POPPropertyAnimationInternal.h; sourceTree = "<group>"; };
-		BA39A3CC9DB088B99F6C6B8C /* Pods-SBJson.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SBJson.xcconfig"; sourceTree = "<group>"; };
-		BC126AFE787A45D403FE4AA3 /* ABPadLockScreenAbstractViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenAbstractViewController.h; path = ABPadLockScreen/ABPadLockScreenAbstractViewController.h; sourceTree = "<group>"; };
-		BCF75656484C74E62C4EBB0F /* CJMFollowMeButtonLarge.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CJMFollowMeButtonLarge.png; path = CJMTwitterFollowButton/Resources/CJMFollowMeButtonLarge.png; sourceTree = "<group>"; };
-		C082E990D5633FCA000DB69D /* ABPadButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadButton.h; path = ABPadLockScreen/ABPadButton.h; sourceTree = "<group>"; };
-		C1CF56368E2C03AE1BF728C9 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		C8A1638F32F2DDDD9E09715C /* Pods-ABPadLockScreen-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABPadLockScreen-Private.xcconfig"; sourceTree = "<group>"; };
-		CA3D5BC683B01223926203AF /* POPBasicAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimationInternal.h; path = pop/POPBasicAnimationInternal.h; sourceTree = "<group>"; };
-		CBDBA96BDA546B1C37317FC9 /* LCZoomTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LCZoomTransition.h; path = LCZoomTransition/LCZoomTransition.h; sourceTree = "<group>"; };
-		CD916047549A677B8C1AA2CE /* LCZoomTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LCZoomTransition.m; path = LCZoomTransition/LCZoomTransition.m; sourceTree = "<group>"; };
-		CF6C5E34A2086094A0CAD094 /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamTokeniser.m; path = src/main/objc/SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
-		D10F8DFA2FF363FE226C408E /* Pods-Canvas.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Canvas.xcconfig"; sourceTree = "<group>"; };
-		D16204DD6DFC1E067010AAD0 /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPPropertyAnimation.mm; path = pop/POPPropertyAnimation.mm; sourceTree = "<group>"; };
-		D1F8BAD43658A52F7A4C4D43 /* Pods-LCZoomTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LCZoomTransition-dummy.m"; sourceTree = "<group>"; };
-		D35F824F58397CBDEDAC4DDE /* SBJson4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4.h; path = src/main/objc/SBJson4.h; sourceTree = "<group>"; };
-		D3B5231DB2DD059826EB0A2A /* libPods-SBJson.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SBJson.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D52A9272C63BFD72E352E4E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5B6CCF32F052D3562EFAB7F /* Pods-CJMTwitterFollowButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CJMTwitterFollowButton-Private.xcconfig"; sourceTree = "<group>"; };
-		D6EF5FA3DB2C195229A7D409 /* Pods-LCZoomTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LCZoomTransition-prefix.pch"; sourceTree = "<group>"; };
-		D7778A3AD76E96A4C18527BB /* POPAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAction.h; path = pop/POPAction.h; sourceTree = "<group>"; };
-		DC8B8CC084E3B6BCE4BF8A17 /* POPAnimatableProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatableProperty.h; path = pop/POPAnimatableProperty.h; sourceTree = "<group>"; };
-		DFF0D8C33FD1ADD946B340E5 /* Pods-pop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pop-prefix.pch"; sourceTree = "<group>"; };
-		E19EA17B2D05ED86DDB77B71 /* CSAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimationView.h; path = CanvasLibrary/CSAnimationView.h; sourceTree = "<group>"; };
-		E1B7DA3DDC803A652B538F3E /* POPMath.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPMath.mm; path = pop/POPMath.mm; sourceTree = "<group>"; };
-		E4029FF3CE562649E4CE0114 /* POPAnimationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationPrivate.h; path = pop/POPAnimationPrivate.h; sourceTree = "<group>"; };
-		E4BEE5C1B5904CC83122B3D1 /* POPAnimationEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEvent.h; path = pop/POPAnimationEvent.h; sourceTree = "<group>"; };
-		E6BD07076298A7B2C1B1F717 /* Pods-CJMTwitterFollowButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CJMTwitterFollowButton-dummy.m"; sourceTree = "<group>"; };
-		E6D7F54475DEB0821845B0FA /* Pods-ABPadLockScreen.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABPadLockScreen.xcconfig"; sourceTree = "<group>"; };
-		E9C5EEF23489EA0DEC1E2C10 /* POPAnimationTracerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracerInternal.h; path = pop/POPAnimationTracerInternal.h; sourceTree = "<group>"; };
-		EA9EBE331090CD75EB3D54C7 /* POPVector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPVector.h; path = pop/POPVector.h; sourceTree = "<group>"; };
-		EB405941D446220F1B915ABF /* POPAnimator.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimator.mm; path = pop/POPAnimator.mm; sourceTree = "<group>"; };
-		EC75037BC13AFD346630A3DE /* CSBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSBlurView.h; path = CanvasLibrary/CSBlurView.h; sourceTree = "<group>"; };
-		ECCC10416914A3A82964519E /* libPods-ABPadLockScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABPadLockScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F149226053965E066647FBD1 /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimatableProperty.mm; path = pop/POPAnimatableProperty.mm; sourceTree = "<group>"; };
-		F1ED5BC765F6508A6768CE24 /* ABPadLockScreenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenView.h; path = ABPadLockScreen/ABPadLockScreenView.h; sourceTree = "<group>"; };
-		F2C86AB8324400CFA3F9CF81 /* Pods-ABPadLockScreen-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABPadLockScreen-dummy.m"; sourceTree = "<group>"; };
-		F42BDFA21EFCB9CBE39AB99A /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F4FD9F71CE5FE0C232335CCD /* POPVector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPVector.mm; path = pop/POPVector.mm; sourceTree = "<group>"; };
-		F5A5818B7735385AF7E1954A /* POPAnimationEventInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEventInternal.h; path = pop/POPAnimationEventInternal.h; sourceTree = "<group>"; };
-		F60A28B25B8372FA2B54C6C2 /* SBJson4Parser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4Parser.m; path = src/main/objc/SBJson4Parser.m; sourceTree = "<group>"; };
-		F65A3476E5B9ABCE16C3C9EA /* UIButton+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TCCustomFont.m"; path = "CanvasLibrary/UIButton+TCCustomFont.m"; sourceTree = "<group>"; };
-		F6E110AEBA2419A81123A274 /* ABPadLockScreenAbstractViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenAbstractViewController.m; path = ABPadLockScreen/ABPadLockScreenAbstractViewController.m; sourceTree = "<group>"; };
-		F80B63AD4A45A2A60B26A9BA /* libPods-pop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9366C7A30FE471D9C22CC63 /* SBJson4StreamWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamWriter.h; path = src/main/objc/SBJson4StreamWriter.h; sourceTree = "<group>"; };
-		F983D9DCE6ADD23BD76F2B9D /* SBJson4Writer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4Writer.m; path = src/main/objc/SBJson4Writer.m; sourceTree = "<group>"; };
-		F9AB952F43FABBDE3BC157B4 /* POPCustomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCustomAnimation.h; path = pop/POPCustomAnimation.h; sourceTree = "<group>"; };
+		00CC601502DCC5C9C485A58E /* Pods-CJMTwitterFollowButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CJMTwitterFollowButton-dummy.m"; sourceTree = "<group>"; };
+		033A47E9E73E2C38151976D3 /* ABPadButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadButton.h; path = ABPadLockScreen/ABPadButton.h; sourceTree = "<group>"; };
+		06BEEFD73D34A69CE5702037 /* UITextView+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+TCCustomFont.m"; path = "CanvasLibrary/UITextView+TCCustomFont.m"; sourceTree = "<group>"; };
+		06E9C44F63F87670F53348CF /* Pods-SBJson-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SBJson-dummy.m"; sourceTree = "<group>"; };
+		0B513DBADCE24068F95276E9 /* SBJson4StreamWriterState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamWriterState.h; path = src/main/objc/SBJson4StreamWriterState.h; sourceTree = "<group>"; };
+		0DE29DD17897B6652B216340 /* POPCGUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCGUtils.h; path = pop/POPCGUtils.h; sourceTree = "<group>"; };
+		10C65B26056BEE7B1EA5002F /* POPLayerExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPLayerExtras.mm; path = pop/POPLayerExtras.mm; sourceTree = "<group>"; };
+		10F2E711D830C9AD75B7C9C8 /* ABPadLockScreenAbstractViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenAbstractViewController.m; path = ABPadLockScreen/ABPadLockScreenAbstractViewController.m; sourceTree = "<group>"; };
+		11CB9AD3F3127596B8538CC9 /* POPPropertyAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPPropertyAnimation.mm; path = pop/POPPropertyAnimation.mm; sourceTree = "<group>"; };
+		16E548C45D29791E298F9CD0 /* SBJson4Writer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4Writer.m; path = src/main/objc/SBJson4Writer.m; sourceTree = "<group>"; };
+		174B92D31C8480DFD433BE76 /* libPods-LCZoomTransition.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCZoomTransition.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B127664A7D6351F154939CF /* POPAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimator.h; path = pop/POPAnimator.h; sourceTree = "<group>"; };
+		1BDE1B03CDE06D86B5EB0763 /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamParserState.m; path = src/main/objc/SBJson4StreamParserState.m; sourceTree = "<group>"; };
+		1EE6C49330BE551E278CE7BE /* CSAnimationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimationView.m; path = CanvasLibrary/CSAnimationView.m; sourceTree = "<group>"; };
+		20B705502E72FC57DF82C6F0 /* POPAnimationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationPrivate.h; path = pop/POPAnimationPrivate.h; sourceTree = "<group>"; };
+		2394D30836CE1F451F25697C /* POPBasicAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimation.h; path = pop/POPBasicAnimation.h; sourceTree = "<group>"; };
+		299DB699D1EA1927DDCB61B0 /* FloatConversion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FloatConversion.h; path = pop/WebCore/FloatConversion.h; sourceTree = "<group>"; };
+		2B7E3D5807B2F95337808207 /* TransformationMatrix.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = TransformationMatrix.cpp; path = pop/WebCore/TransformationMatrix.cpp; sourceTree = "<group>"; };
+		2CEBEEEC7450A02607CE25E4 /* SBJson4StreamParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamParser.h; path = src/main/objc/SBJson4StreamParser.h; sourceTree = "<group>"; };
+		2DE4CF9C06D214AA17D08A03 /* Pods-LCZoomTransition-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LCZoomTransition-Private.xcconfig"; sourceTree = "<group>"; };
+		3093FCD350D5D077A91C3272 /* Pods-LCZoomTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LCZoomTransition-prefix.pch"; sourceTree = "<group>"; };
+		32311635724D84B87F26FF47 /* libPods-CJMTwitterFollowButton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJMTwitterFollowButton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E65B16EBAF7F2742DB8AB7 /* UnitBezier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UnitBezier.h; path = pop/WebCore/UnitBezier.h; sourceTree = "<group>"; };
+		354CA46F6A9FB30175970284 /* SBJson4Parser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4Parser.h; path = src/main/objc/SBJson4Parser.h; sourceTree = "<group>"; };
+		35A6280DB2C5E709B473C9CF /* POPCustomAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCustomAnimation.mm; path = pop/POPCustomAnimation.mm; sourceTree = "<group>"; };
+		35C44B6AB3EF40AD49CE43E1 /* POPDecayAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimation.h; path = pop/POPDecayAnimation.h; sourceTree = "<group>"; };
+		374639DBEA73F545D8D222FF /* SBJson4StreamWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamWriter.h; path = src/main/objc/SBJson4StreamWriter.h; sourceTree = "<group>"; };
+		377B686456A8F0C5F14F13A7 /* LCZoomTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LCZoomTransition.m; path = LCZoomTransition/LCZoomTransition.m; sourceTree = "<group>"; };
+		39A655EADDEB8B8293BCEF91 /* POPAnimationExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationExtras.h; path = pop/POPAnimationExtras.h; sourceTree = "<group>"; };
+		3A257431AABD2036B8F347EC /* POPPropertyAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimationInternal.h; path = pop/POPPropertyAnimationInternal.h; sourceTree = "<group>"; };
+		3C56C1318FDAF0FB7AC2432D /* POPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDefines.h; path = pop/POPDefines.h; sourceTree = "<group>"; };
+		3DA3AB48B53433A77A63F402 /* Pods-pop-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pop-Private.xcconfig"; sourceTree = "<group>"; };
+		3EB14D85F47FFEC63D24B9BD /* libPods-Canvas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Canvas.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F96DA33E0FF7C51B50C7F7F /* POPAnimationTracer.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationTracer.mm; path = pop/POPAnimationTracer.mm; sourceTree = "<group>"; };
+		40A40B568B504D195B700FA7 /* POPAnimationRuntime.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationRuntime.mm; path = pop/POPAnimationRuntime.mm; sourceTree = "<group>"; };
+		417E0994F8BD7CCB23A1E456 /* POPSpringAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimation.h; path = pop/POPSpringAnimation.h; sourceTree = "<group>"; };
+		42E97B6033FFE5203D04D049 /* SBJson4StreamParserState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamParserState.h; path = src/main/objc/SBJson4StreamParserState.h; sourceTree = "<group>"; };
+		44984AFED7D605BFBD200E8F /* Pods-CJMTwitterFollowButton-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CJMTwitterFollowButton-Private.xcconfig"; sourceTree = "<group>"; };
+		4BE0799676146B37E57AB1B8 /* POPAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationInternal.h; path = pop/POPAnimationInternal.h; sourceTree = "<group>"; };
+		4CB40331242D4D9E7F353DF0 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		4CC0C0FAFB459CEEA0C96535 /* POPCustomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPCustomAnimation.h; path = pop/POPCustomAnimation.h; sourceTree = "<group>"; };
+		4D17789EFD5F3E83C11E8B7C /* Pods-ABPadLockScreen-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABPadLockScreen-Private.xcconfig"; sourceTree = "<group>"; };
+		50C74587F5A37AC720B265BD /* POPAnimator.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimator.mm; path = pop/POPAnimator.mm; sourceTree = "<group>"; };
+		522FD1802CF4651C80E3BE49 /* Pods-ABPadLockScreen.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ABPadLockScreen.xcconfig"; sourceTree = "<group>"; };
+		524F445661184D559B7C7318 /* UIButton+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TCCustomFont.m"; path = "CanvasLibrary/UIButton+TCCustomFont.m"; sourceTree = "<group>"; };
+		5310FD1789CDA68C618CF5FB /* POPVector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPVector.h; path = pop/POPVector.h; sourceTree = "<group>"; };
+		570456B96D6768EFEB460C98 /* POPAnimationExtras.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationExtras.mm; path = pop/POPAnimationExtras.mm; sourceTree = "<group>"; };
+		586EDC985ED41134B81F72CB /* CJMFollowMeButtonSmall.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CJMFollowMeButtonSmall.png; path = CJMTwitterFollowButton/Resources/CJMFollowMeButtonSmall.png; sourceTree = "<group>"; };
+		592A9F215CC3C23AEBBC135F /* POPAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimation.mm; path = pop/POPAnimation.mm; sourceTree = "<group>"; };
+		598F2E800B50AC3A44CDDE52 /* POPAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimation.h; path = pop/POPAnimation.h; sourceTree = "<group>"; };
+		5D202BD997C776B1BAA4528A /* UITextView+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+TCCustomFont.h"; path = "CanvasLibrary/UITextView+TCCustomFont.h"; sourceTree = "<group>"; };
+		5D2409BE86ECA5C1C12E3193 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		5EDAFB9DDA1A5AE7D574F41E /* POPAnimationRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationRuntime.h; path = pop/POPAnimationRuntime.h; sourceTree = "<group>"; };
+		5EDF645CCD1E885B0EF98BDD /* ABPadLockScreenSetupViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenSetupViewController.h; path = ABPadLockScreen/ABPadLockScreenSetupViewController.h; sourceTree = "<group>"; };
+		6096B82B6381C0238B08D5C9 /* POPAnimatableProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimatableProperty.mm; path = pop/POPAnimatableProperty.mm; sourceTree = "<group>"; };
+		656B38C8A83AF5D3AF053C68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		680B0F5B2249764E3E1AA4E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CF66C5E8FB27BBBA75928F /* Pods-SBJson-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SBJson-Private.xcconfig"; sourceTree = "<group>"; };
+		6C2C87279D16A19AEE6BD1F2 /* POPGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPGeometry.h; path = pop/POPGeometry.h; sourceTree = "<group>"; };
+		6D1D5FD28CD1B3384AB13731 /* UITextField+PlaceholderColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+PlaceholderColor.m"; path = "CanvasLibrary/UITextField+PlaceholderColor.m"; sourceTree = "<group>"; };
+		6DC0BB0549C989AF0D51B277 /* ABPadLockScreenAbstractViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenAbstractViewController.h; path = ABPadLockScreen/ABPadLockScreenAbstractViewController.h; sourceTree = "<group>"; };
+		6F359A7BF4F8C92724C59EFC /* CSBlurView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSBlurView.h; path = CanvasLibrary/CSBlurView.h; sourceTree = "<group>"; };
+		70FE1646D6FC43E4CF2EB70C /* Pods-pop.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pop.xcconfig"; sourceTree = "<group>"; };
+		71E472D3697ED362AFA7F645 /* ABPadLockScreenSetupViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenSetupViewController.m; path = ABPadLockScreen/ABPadLockScreenSetupViewController.m; sourceTree = "<group>"; };
+		791879A601734CEA42CA202D /* UITextField+PlaceholderColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+PlaceholderColor.h"; path = "CanvasLibrary/UITextField+PlaceholderColor.h"; sourceTree = "<group>"; };
+		79F0C9216B4E5F5EE85C1D16 /* POPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPPropertyAnimation.h; path = pop/POPPropertyAnimation.h; sourceTree = "<group>"; };
+		7DE75DC9514D972277537802 /* POPSpringAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringAnimationInternal.h; path = pop/POPSpringAnimationInternal.h; sourceTree = "<group>"; };
+		7EC299568D54C500E6A06574 /* POPGeometry.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPGeometry.mm; path = pop/POPGeometry.mm; sourceTree = "<group>"; };
+		80174EED4E774E2B9C419821 /* ABPadLockScreenView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenView.m; path = ABPadLockScreen/ABPadLockScreenView.m; sourceTree = "<group>"; };
+		802999073C56E4BC7B8C667E /* SBJson4StreamWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamWriter.m; path = src/main/objc/SBJson4StreamWriter.m; sourceTree = "<group>"; };
+		8247A49449918D3DA74D1102 /* ABPadButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadButton.m; path = ABPadLockScreen/ABPadButton.m; sourceTree = "<group>"; };
+		84486DD72FFBD132C57B6A08 /* LCZoomTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LCZoomTransition.h; path = LCZoomTransition/LCZoomTransition.h; sourceTree = "<group>"; };
+		85FF077FBB5127881A25E2C0 /* Pods-ABPadLockScreen-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ABPadLockScreen-dummy.m"; sourceTree = "<group>"; };
+		869FBD740B5C76F3EE45360F /* POPAnimatorPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatorPrivate.h; path = pop/POPAnimatorPrivate.h; sourceTree = "<group>"; };
+		875BBE705965EDEFD8D30B0F /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamTokeniser.m; path = src/main/objc/SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
+		88C32A45E95E4AC3D9A3AB1C /* SBJson4Writer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4Writer.h; path = src/main/objc/SBJson4Writer.h; sourceTree = "<group>"; };
+		8D648BBEEBFF3720425083FF /* CJMFollowMeButtonLarge@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CJMFollowMeButtonLarge@2x.png"; path = "CJMTwitterFollowButton/Resources/CJMFollowMeButtonLarge@2x.png"; sourceTree = "<group>"; };
+		8DFABDE6EECFD84F669F6620 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamWriterState.m; path = src/main/objc/SBJson4StreamWriterState.m; sourceTree = "<group>"; };
+		8FA55DBC45CA4B4A33862CD2 /* POPAnimatableProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimatableProperty.h; path = pop/POPAnimatableProperty.h; sourceTree = "<group>"; };
+		929B16A5ED9A21F3E3F1656B /* Pods-Canvas-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Canvas-Private.xcconfig"; sourceTree = "<group>"; };
+		92B450788919B21262706649 /* CJMFollowMeButtonSmall@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "CJMFollowMeButtonSmall@2x.png"; path = "CJMTwitterFollowButton/Resources/CJMFollowMeButtonSmall@2x.png"; sourceTree = "<group>"; };
+		93BAE181F1A623AD617F84B7 /* libPods-pop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C12034F5B33B07F748C7D09 /* TransformationMatrix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TransformationMatrix.h; path = pop/WebCore/TransformationMatrix.h; sourceTree = "<group>"; };
+		9CA2874964BD1A67003E6635 /* ABPinSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPinSelectionView.h; path = ABPadLockScreen/ABPinSelectionView.h; sourceTree = "<group>"; };
+		9DE19C5472347F6589721E6F /* SBJson4Parser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4Parser.m; path = src/main/objc/SBJson4Parser.m; sourceTree = "<group>"; };
+		9E2C9CB36926C019C6350A28 /* libPods-SBJson.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SBJson.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3385D37F9C0FD376D0ECF16 /* UINavigationBar+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+TCCustomFont.m"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.m"; sourceTree = "<group>"; };
+		A4419E2114DFE62A7C3A33A5 /* UILabel+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+TCCustomFont.h"; path = "CanvasLibrary/UILabel+TCCustomFont.h"; sourceTree = "<group>"; };
+		A5DC0F99EC0E6D456C3A0CDF /* CSAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimation.h; path = CanvasLibrary/CSAnimation.h; sourceTree = "<group>"; };
+		A63D18FD0083EC17272264D1 /* CSAnimationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSAnimationView.h; path = CanvasLibrary/CSAnimationView.h; sourceTree = "<group>"; };
+		A682B78DAD61CFC00BEF1311 /* CJMFollowMeButtonLarge.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CJMFollowMeButtonLarge.png; path = CJMTwitterFollowButton/Resources/CJMFollowMeButtonLarge.png; sourceTree = "<group>"; };
+		ABDAA85C092B48A31AA08660 /* CJMTwitterFollowButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CJMTwitterFollowButton.m; path = CJMTwitterFollowButton/CJMTwitterFollowButton.m; sourceTree = "<group>"; };
+		ADE9C967C29257B12CC92016 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AF4A4D042871C6507B8D331F /* Pods-pop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pop-dummy.m"; sourceTree = "<group>"; };
+		B003C215BF281C3CAA9BE9EB /* POPLayerExtras.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPLayerExtras.h; path = pop/POPLayerExtras.h; sourceTree = "<group>"; };
+		B2197E5F76E63F5681576BD9 /* ABPadLockScreenViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenViewController.h; path = ABPadLockScreen/ABPadLockScreenViewController.h; sourceTree = "<group>"; };
+		B25B687F1C4277043722C32E /* Pods-CJMTwitterFollowButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CJMTwitterFollowButton-prefix.pch"; sourceTree = "<group>"; };
+		B357BCC50B3E240467120DE4 /* POPAnimationEvent.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPAnimationEvent.mm; path = pop/POPAnimationEvent.mm; sourceTree = "<group>"; };
+		B4209D2846BD4E23593F347A /* Pods-LCZoomTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LCZoomTransition-dummy.m"; sourceTree = "<group>"; };
+		B816C4D560DE8A5203D83856 /* POPCGUtils.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPCGUtils.mm; path = pop/POPCGUtils.mm; sourceTree = "<group>"; };
+		BA8595463B164E67BDD52A5D /* POPMath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPMath.h; path = pop/POPMath.h; sourceTree = "<group>"; };
+		BDE08E037C07451F6491088B /* POPMath.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPMath.mm; path = pop/POPMath.mm; sourceTree = "<group>"; };
+		BE73367ED16AE70025E89F37 /* Pods-Canvas.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Canvas.xcconfig"; sourceTree = "<group>"; };
+		BEC1BF7FEFEB140839C65E6B /* POPAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAction.h; path = pop/POPAction.h; sourceTree = "<group>"; };
+		C32A319F7E07A0F04CB5E943 /* Pods-SBJson.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SBJson.xcconfig"; sourceTree = "<group>"; };
+		C489C3EB5FAFF73C638F026B /* Pods-CJMTwitterFollowButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CJMTwitterFollowButton.xcconfig"; sourceTree = "<group>"; };
+		C51C266D3E15543E794DD288 /* CSAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSAnimation.m; path = CanvasLibrary/CSAnimation.m; sourceTree = "<group>"; };
+		C67D55FFB551750CAA053F5A /* POPSpringAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPSpringAnimation.mm; path = pop/POPSpringAnimation.mm; sourceTree = "<group>"; };
+		C73DCCCA91C9290F46400B0D /* UITextField+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+TCCustomFont.m"; path = "CanvasLibrary/UITextField+TCCustomFont.m"; sourceTree = "<group>"; };
+		C7762A5F05AA02D5395FD5DD /* Pods-LCZoomTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LCZoomTransition.xcconfig"; sourceTree = "<group>"; };
+		C7ED9FC5C685AD8B2DEFAFED /* SBJson4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4.h; path = src/main/objc/SBJson4.h; sourceTree = "<group>"; };
+		C8E881E990EC24B84C4E99C3 /* libPods-ABPadLockScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ABPadLockScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA49D7D93776D263C8A54FB3 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		CAC829F6544D4AD00CE6F954 /* UITextField+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+TCCustomFont.h"; path = "CanvasLibrary/UITextField+TCCustomFont.h"; sourceTree = "<group>"; };
+		CE6CB8402512980246CCE279 /* POPDecayAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPDecayAnimation.mm; path = pop/POPDecayAnimation.mm; sourceTree = "<group>"; };
+		CF38B1A0FF45ED167757B79D /* Pods-Canvas-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Canvas-dummy.m"; sourceTree = "<group>"; };
+		CF7A68C2B618379FC8B363DF /* CJMTwitterFollowButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CJMTwitterFollowButton.h; path = CJMTwitterFollowButton/CJMTwitterFollowButton.h; sourceTree = "<group>"; };
+		D1A462E5D12D20C856DBE9FD /* POPBasicAnimation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPBasicAnimation.mm; path = pop/POPBasicAnimation.mm; sourceTree = "<group>"; };
+		D2FA5C62CEB61DA50B347593 /* Pods-ABPadLockScreen-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ABPadLockScreen-prefix.pch"; sourceTree = "<group>"; };
+		D311AC11F395BB3A93B7D937 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D3A358CC7EB7B6A896F369B1 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		DBF8FF40B0E4EA8368C6086B /* UINavigationBar+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+TCCustomFont.h"; path = "CanvasLibrary/UINavigationBar+TCCustomFont.h"; sourceTree = "<group>"; };
+		E2061B7219DD1105076AC486 /* POPAnimationEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEvent.h; path = pop/POPAnimationEvent.h; sourceTree = "<group>"; };
+		E4263D3FCED573A4800518E2 /* POPSpringSolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPSpringSolver.h; path = pop/POPSpringSolver.h; sourceTree = "<group>"; };
+		E4F166C322DF8F92EEEDA730 /* POPAnimationTracerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracerInternal.h; path = pop/POPAnimationTracerInternal.h; sourceTree = "<group>"; };
+		E50723A3B9E1C46948152042 /* POPAnimationTracer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationTracer.h; path = pop/POPAnimationTracer.h; sourceTree = "<group>"; };
+		E56358A68DD64B0280694FB5 /* POP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POP.h; path = pop/POP.h; sourceTree = "<group>"; };
+		E583A1F37A9FC1E14902EF6C /* POPVector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = POPVector.mm; path = pop/POPVector.mm; sourceTree = "<group>"; };
+		E6B71019D34F3BBB460B903B /* CSNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSNavigationController.h; path = CanvasLibrary/CSNavigationController.h; sourceTree = "<group>"; };
+		E82885ACA010D5E123DE7F22 /* UIButton+TCCustomFont.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+TCCustomFont.h"; path = "CanvasLibrary/UIButton+TCCustomFont.h"; sourceTree = "<group>"; };
+		EAB700347C89243C5D209A7E /* ABPadLockScreenViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPadLockScreenViewController.m; path = ABPadLockScreen/ABPadLockScreenViewController.m; sourceTree = "<group>"; };
+		EAB8440BEA23419EE53DF965 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		EB3C08C6CF946795EB9D9EC2 /* POPAnimationEventInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPAnimationEventInternal.h; path = pop/POPAnimationEventInternal.h; sourceTree = "<group>"; };
+		ECC2A7232B56D703EECE3BDA /* UILabel+TCCustomFont.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+TCCustomFont.m"; path = "CanvasLibrary/UILabel+TCCustomFont.m"; sourceTree = "<group>"; };
+		F00056DA32AE5B3BEAA11538 /* Pods-pop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pop-prefix.pch"; sourceTree = "<group>"; };
+		F1435BA518C85D3F759FE6B0 /* ABPinSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ABPinSelectionView.m; path = ABPadLockScreen/ABPinSelectionView.m; sourceTree = "<group>"; };
+		F21D06E004DEE1275D010562 /* Pods-SBJson-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SBJson-prefix.pch"; sourceTree = "<group>"; };
+		F26BE4C670529676050D3C68 /* POPBasicAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPBasicAnimationInternal.h; path = pop/POPBasicAnimationInternal.h; sourceTree = "<group>"; };
+		F27E0FCE1D28FFA08659E59C /* Pods-Canvas-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Canvas-prefix.pch"; sourceTree = "<group>"; };
+		F2EAAC8DFDF6358869A5FB66 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		F556BC951E9EDAE771C47E41 /* SBJson4StreamParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBJson4StreamParser.m; path = src/main/objc/SBJson4StreamParser.m; sourceTree = "<group>"; };
+		F6E740F2FB6D850716E62AC4 /* CSNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSNavigationController.m; path = CanvasLibrary/CSNavigationController.m; sourceTree = "<group>"; };
+		F771AFE2BA383AA6D4F79498 /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBJson4StreamTokeniser.h; path = src/main/objc/SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
+		F8C27717CFBB55151843B395 /* ABPadLockScreenView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABPadLockScreenView.h; path = ABPadLockScreen/ABPadLockScreenView.h; sourceTree = "<group>"; };
+		FD1B13425C51953B9743CED5 /* POPDecayAnimationInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = POPDecayAnimationInternal.h; path = pop/POPDecayAnimationInternal.h; sourceTree = "<group>"; };
+		FFA1B8100E6EF1E0DA1091DD /* CSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSBlurView.m; path = CanvasLibrary/CSBlurView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0902CEAEFEED9182F8CB6378 /* Frameworks */ = {
+		0703DE4B84B06194D7845747 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8814F96EF21E115D28F1ED7F /* Foundation.framework in Frameworks */,
+				A7B542F2985E574D045B67BE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		28DF68981BE00F6DD6077799 /* Frameworks */ = {
+		0A52C86C3A1DFD8FB2CC1E66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CD71134593821FC00B5CC1E /* Foundation.framework in Frameworks */,
+				8595BFEE6D1C0C232F673FF9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		46A21D3D78937E40BA0DD8A7 /* Frameworks */ = {
+		2FAC0388538A57D1C947F597 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F375648CF4ACBB85272F167E /* Foundation.framework in Frameworks */,
+				A736681813CE03ACC2C6E9BC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4CD8A650E9B1E47D028808B8 /* Frameworks */ = {
+		3BFFA3C530C685EF698587AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FE69397353442BD67CA571 /* Foundation.framework in Frameworks */,
+				EF5D8BFC5DC8DA8E1DD6C947 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A409C3BE2B6EF7CEC53E8D9C /* Frameworks */ = {
+		79A7448FD7D3A56B7475D5EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E15CED3026784EEC803D73 /* Foundation.framework in Frameworks */,
+				342AA493A477FE140F5233F1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8EF4FDEA1C231664EF5DF7E /* Frameworks */ = {
+		9A7F97D328D1B09A7E3010DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9F61665C5048301879777C8 /* Foundation.framework in Frameworks */,
+				FFDAFFF7A260F5437BF449DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DF369DE6132D21E9DF2BD18E /* Frameworks */ = {
+		D496ABC7AC92827F3D8DD724 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F459184150CF54A69794E271 /* Foundation.framework in Frameworks */,
+				6FCB393696F604BBF42D545B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		34FF231C6437223E557D37B7 /* Support Files */ = {
+		0915BB7A43C7DD3DA0E7CACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8466ABBB10CB9A110440B342 /* Pods-CJMTwitterFollowButton.xcconfig */,
-				D5B6CCF32F052D3562EFAB7F /* Pods-CJMTwitterFollowButton-Private.xcconfig */,
-				E6BD07076298A7B2C1B1F717 /* Pods-CJMTwitterFollowButton-dummy.m */,
-				19987BB15128C7AA03DB79E1 /* Pods-CJMTwitterFollowButton-prefix.pch */,
+				3B8ACB58D958FB62574113A0 /* iOS */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-CJMTwitterFollowButton";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4164C7C83E573DD94F96C203 /* Resources */ = {
+		10DE5D96DDA945B927D6D702 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BCF75656484C74E62C4EBB0F /* CJMFollowMeButtonLarge.png */,
-				612EE0275C2E5150F4291809 /* CJMFollowMeButtonLarge@2x.png */,
-				091ACCBA12F6C6C8358180B5 /* CJMFollowMeButtonSmall.png */,
-				073FA3181CCE169D251006BD /* CJMFollowMeButtonSmall@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		42FFA5C84D5ADEBCEF5977B5 /* ABPadLockScreen */ = {
-			isa = PBXGroup;
-			children = (
-				C082E990D5633FCA000DB69D /* ABPadButton.h */,
-				9B80F97497FA06D237CCEE66 /* ABPadButton.m */,
-				BC126AFE787A45D403FE4AA3 /* ABPadLockScreenAbstractViewController.h */,
-				F6E110AEBA2419A81123A274 /* ABPadLockScreenAbstractViewController.m */,
-				320F2F7F1879439B945F67DA /* ABPadLockScreenSetupViewController.h */,
-				7DCEDCB3A1C0E4EF369068EF /* ABPadLockScreenSetupViewController.m */,
-				F1ED5BC765F6508A6768CE24 /* ABPadLockScreenView.h */,
-				4C68D795EC86D29AFA78B110 /* ABPadLockScreenView.m */,
-				751C7532D0CD92CA6DE25C80 /* ABPadLockScreenViewController.h */,
-				B308D7649574D6307E6CA570 /* ABPadLockScreenViewController.m */,
-				0F43C9853A7F0A567E00245B /* ABPinSelectionView.h */,
-				289EC9E7A4A1D1BDDA16060E /* ABPinSelectionView.m */,
-				8D65403AE69A71458AE97EBB /* Support Files */,
-			);
-			path = ABPadLockScreen;
-			sourceTree = "<group>";
-		};
-		727067C60D3919E203CFB5D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				42FFA5C84D5ADEBCEF5977B5 /* ABPadLockScreen */,
-				A6C5B3509D72EBB26920AE68 /* CJMTwitterFollowButton */,
-				CC9A9E18E6733AD80F0E4CED /* Canvas */,
-				A08BC47537EA9E94A93CE24F /* LCZoomTransition */,
-				9AEB303B2FA09E0718EDBFB1 /* SBJson */,
-				7C594C4108419BF52784EBE6 /* pop */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7C594C4108419BF52784EBE6 /* pop */ = {
-			isa = PBXGroup;
-			children = (
-				529A7D869A8F9F4E031BC6A4 /* FloatConversion.h */,
-				07B821C8DDC95F6362E9C348 /* POP.h */,
-				D7778A3AD76E96A4C18527BB /* POPAction.h */,
-				DC8B8CC084E3B6BCE4BF8A17 /* POPAnimatableProperty.h */,
-				F149226053965E066647FBD1 /* POPAnimatableProperty.mm */,
-				41BEE820E4D553B4508C922D /* POPAnimation.h */,
-				804F84E02EEF9C7295857C05 /* POPAnimation.mm */,
-				E4BEE5C1B5904CC83122B3D1 /* POPAnimationEvent.h */,
-				7F911299B98116AE49754934 /* POPAnimationEvent.mm */,
-				F5A5818B7735385AF7E1954A /* POPAnimationEventInternal.h */,
-				5C366D8359A1B372D861348A /* POPAnimationExtras.h */,
-				A5D97F9CC564DEF7B59D57A3 /* POPAnimationExtras.mm */,
-				5F5374675E1E08EF52C11AE2 /* POPAnimationInternal.h */,
-				E4029FF3CE562649E4CE0114 /* POPAnimationPrivate.h */,
-				9BA94735C5645D968559EF39 /* POPAnimationRuntime.h */,
-				A6D5BD0C06566E4416EAEF0C /* POPAnimationRuntime.mm */,
-				39CE5CE0935EE031E51BF735 /* POPAnimationTracer.h */,
-				814AE3751659D683E917A98D /* POPAnimationTracer.mm */,
-				E9C5EEF23489EA0DEC1E2C10 /* POPAnimationTracerInternal.h */,
-				4BCD727A473F5125A987BE71 /* POPAnimator.h */,
-				EB405941D446220F1B915ABF /* POPAnimator.mm */,
-				2C382C1502DA0FB1FAD23DD7 /* POPAnimatorPrivate.h */,
-				97D7FF07BD394072614C437C /* POPBasicAnimation.h */,
-				7BFCB024A6FB3B9EED559694 /* POPBasicAnimation.mm */,
-				CA3D5BC683B01223926203AF /* POPBasicAnimationInternal.h */,
-				6CD67728419025A1A984D970 /* POPCGUtils.h */,
-				30805D66EB30C7BE98BA5166 /* POPCGUtils.mm */,
-				F9AB952F43FABBDE3BC157B4 /* POPCustomAnimation.h */,
-				05CD06FAF1BE413A88739B54 /* POPCustomAnimation.mm */,
-				4E08397987B488A214725CE8 /* POPDecayAnimation.h */,
-				012D2DA72E36BCAFF0A6312E /* POPDecayAnimation.mm */,
-				3BC21E92A14E1B51F12723E3 /* POPDecayAnimationInternal.h */,
-				1CEE4DE9E76F292555FA72A0 /* POPDefines.h */,
-				661B950E461012EE50D35C4E /* POPGeometry.h */,
-				44A8B665DDD36570F13CFC71 /* POPGeometry.mm */,
-				9C0737569F9E4E9858F13740 /* POPLayerExtras.h */,
-				82A7EFABB14167B294061E52 /* POPLayerExtras.mm */,
-				05555B79BB495514EFBBC55B /* POPMath.h */,
-				E1B7DA3DDC803A652B538F3E /* POPMath.mm */,
-				003D6C407FBA83988679A374 /* POPPropertyAnimation.h */,
-				D16204DD6DFC1E067010AAD0 /* POPPropertyAnimation.mm */,
-				B9C9DF47EA9FAD50A5B35E8B /* POPPropertyAnimationInternal.h */,
-				3F2EDB59319043E414BD06E7 /* POPSpringAnimation.h */,
-				44651BA8E21344F597CD4601 /* POPSpringAnimation.mm */,
-				B39E5FA40B4FAC074E09F064 /* POPSpringAnimationInternal.h */,
-				6787CAFB6C657927385F60FC /* POPSpringSolver.h */,
-				EA9EBE331090CD75EB3D54C7 /* POPVector.h */,
-				F4FD9F71CE5FE0C232335CCD /* POPVector.mm */,
-				84C4A0CDA67C6F0CAF23743D /* TransformationMatrix.cpp */,
-				69B984034AD4B6F35BD0FA65 /* TransformationMatrix.h */,
-				03024A47F05B132B196D5B65 /* UnitBezier.h */,
-				8B885F35EFD396774CEB932B /* Support Files */,
-			);
-			path = pop;
-			sourceTree = "<group>";
-		};
-		7D1B5F39973D80AE10C7D071 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F42BDFA21EFCB9CBE39AB99A /* Pods-acknowledgements.markdown */,
-				B097EB7224D25A20286BED18 /* Pods-acknowledgements.plist */,
-				C1CF56368E2C03AE1BF728C9 /* Pods-dummy.m */,
-				3F107B35CB1C7178B76D5B70 /* Pods-environment.h */,
-				2628C4FCB1E6A8FF268703BF /* Pods-resources.sh */,
-				A961D214C84836352E247EC5 /* Pods.debug.xcconfig */,
-				346494134DF70CEFB9318698 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
-			sourceTree = "<group>";
-		};
-		8B885F35EFD396774CEB932B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3500BA03BCF5CFD1DC217F7D /* Pods-pop.xcconfig */,
-				B3EE994347E3117610A93E2F /* Pods-pop-Private.xcconfig */,
-				036A00C2D9BEE9A8D4E58A85 /* Pods-pop-dummy.m */,
-				DFF0D8C33FD1ADD946B340E5 /* Pods-pop-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-pop";
-			sourceTree = "<group>";
-		};
-		8D65403AE69A71458AE97EBB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E6D7F54475DEB0821845B0FA /* Pods-ABPadLockScreen.xcconfig */,
-				C8A1638F32F2DDDD9E09715C /* Pods-ABPadLockScreen-Private.xcconfig */,
-				F2C86AB8324400CFA3F9CF81 /* Pods-ABPadLockScreen-dummy.m */,
-				800CA8EAA99D43463F794C6C /* Pods-ABPadLockScreen-prefix.pch */,
+				522FD1802CF4651C80E3BE49 /* Pods-ABPadLockScreen.xcconfig */,
+				4D17789EFD5F3E83C11E8B7C /* Pods-ABPadLockScreen-Private.xcconfig */,
+				85FF077FBB5127881A25E2C0 /* Pods-ABPadLockScreen-dummy.m */,
+				D2FA5C62CEB61DA50B347593 /* Pods-ABPadLockScreen-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-ABPadLockScreen";
 			sourceTree = "<group>";
 		};
-		9AEB303B2FA09E0718EDBFB1 /* SBJson */ = {
+		25C09F72120135CBD6301154 /* ABPadLockScreen */ = {
 			isa = PBXGroup;
 			children = (
-				D35F824F58397CBDEDAC4DDE /* SBJson4.h */,
-				31D82DB88D1D2D0B8B5B6C3D /* SBJson4Parser.h */,
-				F60A28B25B8372FA2B54C6C2 /* SBJson4Parser.m */,
-				A2CAA2CCCC0A277A0AAB2985 /* SBJson4StreamParser.h */,
-				36D2DAF1E3F30359AF5C8E7A /* SBJson4StreamParser.m */,
-				8AE0BC5EBBC5C30E1C8B1BC1 /* SBJson4StreamParserState.h */,
-				8A09AD548ACA7F0B4C60A62E /* SBJson4StreamParserState.m */,
-				B3AFA18769FDCE219342C6BA /* SBJson4StreamTokeniser.h */,
-				CF6C5E34A2086094A0CAD094 /* SBJson4StreamTokeniser.m */,
-				F9366C7A30FE471D9C22CC63 /* SBJson4StreamWriter.h */,
-				3D46B5C4F4692EAE3B0C4BDC /* SBJson4StreamWriter.m */,
-				A6E029038D418F2DA130798D /* SBJson4StreamWriterState.h */,
-				1CB652C60694A603F71EEB52 /* SBJson4StreamWriterState.m */,
-				B25BF0A85FB41CF156FD292F /* SBJson4Writer.h */,
-				F983D9DCE6ADD23BD76F2B9D /* SBJson4Writer.m */,
-				A72BF09C2A32649299BB49F0 /* Support Files */,
+				033A47E9E73E2C38151976D3 /* ABPadButton.h */,
+				8247A49449918D3DA74D1102 /* ABPadButton.m */,
+				6DC0BB0549C989AF0D51B277 /* ABPadLockScreenAbstractViewController.h */,
+				10F2E711D830C9AD75B7C9C8 /* ABPadLockScreenAbstractViewController.m */,
+				5EDF645CCD1E885B0EF98BDD /* ABPadLockScreenSetupViewController.h */,
+				71E472D3697ED362AFA7F645 /* ABPadLockScreenSetupViewController.m */,
+				F8C27717CFBB55151843B395 /* ABPadLockScreenView.h */,
+				80174EED4E774E2B9C419821 /* ABPadLockScreenView.m */,
+				B2197E5F76E63F5681576BD9 /* ABPadLockScreenViewController.h */,
+				EAB700347C89243C5D209A7E /* ABPadLockScreenViewController.m */,
+				9CA2874964BD1A67003E6635 /* ABPinSelectionView.h */,
+				F1435BA518C85D3F759FE6B0 /* ABPinSelectionView.m */,
+				10DE5D96DDA945B927D6D702 /* Support Files */,
 			);
-			path = SBJson;
+			path = ABPadLockScreen;
 			sourceTree = "<group>";
 		};
-		A08BC47537EA9E94A93CE24F /* LCZoomTransition */ = {
+		297278AEBA87FEAC42FC8443 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CBDBA96BDA546B1C37317FC9 /* LCZoomTransition.h */,
-				CD916047549A677B8C1AA2CE /* LCZoomTransition.m */,
-				A175F92944AEB54A8FF1001B /* Support Files */,
-			);
-			path = LCZoomTransition;
-			sourceTree = "<group>";
-		};
-		A175F92944AEB54A8FF1001B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				58B8730993772827AAEA51ED /* Pods-LCZoomTransition.xcconfig */,
-				40FD13CBC5F0A1F873DCC5C5 /* Pods-LCZoomTransition-Private.xcconfig */,
-				D1F8BAD43658A52F7A4C4D43 /* Pods-LCZoomTransition-dummy.m */,
-				D6EF5FA3DB2C195229A7D409 /* Pods-LCZoomTransition-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-LCZoomTransition";
-			sourceTree = "<group>";
-		};
-		A578BBF95CC07F627B8C46B0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D396C0F9C4151C32FAA6524E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A6C5B3509D72EBB26920AE68 /* CJMTwitterFollowButton */ = {
-			isa = PBXGroup;
-			children = (
-				8A908661FF90446964435AB6 /* CJMTwitterFollowButton.h */,
-				48A922AEEAC29937A25287A9 /* CJMTwitterFollowButton.m */,
-				4164C7C83E573DD94F96C203 /* Resources */,
-				34FF231C6437223E557D37B7 /* Support Files */,
-			);
-			path = CJMTwitterFollowButton;
-			sourceTree = "<group>";
-		};
-		A72BF09C2A32649299BB49F0 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BA39A3CC9DB088B99F6C6B8C /* Pods-SBJson.xcconfig */,
-				34D1E059EDDF73F2DFC9BE3E /* Pods-SBJson-Private.xcconfig */,
-				AABD8ED6780A2BA597388E19 /* Pods-SBJson-dummy.m */,
-				269E5DEC451D0FB4943626F0 /* Pods-SBJson-prefix.pch */,
+				C32A319F7E07A0F04CB5E943 /* Pods-SBJson.xcconfig */,
+				69CF66C5E8FB27BBBA75928F /* Pods-SBJson-Private.xcconfig */,
+				06E9C44F63F87670F53348CF /* Pods-SBJson-dummy.m */,
+				F21D06E004DEE1275D010562 /* Pods-SBJson-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-SBJson";
 			sourceTree = "<group>";
 		};
-		B41FBDBC1E422F34892892B4 = {
+		29BEBA8545ADE3B53BF2A48E /* pop */ = {
 			isa = PBXGroup;
 			children = (
-				4A849CEAF55C89BD30D22A5F /* Podfile */,
-				A578BBF95CC07F627B8C46B0 /* Frameworks */,
-				727067C60D3919E203CFB5D8 /* Pods */,
-				F6957ED2598D4B60DA6D6672 /* Products */,
-				FC8B8E038F52823069EB5C37 /* Targets Support Files */,
+				299DB699D1EA1927DDCB61B0 /* FloatConversion.h */,
+				E56358A68DD64B0280694FB5 /* POP.h */,
+				BEC1BF7FEFEB140839C65E6B /* POPAction.h */,
+				8FA55DBC45CA4B4A33862CD2 /* POPAnimatableProperty.h */,
+				6096B82B6381C0238B08D5C9 /* POPAnimatableProperty.mm */,
+				598F2E800B50AC3A44CDDE52 /* POPAnimation.h */,
+				592A9F215CC3C23AEBBC135F /* POPAnimation.mm */,
+				E2061B7219DD1105076AC486 /* POPAnimationEvent.h */,
+				B357BCC50B3E240467120DE4 /* POPAnimationEvent.mm */,
+				EB3C08C6CF946795EB9D9EC2 /* POPAnimationEventInternal.h */,
+				39A655EADDEB8B8293BCEF91 /* POPAnimationExtras.h */,
+				570456B96D6768EFEB460C98 /* POPAnimationExtras.mm */,
+				4BE0799676146B37E57AB1B8 /* POPAnimationInternal.h */,
+				20B705502E72FC57DF82C6F0 /* POPAnimationPrivate.h */,
+				5EDAFB9DDA1A5AE7D574F41E /* POPAnimationRuntime.h */,
+				40A40B568B504D195B700FA7 /* POPAnimationRuntime.mm */,
+				E50723A3B9E1C46948152042 /* POPAnimationTracer.h */,
+				3F96DA33E0FF7C51B50C7F7F /* POPAnimationTracer.mm */,
+				E4F166C322DF8F92EEEDA730 /* POPAnimationTracerInternal.h */,
+				1B127664A7D6351F154939CF /* POPAnimator.h */,
+				50C74587F5A37AC720B265BD /* POPAnimator.mm */,
+				869FBD740B5C76F3EE45360F /* POPAnimatorPrivate.h */,
+				2394D30836CE1F451F25697C /* POPBasicAnimation.h */,
+				D1A462E5D12D20C856DBE9FD /* POPBasicAnimation.mm */,
+				F26BE4C670529676050D3C68 /* POPBasicAnimationInternal.h */,
+				0DE29DD17897B6652B216340 /* POPCGUtils.h */,
+				B816C4D560DE8A5203D83856 /* POPCGUtils.mm */,
+				4CC0C0FAFB459CEEA0C96535 /* POPCustomAnimation.h */,
+				35A6280DB2C5E709B473C9CF /* POPCustomAnimation.mm */,
+				35C44B6AB3EF40AD49CE43E1 /* POPDecayAnimation.h */,
+				CE6CB8402512980246CCE279 /* POPDecayAnimation.mm */,
+				FD1B13425C51953B9743CED5 /* POPDecayAnimationInternal.h */,
+				3C56C1318FDAF0FB7AC2432D /* POPDefines.h */,
+				6C2C87279D16A19AEE6BD1F2 /* POPGeometry.h */,
+				7EC299568D54C500E6A06574 /* POPGeometry.mm */,
+				B003C215BF281C3CAA9BE9EB /* POPLayerExtras.h */,
+				10C65B26056BEE7B1EA5002F /* POPLayerExtras.mm */,
+				BA8595463B164E67BDD52A5D /* POPMath.h */,
+				BDE08E037C07451F6491088B /* POPMath.mm */,
+				79F0C9216B4E5F5EE85C1D16 /* POPPropertyAnimation.h */,
+				11CB9AD3F3127596B8538CC9 /* POPPropertyAnimation.mm */,
+				3A257431AABD2036B8F347EC /* POPPropertyAnimationInternal.h */,
+				417E0994F8BD7CCB23A1E456 /* POPSpringAnimation.h */,
+				C67D55FFB551750CAA053F5A /* POPSpringAnimation.mm */,
+				7DE75DC9514D972277537802 /* POPSpringAnimationInternal.h */,
+				E4263D3FCED573A4800518E2 /* POPSpringSolver.h */,
+				5310FD1789CDA68C618CF5FB /* POPVector.h */,
+				E583A1F37A9FC1E14902EF6C /* POPVector.mm */,
+				2B7E3D5807B2F95337808207 /* TransformationMatrix.cpp */,
+				9C12034F5B33B07F748C7D09 /* TransformationMatrix.h */,
+				33E65B16EBAF7F2742DB8AB7 /* UnitBezier.h */,
+				A7685BF37727657185BEEF88 /* Support Files */,
 			);
+			path = pop;
 			sourceTree = "<group>";
 		};
-		CC9A9E18E6733AD80F0E4CED /* Canvas */ = {
+		3B8ACB58D958FB62574113A0 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				520640A7641E1AC359FB4346 /* CSAnimation.h */,
-				B6749BBA128C60C4776AC971 /* CSAnimation.m */,
-				E19EA17B2D05ED86DDB77B71 /* CSAnimationView.h */,
-				6F3CDB3D1CF267C80945C46A /* CSAnimationView.m */,
-				EC75037BC13AFD346630A3DE /* CSBlurView.h */,
-				B66A9F7C25699A790E14C8AC /* CSBlurView.m */,
-				094229BA4D0BD072AF2AA2C5 /* CSNavigationController.h */,
-				4C50262457D3D99EDC707017 /* CSNavigationController.m */,
-				8546200CCA6FB96671E09661 /* UIButton+TCCustomFont.h */,
-				F65A3476E5B9ABCE16C3C9EA /* UIButton+TCCustomFont.m */,
-				6EADF72970618AEC4C481C01 /* UILabel+TCCustomFont.h */,
-				39AA88C0762079F6C1D247BD /* UILabel+TCCustomFont.m */,
-				AAFEA4D1DD0F46591CAF7080 /* UINavigationBar+TCCustomFont.h */,
-				2F085B9E052E74E7DCADDEFA /* UINavigationBar+TCCustomFont.m */,
-				41F98620D2571AB0186E4825 /* UITextField+PlaceholderColor.h */,
-				B1D6BCE2F472FC98725A2803 /* UITextField+PlaceholderColor.m */,
-				64F290BA2A119E9DF74C90CB /* UITextField+TCCustomFont.h */,
-				9DD20D278C45634B2592176A /* UITextField+TCCustomFont.m */,
-				64F9CAB4E559415C7B39AC9A /* UITextView+TCCustomFont.h */,
-				AE57AD42DFE1505E5BC8D190 /* UITextView+TCCustomFont.m */,
-				E3A8CF63E2DEE85719ADD00F /* Support Files */,
-			);
-			path = Canvas;
-			sourceTree = "<group>";
-		};
-		D396C0F9C4151C32FAA6524E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				59C74A23DE366E9CBAD74C41 /* Foundation.framework */,
+				EAB8440BEA23419EE53DF965 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E3A8CF63E2DEE85719ADD00F /* Support Files */ = {
+		5AD4EC96770E5E1A3B14A592 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D10F8DFA2FF363FE226C408E /* Pods-Canvas.xcconfig */,
-				8BE65641A569310E91B3A8BA /* Pods-Canvas-Private.xcconfig */,
-				A63DF35D6A503BEE32A5FAED /* Pods-Canvas-dummy.m */,
-				5567B7B84C9ED2D80282B2D8 /* Pods-Canvas-prefix.pch */,
+				680B0F5B2249764E3E1AA4E1 /* libPods.a */,
+				C8E881E990EC24B84C4E99C3 /* libPods-ABPadLockScreen.a */,
+				32311635724D84B87F26FF47 /* libPods-CJMTwitterFollowButton.a */,
+				3EB14D85F47FFEC63D24B9BD /* libPods-Canvas.a */,
+				174B92D31C8480DFD433BE76 /* libPods-LCZoomTransition.a */,
+				9E2C9CB36926C019C6350A28 /* libPods-SBJson.a */,
+				93BAE181F1A623AD617F84B7 /* libPods-pop.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		771FAFACE0C7AD30B2DE7301 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE73367ED16AE70025E89F37 /* Pods-Canvas.xcconfig */,
+				929B16A5ED9A21F3E3F1656B /* Pods-Canvas-Private.xcconfig */,
+				CF38B1A0FF45ED167757B79D /* Pods-Canvas-dummy.m */,
+				F27E0FCE1D28FFA08659E59C /* Pods-Canvas-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Canvas";
 			sourceTree = "<group>";
 		};
-		F6957ED2598D4B60DA6D6672 /* Products */ = {
+		7D47C617D62041B205974FE0 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D52A9272C63BFD72E352E4E1 /* libPods.a */,
-				ECCC10416914A3A82964519E /* libPods-ABPadLockScreen.a */,
-				5E0E23DF211B4D3E3C47D9D8 /* libPods-CJMTwitterFollowButton.a */,
-				0A201135D9DBA201E36BCF97 /* libPods-Canvas.a */,
-				374748B2C6EE000A8393BE3F /* libPods-LCZoomTransition.a */,
-				D3B5231DB2DD059826EB0A2A /* libPods-SBJson.a */,
-				F80B63AD4A45A2A60B26A9BA /* libPods-pop.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FC8B8E038F52823069EB5C37 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7D1B5F39973D80AE10C7D071 /* Pods */,
+				E97C6F1D69870605941E2D4C /* Pods */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8E0827BA3721B028321B2140 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				C7ED9FC5C685AD8B2DEFAFED /* SBJson4.h */,
+				354CA46F6A9FB30175970284 /* SBJson4Parser.h */,
+				9DE19C5472347F6589721E6F /* SBJson4Parser.m */,
+				2CEBEEEC7450A02607CE25E4 /* SBJson4StreamParser.h */,
+				F556BC951E9EDAE771C47E41 /* SBJson4StreamParser.m */,
+				42E97B6033FFE5203D04D049 /* SBJson4StreamParserState.h */,
+				1BDE1B03CDE06D86B5EB0763 /* SBJson4StreamParserState.m */,
+				F771AFE2BA383AA6D4F79498 /* SBJson4StreamTokeniser.h */,
+				875BBE705965EDEFD8D30B0F /* SBJson4StreamTokeniser.m */,
+				374639DBEA73F545D8D222FF /* SBJson4StreamWriter.h */,
+				802999073C56E4BC7B8C667E /* SBJson4StreamWriter.m */,
+				0B513DBADCE24068F95276E9 /* SBJson4StreamWriterState.h */,
+				8DFABDE6EECFD84F669F6620 /* SBJson4StreamWriterState.m */,
+				88C32A45E95E4AC3D9A3AB1C /* SBJson4Writer.h */,
+				16E548C45D29791E298F9CD0 /* SBJson4Writer.m */,
+				297278AEBA87FEAC42FC8443 /* Support Files */,
+			);
+			path = SBJson;
+			sourceTree = "<group>";
+		};
+		956915891AAD172AA3D74344 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25C09F72120135CBD6301154 /* ABPadLockScreen */,
+				BDB70A77BBACB112803417AA /* CJMTwitterFollowButton */,
+				CA60C3B6D86D4CB38D33A961 /* Canvas */,
+				AFECFA921F0E5FD0B09E2126 /* LCZoomTransition */,
+				8E0827BA3721B028321B2140 /* SBJson */,
+				29BEBA8545ADE3B53BF2A48E /* pop */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7685BF37727657185BEEF88 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				70FE1646D6FC43E4CF2EB70C /* Pods-pop.xcconfig */,
+				3DA3AB48B53433A77A63F402 /* Pods-pop-Private.xcconfig */,
+				AF4A4D042871C6507B8D331F /* Pods-pop-dummy.m */,
+				F00056DA32AE5B3BEAA11538 /* Pods-pop-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-pop";
+			sourceTree = "<group>";
+		};
+		AFECFA921F0E5FD0B09E2126 /* LCZoomTransition */ = {
+			isa = PBXGroup;
+			children = (
+				84486DD72FFBD132C57B6A08 /* LCZoomTransition.h */,
+				377B686456A8F0C5F14F13A7 /* LCZoomTransition.m */,
+				B2785BD6B32B836CAC105E66 /* Support Files */,
+			);
+			path = LCZoomTransition;
+			sourceTree = "<group>";
+		};
+		B2785BD6B32B836CAC105E66 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7762A5F05AA02D5395FD5DD /* Pods-LCZoomTransition.xcconfig */,
+				2DE4CF9C06D214AA17D08A03 /* Pods-LCZoomTransition-Private.xcconfig */,
+				B4209D2846BD4E23593F347A /* Pods-LCZoomTransition-dummy.m */,
+				3093FCD350D5D077A91C3272 /* Pods-LCZoomTransition-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-LCZoomTransition";
+			sourceTree = "<group>";
+		};
+		BDB70A77BBACB112803417AA /* CJMTwitterFollowButton */ = {
+			isa = PBXGroup;
+			children = (
+				CF7A68C2B618379FC8B363DF /* CJMTwitterFollowButton.h */,
+				ABDAA85C092B48A31AA08660 /* CJMTwitterFollowButton.m */,
+				D87BE91A7455F8FBBC504221 /* Resources */,
+				CC952AD616D91C47001ED24C /* Support Files */,
+			);
+			path = CJMTwitterFollowButton;
+			sourceTree = "<group>";
+		};
+		CA60C3B6D86D4CB38D33A961 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				A5DC0F99EC0E6D456C3A0CDF /* CSAnimation.h */,
+				C51C266D3E15543E794DD288 /* CSAnimation.m */,
+				A63D18FD0083EC17272264D1 /* CSAnimationView.h */,
+				1EE6C49330BE551E278CE7BE /* CSAnimationView.m */,
+				6F359A7BF4F8C92724C59EFC /* CSBlurView.h */,
+				FFA1B8100E6EF1E0DA1091DD /* CSBlurView.m */,
+				E6B71019D34F3BBB460B903B /* CSNavigationController.h */,
+				F6E740F2FB6D850716E62AC4 /* CSNavigationController.m */,
+				E82885ACA010D5E123DE7F22 /* UIButton+TCCustomFont.h */,
+				524F445661184D559B7C7318 /* UIButton+TCCustomFont.m */,
+				A4419E2114DFE62A7C3A33A5 /* UILabel+TCCustomFont.h */,
+				ECC2A7232B56D703EECE3BDA /* UILabel+TCCustomFont.m */,
+				DBF8FF40B0E4EA8368C6086B /* UINavigationBar+TCCustomFont.h */,
+				A3385D37F9C0FD376D0ECF16 /* UINavigationBar+TCCustomFont.m */,
+				791879A601734CEA42CA202D /* UITextField+PlaceholderColor.h */,
+				6D1D5FD28CD1B3384AB13731 /* UITextField+PlaceholderColor.m */,
+				CAC829F6544D4AD00CE6F954 /* UITextField+TCCustomFont.h */,
+				C73DCCCA91C9290F46400B0D /* UITextField+TCCustomFont.m */,
+				5D202BD997C776B1BAA4528A /* UITextView+TCCustomFont.h */,
+				06BEEFD73D34A69CE5702037 /* UITextView+TCCustomFont.m */,
+				771FAFACE0C7AD30B2DE7301 /* Support Files */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		CC952AD616D91C47001ED24C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C489C3EB5FAFF73C638F026B /* Pods-CJMTwitterFollowButton.xcconfig */,
+				44984AFED7D605BFBD200E8F /* Pods-CJMTwitterFollowButton-Private.xcconfig */,
+				00CC601502DCC5C9C485A58E /* Pods-CJMTwitterFollowButton-dummy.m */,
+				B25B687F1C4277043722C32E /* Pods-CJMTwitterFollowButton-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-CJMTwitterFollowButton";
+			sourceTree = "<group>";
+		};
+		D44A0A8DD2827EE19F5FDE18 = {
+			isa = PBXGroup;
+			children = (
+				D311AC11F395BB3A93B7D937 /* Podfile */,
+				0915BB7A43C7DD3DA0E7CACB /* Frameworks */,
+				956915891AAD172AA3D74344 /* Pods */,
+				5AD4EC96770E5E1A3B14A592 /* Products */,
+				7D47C617D62041B205974FE0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D87BE91A7455F8FBBC504221 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A682B78DAD61CFC00BEF1311 /* CJMFollowMeButtonLarge.png */,
+				8D648BBEEBFF3720425083FF /* CJMFollowMeButtonLarge@2x.png */,
+				586EDC985ED41134B81F72CB /* CJMFollowMeButtonSmall.png */,
+				92B450788919B21262706649 /* CJMFollowMeButtonSmall@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E97C6F1D69870605941E2D4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADE9C967C29257B12CC92016 /* Pods-acknowledgements.markdown */,
+				5D2409BE86ECA5C1C12E3193 /* Pods-acknowledgements.plist */,
+				4CB40331242D4D9E7F353DF0 /* Pods-dummy.m */,
+				CA49D7D93776D263C8A54FB3 /* Pods-environment.h */,
+				D3A358CC7EB7B6A896F369B1 /* Pods-resources.sh */,
+				F2EAAC8DFDF6358869A5FB66 /* Pods.debug.xcconfig */,
+				656B38C8A83AF5D3AF053C68 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		00270290E369C7E75EEC3BA2 /* Headers */ = {
+		076C4C333D9F130CE0A7B34F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78E958BB9BE01106306BEBAE /* SBJson4.h in Headers */,
-				1AF2D3BBE1B9E52A47DA4DEE /* SBJson4Parser.h in Headers */,
-				8A4C4BCF2C0CC9BDCFE51B3A /* SBJson4StreamParser.h in Headers */,
-				2E9F11A93229370627DE4F21 /* SBJson4StreamParserState.h in Headers */,
-				22B450FE0BB49F7FF1361EFD /* SBJson4StreamTokeniser.h in Headers */,
-				B24B4F4A77C7A9130D90C559 /* SBJson4StreamWriter.h in Headers */,
-				E0F30436052DE2650BEB03FE /* SBJson4StreamWriterState.h in Headers */,
-				408B8930FE3CC6FF85292F1C /* SBJson4Writer.h in Headers */,
+				15F35228444C39CA96340C91 /* FloatConversion.h in Headers */,
+				53F848ABA6CA136A9B19B51D /* POP.h in Headers */,
+				FB882CD78249687BBD47FB60 /* POPAction.h in Headers */,
+				0AD44C7D73DB524D6CF2B90D /* POPAnimatableProperty.h in Headers */,
+				D108CE27C3CE1D424FA5AC55 /* POPAnimation.h in Headers */,
+				938D301CD8B1E114ACD25DBD /* POPAnimationEvent.h in Headers */,
+				FEA2CCD2F54EF5A3B06B1B75 /* POPAnimationEventInternal.h in Headers */,
+				789E41C8A577ECCA2C583339 /* POPAnimationExtras.h in Headers */,
+				927A6FAD369033E1BA8711E9 /* POPAnimationInternal.h in Headers */,
+				65C22304C70674EFC5CB8858 /* POPAnimationPrivate.h in Headers */,
+				D6F6E2A652EC8597361E1997 /* POPAnimationRuntime.h in Headers */,
+				977CD5FD4243EF4BBC34584F /* POPAnimationTracer.h in Headers */,
+				432E71860AC720A4D3821F52 /* POPAnimationTracerInternal.h in Headers */,
+				5C1902D43F0D901C73CEF325 /* POPAnimator.h in Headers */,
+				01F4135193D7634E46E84E9B /* POPAnimatorPrivate.h in Headers */,
+				B48F1BA70B2E46B09A70C476 /* POPBasicAnimation.h in Headers */,
+				84D49402BCAD5DC6359340D2 /* POPBasicAnimationInternal.h in Headers */,
+				40A69A14021794F427A1EB40 /* POPCGUtils.h in Headers */,
+				FA7DE78314FA783DC2839E66 /* POPCustomAnimation.h in Headers */,
+				447C23C9977CB2A8FB7374F7 /* POPDecayAnimation.h in Headers */,
+				3431A09E7E4EED2714BB91C0 /* POPDecayAnimationInternal.h in Headers */,
+				5A7F6A2A3197FC7EB8055167 /* POPDefines.h in Headers */,
+				B750AC727ECB9BD7965448C8 /* POPGeometry.h in Headers */,
+				4B991CAB1914450094F22472 /* POPLayerExtras.h in Headers */,
+				8D167496F11903F55D37C752 /* POPMath.h in Headers */,
+				2DDA13948FA44A43E546699E /* POPPropertyAnimation.h in Headers */,
+				CE231B5C4CCA27E6BD189230 /* POPPropertyAnimationInternal.h in Headers */,
+				6C80C3390D79EF3999687801 /* POPSpringAnimation.h in Headers */,
+				8671CB448D9FA9C33663662A /* POPSpringAnimationInternal.h in Headers */,
+				1EE6C6861D79F56AF6217288 /* POPSpringSolver.h in Headers */,
+				609D068E7EED472891DD4D6C /* POPVector.h in Headers */,
+				F7ED3F3B5D5BF4F388741ECC /* TransformationMatrix.h in Headers */,
+				CDC02349301D5AA918891DA2 /* UnitBezier.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		03EA904637BAACEB59C46053 /* Headers */ = {
+		367BA0A93354BF32A223B74E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FED03A7CD9D22B61C07B904 /* CSAnimation.h in Headers */,
-				111021E5430A6A6285B2DD92 /* CSAnimationView.h in Headers */,
-				D028E762E349DD326F51BDF1 /* CSBlurView.h in Headers */,
-				8DC35309E5EE4E54B6CB728D /* CSNavigationController.h in Headers */,
-				75D82E3B2395D6B9A9F7083B /* UIButton+TCCustomFont.h in Headers */,
-				413C8B8602B7E8D8911FD366 /* UILabel+TCCustomFont.h in Headers */,
-				DB4998FA8A772C0DF8EA92D7 /* UINavigationBar+TCCustomFont.h in Headers */,
-				5647F1CD101E9759CB7AB523 /* UITextField+PlaceholderColor.h in Headers */,
-				AE2E3E397BC675B924199128 /* UITextField+TCCustomFont.h in Headers */,
-				47F38CB4EC79281074676A34 /* UITextView+TCCustomFont.h in Headers */,
+				3C0A8F74F86B099754592FC0 /* LCZoomTransition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EF28AB642854E41DEFEB398 /* Headers */ = {
+		75DBECC2234CD84CB7CCEA85 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15171694F58551CCCE37EC1C /* ABPadButton.h in Headers */,
-				950EF2DC69706292FC828EC2 /* ABPadLockScreenAbstractViewController.h in Headers */,
-				E87097F48586F3521B774495 /* ABPadLockScreenSetupViewController.h in Headers */,
-				848A1F2AF4089A6D929DEF9D /* ABPadLockScreenView.h in Headers */,
-				0394A77DE3A7FE57EF7D7EF9 /* ABPadLockScreenViewController.h in Headers */,
-				A85EE3CA9AB276EA5E73F3F2 /* ABPinSelectionView.h in Headers */,
+				54D47A1296BEAB7CD5743514 /* SBJson4.h in Headers */,
+				2B66BC609BB1F522CF27BE39 /* SBJson4Parser.h in Headers */,
+				ABEDD51B7EC9D2ED5F62F9C4 /* SBJson4StreamParser.h in Headers */,
+				459BE35C23EAF090D87D5E8A /* SBJson4StreamParserState.h in Headers */,
+				57EC6EA4BE7416D57DB8330C /* SBJson4StreamTokeniser.h in Headers */,
+				686757B77BCED4A493D044B0 /* SBJson4StreamWriter.h in Headers */,
+				6F113B62A191E3FBCAA2003C /* SBJson4StreamWriterState.h in Headers */,
+				6C174E63569EC4F58E225CE0 /* SBJson4Writer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		450DE017BCA08CFDE7EDEB51 /* Headers */ = {
+		9CBD2393D34E4A5D6C7AFEF5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54434872FDF4A260DD8CBB85 /* FloatConversion.h in Headers */,
-				4640BE3CA703CBA52EF6B79C /* POP.h in Headers */,
-				B618C5FAA24E1244E56B5BE6 /* POPAction.h in Headers */,
-				4F2821E3A50ACF90A72190C0 /* POPAnimatableProperty.h in Headers */,
-				7EE154921CEB3F42A41CC1D6 /* POPAnimation.h in Headers */,
-				38F301BD33617BDD7FBE9A5F /* POPAnimationEvent.h in Headers */,
-				6003A3393A89D75A78FACF44 /* POPAnimationEventInternal.h in Headers */,
-				64D24AE3ADE04BC6F3E9B747 /* POPAnimationExtras.h in Headers */,
-				23D56EB4CBD0F3199BE12BEE /* POPAnimationInternal.h in Headers */,
-				9C131938302498CB0A82A031 /* POPAnimationPrivate.h in Headers */,
-				5EBA25DB6A2B2D0A9F852138 /* POPAnimationRuntime.h in Headers */,
-				5368BA308B4ED1E2D114DCB3 /* POPAnimationTracer.h in Headers */,
-				F0779E953CA8D58830254116 /* POPAnimationTracerInternal.h in Headers */,
-				FCF245081F00C64078FCECC9 /* POPAnimator.h in Headers */,
-				953B20AAF7D1ED4412A58F60 /* POPAnimatorPrivate.h in Headers */,
-				85CC07B2BE495590A2764464 /* POPBasicAnimation.h in Headers */,
-				8693E2619E02B30A5080C8E3 /* POPBasicAnimationInternal.h in Headers */,
-				8B09B5480825EED9AF0B7EB6 /* POPCGUtils.h in Headers */,
-				BCAD1048535C13D30B5D0ED3 /* POPCustomAnimation.h in Headers */,
-				EBAF102111D6B5112E7322BF /* POPDecayAnimation.h in Headers */,
-				DACFA48DC0DF94FDDC02182B /* POPDecayAnimationInternal.h in Headers */,
-				38EDF06B675F4AC8D4750632 /* POPDefines.h in Headers */,
-				539831BF3E5824ABB7C696ED /* POPGeometry.h in Headers */,
-				8CB725E6B4D91E506DE648AA /* POPLayerExtras.h in Headers */,
-				589F9540ABD31B4D02C6392F /* POPMath.h in Headers */,
-				5EFB7901E448A9EB37FCD3DE /* POPPropertyAnimation.h in Headers */,
-				08F788CCFA886096718A90CE /* POPPropertyAnimationInternal.h in Headers */,
-				8739336BAB7D4B73BC4AABB4 /* POPSpringAnimation.h in Headers */,
-				3F032430872628D7E18F2C53 /* POPSpringAnimationInternal.h in Headers */,
-				580FB2D60817D39D47FDF89A /* POPSpringSolver.h in Headers */,
-				1ABE9564F7064D5C580C6356 /* POPVector.h in Headers */,
-				375424E35F59CB6874ED64C4 /* TransformationMatrix.h in Headers */,
-				31593582199F26B23650C43A /* UnitBezier.h in Headers */,
+				4BF25E5E9DD9B6B509833C30 /* ABPadButton.h in Headers */,
+				A6381BD3659BE64889C1C969 /* ABPadLockScreenAbstractViewController.h in Headers */,
+				3958DB2C98C172FE09775A39 /* ABPadLockScreenSetupViewController.h in Headers */,
+				57D9E63E670287BF1FA61487 /* ABPadLockScreenView.h in Headers */,
+				671D69057307251EAB401B14 /* ABPadLockScreenViewController.h in Headers */,
+				790CF4617427D9036C6D40A7 /* ABPinSelectionView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B5B61E51DF45629CDB95B30 /* Headers */ = {
+		9FB36A82E5DF3C18161D922E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567CC79DC3701980B0A17A98 /* LCZoomTransition.h in Headers */,
+				FAF79089A5171FA1B7504D6C /* CJMTwitterFollowButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D05B1771FCF94283198EEBBD /* Headers */ = {
+		F699EB6DC61E024EA87AC096 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D27B638AB4CD60769B0169 /* CJMTwitterFollowButton.h in Headers */,
+				5357515340B4389478DA5B66 /* CSAnimation.h in Headers */,
+				A20A7C5C42AAA5ED6D32C3AD /* CSAnimationView.h in Headers */,
+				76FA853A0457777C640A1501 /* CSBlurView.h in Headers */,
+				7E62CAA960050ABC35E9082D /* CSNavigationController.h in Headers */,
+				90AF161233ADFC685BD6A570 /* UIButton+TCCustomFont.h in Headers */,
+				E30A2BE42A200B5CDFA6D718 /* UILabel+TCCustomFont.h in Headers */,
+				00AF7AB2E56E452A75991994 /* UINavigationBar+TCCustomFont.h in Headers */,
+				20544FF9AD5B480477519723 /* UITextField+PlaceholderColor.h in Headers */,
+				644AA65A1901B46E0246D727 /* UITextField+TCCustomFont.h in Headers */,
+				0BA643754F9A88E74EE2C153 /* UITextView+TCCustomFont.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		00532500298E348B3FCACB77 /* Pods-SBJson */ = {
+		1FD10C77D5E200CE3118E350 /* Pods-Canvas */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66F55FBD5BD41A5F16BDC660 /* Build configuration list for PBXNativeTarget "Pods-SBJson" */;
+			buildConfigurationList = 0F8308680B3B4B70911EE240 /* Build configuration list for PBXNativeTarget "Pods-Canvas" */;
 			buildPhases = (
-				85AC79EBAEC49BCB33046749 /* Sources */,
-				4CD8A650E9B1E47D028808B8 /* Frameworks */,
-				00270290E369C7E75EEC3BA2 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-SBJson";
-			productName = "Pods-SBJson";
-			productReference = D3B5231DB2DD059826EB0A2A /* libPods-SBJson.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		1046CA192A546F68A0915284 /* Pods-Canvas */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D7B12D96FB217D0CC4B8EAE /* Build configuration list for PBXNativeTarget "Pods-Canvas" */;
-			buildPhases = (
-				E93CD9F56C1A2B1672F6D402 /* Sources */,
-				46A21D3D78937E40BA0DD8A7 /* Frameworks */,
-				03EA904637BAACEB59C46053 /* Headers */,
+				3B6B7F466E9A91366F8078A4 /* Sources */,
+				3BFFA3C530C685EF698587AC /* Frameworks */,
+				F699EB6DC61E024EA87AC096 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -828,89 +811,16 @@
 			);
 			name = "Pods-Canvas";
 			productName = "Pods-Canvas";
-			productReference = 0A201135D9DBA201E36BCF97 /* libPods-Canvas.a */;
+			productReference = 3EB14D85F47FFEC63D24B9BD /* libPods-Canvas.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		290387171ED34BFAB50B74C1 /* Pods-LCZoomTransition */ = {
+		4477A82C0871324BDE576826 /* Pods-pop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7006DB78E3348773A06AC78D /* Build configuration list for PBXNativeTarget "Pods-LCZoomTransition" */;
+			buildConfigurationList = B59383CDC9F2050EAE9E2D26 /* Build configuration list for PBXNativeTarget "Pods-pop" */;
 			buildPhases = (
-				3C7A9D8945931B29DE90A318 /* Sources */,
-				DF369DE6132D21E9DF2BD18E /* Frameworks */,
-				8B5B61E51DF45629CDB95B30 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-LCZoomTransition";
-			productName = "Pods-LCZoomTransition";
-			productReference = 374748B2C6EE000A8393BE3F /* libPods-LCZoomTransition.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		2B61037290650E8A356825AA /* Pods-ABPadLockScreen */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6B3A812B906C6BFE64A09680 /* Build configuration list for PBXNativeTarget "Pods-ABPadLockScreen" */;
-			buildPhases = (
-				13DC04F30C0D015BF340FF20 /* Sources */,
-				A409C3BE2B6EF7CEC53E8D9C /* Frameworks */,
-				2EF28AB642854E41DEFEB398 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-ABPadLockScreen";
-			productName = "Pods-ABPadLockScreen";
-			productReference = ECCC10416914A3A82964519E /* libPods-ABPadLockScreen.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		4E504B451D894B2CE8DC8AB8 /* Pods-CJMTwitterFollowButton */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AEAACECC46C8A86D2F6BBA62 /* Build configuration list for PBXNativeTarget "Pods-CJMTwitterFollowButton" */;
-			buildPhases = (
-				3EC0B199392CB85F9840DDB3 /* Sources */,
-				B8EF4FDEA1C231664EF5DF7E /* Frameworks */,
-				D05B1771FCF94283198EEBBD /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-CJMTwitterFollowButton";
-			productName = "Pods-CJMTwitterFollowButton";
-			productReference = 5E0E23DF211B4D3E3C47D9D8 /* libPods-CJMTwitterFollowButton.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		5F6FA7F5C8A83983DC93B709 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 40EE5A7F630FD86687D6A439 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				54CFFC12153445D5DCF204D4 /* Sources */,
-				28DF68981BE00F6DD6077799 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FF0A2DC5D835E029CE87F3B9 /* PBXTargetDependency */,
-				562E8E80A8E87624E52FBE26 /* PBXTargetDependency */,
-				2C2CA730319A06C5437CD382 /* PBXTargetDependency */,
-				B68E36184379968D79799E24 /* PBXTargetDependency */,
-				85110F8DC0C0D93814D43F11 /* PBXTargetDependency */,
-				DC495C79801C2EFFDD102FA3 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = D52A9272C63BFD72E352E4E1 /* libPods.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		7386D9213FE0B40F1D621ED6 /* Pods-pop */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9CA79B5BF5C8E399404CF7CD /* Build configuration list for PBXNativeTarget "Pods-pop" */;
-			buildPhases = (
-				EB0189A025EE10FD1BA28F37 /* Sources */,
-				0902CEAEFEED9182F8CB6378 /* Frameworks */,
-				450DE017BCA08CFDE7EDEB51 /* Headers */,
+				6BF94A3ECAF8DDE4FCEF4DB6 /* Sources */,
+				2FAC0388538A57D1C947F597 /* Frameworks */,
+				076C4C333D9F130CE0A7B34F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -918,188 +828,278 @@
 			);
 			name = "Pods-pop";
 			productName = "Pods-pop";
-			productReference = F80B63AD4A45A2A60B26A9BA /* libPods-pop.a */;
+			productReference = 93BAE181F1A623AD617F84B7 /* libPods-pop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7BC8B70163B7BA21A4CE4871 /* Pods-CJMTwitterFollowButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B61B5321CAD0D860FD0B0514 /* Build configuration list for PBXNativeTarget "Pods-CJMTwitterFollowButton" */;
+			buildPhases = (
+				9A229B7FEE6E1BC3CFD9A65F /* Sources */,
+				9A7F97D328D1B09A7E3010DD /* Frameworks */,
+				9FB36A82E5DF3C18161D922E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-CJMTwitterFollowButton";
+			productName = "Pods-CJMTwitterFollowButton";
+			productReference = 32311635724D84B87F26FF47 /* libPods-CJMTwitterFollowButton.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		ABA4B01B50ECC9E997DA169F /* Pods-ABPadLockScreen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 245C576ACC0C355D289F7052 /* Build configuration list for PBXNativeTarget "Pods-ABPadLockScreen" */;
+			buildPhases = (
+				36AECC7BB6D8B3CED8469DD3 /* Sources */,
+				0703DE4B84B06194D7845747 /* Frameworks */,
+				9CBD2393D34E4A5D6C7AFEF5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ABPadLockScreen";
+			productName = "Pods-ABPadLockScreen";
+			productReference = C8E881E990EC24B84C4E99C3 /* libPods-ABPadLockScreen.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D37712B6199CBE885F68AC52 /* Pods-SBJson */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE4A7A15E2F4CEA61E265D3 /* Build configuration list for PBXNativeTarget "Pods-SBJson" */;
+			buildPhases = (
+				B954BDEF4D919A7AD052BC99 /* Sources */,
+				D496ABC7AC92827F3D8DD724 /* Frameworks */,
+				75DBECC2234CD84CB7CCEA85 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SBJson";
+			productName = "Pods-SBJson";
+			productReference = 9E2C9CB36926C019C6350A28 /* libPods-SBJson.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D396329A450112272C46F617 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97FDFA599AAD4E0CAF194009 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				4AC9BEE338BC00FB675E1554 /* Sources */,
+				79A7448FD7D3A56B7475D5EA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9892461BB7571B6B1B75E5D6 /* PBXTargetDependency */,
+				EC082D47D075EA2CD24F802F /* PBXTargetDependency */,
+				F29229CA42C8F01BB19BD8BE /* PBXTargetDependency */,
+				484E200ED6C6C5A883829C17 /* PBXTargetDependency */,
+				3C996C57ED47D2F650E32DAE /* PBXTargetDependency */,
+				A87D389792A6D1C761B89CE1 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 680B0F5B2249764E3E1AA4E1 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EE6E67CD377BB3F12F528BBA /* Pods-LCZoomTransition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2590779CBA24771CECF7275 /* Build configuration list for PBXNativeTarget "Pods-LCZoomTransition" */;
+			buildPhases = (
+				65B92F0F8F4204B2628048B1 /* Sources */,
+				0A52C86C3A1DFD8FB2CC1E66 /* Frameworks */,
+				367BA0A93354BF32A223B74E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-LCZoomTransition";
+			productName = "Pods-LCZoomTransition";
+			productReference = 174B92D31C8480DFD433BE76 /* libPods-LCZoomTransition.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8B697746351C0029005D6264 /* Project object */ = {
+		4BD12AE875E2CEA684E88CCE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 53C3CC17BC9BCB2535362FC5 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = B8B7E0F458FCEF9D58722D99 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = B41FBDBC1E422F34892892B4;
-			productRefGroup = F6957ED2598D4B60DA6D6672 /* Products */;
+			mainGroup = D44A0A8DD2827EE19F5FDE18;
+			productRefGroup = 5AD4EC96770E5E1A3B14A592 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F6FA7F5C8A83983DC93B709 /* Pods */,
-				2B61037290650E8A356825AA /* Pods-ABPadLockScreen */,
-				4E504B451D894B2CE8DC8AB8 /* Pods-CJMTwitterFollowButton */,
-				1046CA192A546F68A0915284 /* Pods-Canvas */,
-				290387171ED34BFAB50B74C1 /* Pods-LCZoomTransition */,
-				00532500298E348B3FCACB77 /* Pods-SBJson */,
-				7386D9213FE0B40F1D621ED6 /* Pods-pop */,
+				D396329A450112272C46F617 /* Pods */,
+				ABA4B01B50ECC9E997DA169F /* Pods-ABPadLockScreen */,
+				7BC8B70163B7BA21A4CE4871 /* Pods-CJMTwitterFollowButton */,
+				1FD10C77D5E200CE3118E350 /* Pods-Canvas */,
+				EE6E67CD377BB3F12F528BBA /* Pods-LCZoomTransition */,
+				D37712B6199CBE885F68AC52 /* Pods-SBJson */,
+				4477A82C0871324BDE576826 /* Pods-pop */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		13DC04F30C0D015BF340FF20 /* Sources */ = {
+		36AECC7BB6D8B3CED8469DD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52B51F6B86B42F13C2ACB1B /* ABPadButton.m in Sources */,
-				4B66BC99A3E3C9976D19C97D /* ABPadLockScreenAbstractViewController.m in Sources */,
-				BCE1A07A27EABEDB47A313DB /* ABPadLockScreenSetupViewController.m in Sources */,
-				3D2144123EA261B31A65FBA9 /* ABPadLockScreenView.m in Sources */,
-				E92F4FF0547EA5052946F1E5 /* ABPadLockScreenViewController.m in Sources */,
-				91392A3DB9FD284BA80BB7D0 /* ABPinSelectionView.m in Sources */,
-				D7E17A79DD62298D0B974F6B /* Pods-ABPadLockScreen-dummy.m in Sources */,
+				65961C87C0DE336C86B04545 /* ABPadButton.m in Sources */,
+				9DCC60C32BBDDBEC73EDA740 /* ABPadLockScreenAbstractViewController.m in Sources */,
+				FA3E114BC8E5719F34340BC5 /* ABPadLockScreenSetupViewController.m in Sources */,
+				334C42BD0DD1D15A4842C60E /* ABPadLockScreenView.m in Sources */,
+				7F63AA10D44A94B7A923F90C /* ABPadLockScreenViewController.m in Sources */,
+				8E00681516A04763BE63D502 /* ABPinSelectionView.m in Sources */,
+				0952FD22BE26225FC99DD22F /* Pods-ABPadLockScreen-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C7A9D8945931B29DE90A318 /* Sources */ = {
+		3B6B7F466E9A91366F8078A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8D4035BD17132F435AE3C81 /* LCZoomTransition.m in Sources */,
-				37DBA1F4B2886555198170B5 /* Pods-LCZoomTransition-dummy.m in Sources */,
+				A66197F3171538F52416ECF0 /* CSAnimation.m in Sources */,
+				71DECEF3A010170C99914472 /* CSAnimationView.m in Sources */,
+				7DEC379585E60E9CEEDE173E /* CSBlurView.m in Sources */,
+				EABC1358FF2C3FE16CCA91CC /* CSNavigationController.m in Sources */,
+				E0DC527C5DE1D75E5997A2A5 /* Pods-Canvas-dummy.m in Sources */,
+				F83A41D0EC7EAE3FAEC0D17C /* UIButton+TCCustomFont.m in Sources */,
+				B6A658CD9AC2CD5683139857 /* UILabel+TCCustomFont.m in Sources */,
+				F20F523F5C9CFD85310D7523 /* UINavigationBar+TCCustomFont.m in Sources */,
+				B45E60241080F838A60525DD /* UITextField+PlaceholderColor.m in Sources */,
+				F79FDEC2516F32869CFCC698 /* UITextField+TCCustomFont.m in Sources */,
+				C4DBE2092B6DC53EDA68CE88 /* UITextView+TCCustomFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EC0B199392CB85F9840DDB3 /* Sources */ = {
+		4AC9BEE338BC00FB675E1554 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64E3C31CA505AAB5A6CE3C9D /* CJMTwitterFollowButton.m in Sources */,
-				C42547BDFE649D40C4F21E43 /* Pods-CJMTwitterFollowButton-dummy.m in Sources */,
+				0DA93E2B95296BFA0E024BC1 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		54CFFC12153445D5DCF204D4 /* Sources */ = {
+		65B92F0F8F4204B2628048B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5157E02B6B94EF444C3AA482 /* Pods-dummy.m in Sources */,
+				2A24B4BE9D4C4B3D8A10AB63 /* LCZoomTransition.m in Sources */,
+				CC4F1C4E0A472616EF9271AF /* Pods-LCZoomTransition-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85AC79EBAEC49BCB33046749 /* Sources */ = {
+		6BF94A3ECAF8DDE4FCEF4DB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7C57A076497354D610F285C /* Pods-SBJson-dummy.m in Sources */,
-				6A35C2D3EC860EDFBCBEB1DA /* SBJson4Parser.m in Sources */,
-				880A0F332A29BC82E1EC1799 /* SBJson4StreamParser.m in Sources */,
-				9762C8D5C528ABCC4026EB26 /* SBJson4StreamParserState.m in Sources */,
-				99E4E457C69940D71FC27AF9 /* SBJson4StreamTokeniser.m in Sources */,
-				C453938C88F13CEF9EA5BC40 /* SBJson4StreamWriter.m in Sources */,
-				7654D4A314F5D030CB6483C1 /* SBJson4StreamWriterState.m in Sources */,
-				B36235963BF494920577CA11 /* SBJson4Writer.m in Sources */,
+				288B6C1C653F3B8412C13627 /* POPAnimatableProperty.mm in Sources */,
+				65E307711306318E5FB92DC6 /* POPAnimation.mm in Sources */,
+				D79DD75CD1197D350351663A /* POPAnimationEvent.mm in Sources */,
+				F50F8B264D336A97E2078E0D /* POPAnimationExtras.mm in Sources */,
+				E302D99D0CB380301B49F001 /* POPAnimationRuntime.mm in Sources */,
+				CCD5BF9C13F8419305208B9F /* POPAnimationTracer.mm in Sources */,
+				BB9B6C7EB9FE208E4DFE4C0E /* POPAnimator.mm in Sources */,
+				27EC2978D0F1CBFD900E2C2E /* POPBasicAnimation.mm in Sources */,
+				DDE4463BD5777FC26922E914 /* POPCGUtils.mm in Sources */,
+				A6934720849D174085D2ABA4 /* POPCustomAnimation.mm in Sources */,
+				705C10119727D8CA71998A13 /* POPDecayAnimation.mm in Sources */,
+				5939AA7285D24E168CBC9EC0 /* POPGeometry.mm in Sources */,
+				DBF83FB0CBC4646EED9B4BC3 /* POPLayerExtras.mm in Sources */,
+				2D2F2C11E1128B22BCD84FEC /* POPMath.mm in Sources */,
+				100988FCA023149A6825C5F6 /* POPPropertyAnimation.mm in Sources */,
+				9808F3E6B9708F813931065E /* POPSpringAnimation.mm in Sources */,
+				E0403E6A8F3C9056C45323A4 /* POPVector.mm in Sources */,
+				C5BC5DAACB5A97DC76924DCE /* Pods-pop-dummy.m in Sources */,
+				5188FD31DED6DFC26277742A /* TransformationMatrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E93CD9F56C1A2B1672F6D402 /* Sources */ = {
+		9A229B7FEE6E1BC3CFD9A65F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F88FDE16AFBD6C8017D0279E /* CSAnimation.m in Sources */,
-				A48F4F8C4616D83715A118FA /* CSAnimationView.m in Sources */,
-				BBF2941454C9DE67F02B7E9A /* CSBlurView.m in Sources */,
-				A910E1E01AFE33FC7CE4871E /* CSNavigationController.m in Sources */,
-				10F40E5C9D59762ABA1192A6 /* Pods-Canvas-dummy.m in Sources */,
-				BDCF84C31CEBEB594F72A8E8 /* UIButton+TCCustomFont.m in Sources */,
-				24C1F5CF3E18AF2D5E6C5017 /* UILabel+TCCustomFont.m in Sources */,
-				9CEA9AA37DC7DED9EF2A0F5F /* UINavigationBar+TCCustomFont.m in Sources */,
-				CD0E15D17C2DB23ABCBD164A /* UITextField+PlaceholderColor.m in Sources */,
-				B013646807980231F62A50D1 /* UITextField+TCCustomFont.m in Sources */,
-				BD6B3087D42EFD2B7E76C1D4 /* UITextView+TCCustomFont.m in Sources */,
+				CE6FCBCFBACFA5B61CADFFCB /* CJMTwitterFollowButton.m in Sources */,
+				E6CF83DD913034C12C9D6DBD /* Pods-CJMTwitterFollowButton-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB0189A025EE10FD1BA28F37 /* Sources */ = {
+		B954BDEF4D919A7AD052BC99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				755C448B878C9D824CF44E04 /* POPAnimatableProperty.mm in Sources */,
-				38895CC80539EE28CAD8B53C /* POPAnimation.mm in Sources */,
-				6D1A7A14AF1EA428151CEE7B /* POPAnimationEvent.mm in Sources */,
-				33FCD7C63038B8535682C5A3 /* POPAnimationExtras.mm in Sources */,
-				323B2B1E7184624E56CFFDBD /* POPAnimationRuntime.mm in Sources */,
-				19739412979640B39947B887 /* POPAnimationTracer.mm in Sources */,
-				B0D376AE814E2686A76CBF95 /* POPAnimator.mm in Sources */,
-				5347A428E22A9ED5C6F8713D /* POPBasicAnimation.mm in Sources */,
-				F3B962440CDDB20EA96BE2FF /* POPCGUtils.mm in Sources */,
-				67D9C34C15705D4C459478F7 /* POPCustomAnimation.mm in Sources */,
-				4158350C8EF99BB61D8FD707 /* POPDecayAnimation.mm in Sources */,
-				68529D950D75D8104925CA47 /* POPGeometry.mm in Sources */,
-				A4FC2F5A08CA57265A2013C0 /* POPLayerExtras.mm in Sources */,
-				6D91D0B6D00968C4449EB81F /* POPMath.mm in Sources */,
-				7BE36B6F989FE2FEC7B4F994 /* POPPropertyAnimation.mm in Sources */,
-				4A1731295914D708521008FC /* POPSpringAnimation.mm in Sources */,
-				D60778ED4FA93770F04CCFB7 /* POPVector.mm in Sources */,
-				FB84211D94F4ECD75E24198C /* Pods-pop-dummy.m in Sources */,
-				2D31A840789E9F83F3168FEC /* TransformationMatrix.cpp in Sources */,
+				75737F376FF6CA05C79D45AF /* Pods-SBJson-dummy.m in Sources */,
+				DC7C073DFA93C5693C18C4B1 /* SBJson4Parser.m in Sources */,
+				DE63DF66EFD35D9DA9FB1736 /* SBJson4StreamParser.m in Sources */,
+				5C17CFB2028AA0C3848B87B7 /* SBJson4StreamParserState.m in Sources */,
+				0CDB5D5D830E4DBD4D490906 /* SBJson4StreamTokeniser.m in Sources */,
+				2CC64FB220CBD2916C470511 /* SBJson4StreamWriter.m in Sources */,
+				439C8953774D7587B6277807 /* SBJson4StreamWriterState.m in Sources */,
+				9D91D775D18479DFFA40C4F3 /* SBJson4Writer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2C2CA730319A06C5437CD382 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Canvas";
-			target = 1046CA192A546F68A0915284 /* Pods-Canvas */;
-			targetProxy = 756C036593C299DDE4E90087 /* PBXContainerItemProxy */;
-		};
-		562E8E80A8E87624E52FBE26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-CJMTwitterFollowButton";
-			target = 4E504B451D894B2CE8DC8AB8 /* Pods-CJMTwitterFollowButton */;
-			targetProxy = 0D4DF389496E0E6293DB7139 /* PBXContainerItemProxy */;
-		};
-		85110F8DC0C0D93814D43F11 /* PBXTargetDependency */ = {
+		3C996C57ED47D2F650E32DAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-SBJson";
-			target = 00532500298E348B3FCACB77 /* Pods-SBJson */;
-			targetProxy = 426CAE000EECC326A483C0EB /* PBXContainerItemProxy */;
+			target = D37712B6199CBE885F68AC52 /* Pods-SBJson */;
+			targetProxy = E880B3D44201E3109F99832B /* PBXContainerItemProxy */;
 		};
-		B68E36184379968D79799E24 /* PBXTargetDependency */ = {
+		484E200ED6C6C5A883829C17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-LCZoomTransition";
-			target = 290387171ED34BFAB50B74C1 /* Pods-LCZoomTransition */;
-			targetProxy = 40A1BC7254474EBEA3557820 /* PBXContainerItemProxy */;
+			target = EE6E67CD377BB3F12F528BBA /* Pods-LCZoomTransition */;
+			targetProxy = 3009E3E9A22AD7F76ADE0FB2 /* PBXContainerItemProxy */;
 		};
-		DC495C79801C2EFFDD102FA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-pop";
-			target = 7386D9213FE0B40F1D621ED6 /* Pods-pop */;
-			targetProxy = C74B2CD034B1FE7D4219E653 /* PBXContainerItemProxy */;
-		};
-		FF0A2DC5D835E029CE87F3B9 /* PBXTargetDependency */ = {
+		9892461BB7571B6B1B75E5D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-ABPadLockScreen";
-			target = 2B61037290650E8A356825AA /* Pods-ABPadLockScreen */;
-			targetProxy = 74FB12F8C1A8FB48679F9AFC /* PBXContainerItemProxy */;
+			target = ABA4B01B50ECC9E997DA169F /* Pods-ABPadLockScreen */;
+			targetProxy = 085F9F612CD4DE17E498171C /* PBXContainerItemProxy */;
+		};
+		A87D389792A6D1C761B89CE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-pop";
+			target = 4477A82C0871324BDE576826 /* Pods-pop */;
+			targetProxy = E27F59625CB45193E219617B /* PBXContainerItemProxy */;
+		};
+		EC082D47D075EA2CD24F802F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-CJMTwitterFollowButton";
+			target = 7BC8B70163B7BA21A4CE4871 /* Pods-CJMTwitterFollowButton */;
+			targetProxy = 7C9C7374B6272B90F5D4B2A6 /* PBXContainerItemProxy */;
+		};
+		F29229CA42C8F01BB19BD8BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Canvas";
+			target = 1FD10C77D5E200CE3118E350 /* Pods-Canvas */;
+			targetProxy = 999FFB4409A9A9354263D542 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1AD7B3F34CE95A63488C6AF6 /* Release */ = {
+		0C048124C553727A515F262B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40FD13CBC5F0A1F873DCC5C5 /* Pods-LCZoomTransition-Private.xcconfig */;
+			baseConfigurationReference = 4D17789EFD5F3E83C11E8B7C /* Pods-ABPadLockScreen-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-LCZoomTransition/Pods-LCZoomTransition-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-ABPadLockScreen/Pods-ABPadLockScreen-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1110,9 +1110,25 @@
 			};
 			name = Release;
 		};
-		260CBC8F8A3325418B99BAB8 /* Debug */ = {
+		0FB06209B93117733813E07E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34D1E059EDDF73F2DFC9BE3E /* Pods-SBJson-Private.xcconfig */;
+			baseConfigurationReference = 929B16A5ED9A21F3E3F1656B /* Pods-Canvas-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Canvas/Pods-Canvas-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4368554642EBD7C60C10894A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69CF66C5E8FB27BBBA75928F /* Pods-SBJson-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-SBJson/Pods-SBJson-prefix.pch";
@@ -1126,12 +1142,12 @@
 			};
 			name = Debug;
 		};
-		2AA32F87A5F9868285517B5B /* Release */ = {
+		6076CC5963E8D5F00A0311CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BE65641A569310E91B3A8BA /* Pods-Canvas-Private.xcconfig */;
+			baseConfigurationReference = 2DE4CF9C06D214AA17D08A03 /* Pods-LCZoomTransition-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Canvas/Pods-Canvas-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LCZoomTransition/Pods-LCZoomTransition-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1142,12 +1158,12 @@
 			};
 			name = Release;
 		};
-		2DBD42E271F878C2940208FD /* Debug */ = {
+		710F89EC34518A28AD8E67B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40FD13CBC5F0A1F873DCC5C5 /* Pods-LCZoomTransition-Private.xcconfig */;
+			baseConfigurationReference = 3DA3AB48B53433A77A63F402 /* Pods-pop-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-LCZoomTransition/Pods-LCZoomTransition-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-pop/Pods-pop-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -1158,9 +1174,25 @@
 			};
 			name = Debug;
 		};
-		364F8043C97ECA2F54FAC29D /* Debug */ = {
+		7DDF3827CD4105B19A84E56B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8A1638F32F2DDDD9E09715C /* Pods-ABPadLockScreen-Private.xcconfig */;
+			baseConfigurationReference = 44984AFED7D605BFBD200E8F /* Pods-CJMTwitterFollowButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-CJMTwitterFollowButton/Pods-CJMTwitterFollowButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7F77BB3990EF484FCFC4C3CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D17789EFD5F3E83C11E8B7C /* Pods-ABPadLockScreen-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-ABPadLockScreen/Pods-ABPadLockScreen-prefix.pch";
@@ -1174,7 +1206,7 @@
 			};
 			name = Debug;
 		};
-		3CE1A4A874C8DF23D7D8B384 /* Debug */ = {
+		83E2774C484BF03D378DB592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1213,39 +1245,7 @@
 			};
 			name = Debug;
 		};
-		3E8551F1C5D26DE1C33C0B45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5B6CCF32F052D3562EFAB7F /* Pods-CJMTwitterFollowButton-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-CJMTwitterFollowButton/Pods-CJMTwitterFollowButton-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		3E86E5EE0909BBBEDBCF7947 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 346494134DF70CEFB9318698 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5DBA6FB533518F3B6F47621A /* Release */ = {
+		842AC9CAFB7A9DA6634B350C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1279,89 +1279,9 @@
 			};
 			name = Release;
 		};
-		8A647AA870190409C6A8ACF5 /* Debug */ = {
+		8C4D368D4B62E4EB58B10108 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A961D214C84836352E247EC5 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8AA803DA2DE79EBB1C39731F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BE65641A569310E91B3A8BA /* Pods-Canvas-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Canvas/Pods-Canvas-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		995EEB695DCAFD1F056358B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3EE994347E3117610A93E2F /* Pods-pop-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-pop/Pods-pop-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A73527E23B72FCEF5CE45E86 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3EE994347E3117610A93E2F /* Pods-pop-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-pop/Pods-pop-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		BD609FD9B201C80332762A3F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8A1638F32F2DDDD9E09715C /* Pods-ABPadLockScreen-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-ABPadLockScreen/Pods-ABPadLockScreen-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C2382B2274C9C1CBAA36CE6A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34D1E059EDDF73F2DFC9BE3E /* Pods-SBJson-Private.xcconfig */;
+			baseConfigurationReference = 69CF66C5E8FB27BBBA75928F /* Pods-SBJson-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-SBJson/Pods-SBJson-prefix.pch";
@@ -1375,12 +1295,60 @@
 			};
 			name = Release;
 		};
-		D4F28E2E1AD675B88F43CC6B /* Release */ = {
+		C351BA020D70324C9FB8291D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5B6CCF32F052D3562EFAB7F /* Pods-CJMTwitterFollowButton-Private.xcconfig */;
+			baseConfigurationReference = 656B38C8A83AF5D3AF053C68 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-CJMTwitterFollowButton/Pods-CJMTwitterFollowButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CE6A579565C9CD4F17E3E947 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2EAAC8DFDF6358869A5FB66 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D17807196FFD65157EE88560 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DE4CF9C06D214AA17D08A03 /* Pods-LCZoomTransition-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LCZoomTransition/Pods-LCZoomTransition-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DC9C82B01DF2350D488E4801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 929B16A5ED9A21F3E3F1656B /* Pods-Canvas-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Canvas/Pods-Canvas-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1391,82 +1359,114 @@
 			};
 			name = Release;
 		};
+		E7EB91A1AB8ACE90A45EFD54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA3AB48B53433A77A63F402 /* Pods-pop-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-pop/Pods-pop-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F10B7A853FCEBBB1ADC0904D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44984AFED7D605BFBD200E8F /* Pods-CJMTwitterFollowButton-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-CJMTwitterFollowButton/Pods-CJMTwitterFollowButton-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		40EE5A7F630FD86687D6A439 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		0F8308680B3B4B70911EE240 /* Build configuration list for PBXNativeTarget "Pods-Canvas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8A647AA870190409C6A8ACF5 /* Debug */,
-				3E86E5EE0909BBBEDBCF7947 /* Release */,
+				0FB06209B93117733813E07E /* Debug */,
+				DC9C82B01DF2350D488E4801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		53C3CC17BC9BCB2535362FC5 /* Build configuration list for PBXProject "Pods" */ = {
+		245C576ACC0C355D289F7052 /* Build configuration list for PBXNativeTarget "Pods-ABPadLockScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE1A4A874C8DF23D7D8B384 /* Debug */,
-				5DBA6FB533518F3B6F47621A /* Release */,
+				7F77BB3990EF484FCFC4C3CA /* Debug */,
+				0C048124C553727A515F262B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D7B12D96FB217D0CC4B8EAE /* Build configuration list for PBXNativeTarget "Pods-Canvas" */ = {
+		97FDFA599AAD4E0CAF194009 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AA803DA2DE79EBB1C39731F /* Debug */,
-				2AA32F87A5F9868285517B5B /* Release */,
+				CE6A579565C9CD4F17E3E947 /* Debug */,
+				C351BA020D70324C9FB8291D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66F55FBD5BD41A5F16BDC660 /* Build configuration list for PBXNativeTarget "Pods-SBJson" */ = {
+		B59383CDC9F2050EAE9E2D26 /* Build configuration list for PBXNativeTarget "Pods-pop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				260CBC8F8A3325418B99BAB8 /* Debug */,
-				C2382B2274C9C1CBAA36CE6A /* Release */,
+				710F89EC34518A28AD8E67B2 /* Debug */,
+				E7EB91A1AB8ACE90A45EFD54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B3A812B906C6BFE64A09680 /* Build configuration list for PBXNativeTarget "Pods-ABPadLockScreen" */ = {
+		B61B5321CAD0D860FD0B0514 /* Build configuration list for PBXNativeTarget "Pods-CJMTwitterFollowButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				364F8043C97ECA2F54FAC29D /* Debug */,
-				BD609FD9B201C80332762A3F /* Release */,
+				F10B7A853FCEBBB1ADC0904D /* Debug */,
+				7DDF3827CD4105B19A84E56B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7006DB78E3348773A06AC78D /* Build configuration list for PBXNativeTarget "Pods-LCZoomTransition" */ = {
+		B8B7E0F458FCEF9D58722D99 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2DBD42E271F878C2940208FD /* Debug */,
-				1AD7B3F34CE95A63488C6AF6 /* Release */,
+				83E2774C484BF03D378DB592 /* Debug */,
+				842AC9CAFB7A9DA6634B350C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9CA79B5BF5C8E399404CF7CD /* Build configuration list for PBXNativeTarget "Pods-pop" */ = {
+		CFE4A7A15E2F4CEA61E265D3 /* Build configuration list for PBXNativeTarget "Pods-SBJson" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				995EEB695DCAFD1F056358B2 /* Debug */,
-				A73527E23B72FCEF5CE45E86 /* Release */,
+				4368554642EBD7C60C10894A /* Debug */,
+				8C4D368D4B62E4EB58B10108 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AEAACECC46C8A86D2F6BBA62 /* Build configuration list for PBXNativeTarget "Pods-CJMTwitterFollowButton" */ = {
+		D2590779CBA24771CECF7275 /* Build configuration list for PBXNativeTarget "Pods-LCZoomTransition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3E8551F1C5D26DE1C33C0B45 /* Debug */,
-				D4F28E2E1AD675B88F43CC6B /* Release */,
+				D17807196FFD65157EE88560 /* Debug */,
+				6076CC5963E8D5F00A0311CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8B697746351C0029005D6264 /* Project object */;
+	rootObject = 4BD12AE875E2CEA684E88CCE /* Project object */;
 }

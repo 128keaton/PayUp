@@ -185,6 +185,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
     UITableView *tableView = self.tableView;
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    NSMutableArray *todayDataArray = [[NSMutableArray alloc]init];
+    if([sharedUserDefaults objectForKey:@"todayData"] != nil){
+        todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
+        NSLog(@"Not empty");
+    }else{
+        [sharedUserDefaults setObject:todayDataArray forKey:@"todayData"];
+        [sharedUserDefaults synchronize];
+                NSLog(@"empty");
+        
+    }
+
     
     switch(type) {
             
@@ -194,6 +206,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [todayDataArray removeObjectAtIndex:indexPath.row];
+            [sharedUserDefaults setObject:todayDataArray forKey:@"todayData"];
+            [sharedUserDefaults synchronize];
+            NSLog(@"Edited today data: %@", todayDataArray);
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -210,6 +226,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 
 }
+-(void)removeNotification: (NSString *)uid{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *eventArray = [app scheduledLocalNotifications];
+    for (int i=0; i<[eventArray count]; i++)
+    {
+        UILocalNotification* oneEvent = [eventArray objectAtIndex:i];
+        NSDictionary *userInfoCurrent = oneEvent.userInfo;
+        NSString *uid=[NSString stringWithFormat:@"%@",[userInfoCurrent valueForKey:@"uid"]];
+        
+        if ([uid isEqualToString:uid])
+        {
+            //Cancelling local notification
+            [app cancelLocalNotification:oneEvent];
+            break;
+        }
+    }
+}
+
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
@@ -306,7 +340,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     
     [super viewDidLoad];
-
+    
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     [defaults setBool:YES forKey:@"drugCheck"];
     [defaults synchronize];
@@ -500,15 +534,45 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
   //  [self.today configureCell:cell atIndexPath:indexPath];
     cell.contactImage.layer.borderColor = [UIColor blackColor].CGColor;
     cell.contactImage.layer.borderWidth = 1.5f;
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    NSMutableArray *todayDataArray = [[NSMutableArray alloc]init];
+    if([sharedUserDefaults objectForKey:@"todayData"] != nil){
+        todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
+    }else{
+        [sharedUserDefaults setObject:todayDataArray forKey:@"todayData"];
+        [sharedUserDefaults synchronize];
     
-    
-    NSArray *fetchedObjects = [_fetchedResultsController fetchedObjects];
-    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.bittank.io"];
-    NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:fetchedObjects];
-    [sharedUserDefaults setObject:dataSave forKey:@"peopleArray"];
+    }
+    UIImage *contactImage = [UIImage imageWithData:[details valueForKey:@"image"]];
 
+    NSMutableDictionary *objectDictionary = [[NSMutableDictionary alloc]init];
     
-    [sharedUserDefaults synchronize];
+     if (info.details.date != nil) {
+    objectDictionary = [[NSMutableDictionary alloc]initWithObjects:@[info.name, UIImageJPEGRepresentation(cell.contactImage.image, 0.1), info.details.money, info.details.date, info.whooweswhat] forKeys:@[@"name", @"contactImage", @"money", @"date", @"wow"]];
+     }else{
+         objectDictionary = [[NSMutableDictionary alloc]initWithObjects:@[info.name, UIImageJPEGRepresentation(cell.contactImage.image, 0.1), info.details.money, info.whooweswhat] forKeys:@[@"name", @"contactImage", @"money", @"wow"]];
+
+     }
+    
+    
+    if (![todayDataArray containsObject:objectDictionary]) {
+        [todayDataArray addObject:[objectDictionary copy]];
+       // [todayDataArray removeAllObjects];
+        
+        [sharedUserDefaults setObject:todayDataArray forKey:@"todayData"];
+        
+        [sharedUserDefaults synchronize];
+    }
+    
+ //  [todayDataArray removeAllObjects];
+ //   todayDataArray = nil;
+ //   [sharedUserDefaults setObject:nil forKey:@"todayData"];
+    
+  // [sharedUserDefaults synchronize];
+
+    NSLog(@"Today Data: %@", todayDataArray);
+    
+
 
     
 }
@@ -577,16 +641,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    EditViewController *edit = [[EditViewController alloc]init];
+    EditViewController *edit = [self editView];
     
     NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];
-    [edit setManagedObjectContext:mo];
+   [edit setManagedObjectContext:mo];
     
     
+    NSUserDefaults *defaults = [[NSUserDefaults alloc]initWithSuiteName:@"group.com.bittank.io"];
+    [defaults setInteger:indexPath.row forKey:@"selectedRow"];
+    [defaults setInteger:indexPath.section forKey:@"selectedSection"];
+    [defaults synchronize];
     
-    id appDelegate= [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [appDelegate managedObjectContext];
     
+
     
     OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
    
@@ -598,13 +665,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     edit.info = info;
     edit.delegate = self;
-    edit.managedObjectContext = [appDelegate managedObjectContext];
+
 
     [self.tableView setContentOffset:CGPointMake(0, -65)];
     
 
-    self.editView.managedObjectContext = [appDelegate managedObjectContext];
-[self performSegueWithIdentifier:@"pushToEdit" sender:self];
+  [self performSegueWithIdentifier:@"pushToEdit" sender:self];
    
 
     
@@ -624,9 +690,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    NSLog(@"Segue sender %@", sender);
  
-    if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[UITableViewCell class]]){
+    if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[MasterViewController class]]){
         
+        NSLog(@"Send from shell");
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
       //  self.zoomTransition.sourceView = [self.tableView cellForRowAtIndexPath:indexPath];
@@ -651,7 +719,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         self.editView.info = info;
     self.editView.managedObjectContext = self.managedObjectContext;
     edit.managedObjectContext = self.managedObjectContext;
-    
+        [self.editView setManagedObjectContext:self.managedObjectContext];
         edit.info = info;
         edit.delegate = self;
 
@@ -698,6 +766,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];
         [edit setManagedObjectContext:mo];
+        NSLog(@"Sender: %@", sender);
         
         
         id appDelegate= [[UIApplication sharedApplication] delegate];
@@ -723,6 +792,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
     
 }
+
+- (BOOL) isICloudAvailable
+{
+    // Make sure a correct Ubiquity Container Identifier is passed
+    NSURL *ubiquityURL = [[NSFileManager defaultManager]
+                          URLForUbiquityContainerIdentifier:@"iCloud.com.bittank.IO"];
+    return ubiquityURL ? YES : NO;
+}
+
 
 
 -(void)setOwedItem:(id)owedItem{
@@ -800,6 +878,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     _inputViewController = [storyboard instantiateViewControllerWithIdentifier:@"InputViewController"];
     [_inputViewController setModalPresentationStyle:UIModalPresentationFullScreen];
+    [_inputViewController setManagedObjectContext:self.managedObjectContext];
+    
     if (buttonIndex == 0) {
         
         [_inputViewController setDetailItem:@"NotOwed"];
@@ -835,16 +915,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             // OweInfo *info = [[OweInfo alloc]init];
             
             OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+            [self removeNotification:info.uid];
             NSArray *arrayOfLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications] ;
             
             for (UILocalNotification *localNotification in arrayOfLocalNotifications) {
                 
-                if ([localNotification.alertBody isEqualToString: info.details.alert]) {
-                    NSLog(@"the notification this is canceld is %@", localNotification.alertBody);
-                    
-                    [[UIApplication sharedApplication] cancelLocalNotification:localNotification] ; // delete the notification from the system
-                    
-                }
+                NSLog(@"Notification: %@", localNotification.alertBody);
                 
             }
             // Save
@@ -860,8 +936,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
             break;
         }
-        default:
-            break;
     }
 }
 

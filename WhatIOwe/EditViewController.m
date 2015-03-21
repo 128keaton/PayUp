@@ -1116,6 +1116,20 @@
         
         [self removeNotification:uid];
         
+        defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+
+        row = [defaultSuite integerForKey:@"selectedRow"];
+        
+        NSMutableArray *syncingData = [[NSMutableArray alloc]initWithArray:[defaultSuite objectForKey:@"todayData"]];
+        NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc]initWithDictionary:[syncingData objectAtIndex:row]];
+        [dataDictionary setValue:[defaults objectForKey:@"pickerDate"] forKey:@"date"];
+        [dataDictionary setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
+        [dataDictionary setValue:nameField.text forKey:@"name"];
+        [syncingData addObject:dataDictionary];
+        todayData = [[NSMutableArray alloc]initWithArray:syncingData];
+        
+        [defaultSuite setObject:syncingData forKey:@"todayData"];
+        
 
         // NSDate *alertTime = picker.date;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -1144,9 +1158,26 @@
         
     }else{
         
+
+        [self.info setValue:nameField.text forKey:@"name"];
         
         [info setValue:uid forKey:@"uid"];
         [self removeNotification:uid];
+        defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+        
+        row = [defaultSuite integerForKey:@"selectedRow"];
+        
+        NSMutableArray *syncingData = [[NSMutableArray alloc]initWithArray:[defaultSuite objectForKey:@"todayData"]];
+        NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc]initWithDictionary:[syncingData objectAtIndex:row]];
+        [dataDictionary setValue:nil forKey:@"date"];
+        [dataDictionary setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
+        [dataDictionary setValue:nameField.text forKey:@"name"];
+        [syncingData addObject:dataDictionary];
+        todayData = [[NSMutableArray alloc]initWithArray:syncingData];
+        
+        [defaultSuite setObject:syncingData forKey:@"todayData"];
+
+        
         
     }
     
@@ -1160,6 +1191,9 @@
     MasterViewController *master = [[MasterViewController alloc]init];
      [master.tableView setContentOffset:CGPointMake(0, -78)];
     
+    
+ 
+
     
     self.master = master;
     [_master.tableView setContentOffset:CGPointMake(0, -65)];
@@ -1200,10 +1234,13 @@
     //originalFrame = self.view.frame;
     
 
+
+
     
     [super viewDidLoad];
    
-   
+    NSLog(@"NSMOC: %@", self.managedObjectContext);
+    NSLog(@"INfo: %@", self.info);
     
     
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
@@ -1229,6 +1266,32 @@
 
     NSUserDefaults *defaultSuite = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     [defaultSuite setBool:true forKey:@"drugCheck"];
+
+    
+    row = [defaultSuite integerForKey:@"selectedRow"];
+    
+    NSUInteger section = [defaultSuite integerForKey:@"selectedSection"];
+ 
+    
+    selectedPath = [NSIndexPath indexPathForRow:row inSection:section];
+    NSMutableArray *syncingData = [[NSMutableArray alloc]initWithArray:[defaultSuite objectForKey:@"todayData"]];
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc]initWithDictionary:[syncingData objectAtIndex:row]];
+    NSLog(@"Name from Dictionary: %@", [dataDictionary objectForKey:@"name"]);
+    NSArray *safeArray = [syncingData copy];
+    for (dataDictionary in safeArray) {
+        if ([[dataDictionary objectForKey:@"name"] isEqualToString:self.info.name]) {
+            [syncingData removeObject:dataDictionary];
+        }
+    }
+    
+    [syncingData removeObjectAtIndex:row];
+    NSLog(@"Edited Data: %@", syncingData);
+    todayData = [[NSMutableArray alloc]initWithArray:syncingData];
+    
+    [defaultSuite setObject:syncingData forKey:@"todayData"];
+
+    
+
     [defaultSuite synchronize];
     
       [self.navigationItem setRightBarButtonItem:shareItem];
@@ -1272,7 +1335,7 @@
     name2 = self.info.name;
     
     moneystring = self.info.details.money;
-    
+    NSLog(@"NAme: %@", self.info.name);
     if (!self.info.details.date) {
  
         

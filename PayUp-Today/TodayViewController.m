@@ -15,10 +15,11 @@
 #import "PersistentStack.h"
 @interface TodayViewController () <NCWidgetProviding, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>{
     NSUInteger placeToInsert;
+    
 }
 @property (strong, nonatomic) NSArray *peopleArray;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic)NSManagedObjectContext *privateManagedObjectContext;
+@property (strong, nonatomic) NSMutableArray *todayExtensionData;
 
 
 @property (nonatomic, strong) PersistentStack* persistentStack;
@@ -43,23 +44,14 @@ NSUInteger count;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
-  self.managedObjectContext = self.persistentStack.managedObjectContext;
-    
-    self.privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+   [self performFetch];
+    self.todayExtensionData = [[NSMutableArray alloc]init];
     
     // Configure Managed Object Context
-    [self.privateManagedObjectContext setParentContext:self.managedObjectContext];
+
     
     self.preferredContentSize = self.tableView.frame.size;
 
-    NSError *error;
-    
-    if (! [[self fetchedResultsController] performFetch:&error]) {
-        // Update to `handle the error appropriately.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        exit(-1);  // Fail
-    }
   
  
     // Do any additional setup after loading the view from its nib.
@@ -78,9 +70,23 @@ NSUInteger count;
     
     
     self.preferredContentSize=self.tableView.contentSize;
-    NSError *error;
+  
     
-    [self.fetchedResultsController performFetch:&error];
+    [self performFetch];
+}
+-(void)performFetch{
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    NSMutableArray *todayDataArray = [[NSMutableArray alloc]init];
+    if([sharedUserDefaults objectForKey:@"todayData"] != nil){
+        todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
+        self.todayExtensionData = [todayDataArray copy];
+        count = [todayDataArray count];
+        [self.tableView reloadData];
+        NSLog(@"It wasnt empty :D");
+    }else{
+        NSLog(@"Is empty");
+    }
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:self.view
@@ -101,16 +107,6 @@ NSUInteger count;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(userDefaultsDidChange:)
-                                                     name:NSUserDefaultsDidChangeNotification
-                                                   object:nil];
-    }
-    return self;
 }
 
 
@@ -154,11 +150,9 @@ NSUInteger count;
 {
 
     
-        id  sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
-
-        NSLog(@"People Array: %lu", (unsigned long)[sectionInfo numberOfObjects]);
-        count = [sectionInfo numberOfObjects];
-        
+    NSLog(@"Stuff %lu", (unsigned long)count);
+    
+    
         return count;
     
  }
@@ -167,24 +161,29 @@ NSUInteger count;
 
 - (void)configureCell:(TodayTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
-    BOOL triedOnce;
 
-    OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
-    self.managedObjectContext.stalenessInterval = 0;
+    NSMutableDictionary *objectDictionary = [[NSMutableDictionary alloc]init];
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    NSMutableArray *todayDataArray = [[NSMutableArray alloc]init];
     
-    if (![info isFault]) {
+    if([sharedUserDefaults objectForKey:@"todayData"] != nil){
+        todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
+        objectDictionary = [todayDataArray objectAtIndex:indexPath.row];
+        
+
    
-    cell.nameLabel.text = info.name;
-    
-    OweDetails *details = info.details;
+   
 
-          UIImage *image = [UIImage imageWithData:details.image];
+
+    UIImage *image = [UIImage imageWithData:[objectDictionary objectForKey:@"contactImage"]];
     
     
     
     
     if (image != nil) {
-        UIImage *contactImage = [UIImage imageWithData:[details valueForKey:@"image"]];
+        UIImage *contactImage = [UIImage imageWithData:[objectDictionary objectForKey:@"contactImage"]];
+        
+        
         cell.contactImage.image = contactImage;
         
         cell.contactImage.layer.cornerRadius = 25;
@@ -196,38 +195,38 @@ NSUInteger count;
 
     
     
-    if ([info.whooweswhat isEqualToString:@"someoneowes"]) {
-        cell.nameLabel.text = [NSString stringWithFormat:@"%@ owes you.", info.name];
+    if ([[objectDictionary objectForKey:@"wow"] isEqualToString:@"someoneowes"]) {
+        cell.nameLabel.text = [NSString stringWithFormat:@"%@ owes you.", [objectDictionary objectForKey:@"name"]];
    
         
           }else{
-        cell.nameLabel.text = [NSString stringWithFormat:@"You owe %@.", info.name];
+        cell.nameLabel.text = [NSString stringWithFormat:@"You owe %@.", [objectDictionary objectForKey:@"name"]];
         
      
     }
     
-    cell.moneyLabel.text = [NSString stringWithFormat:@"%@", details.money];
+    cell.moneyLabel.text = [NSString stringWithFormat:@"%@", [objectDictionary objectForKey:@"money"]];
     
     NSDate *today = [NSDate date];
-    if (info.details.date != nil) {
+    if ([objectDictionary objectForKey:@"date"] != nil) {
         NSString *ifReplace;
-        if ([[self class] daysBetweenDate:today andDate:info.details.date] >= 1) {
-            cell.untilDate.text = [NSString stringWithFormat:@"%ld days.", (long)[[self class] daysBetweenDate:today andDate:info.details.date]];
+        if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] >= 1) {
+            cell.untilDate.text = [NSString stringWithFormat:@"%ld days.", (long)[[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]]];
             
-        }else if ([[self class] daysBetweenDate:today andDate:info.details.date] == 0){
+        }else if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] == 0){
             cell.untilDate.text = @"Today";
             
-        }else if ([[self class] daysBetweenDate:today andDate:info.details.date] == 1){
-            cell.untilDate.text = [NSString stringWithFormat:@"%ld day.", (long)[[self class] daysBetweenDate:today andDate:info.details.date]];
+        }else if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] == 1){
+            cell.untilDate.text = [NSString stringWithFormat:@"%ld day.", (long)[[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]]];
             
-        }else if([[self class] daysBetweenDate:today andDate:info.details.date] == -1){
-            ifReplace = [[NSString stringWithFormat:@"%ld day behind.", (long)[[self class] daysBetweenDate:today andDate:info.details.date]] stringByReplacingOccurrencesOfString:@"-"
+        }else if([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] == -1){
+            ifReplace = [[NSString stringWithFormat:@"%ld day behind.", (long)[[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]]] stringByReplacingOccurrencesOfString:@"-"
                                                                                                                                                                         withString:@""];
             cell.untilDate.text = ifReplace;
             
-        }else if ([[self class] daysBetweenDate:today andDate:info.details.date] <= -2 ){
+        }else if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] <= -2 ){
             
-            ifReplace = [[NSString stringWithFormat:@"%ld days behind.", (long)[[self class] daysBetweenDate:today andDate:info.details.date]] stringByReplacingOccurrencesOfString:@"-"
+            ifReplace = [[NSString stringWithFormat:@"%ld days behind.", (long)[[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]]] stringByReplacingOccurrencesOfString:@"-"
                                                                                                                                                                          withString:@""];
             cell.untilDate.text = ifReplace;
             
@@ -237,30 +236,19 @@ NSUInteger count;
         cell.untilDate.text = @"No date set";
     }
     
-    NSComparisonResult result;
-    result = [today compare:details.date]; // comparing two dates
+
     cell.contactImage.layer.masksToBounds = YES;
     cell.contactImage.layer.borderWidth = 1.0f;
     cell.contactImage.backgroundColor = [UIColor whiteColor];
     
     cell.contactImage.layer.borderColor = [UIColor whiteColor].CGColor;
-    cell.dateLabel.text = info.dateString;
-    
-    }else{
-       
-    
      
-        NSLog(@"Broken");
-        [self.fetchedResultsController performFetch:nil];
-  
-            triedOnce = YES;
-            
-      
-
-        
-        
     }
-}
+    }
+    
+
+
+
 
 
 
@@ -314,20 +302,17 @@ NSUInteger count;
 
     [self.managedObjectContext setStalenessInterval:0];
     
-    
-    self.privateManagedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    
+
     // Configure Managed Object Context
-    [self.privateManagedObjectContext setParentContext:self.managedObjectContext];
 
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"OweInfo" inManagedObjectContext:self.privateManagedObjectContext];
+                                   entityForName:@"OweInfo" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"details.date" ascending:NO];
+                              initWithKey:@"name" ascending:NO];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     
     
@@ -335,7 +320,7 @@ NSUInteger count;
     
     NSFetchedResultsController *theFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                        managedObjectContext:self.privateManagedObjectContext sectionNameKeyPath:nil
+                                        managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil
                                                    cacheName:@"Root"];
     self.fetchedResultsController = theFetchedResultsController;
     _fetchedResultsController.delegate = self;
