@@ -1122,6 +1122,7 @@
         
         NSMutableArray *syncingData = [[NSMutableArray alloc]initWithArray:[defaultSuite objectForKey:@"todayData"]];
         NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc]initWithDictionary:[syncingData objectAtIndex:row]];
+        
         [dataDictionary setValue:[defaults objectForKey:@"pickerDate"] forKey:@"date"];
         [dataDictionary setValue:[NSString stringWithFormat:@"$%@", s] forKey:@"money"];
         [dataDictionary setValue:nameField.text forKey:@"name"];
@@ -1281,10 +1282,19 @@
     for (dataDictionary in safeArray) {
         if ([[dataDictionary objectForKey:@"name"] isEqualToString:self.info.name]) {
             [syncingData removeObject:dataDictionary];
+            
         }
     }
+    @try {
+        [syncingData removeObjectAtIndex:row];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"tried to fix");
+    }
+    @finally {
+        
+    }
     
-    [syncingData removeObjectAtIndex:row];
     NSLog(@"Edited Data: %@", syncingData);
     todayData = [[NSMutableArray alloc]initWithArray:syncingData];
     
@@ -1294,7 +1304,7 @@
 
     [defaultSuite synchronize];
     
-      [self.navigationItem setRightBarButtonItem:shareItem];
+    [self.navigationItem setRightBarButtonItem:shareItem];
     
     
     

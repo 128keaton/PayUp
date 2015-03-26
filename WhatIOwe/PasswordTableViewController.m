@@ -109,9 +109,11 @@
             touchIDOn = YES;
         }
         [defaults setBool:touchIDOn forKey:@"touchIDOn"];
-        [defaults synchronize];
+
         [self configureView];
     }
+    [defaults setBool:false forKey:@"drugCheck"];
+    [defaults synchronize];
 
           [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     

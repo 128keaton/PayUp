@@ -339,7 +339,8 @@
 
 -(void)clearUser{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc]initWithSuiteName:@"group.com.bittank.io"];
+    [sharedDefaults removeObjectForKey:@"todayData"];
     [defaults removeObjectForKey:@"image"];
     [defaults removeObjectForKey:@"firstNameSettings"];
 }

@@ -44,9 +44,9 @@ NSUInteger count;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   [self performFetch];
+
     self.todayExtensionData = [[NSMutableArray alloc]init];
-    
+    [self performFetch];
     // Configure Managed Object Context
 
     
@@ -76,15 +76,27 @@ NSUInteger count;
 }
 -(void)performFetch{
     NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
-    NSMutableArray *todayDataArray = [[NSMutableArray alloc]init];
+    NSMutableArray *todayDataArray = [[NSMutableArray alloc]initWithCapacity:[sharedUserDefaults integerForKey:@"count"]];
     if([sharedUserDefaults objectForKey:@"todayData"] != nil){
         todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
-        self.todayExtensionData = [todayDataArray copy];
-        count = [todayDataArray count];
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"NSMutableDictionary.date"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray;
+        sortedArray = [todayDataArray sortedArrayUsingDescriptors:sortDescriptors];
+        
+        self.todayExtensionData = [sortedArray copy];
+        count = [sortedArray count];
+        NSLog(@"count of array: %lu", (unsigned long)sortedArray.count);
         [self.tableView reloadData];
+  
+   
+        
         NSLog(@"It wasnt empty :D");
     }else{
         NSLog(@"Is empty");
+        count = 0;
     }
 
 }
@@ -120,7 +132,6 @@ NSUInteger count;
          
     static NSString *CellIdentifier = @"OweCell";
     
-        
     
     TodayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"TodayViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"OweCell"];
@@ -139,9 +150,34 @@ NSUInteger count;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
+        NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     // Return the number of sections.
-    return 1;
+    if (count > 0) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+    }else{
+        UILabel *messageLabel = [[UILabel alloc] init];
+        NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+        if ([sharedUserDefaults objectForKey:@"password"] != nil) {
+    
+        messageLabel.text = @"Password prevents widget from displaying";
+        }else{
+        messageLabel.text = @"No people found";
+        }
+        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+
+     
+
+        self.view = [[UIView alloc]init];
+        [self.view addSubview:messageLabel];
+        NSLog(@"tried to make bgview");
+        self.tableView.backgroundView = self.view;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+    }
+    return 0;
 }
 
 
@@ -150,10 +186,19 @@ NSUInteger count;
 {
 
     
-    NSLog(@"Stuff %lu", (unsigned long)count);
+ 
     
+    NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     
+    if ([sharedUserDefaults objectForKey:@"password"] == nil) {
+        NSLog(@"Stuff %lu", count);
         return count;
+        
+    }else{
+        return 0;
+    }
+    
+    
     
  }
 
@@ -169,11 +214,11 @@ NSUInteger count;
     if([sharedUserDefaults objectForKey:@"todayData"] != nil){
         todayDataArray = [NSMutableArray arrayWithArray:[sharedUserDefaults objectForKey:@"todayData"]];
         objectDictionary = [todayDataArray objectAtIndex:indexPath.row];
+
         
-
-   
-   
-
+  
+        
+     
 
     UIImage *image = [UIImage imageWithData:[objectDictionary objectForKey:@"contactImage"]];
     
@@ -207,10 +252,11 @@ NSUInteger count;
     
     cell.moneyLabel.text = [NSString stringWithFormat:@"%@", [objectDictionary objectForKey:@"money"]];
     
+        
     NSDate *today = [NSDate date];
     if ([objectDictionary objectForKey:@"date"] != nil) {
         NSString *ifReplace;
-        if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] >= 1) {
+        if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] > 1) {
             cell.untilDate.text = [NSString stringWithFormat:@"%ld days.", (long)[[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]]];
             
         }else if ([[self class] daysBetweenDate:today andDate:[objectDictionary objectForKey:@"date"]] == 0){
@@ -235,7 +281,7 @@ NSUInteger count;
     }else{
         cell.untilDate.text = @"No date set";
     }
-    
+        }
 
     cell.contactImage.layer.masksToBounds = YES;
     cell.contactImage.layer.borderWidth = 1.0f;
@@ -244,7 +290,7 @@ NSUInteger count;
     cell.contactImage.layer.borderColor = [UIColor whiteColor].CGColor;
      
     }
-    }
+    
     
 
 
@@ -340,17 +386,21 @@ NSUInteger count;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSURL *pjURL = [NSURL URLWithString:@"payup://"];
-    [self.extensionContext openURL:pjURL completionHandler:nil];
+
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
-    NSUInteger row = indexPath.row;
-    NSUInteger section = indexPath.section;
+
+    NSMutableDictionary *dataDictionary = [self.todayExtensionData objectAtIndex:indexPath.row];
+
+    [defaults setObject:dataDictionary forKey:@"objectFinder"];
+    [defaults setInteger:indexPath.row forKey:@"rowOfObject"];
     
-    [defaults setObject:[NSNumber numberWithInteger:row] forKey:@"indexPath.row"];
-    [defaults setObject:[NSNumber numberWithInteger:section] forKey:@"indexPath.section"];
+
 
     
     [defaults synchronize];
+    NSURL *pjURL = [NSURL URLWithString:@"payup://"];
+    [self.extensionContext openURL:pjURL completionHandler:nil];
+    
     
 }
 
@@ -377,7 +427,7 @@ NSUInteger count;
             [tableView deleteRowsAtIndexPaths:[NSArray
                                                arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView insertRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                              arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
     

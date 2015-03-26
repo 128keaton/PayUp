@@ -34,6 +34,8 @@
 @interface MasterViewController  () <UITableViewDelegate, NSFetchedResultsControllerDelegate, WYPopoverControllerDelegate, SelectionViewControllerDelegate, UIAlertViewDelegate>
 {
       WYPopoverController *popoverController;
+    NSArray *quotesArray;
+    
 }
     - (BOOL)cellIsSelected:(NSIndexPath *)indexPath;
  - (BOOL)cellIsSelected2:(NSIndexPath *)indexPath;
@@ -113,7 +115,7 @@ BOOL didDrugCheck;
                                                      NSLog(@"Touch ID is not configured");
                                                      [[NSOperationQueue mainQueue]addOperationWithBlock:^(void){
                                                          [self showPasswordAlert];
-                                                         didDrugCheck = false;
+                                                         didDrugCheck = true;
                                                          
                                                      }];
                                                      break;
@@ -125,7 +127,7 @@ BOOL didDrugCheck;
                                      }];
     }else {
         [self showPasswordAlert];
-        didDrugCheck = false;
+        didDrugCheck = true;
     }
     [defaults setBool:didDrugCheck forKey:@"drugCheck"];
     [defaults synchronize];
@@ -286,10 +288,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [fetchRequest setEntity:entity];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"details.date" ascending:NO];
+                              initWithKey:@"details.date" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
     
     [fetchRequest setFetchBatchSize:20];
+    NSLog(@"FR: %@", fetchRequest);
     
     NSFetchedResultsController *theFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
@@ -337,16 +340,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)viewDidLoad
 {
     
-    
+    quotesArray = @[
+                    @"Live and let live",
+                    @"Don't cry over spilt milk",
+                    @"Always look on the bright side of life",
+                    @"Nobody's perfect",
+                    @"Can't see the woods for the trees",
+                    @"Better to have loved and lost then not loved at all",
+                    @"The early bird catches the worm",
+                    @"As slow as a wet week"
+                    ];
     
     [super viewDidLoad];
     
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
-    [defaults setBool:YES forKey:@"drugCheck"];
-    [defaults synchronize];
+
+    
     didDrugCheck = [defaults boolForKey:@"drugCheck"];
     if ([defaults objectForKey:@"password"]!= nil) {
+        [defaults setBool:YES forKey:@"drugCheck"];
+        [defaults synchronize];
       [self authenticateUser];
+        NSLog(@"password, plz check m8");
+        
     }else{
         NSLog(@"No password, have a nice day :D");
     }
@@ -408,8 +424,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    NSUserDefaults *defaults = [[NSUserDefaults alloc]initWithSuiteName:@"group.com.bittank.io"];
+    
     id  sectionInfo =
     [[_fetchedResultsController sections] objectAtIndex:section];
+    [defaults setInteger:[sectionInfo numberOfObjects] forKey:@"count"];
+    [defaults synchronize];
     return [sectionInfo numberOfObjects];
     
 }
@@ -543,7 +563,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [sharedUserDefaults synchronize];
     
     }
-    UIImage *contactImage = [UIImage imageWithData:[details valueForKey:@"image"]];
+   // UIImage *contactImage = [UIImage imageWithData:[details valueForKey:@"image"]];
 
     NSMutableDictionary *objectDictionary = [[NSMutableDictionary alloc]init];
     
@@ -557,18 +577,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     if (![todayDataArray containsObject:objectDictionary]) {
         [todayDataArray addObject:[objectDictionary copy]];
-       // [todayDataArray removeAllObjects];
+        NSLog(@"Added object: %@", objectDictionary);
         
         [sharedUserDefaults setObject:todayDataArray forKey:@"todayData"];
         
         [sharedUserDefaults synchronize];
+    }else{
+        NSLog(@"didnt add");
     }
     
- //  [todayDataArray removeAllObjects];
- //   todayDataArray = nil;
- //   [sharedUserDefaults setObject:nil forKey:@"todayData"];
-    
-  // [sharedUserDefaults synchronize];
+
+
 
     NSLog(@"Today Data: %@", todayDataArray);
     
@@ -758,13 +777,48 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         */
         
     }else if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[AppDelegate class]]){
-
+  
+        NSFetchedResultsController *tempController;
         NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+     
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription
+                                       entityForName:@"OweInfo" inManagedObjectContext:managedObjectContext];
+        [fetchRequest setEntity:entity];
+
         
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[defaults objectForKey:@"indexPath.row"] integerValue] inSection:0];
-        EditViewController *edit = segue.destinationViewController;
+       
         
-        NSManagedObjectContext *mo = [_fetchedResultsController objectAtIndexPath:indexPath];
+        // predicate code
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", [(NSMutableDictionary *)[defaults objectForKey:@"objectFinder"]objectForKey:@"name"]];
+        [fetchRequest setPredicate:predicate];
+        
+        // end of predicate code
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        tempController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+        
+        BOOL success;
+        NSError *error;
+        success = [tempController performFetch:&error];
+        if (!success)
+        {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+             EditViewController *edit = segue.destinationViewController;
+        
+        
+        NSLog(@"fetched results: %@", _fetchedResultsController);
+     
+       
+        
+        
+        NSManagedObjectContext *mo = [tempController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        NSLog(@"Object %@", mo);
+        
         [edit setManagedObjectContext:mo];
         NSLog(@"Sender: %@", sender);
         
@@ -773,10 +827,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         self.managedObjectContext = [appDelegate managedObjectContext];
         
         
-        OweInfo *info = [_fetchedResultsController objectAtIndexPath:indexPath];
+        OweInfo *info = [tempController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        
         self.editView = edit;
         
-        
+        NSLog(@"name from: %@", info.name);
         self.editView.delegate = self;
         self.editView.info = info;
         self.editView.managedObjectContext = self.managedObjectContext;
@@ -941,9 +996,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     // This will create a "invisible" footer
-    return 0.01f;
+    return 50;
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UILabel *backgroundLabel = [[UILabel alloc]init];
+    id object = quotesArray.count == 0 ? nil : quotesArray[arc4random_uniform(quotesArray.count)];
+    
+    backgroundLabel.text = object;
+    
+    backgroundLabel.textAlignment = NSTextAlignmentCenter;
+    backgroundLabel.textColor = [UIColor darkGrayColor];
+    
+    
+    return backgroundLabel;
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     if (buttonIndex == 1) {
