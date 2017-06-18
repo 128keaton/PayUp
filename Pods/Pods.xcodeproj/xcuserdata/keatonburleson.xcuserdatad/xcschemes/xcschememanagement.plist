@@ -4,89 +4,75 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-ABPadLockScreen.xcscheme</key>
+		<key>ABPadLockScreen.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
-		<key>Pods-CJMTwitterFollowButton.xcscheme</key>
+		<key>CJMTwitterFollowButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
-		<key>Pods-Canvas.xcscheme</key>
+		<key>Canvas.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
-		<key>Pods-LCZoomTransition.xcscheme</key>
+		<key>LCZoomTransition.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
-		<key>Pods-SBJson.xcscheme</key>
+		<key>Pods-PayUp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
-		<key>Pods-pop.xcscheme</key>
+		<key>SBJson.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1FD10C77D5E200CE3118E350</key>
+		<key>1080215CDFCA1B9ED6D7B9D12AB841E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4477A82C0871324BDE576826</key>
+		<key>206ED7A60DF784DE698F060441723999</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BC8B70163B7BA21A4CE4871</key>
+		<key>24F7C0AA744C2B46BB50ACEF7D9413BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABA4B01B50ECC9E997DA169F</key>
+		<key>2DD13483BD8AEDC8186402A2A86DF339</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D37712B6199CBE885F68AC52</key>
+		<key>827F15BAF6F51BD47014D9F17B7A9461</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D396329A450112272C46F617</key>
+		<key>84FB32523A4E24008AE58225EC1C7ED5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE6E67CD377BB3F12F528BBA</key>
+		<key>FD380F6CDBB657539F518CCB46115EE0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

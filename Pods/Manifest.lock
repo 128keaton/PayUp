@@ -1,10 +1,10 @@
 PODS:
-  - ABPadLockScreen (3.2.0)
-  - Canvas (0.1.1)
+  - ABPadLockScreen (3.4.1)
+  - Canvas (0.1.2)
   - CJMTwitterFollowButton (0.1.0)
   - LCZoomTransition (1.0.0)
-  - pop (1.0.2)
-  - SBJson (4.0.0)
+  - pop (1.0.9)
+  - SBJson (4.0.5)
 
 DEPENDENCIES:
   - ABPadLockScreen
@@ -15,11 +15,13 @@ DEPENDENCIES:
   - SBJson (~> 4.0.0)
 
 SPEC CHECKSUMS:
-  ABPadLockScreen: 07df4e03531803fb9aa1bc1cf16e70b8ff5c1f67
-  Canvas: 45356a2e61087a776bfde5090676d290cf67f7f2
-  CJMTwitterFollowButton: f3433315f394944a871ae03d4de2871eaf2eeac9
-  LCZoomTransition: 4fed6017ebe5dbc8ab373fc6395faabe558fa90d
-  pop: 4c63d3b36617606008c564173a7c766d9016abdd
-  SBJson: a44f61c96e29bbb94fca67b5fa2bef70faa8d38f
+  ABPadLockScreen: 4185a25c40291946071aa12908c0d0ad242bc420
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  CJMTwitterFollowButton: bb50ce02b46cfbd7ef77f9c30908944a5eb0b965
+  LCZoomTransition: 9d444751c10556ee6dbf1fd18c292e1add9530e2
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SBJson: af3137ccda22be3004487524da0a071c75d4251b
 
-COCOAPODS: 0.36.0
+PODFILE CHECKSUM: c7f2681d21454b9337e4288856219082d9e5339e
+
+COCOAPODS: 1.2.1

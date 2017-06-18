@@ -16,9 +16,9 @@
 
 #import "AppDelegate.h"
 
-#import "oweInfo.h"
+#import "OweInfo.h"
 
-#import "oweDetails.h"
+#import "OweDetails.h"
 
 #import "MasterViewController.h"
 

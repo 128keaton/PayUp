@@ -256,7 +256,7 @@
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
     
-     UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
+   //  UIDatePicker *picker = (UIDatePicker*)dueField.inputView;
     
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

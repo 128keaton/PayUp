@@ -8,6 +8,9 @@
  */
 
 #import "POPDecayAnimation.h"
+
+#import <cmath>
+
 #import "POPPropertyAnimationInternal.h"
 
 // minimal velocity factor before decay animation is considered complete, in units / s
@@ -44,8 +47,9 @@ struct _POPDecayAnimationState : _POPPropertyAnimationState
 
   _POPDecayAnimationState(id __unsafe_unretained anim) :
   _POPPropertyAnimationState(anim),
-  duration(0),
-  deceleration(kPOPAnimationDecayDecelerationDefault) {
+  deceleration(kPOPAnimationDecayDecelerationDefault),
+  duration(0)
+  {
     type = kPOPAnimationDecay;
   }
 
@@ -57,23 +61,14 @@ struct _POPDecayAnimationState : _POPPropertyAnimationState
     CGFloat f = dynamicsThreshold * kPOPAnimationDecayMinimalVelocityFactor;
     const CGFloat *velocityValues = vec_data(velocityVec);
     for (NSUInteger idx = 0; idx < valueCount; idx++) {
-      if (fabsf(velocityValues[idx]) >= f)
+      if (std::abs((velocityValues[idx])) >= f)
         return false;
     }
     return true;
 
   }
 
-  void computeDestinationValues() {
-    // to value assuming final velocity as a factor of dynamics threshold
-    // derived from v' = v * d^dt used in decay_position
-    // to compute the to value with maximal dt, p' = p + (v * d) / (1 - d)
-    VectorRef fromValue = NULL != currentVec ? currentVec : fromVec;
-    if (!fromValue) {
-      return;
-    }
-
-    VectorRef toValue(Vector::new_vector(fromValue.get()));
+  void computeDuration() {
 
     // compute duration till threshold velocity
     Vector4r scaledVelocity = vector4(velocityVec) / 1000.;
@@ -87,14 +82,29 @@ struct _POPDecayAnimationState : _POPPropertyAnimationState
     duration = MAX(MAX(MAX(log(fabs(vx)) / d, log(fabs(vy)) / d), log(fabs(vz)) / d), log(fabs(vw)) / d);
 
     // ensure velocity threshold is exceeded
-    if (isnan(duration) || duration < 0) {
+    if (std::isnan(duration) || duration < 0) {
       duration = 0;
-    } else {
-      // compute to value
-      Vector4r velocity = velocityVec->vector4r();
-      decay_position(toValue->data(), velocity.data(), valueCount, duration, deceleration);
+    }
+  }
+
+  void computeToValue() {
+    // to value assuming final velocity as a factor of dynamics threshold
+    // derived from v' = v * d^dt used in decay_position
+    // to compute the to value with maximal dt, p' = p + (v * d) / (1 - d)
+    VectorRef fromValue = NULL != currentVec ? currentVec : fromVec;
+    if (!fromValue) {
+      return;
     }
 
+    // ensure duration is computed
+    if (0 == duration) {
+      computeDuration();
+    }
+
+    // compute to value
+    VectorRef toValue(Vector::new_vector(fromValue.get()));
+    Vector4r velocity = velocityVec->vector4r();
+    decay_position(toValue->data(), velocity.data(), valueCount, duration, deceleration);
     toVec = toValue;
   }
 

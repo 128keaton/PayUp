@@ -150,7 +150,7 @@ NSUInteger count;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-        NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
+    // NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.bittank.io"];
     // Return the number of sections.
     if (count > 0) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
