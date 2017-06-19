@@ -58,6 +58,7 @@
 @synthesize delegate = _delegate;
 
 BOOL didDrugCheck;
+id detailItem;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -709,7 +710,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    NSLog(@"Segue sender %@", sender);
  
     if([segue.identifier  isEqual: @"pushToEdit"] && [sender isKindOfClass:[MasterViewController class]]){
         
@@ -842,6 +842,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
        
         
+    }else if ([segue.identifier isEqual:@"showNew"]){
+        InputViewController *newView = segue.destinationViewController.childViewControllers.firstObject;
+        [newView setDetailItem:self.detailItem];
     }
     
 
@@ -850,10 +853,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (BOOL) isICloudAvailable
 {
-    // Make sure a correct Ubiquity Container Identifier is passed
-    NSURL *ubiquityURL = [[NSFileManager defaultManager]
-                          URLForUbiquityContainerIdentifier:@"iCloud.com.bittank.IO"];
-    return ubiquityURL ? YES : NO;
+    return NO;
 }
 
 
@@ -895,14 +895,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
                  interval:NULL forDate:fromDateTime];
-    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
                  interval:NULL forDate:toDateTime];
     
-    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
                                                fromDate:fromDate toDate:toDate options:0];
-    
     return [difference day];
 }
 
@@ -913,7 +912,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         title = @"Pick an option";
     }
     
- 
     if (self.addPerson.visible == NO) {
     self.addPerson = [[IBActionSheet alloc]initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"I owe", @"Someone owes me", nil];
        [self.addPerson setFrame:CGRectMake(self.addPerson.bounds.origin.x, self.addPerson.bounds.origin.y + 500, self.addPerson.bounds.size.width, self.addPerson.bounds.size.height)];
@@ -930,27 +928,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)actionSheet:(IBActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     InputViewController *inputView = [[InputViewController alloc]init];
     _inputViewController = inputView;
-      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    _inputViewController = [storyboard instantiateViewControllerWithIdentifier:@"InputViewController"];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UINavigationController *inputViewNav = [storyboard instantiateViewControllerWithIdentifier:@"InputViewController"];
+    _inputViewController = [inputViewNav.viewControllers firstObject];
+    
     [_inputViewController setModalPresentationStyle:UIModalPresentationFullScreen];
     [_inputViewController setManagedObjectContext:self.managedObjectContext];
     
     if (buttonIndex == 0) {
-        
-        [_inputViewController setDetailItem:@"NotOwed"];
-          [self presentViewController:_inputViewController animated:YES completion:nil];
+        self.detailItem = @"NotOwed";
+          NSLog(@"%@", self.detailItem);
+        [self performSegueWithIdentifier:@"showNew" sender:self];
         
     }else if(buttonIndex == 1){
-               [_inputViewController setDetailItem:@"Owed"];
-          [self presentViewController:_inputViewController animated:YES completion:nil];
-        
-    }else if (buttonIndex == 2){
-        
-       
+        self.detailItem = @"Owed";
+        NSLog(@"%@", self.detailItem);
+        [self performSegueWithIdentifier:@"showNew" sender:self];
     }
-  
-    
-
     
 }
 

@@ -26,7 +26,6 @@
 
 #import "TodayViewController.h"
 
-#import <Instabug/Instabug.h>
 
 #import "StyleController.h"
 @interface AppDelegate ()

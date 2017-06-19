@@ -53,7 +53,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     
 
-
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     // 2 - Get random index
     int index = (arc4random() % [quotesArray count]);
@@ -166,6 +166,7 @@
      return cell;
     
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = indexPath.row;
     

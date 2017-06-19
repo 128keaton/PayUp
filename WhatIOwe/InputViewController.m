@@ -21,6 +21,7 @@
 
 @implementation InputViewController
 @synthesize detailItem = _detailItem;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,29 +30,23 @@
     }
     return self;
 }
+
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
-       NSLog(@"Detail Item: %@", _detailItem);
-        [self configureView];
-        
-         }
+        NSLog(@"Detail Item: %@", _detailItem);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [self configureView];
+            self.detailItem = newDetailItem;
+        });
+    }
+}
 
-}
--(IBAction)cancel:(id)sender{
-    
-    
-}
 
 - (IBAction)unwindToRed:(id)sender{
     [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-       [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-
-    
- 
-    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -66,39 +61,15 @@
         theButton.enabled = true;
     }
 }
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self configureView];
 }
-
-
 
 - (void)viewDidLoad
 {
-    
-   
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont
-                                                                           fontWithName:@"Helvetica Neue" size:12], NSFontAttributeName,
-                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    [self prefersStatusBarHidden];
-    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
-    self.statusBarHidden = YES;
-  /*  oField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-    if (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 4.1)) {
-        oField.keyboardType = UIKeyboardTypeDecimalPad;
-    }*/
-      
-[self setNeedsStatusBarAppearanceUpdate];
- 
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:UIStatusBarAnimationSlide];
-    
 
-    [self configureView];
-    self.navigationController.navigationBar.translucent = NO;
     id delegate = [[UIApplication sharedApplication] delegate]; self.managedObjectContext = [delegate managedObjectContext];
     
     UIBarButtonItem *doneItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
@@ -107,7 +78,7 @@
    
 
     
-    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(moveFromMoneyToWhat:)];
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(moveFromMoneyToWhat:)];
     UIBarButtonItem *flexableItem2= [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:NULL];
     UIToolbar *toolbar2 = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[self class] toolbarHeight])];
 
@@ -131,12 +102,7 @@
 
     
     [super viewDidLoad];
-  /*  id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];*/
 
-    
-    // Do any additional setup after loading the view.
-  //  UIDatePicker *picker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 120.0)];
     _picker = [[UIDatePicker alloc]init];
 
     _picker.datePickerMode = UIDatePickerModeDateAndTime;
@@ -157,16 +123,8 @@
     cell3.layer.cornerRadius = 2;
     cell3.layer.borderWidth = 1;
     cell3.layer.borderColor = cell3.backgroundColor.CGColor;
-
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-
-    //take snapshot, then move off screen once complete
-
-
-    
-    
 }
+
 -(IBAction)addAlarm:(UIButton*)sender{
 
 
@@ -213,39 +171,26 @@
     
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-   //  _picker.frame = CGRectMake(0, 0, 300, 0);
-}
 
 - (void)configureView
 {
 
-  yes = YES;
-
-
-
-    
-    
-    
+    yes = YES;
     [oField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    
-    // Update the user interface for the detail item.
-    self.view.superview.bounds = CGRectMake(0, 0, 350, 250);
+
     if (self.detailItem) {
+        NSLog(@"Configuring!");
         if ([[_detailItem description]  isEqual: @"Owed"]){
-            
+             NSLog(@"I am owed!");
             iLabel.hidden = true;
+            iLabel.alpha = 0.0;
             oLabel.hidden = true;
             iField.center = CGPointMake(iField.center.x, iField.center.y -3);
             mLabel.text = @"owes me the sum of";
-        
-            
         }else if([[_detailItem description] isEqual: @"NotOwed"]){
             iLabel.hidden = false;
             oLabel.hidden = false;
-            NSLog(@"not owed");
+            NSLog(@"I am not owed");
             mLabel.text = @"the sum of";
         }
     }
@@ -386,13 +331,10 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [self configureView];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-}
+
 
 +(NSString*)generateRandomString:(int)num {
     NSMutableString* string = [NSMutableString stringWithCapacity:num];
@@ -401,11 +343,11 @@
     }
     return string;
 }
+
 -(IBAction)moveFromMoneyToWhat:(id)sender{
     [wField becomeFirstResponder];
-   // [theButton setEnabled:YES];
-    //[oField becomeFirstResponder];
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == iField) {
         [textField resignFirstResponder];
@@ -424,6 +366,7 @@
     }
     return YES;
 }
+
 - (void)doneButtonDidPressed:(id)sender {
     NSLog(@"Sender: %@", sender);
     if (sender == dueField) {
@@ -590,8 +533,6 @@
 {
     if ([segue.identifier isEqualToString:@"pushToEdit"])
     {
-        
-        
         NSLog(@"Going back home");
     }else if ([segue.identifier isEqual:@"pushToDate"]){
         [self.view endEditing:YES];
